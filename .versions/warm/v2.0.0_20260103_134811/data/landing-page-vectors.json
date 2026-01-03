@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "page": "landing",
+    "vectorized_at": "2025-01-03T10:00:00.000Z",
+    "total_elements": 24
+  },
+  "navigation": [
+    {"id": "about-us", "text": "About us", "triggers": ["about us", "about", "who are you", "tell me about"]},
+    {"id": "how-it-works", "text": "How it works", "triggers": ["how it works", "how does it work", "explain"]},
+    {"id": "partners", "text": "Our Partners", "triggers": ["partners", "our partners"]},
+    {"id": "lend", "text": "Lend with us", "triggers": ["lend", "lending", "become a lender"]},
+    {"id": "sign-in", "text": "Sign in", "triggers": ["sign in", "login", "sign up", "register", "create account"]}
+  ],
+  "hero_buttons": [
+    {"id": "real-estate", "text": "Real Estate", "icon": "building", "triggers": ["real estate", "properties", "homes", "houses"]},
+    {"id": "catalog", "text": "Product Catalogue", "icon": "book", "triggers": ["product catalog", "catalogue", "products", "furniture"]},
+    {"id": "interior", "text": "Interior Design", "icon": "lamp", "triggers": ["interior design", "design", "decorate"]},
+    {"id": "services", "text": "Services", "icon": "hand", "triggers": ["services", "contractors", "help"]}
+  ],
+  "other_elements": [
+    {"id": "ask-anything", "text": "Ask Anything", "triggers": ["ask anything", "help", "question"]},
+    {"id": "ai-panel", "text": "AI Learning Panel", "triggers": ["ai learning", "ai stats", "what have you learned"]}
+  ],
+  "voice_commands": {
+    "pause": ["hey", "wait", "stop", "hold on", "pause"],
+    "resume": ["continue", "go on", "okay", "yes", "proceed"],
+    "close": ["close", "exit", "go back", "cancel", "nevermind"],
+    "home": ["home", "go home", "homepage", "main page"]
+  },
+  "mr_v_responses": {
+    "welcome": "Hey! Welcome to VistaView! I'm Mr. V, your intelligent AI assistant. I can help you with anything - just ask! You can say 'About us', 'How it works', or 'Sign me up'. What would you like to explore?",
+    "paused": "No problem, I'm here when you're ready. Just say 'continue' or ask me anything!",
+    "resume": "Alright, where were we? How can I help you?",
+    "close": "Sure thing! Going back. What else can I help with?",
+    "unknown": "I didn't quite catch that. Try saying 'About us', 'How it works', 'Sign me up', or ask about Real Estate, Catalog, Interior Design, or Services."
+  }
+}

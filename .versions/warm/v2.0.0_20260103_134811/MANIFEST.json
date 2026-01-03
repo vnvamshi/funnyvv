@@ -1,0 +1,11 @@
+{
+    "version": "v2.0.0",
+    "timestamp": "20260103_134811",
+    "created_at": "2026-01-03T13:48:11-06:00",
+    "stats": {
+        "total_interactions": 2654,
+        "learned_patterns": 511
+    },
+    "type": "warm_backup",
+    "auto_generated": true
+}
