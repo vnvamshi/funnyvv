@@ -4751,14 +4751,16 @@
     "started_at": "2026-01-03T05:41:04.433Z",
     "last_learning": "2026-01-03T21:30:55.013Z",
     "last_activity": "2026-01-03T19:16:33.078Z",
-    "version": "v2.0",
+    "version": "v4.0",
     "features": [
       "About Us Modal (6 sections)",
       "How It Works Modal (10 icons)",
       "Voice Navigation",
       "Walking Animation",
       "Teleprompter"
-    ]
+    ],
+    "last_updated": "2026-01-03T15:31:24.664149",
+    "vendor_chain_trained": true
   },
   "tables": [
     "accounts",
@@ -4820,7 +4822,7 @@
       },
       {
         "name": "Vikram Jangam",
-        "title": "Advisor · Investor · Strategist"
+        "title": "Advisor \u00b7 Investor \u00b7 Strategist"
       }
     ]
   },
@@ -4851,7 +4853,7 @@
       },
       {
         "name": "Vikram Jangam",
-        "title": "Advisor · Investor · Strategist",
+        "title": "Advisor \u00b7 Investor \u00b7 Strategist",
         "focus": "Strategy and growth"
       }
     ]
@@ -4875,6 +4877,128 @@
       "Self-learning AI that gets smarter every day",
       "Vendors go live in under 30 minutes",
       "Builders go live in under 60 minutes"
+    ]
+  },
+  "vendor_flow": {
+    "entry": "Sign In \u2192 Who Are You \u2192 Vendor",
+    "steps": [
+      {
+        "id": "phone",
+        "voice": [
+          "my number is",
+          "phone",
+          "call me at"
+        ],
+        "action": "capture phone, format as 703-338-4931"
+      },
+      {
+        "id": "otp",
+        "voice": [
+          "code is",
+          "otp",
+          "123456"
+        ],
+        "action": "verify with 123456 demo"
+      },
+      {
+        "id": "profile",
+        "voice": [
+          "i sell",
+          "my business",
+          "we ship"
+        ],
+        "action": "beautify LinkedIn-style"
+      },
+      {
+        "id": "dashboard",
+        "voice": [
+          "upload",
+          "products",
+          "catalog"
+        ],
+        "action": "show 4 icons"
+      },
+      {
+        "id": "upload",
+        "voice": [
+          "browse",
+          "file",
+          "pdf"
+        ],
+        "action": "accept PDF/Excel/CSV"
+      },
+      {
+        "id": "pipeline",
+        "voice": [],
+        "action": "5-step narrated processing"
+      },
+      {
+        "id": "complete",
+        "voice": [
+          "show products",
+          "view catalog"
+        ],
+        "action": "open Product Catalog"
+      }
+    ],
+    "navigation": {
+      "back": "pop navigation stack",
+      "close": "exit entire flow",
+      "stop": "stop speaking",
+      "hey": "pause and wait for command"
+    },
+    "beautification": {
+      "input": "casual speech",
+      "output": "LinkedIn-style professional profile",
+      "extract": [
+        "name",
+        "business type",
+        "shipping regions",
+        "products"
+      ]
+    },
+    "pipeline_steps": [
+      "1. Parse catalog - extract product names, sections",
+      "2. Extract images - organize cleanly",
+      "3. Enhance quality - crop, upscale",
+      "4. Create tables - SKU, price, materials, dimensions",
+      "5. Vectorize + Publish - to Product Catalog"
+    ]
+  },
+  "navigation_stack": {
+    "concept": "Every step pushes entry, back = pop",
+    "example": [
+      "signin:who-are-you",
+      "signin:vendor:phone",
+      "signin:vendor:otp",
+      "signin:vendor:profile",
+      "signin:vendor:dashboard",
+      "signin:vendor:upload",
+      "signin:vendor:pipeline"
+    ]
+  },
+  "agent_bar": {
+    "rule": "Must appear on EVERY modal/page/subpage",
+    "components": [
+      "Teleprompter",
+      "Stop/Pause/Resume",
+      "Mode selector",
+      "Voice hints"
+    ],
+    "modes": [
+      "Interactive",
+      "Talkative",
+      "Text"
+    ]
+  },
+  "live_learning": {
+    "recent_learnings": [
+      {
+        "time": "15:31:24",
+        "type": "system_training",
+        "content": "Complete vendor chain trained: Phone \u2192 OTP \u2192 Profile \u2192 Dashboard \u2192 Upload \u2192 Pipeline \u2192 Catalog",
+        "useful": true
+      }
     ]
   }
 }
