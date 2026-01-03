@@ -539,3 +539,5 @@
 {"timestamp":"2026-01-03T20:23:43.963Z","level":"LEARN","message":"Learned from homedepot: 36 prices, trend: decreasing, confidence: 77.7%"}
 {"timestamp":"2026-01-03T20:24:13.960Z","level":"INFO","message":"Learning cycle #127 started"}
 {"timestamp":"2026-01-03T20:24:13.963Z","level":"LEARN","message":"Learned from zillow: 39 prices, trend: decreasing, confidence: 85.8%"}
+{"timestamp":"2026-01-03T20:24:43.961Z","level":"INFO","message":"Learning cycle #128 started"}
+{"timestamp":"2026-01-03T20:24:43.964Z","level":"LEARN","message":"Learned from zillow: 32 prices, trend: increasing, confidence: 76.0%"}

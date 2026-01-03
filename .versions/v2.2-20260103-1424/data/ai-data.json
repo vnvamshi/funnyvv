@@ -3148,17 +3148,14 @@
     "started_at": "2026-01-03T05:41:04.433Z",
     "last_learning": "2026-01-03T20:24:43.963Z",
     "last_activity": "2026-01-03T19:16:33.078Z",
-    "version": "v2.2",
+    "version": "v2.0",
     "features": [
       "About Us Modal (6 sections)",
       "How It Works Modal (10 icons)",
       "Voice Navigation",
       "Walking Animation",
       "Teleprompter"
-    ],
-    "last_updated": "2026-01-03T14:24:50.294795",
-    "total_sources": 12,
-    "active_sources": 8
+    ]
   },
   "tables": [
     "accounts",
@@ -3220,7 +3217,7 @@
       },
       {
         "name": "Vikram Jangam",
-        "title": "Advisor \u00b7 Investor \u00b7 Strategist"
+        "title": "Advisor · Investor · Strategist"
       }
     ]
   },
@@ -3251,7 +3248,7 @@
       },
       {
         "name": "Vikram Jangam",
-        "title": "Advisor \u00b7 Investor \u00b7 Strategist",
+        "title": "Advisor · Investor · Strategist",
         "focus": "Strategy and growth"
       }
     ]
@@ -3276,191 +3273,5 @@
       "Vendors go live in under 30 minutes",
       "Builders go live in under 60 minutes"
     ]
-  },
-  "sources": {
-    "real_estate": [
-      {
-        "name": "MagicBricks",
-        "url": "magicbricks.com",
-        "status": "active",
-        "last_crawl": "2026-01-03T14:24:50.294777",
-        "records": 15420
-      },
-      {
-        "name": "99acres",
-        "url": "99acres.com",
-        "status": "active",
-        "last_crawl": "2026-01-03T14:24:50.294783",
-        "records": 12350
-      },
-      {
-        "name": "Housing.com",
-        "url": "housing.com",
-        "status": "active",
-        "last_crawl": "2026-01-03T14:24:50.294784",
-        "records": 8920
-      },
-      {
-        "name": "Zillow",
-        "url": "zillow.com",
-        "status": "pending",
-        "last_crawl": null,
-        "records": 0
-      },
-      {
-        "name": "Realtor.com",
-        "url": "realtor.com",
-        "status": "pending",
-        "last_crawl": null,
-        "records": 0
-      }
-    ],
-    "market_reports": [
-      {
-        "name": "MAT Report",
-        "url": "mat-report.com",
-        "status": "active",
-        "last_crawl": "2026-01-03T14:24:50.294785",
-        "records": 245
-      },
-      {
-        "name": "Knight Frank",
-        "url": "knightfrank.com",
-        "status": "active",
-        "last_crawl": "2026-01-03T14:24:50.294786",
-        "records": 180
-      },
-      {
-        "name": "JLL India",
-        "url": "jll.co.in",
-        "status": "active",
-        "last_crawl": "2026-01-03T14:24:50.294786",
-        "records": 156
-      },
-      {
-        "name": "CBRE Reports",
-        "url": "cbre.com",
-        "status": "pending",
-        "last_crawl": null,
-        "records": 0
-      }
-    ],
-    "products": [
-      {
-        "name": "Amazon Home",
-        "url": "amazon.com/home",
-        "status": "active",
-        "last_crawl": "2026-01-03T14:24:50.294787",
-        "records": 52340
-      },
-      {
-        "name": "Wayfair",
-        "url": "wayfair.com",
-        "status": "pending",
-        "last_crawl": null,
-        "records": 0
-      },
-      {
-        "name": "IKEA",
-        "url": "ikea.com",
-        "status": "pending",
-        "last_crawl": null,
-        "records": 0
-      }
-    ]
-  },
-  "database_stats": {
-    "tables": [
-      {
-        "name": "properties",
-        "rows": 36690,
-        "size_mb": 125.4,
-        "last_updated": "2026-01-03T14:24:50.294788",
-        "update_frequency": "hourly"
-      },
-      {
-        "name": "products",
-        "rows": 52340,
-        "size_mb": 89.2,
-        "last_updated": "2026-01-03T14:24:50.294789",
-        "update_frequency": "daily"
-      },
-      {
-        "name": "vendors",
-        "rows": 1245,
-        "size_mb": 12.1,
-        "last_updated": "2026-01-03T14:24:50.294790",
-        "update_frequency": "daily"
-      },
-      {
-        "name": "users",
-        "rows": 8920,
-        "size_mb": 45.6,
-        "last_updated": "2026-01-03T14:24:50.294791",
-        "update_frequency": "realtime"
-      },
-      {
-        "name": "interactions",
-        "rows": 125680,
-        "size_mb": 234.5,
-        "last_updated": "2026-01-03T14:24:50.294791",
-        "update_frequency": "realtime"
-      },
-      {
-        "name": "market_reports",
-        "rows": 581,
-        "size_mb": 8.3,
-        "last_updated": "2026-01-03T14:24:50.294792",
-        "update_frequency": "weekly"
-      },
-      {
-        "name": "embeddings",
-        "rows": 89450,
-        "size_mb": 512.8,
-        "last_updated": "2026-01-03T14:24:50.294793",
-        "update_frequency": "daily"
-      }
-    ],
-    "total_tables": 7,
-    "total_rows": 315906,
-    "total_size_mb": 1027.9,
-    "most_active_table": "interactions"
-  },
-  "vector_stats": {
-    "total_vectors": 89450,
-    "vector_dimensions": 1536,
-    "index_type": "HNSW",
-    "similarity_metric": "cosine",
-    "collections": [
-      {
-        "name": "property_embeddings",
-        "count": 36690,
-        "status": "indexed"
-      },
-      {
-        "name": "product_embeddings",
-        "count": 42340,
-        "status": "indexed"
-      },
-      {
-        "name": "document_embeddings",
-        "count": 8420,
-        "status": "indexed"
-      },
-      {
-        "name": "query_embeddings",
-        "count": 2000,
-        "status": "cached"
-      }
-    ]
-  },
-  "embedding_stats": {
-    "model": "text-embedding-ada-002",
-    "total_embedded": 89450,
-    "pending_embedding": 1250,
-    "failed_embedding": 23,
-    "daily_quota": 100000,
-    "daily_used": 45230,
-    "avg_embedding_time_ms": 125
   }
 }
