@@ -1,0 +1,329 @@
+{"timestamp":"2026-01-03T17:44:33.474Z","level":"INFO","message":"Learning cycle #1 started"}
+{"timestamp":"2026-01-03T17:44:33.475Z","level":"LEARN","message":"Learned from wayfair: 51 prices, trend: stable, confidence: 91.0%"}
+{"timestamp":"2026-01-03T17:44:33.476Z","level":"INFO","message":"Daily report generated: reports/2026-01-03.md"}
+{"timestamp":"2026-01-03T17:44:33.476Z","level":"INFO","message":"Learning engine started - running every 30 seconds"}
+{"timestamp":"2026-01-03T17:45:03.528Z","level":"INFO","message":"Learning cycle #2 started"}
+{"timestamp":"2026-01-03T17:45:03.533Z","level":"LEARN","message":"Learned from realtor: 53 prices, trend: decreasing, confidence: 78.6%"}
+{"timestamp":"2026-01-03T17:45:33.529Z","level":"INFO","message":"Learning cycle #3 started"}
+{"timestamp":"2026-01-03T17:45:33.531Z","level":"LEARN","message":"Learned from lowes: 47 prices, trend: stable, confidence: 83.7%"}
+{"timestamp":"2026-01-03T17:46:03.529Z","level":"INFO","message":"Learning cycle #4 started"}
+{"timestamp":"2026-01-03T17:46:03.533Z","level":"LEARN","message":"Learned from lowes: 69 prices, trend: increasing, confidence: 92.1%"}
+{"timestamp":"2026-01-03T17:46:33.530Z","level":"INFO","message":"Learning cycle #5 started"}
+{"timestamp":"2026-01-03T17:46:33.533Z","level":"LEARN","message":"Learned from homedepot: 42 prices, trend: stable, confidence: 79.0%"}
+{"timestamp":"2026-01-03T17:46:33.536Z","level":"PATTERN","message":"Learned pattern: inventory_correlation (71% confidence)"}
+{"timestamp":"2026-01-03T17:47:03.532Z","level":"INFO","message":"Learning cycle #6 started"}
+{"timestamp":"2026-01-03T17:47:03.535Z","level":"LEARN","message":"Learned from amazon: 36 prices, trend: increasing, confidence: 93.7%"}
+{"timestamp":"2026-01-03T17:47:33.534Z","level":"INFO","message":"Learning cycle #7 started"}
+{"timestamp":"2026-01-03T17:47:33.537Z","level":"LEARN","message":"Learned from lowes: 40 prices, trend: increasing, confidence: 91.1%"}
+{"timestamp":"2026-01-03T17:48:03.534Z","level":"INFO","message":"Learning cycle #8 started"}
+{"timestamp":"2026-01-03T17:48:03.538Z","level":"LEARN","message":"Learned from realtor: 48 prices, trend: increasing, confidence: 77.4%"}
+{"timestamp":"2026-01-03T17:48:33.535Z","level":"INFO","message":"Learning cycle #9 started"}
+{"timestamp":"2026-01-03T17:48:33.539Z","level":"LEARN","message":"Learned from redfin: 34 prices, trend: decreasing, confidence: 90.9%"}
+{"timestamp":"2026-01-03T17:49:03.537Z","level":"INFO","message":"Learning cycle #10 started"}
+{"timestamp":"2026-01-03T17:49:03.540Z","level":"LEARN","message":"Learned from zillow: 74 prices, trend: increasing, confidence: 82.5%"}
+{"timestamp":"2026-01-03T17:49:03.543Z","level":"PATTERN","message":"Learned pattern: user_preference (76% confidence)"}
+{"timestamp":"2026-01-03T17:49:03.544Z","level":"INFO","message":"Training progress: 0/80 golden conversations (0% success)"}
+{"timestamp":"2026-01-03T17:49:33.538Z","level":"INFO","message":"Learning cycle #11 started"}
+{"timestamp":"2026-01-03T17:49:33.542Z","level":"LEARN","message":"Learned from lowes: 52 prices, trend: stable, confidence: 76.7%"}
+{"timestamp":"2026-01-03T17:50:03.539Z","level":"INFO","message":"Learning cycle #12 started"}
+{"timestamp":"2026-01-03T17:50:03.543Z","level":"LEARN","message":"Learned from realtor: 40 prices, trend: decreasing, confidence: 75.4%"}
+{"timestamp":"2026-01-03T17:50:33.540Z","level":"INFO","message":"Learning cycle #13 started"}
+{"timestamp":"2026-01-03T17:50:33.543Z","level":"LEARN","message":"Learned from homedepot: 45 prices, trend: stable, confidence: 81.1%"}
+{"timestamp":"2026-01-03T17:51:03.541Z","level":"INFO","message":"Learning cycle #14 started"}
+{"timestamp":"2026-01-03T17:51:03.544Z","level":"LEARN","message":"Learned from realtor: 49 prices, trend: stable, confidence: 76.2%"}
+{"timestamp":"2026-01-03T17:51:33.542Z","level":"INFO","message":"Learning cycle #15 started"}
+{"timestamp":"2026-01-03T17:51:33.545Z","level":"LEARN","message":"Learned from realtor: 52 prices, trend: increasing, confidence: 79.1%"}
+{"timestamp":"2026-01-03T17:51:33.547Z","level":"PATTERN","message":"Learned pattern: competitor_pricing (85% confidence)"}
+{"timestamp":"2026-01-03T17:52:03.543Z","level":"INFO","message":"Learning cycle #16 started"}
+{"timestamp":"2026-01-03T17:52:03.548Z","level":"LEARN","message":"Learned from ikea: 68 prices, trend: decreasing, confidence: 93.9%"}
+{"timestamp":"2026-01-03T17:52:33.544Z","level":"INFO","message":"Learning cycle #17 started"}
+{"timestamp":"2026-01-03T17:52:33.546Z","level":"LEARN","message":"Learned from realtor: 79 prices, trend: increasing, confidence: 86.5%"}
+{"timestamp":"2026-01-03T17:53:03.546Z","level":"INFO","message":"Learning cycle #18 started"}
+{"timestamp":"2026-01-03T17:53:03.549Z","level":"LEARN","message":"Learned from wayfair: 64 prices, trend: increasing, confidence: 90.0%"}
+{"timestamp":"2026-01-03T17:53:33.547Z","level":"INFO","message":"Learning cycle #19 started"}
+{"timestamp":"2026-01-03T17:53:33.549Z","level":"LEARN","message":"Learned from wayfair: 58 prices, trend: increasing, confidence: 84.3%"}
+{"timestamp":"2026-01-03T17:54:21.163Z","level":"INFO","message":"Learning cycle #1 started"}
+{"timestamp":"2026-01-03T17:54:21.164Z","level":"LEARN","message":"Learned from wayfair: 78 prices, trend: stable, confidence: 86.9%"}
+{"timestamp":"2026-01-03T17:54:21.166Z","level":"INFO","message":"Daily report generated: reports/2026-01-03.md"}
+{"timestamp":"2026-01-03T17:54:21.166Z","level":"INFO","message":"Learning engine started - running every 30 seconds"}
+{"timestamp":"2026-01-03T17:54:51.167Z","level":"INFO","message":"Learning cycle #2 started"}
+{"timestamp":"2026-01-03T17:54:51.171Z","level":"LEARN","message":"Learned from ikea: 45 prices, trend: decreasing, confidence: 81.8%"}
+{"timestamp":"2026-01-03T17:55:21.169Z","level":"INFO","message":"Learning cycle #3 started"}
+{"timestamp":"2026-01-03T17:55:21.172Z","level":"LEARN","message":"Learned from realtor: 41 prices, trend: decreasing, confidence: 92.6%"}
+{"timestamp":"2026-01-03T17:55:51.171Z","level":"INFO","message":"Learning cycle #4 started"}
+{"timestamp":"2026-01-03T17:55:51.173Z","level":"LEARN","message":"Learned from redfin: 37 prices, trend: increasing, confidence: 89.0%"}
+{"timestamp":"2026-01-03T17:56:21.171Z","level":"INFO","message":"Learning cycle #5 started"}
+{"timestamp":"2026-01-03T17:56:21.173Z","level":"LEARN","message":"Learned from redfin: 74 prices, trend: stable, confidence: 77.8%"}
+{"timestamp":"2026-01-03T17:56:21.174Z","level":"PATTERN","message":"Learned pattern: regional_variance (88% confidence)"}
+{"timestamp":"2026-01-03T17:56:51.172Z","level":"INFO","message":"Learning cycle #6 started"}
+{"timestamp":"2026-01-03T17:56:51.176Z","level":"LEARN","message":"Learned from realtor: 39 prices, trend: decreasing, confidence: 90.4%"}
+{"timestamp":"2026-01-03T17:57:15.824Z","level":"INFO","message":"Learning cycle #1 started"}
+{"timestamp":"2026-01-03T17:57:15.825Z","level":"LEARN","message":"Learned from amazon: 33 prices, trend: stable, confidence: 90.6%"}
+{"timestamp":"2026-01-03T17:57:15.827Z","level":"INFO","message":"Daily report generated: reports/2026-01-03.md"}
+{"timestamp":"2026-01-03T17:57:15.827Z","level":"INFO","message":"Learning engine started - running every 30 seconds"}
+{"timestamp":"2026-01-03T17:57:45.829Z","level":"INFO","message":"Learning cycle #2 started"}
+{"timestamp":"2026-01-03T17:57:45.833Z","level":"LEARN","message":"Learned from amazon: 74 prices, trend: stable, confidence: 80.1%"}
+{"timestamp":"2026-01-03T17:58:15.830Z","level":"INFO","message":"Learning cycle #3 started"}
+{"timestamp":"2026-01-03T17:58:15.832Z","level":"LEARN","message":"Learned from amazon: 63 prices, trend: decreasing, confidence: 80.0%"}
+{"timestamp":"2026-01-03T17:58:45.831Z","level":"INFO","message":"Learning cycle #4 started"}
+{"timestamp":"2026-01-03T17:58:45.834Z","level":"LEARN","message":"Learned from realtor: 31 prices, trend: decreasing, confidence: 91.3%"}
+{"timestamp":"2026-01-03T17:58:53.139Z","level":"INFO","message":"Learning cycle #1 started"}
+{"timestamp":"2026-01-03T17:58:53.141Z","level":"LEARN","message":"Learned from ikea: 74 prices, trend: increasing, confidence: 88.9%"}
+{"timestamp":"2026-01-03T17:58:53.142Z","level":"INFO","message":"Daily report generated: reports/2026-01-03.md"}
+{"timestamp":"2026-01-03T17:58:53.142Z","level":"INFO","message":"Learning engine started - running every 30 seconds"}
+{"timestamp":"2026-01-03T17:59:23.144Z","level":"INFO","message":"Learning cycle #2 started"}
+{"timestamp":"2026-01-03T17:59:23.145Z","level":"LEARN","message":"Learned from lowes: 49 prices, trend: stable, confidence: 81.4%"}
+{"timestamp":"2026-01-03T17:59:53.144Z","level":"INFO","message":"Learning cycle #3 started"}
+{"timestamp":"2026-01-03T17:59:53.146Z","level":"LEARN","message":"Learned from amazon: 36 prices, trend: decreasing, confidence: 93.9%"}
+{"timestamp":"2026-01-03T18:00:23.146Z","level":"INFO","message":"Learning cycle #4 started"}
+{"timestamp":"2026-01-03T18:00:23.150Z","level":"LEARN","message":"Learned from zillow: 58 prices, trend: increasing, confidence: 78.9%"}
+{"timestamp":"2026-01-03T18:00:53.147Z","level":"INFO","message":"Learning cycle #5 started"}
+{"timestamp":"2026-01-03T18:00:53.150Z","level":"LEARN","message":"Learned from realtor: 74 prices, trend: decreasing, confidence: 84.4%"}
+{"timestamp":"2026-01-03T18:00:53.151Z","level":"PATTERN","message":"Learned pattern: inventory_correlation (71% confidence)"}
+{"timestamp":"2026-01-03T18:01:23.148Z","level":"INFO","message":"Learning cycle #6 started"}
+{"timestamp":"2026-01-03T18:01:23.153Z","level":"LEARN","message":"Learned from wayfair: 66 prices, trend: stable, confidence: 76.6%"}
+{"timestamp":"2026-01-03T18:01:53.150Z","level":"INFO","message":"Learning cycle #7 started"}
+{"timestamp":"2026-01-03T18:01:53.152Z","level":"LEARN","message":"Learned from amazon: 78 prices, trend: decreasing, confidence: 84.1%"}
+{"timestamp":"2026-01-03T18:02:23.151Z","level":"INFO","message":"Learning cycle #8 started"}
+{"timestamp":"2026-01-03T18:02:23.156Z","level":"LEARN","message":"Learned from homedepot: 50 prices, trend: stable, confidence: 85.6%"}
+{"timestamp":"2026-01-03T18:02:53.152Z","level":"INFO","message":"Learning cycle #9 started"}
+{"timestamp":"2026-01-03T18:02:53.156Z","level":"LEARN","message":"Learned from wayfair: 32 prices, trend: decreasing, confidence: 92.6%"}
+{"timestamp":"2026-01-03T18:03:23.154Z","level":"INFO","message":"Learning cycle #10 started"}
+{"timestamp":"2026-01-03T18:03:23.157Z","level":"LEARN","message":"Learned from lowes: 46 prices, trend: stable, confidence: 77.8%"}
+{"timestamp":"2026-01-03T18:03:23.161Z","level":"PATTERN","message":"Learned pattern: competitor_pricing (85% confidence)"}
+{"timestamp":"2026-01-03T18:03:23.162Z","level":"INFO","message":"Training progress: 0/80 golden conversations (0% success)"}
+{"timestamp":"2026-01-03T18:03:53.155Z","level":"INFO","message":"Learning cycle #11 started"}
+{"timestamp":"2026-01-03T18:03:53.159Z","level":"LEARN","message":"Learned from lowes: 32 prices, trend: stable, confidence: 82.3%"}
+{"timestamp":"2026-01-03T18:04:23.156Z","level":"INFO","message":"Learning cycle #12 started"}
+{"timestamp":"2026-01-03T18:04:23.160Z","level":"LEARN","message":"Learned from ikea: 71 prices, trend: decreasing, confidence: 85.3%"}
+{"timestamp":"2026-01-03T18:04:53.157Z","level":"INFO","message":"Learning cycle #13 started"}
+{"timestamp":"2026-01-03T18:04:53.161Z","level":"LEARN","message":"Learned from lowes: 46 prices, trend: decreasing, confidence: 90.2%"}
+{"timestamp":"2026-01-03T18:05:23.158Z","level":"INFO","message":"Learning cycle #14 started"}
+{"timestamp":"2026-01-03T18:05:23.163Z","level":"LEARN","message":"Learned from amazon: 63 prices, trend: stable, confidence: 94.2%"}
+{"timestamp":"2026-01-03T18:05:53.160Z","level":"INFO","message":"Learning cycle #15 started"}
+{"timestamp":"2026-01-03T18:05:53.165Z","level":"LEARN","message":"Learned from lowes: 57 prices, trend: stable, confidence: 75.1%"}
+{"timestamp":"2026-01-03T18:05:53.167Z","level":"PATTERN","message":"Learned pattern: search_intent (83% confidence)"}
+{"timestamp":"2026-01-03T18:06:23.160Z","level":"INFO","message":"Learning cycle #16 started"}
+{"timestamp":"2026-01-03T18:06:23.165Z","level":"LEARN","message":"Learned from zillow: 63 prices, trend: stable, confidence: 87.7%"}
+{"timestamp":"2026-01-03T18:06:35.844Z","level":"INFO","message":"Learning cycle #1 started"}
+{"timestamp":"2026-01-03T18:06:35.845Z","level":"LEARN","message":"Learned from realtor: 44 prices, trend: decreasing, confidence: 85.7%"}
+{"timestamp":"2026-01-03T18:06:35.846Z","level":"INFO","message":"Daily report generated: reports/2026-01-03.md"}
+{"timestamp":"2026-01-03T18:06:35.846Z","level":"INFO","message":"Learning engine started - running every 30 seconds"}
+{"timestamp":"2026-01-03T18:07:05.848Z","level":"INFO","message":"Learning cycle #2 started"}
+{"timestamp":"2026-01-03T18:07:05.852Z","level":"LEARN","message":"Learned from ikea: 73 prices, trend: decreasing, confidence: 79.6%"}
+{"timestamp":"2026-01-03T18:07:35.849Z","level":"INFO","message":"Learning cycle #3 started"}
+{"timestamp":"2026-01-03T18:07:35.851Z","level":"LEARN","message":"Learned from homedepot: 60 prices, trend: stable, confidence: 78.3%"}
+{"timestamp":"2026-01-03T18:08:05.848Z","level":"INFO","message":"Learning cycle #4 started"}
+{"timestamp":"2026-01-03T18:08:05.853Z","level":"LEARN","message":"Learned from realtor: 66 prices, trend: decreasing, confidence: 94.8%"}
+{"timestamp":"2026-01-03T18:08:35.850Z","level":"INFO","message":"Learning cycle #5 started"}
+{"timestamp":"2026-01-03T18:08:35.855Z","level":"LEARN","message":"Learned from homedepot: 40 prices, trend: increasing, confidence: 88.4%"}
+{"timestamp":"2026-01-03T18:08:35.859Z","level":"PATTERN","message":"Learned pattern: conversion_trigger (79% confidence)"}
+{"timestamp":"2026-01-03T18:09:05.851Z","level":"INFO","message":"Learning cycle #6 started"}
+{"timestamp":"2026-01-03T18:09:05.856Z","level":"LEARN","message":"Learned from wayfair: 52 prices, trend: stable, confidence: 84.5%"}
+{"timestamp":"2026-01-03T18:09:35.851Z","level":"INFO","message":"Learning cycle #7 started"}
+{"timestamp":"2026-01-03T18:09:35.854Z","level":"LEARN","message":"Learned from redfin: 77 prices, trend: increasing, confidence: 92.2%"}
+{"timestamp":"2026-01-03T18:10:05.853Z","level":"INFO","message":"Learning cycle #8 started"}
+{"timestamp":"2026-01-03T18:10:05.856Z","level":"LEARN","message":"Learned from realtor: 71 prices, trend: decreasing, confidence: 88.4%"}
+{"timestamp":"2026-01-03T18:10:35.854Z","level":"INFO","message":"Learning cycle #9 started"}
+{"timestamp":"2026-01-03T18:10:35.859Z","level":"LEARN","message":"Learned from wayfair: 42 prices, trend: decreasing, confidence: 79.2%"}
+{"timestamp":"2026-01-03T18:11:05.854Z","level":"INFO","message":"Learning cycle #10 started"}
+{"timestamp":"2026-01-03T18:11:05.858Z","level":"LEARN","message":"Learned from zillow: 58 prices, trend: increasing, confidence: 86.1%"}
+{"timestamp":"2026-01-03T18:11:05.861Z","level":"PATTERN","message":"Learned pattern: regional_variance (88% confidence)"}
+{"timestamp":"2026-01-03T18:11:05.862Z","level":"INFO","message":"Training progress: 0/80 golden conversations (0% success)"}
+{"timestamp":"2026-01-03T18:11:35.855Z","level":"INFO","message":"Learning cycle #11 started"}
+{"timestamp":"2026-01-03T18:11:35.858Z","level":"LEARN","message":"Learned from redfin: 77 prices, trend: increasing, confidence: 93.2%"}
+{"timestamp":"2026-01-03T18:12:05.856Z","level":"INFO","message":"Learning cycle #12 started"}
+{"timestamp":"2026-01-03T18:12:05.861Z","level":"LEARN","message":"Learned from wayfair: 79 prices, trend: decreasing, confidence: 75.4%"}
+{"timestamp":"2026-01-03T18:12:35.857Z","level":"INFO","message":"Learning cycle #13 started"}
+{"timestamp":"2026-01-03T18:12:35.861Z","level":"LEARN","message":"Learned from zillow: 77 prices, trend: stable, confidence: 86.1%"}
+{"timestamp":"2026-01-03T18:13:05.858Z","level":"INFO","message":"Learning cycle #14 started"}
+{"timestamp":"2026-01-03T18:13:05.861Z","level":"LEARN","message":"Learned from redfin: 79 prices, trend: stable, confidence: 93.2%"}
+{"timestamp":"2026-01-03T18:13:35.860Z","level":"INFO","message":"Learning cycle #15 started"}
+{"timestamp":"2026-01-03T18:13:35.865Z","level":"LEARN","message":"Learned from ikea: 67 prices, trend: decreasing, confidence: 92.2%"}
+{"timestamp":"2026-01-03T18:13:35.868Z","level":"PATTERN","message":"Learned pattern: price_elasticity (82% confidence)"}
+{"timestamp":"2026-01-03T18:14:05.861Z","level":"INFO","message":"Learning cycle #16 started"}
+{"timestamp":"2026-01-03T18:14:05.863Z","level":"LEARN","message":"Learned from ikea: 58 prices, trend: decreasing, confidence: 94.0%"}
+{"timestamp":"2026-01-03T18:14:36.556Z","level":"INFO","message":"Learning cycle #1 started"}
+{"timestamp":"2026-01-03T18:14:36.557Z","level":"LEARN","message":"Learned from ikea: 72 prices, trend: stable, confidence: 87.9%"}
+{"timestamp":"2026-01-03T18:14:36.559Z","level":"INFO","message":"Daily report generated: reports/2026-01-03.md"}
+{"timestamp":"2026-01-03T18:14:36.559Z","level":"INFO","message":"Learning engine started - running every 30 seconds"}
+{"timestamp":"2026-01-03T18:15:06.559Z","level":"INFO","message":"Learning cycle #2 started"}
+{"timestamp":"2026-01-03T18:15:06.562Z","level":"LEARN","message":"Learned from homedepot: 79 prices, trend: decreasing, confidence: 83.7%"}
+{"timestamp":"2026-01-03T18:15:36.561Z","level":"INFO","message":"Learning cycle #3 started"}
+{"timestamp":"2026-01-03T18:15:36.563Z","level":"LEARN","message":"Learned from zillow: 30 prices, trend: stable, confidence: 88.6%"}
+{"timestamp":"2026-01-03T18:16:06.562Z","level":"INFO","message":"Learning cycle #4 started"}
+{"timestamp":"2026-01-03T18:16:06.564Z","level":"LEARN","message":"Learned from lowes: 61 prices, trend: increasing, confidence: 89.7%"}
+{"timestamp":"2026-01-03T18:16:36.563Z","level":"INFO","message":"Learning cycle #5 started"}
+{"timestamp":"2026-01-03T18:16:36.565Z","level":"LEARN","message":"Learned from ikea: 46 prices, trend: decreasing, confidence: 89.7%"}
+{"timestamp":"2026-01-03T18:16:36.567Z","level":"PATTERN","message":"Learned pattern: conversion_trigger (79% confidence)"}
+{"timestamp":"2026-01-03T18:17:06.564Z","level":"INFO","message":"Learning cycle #6 started"}
+{"timestamp":"2026-01-03T18:17:06.568Z","level":"LEARN","message":"Learned from zillow: 73 prices, trend: increasing, confidence: 85.6%"}
+{"timestamp":"2026-01-03T18:17:36.566Z","level":"INFO","message":"Learning cycle #7 started"}
+{"timestamp":"2026-01-03T18:17:36.570Z","level":"LEARN","message":"Learned from redfin: 78 prices, trend: decreasing, confidence: 93.4%"}
+{"timestamp":"2026-01-03T18:18:06.567Z","level":"INFO","message":"Learning cycle #8 started"}
+{"timestamp":"2026-01-03T18:18:06.570Z","level":"LEARN","message":"Learned from zillow: 77 prices, trend: decreasing, confidence: 86.5%"}
+{"timestamp":"2026-01-03T18:18:36.568Z","level":"INFO","message":"Learning cycle #9 started"}
+{"timestamp":"2026-01-03T18:18:36.573Z","level":"LEARN","message":"Learned from lowes: 56 prices, trend: decreasing, confidence: 80.0%"}
+{"timestamp":"2026-01-03T18:19:06.568Z","level":"INFO","message":"Learning cycle #10 started"}
+{"timestamp":"2026-01-03T18:19:06.574Z","level":"LEARN","message":"Learned from zillow: 40 prices, trend: decreasing, confidence: 87.3%"}
+{"timestamp":"2026-01-03T18:19:06.577Z","level":"PATTERN","message":"Learned pattern: conversion_trigger (79% confidence)"}
+{"timestamp":"2026-01-03T18:19:06.578Z","level":"INFO","message":"Training progress: 0/80 golden conversations (0% success)"}
+{"timestamp":"2026-01-03T18:19:36.569Z","level":"INFO","message":"Learning cycle #11 started"}
+{"timestamp":"2026-01-03T18:19:36.573Z","level":"LEARN","message":"Learned from lowes: 45 prices, trend: increasing, confidence: 89.3%"}
+{"timestamp":"2026-01-03T18:20:06.571Z","level":"INFO","message":"Learning cycle #12 started"}
+{"timestamp":"2026-01-03T18:20:06.575Z","level":"LEARN","message":"Learned from realtor: 68 prices, trend: stable, confidence: 76.7%"}
+{"timestamp":"2026-01-03T18:20:36.571Z","level":"INFO","message":"Learning cycle #13 started"}
+{"timestamp":"2026-01-03T18:20:36.574Z","level":"LEARN","message":"Learned from lowes: 65 prices, trend: increasing, confidence: 89.4%"}
+{"timestamp":"2026-01-03T18:20:45.906Z","level":"INFO","message":"Learning cycle #1 started"}
+{"timestamp":"2026-01-03T18:20:45.907Z","level":"LEARN","message":"Learned from realtor: 36 prices, trend: stable, confidence: 88.4%"}
+{"timestamp":"2026-01-03T18:20:45.908Z","level":"INFO","message":"Daily report generated: reports/2026-01-03.md"}
+{"timestamp":"2026-01-03T18:20:45.908Z","level":"INFO","message":"Learning engine started - running every 30 seconds"}
+{"timestamp":"2026-01-03T18:21:15.910Z","level":"INFO","message":"Learning cycle #2 started"}
+{"timestamp":"2026-01-03T18:21:15.916Z","level":"LEARN","message":"Learned from zillow: 69 prices, trend: decreasing, confidence: 82.7%"}
+{"timestamp":"2026-01-03T18:21:48.092Z","level":"INFO","message":"Learning cycle #1 started"}
+{"timestamp":"2026-01-03T18:21:48.093Z","level":"LEARN","message":"Learned from ikea: 32 prices, trend: increasing, confidence: 85.7%"}
+{"timestamp":"2026-01-03T18:21:48.094Z","level":"INFO","message":"Daily report generated: reports/2026-01-03.md"}
+{"timestamp":"2026-01-03T18:21:48.094Z","level":"INFO","message":"Learning engine started - running every 30 seconds"}
+{"timestamp":"2026-01-03T18:22:18.094Z","level":"INFO","message":"Learning cycle #2 started"}
+{"timestamp":"2026-01-03T18:22:18.099Z","level":"LEARN","message":"Learned from redfin: 68 prices, trend: increasing, confidence: 81.8%"}
+{"timestamp":"2026-01-03T18:22:48.096Z","level":"INFO","message":"Learning cycle #3 started"}
+{"timestamp":"2026-01-03T18:22:48.101Z","level":"LEARN","message":"Learned from redfin: 35 prices, trend: increasing, confidence: 91.8%"}
+{"timestamp":"2026-01-03T18:23:18.097Z","level":"INFO","message":"Learning cycle #4 started"}
+{"timestamp":"2026-01-03T18:23:18.102Z","level":"LEARN","message":"Learned from lowes: 40 prices, trend: increasing, confidence: 79.0%"}
+{"timestamp":"2026-01-03T18:23:48.098Z","level":"INFO","message":"Learning cycle #5 started"}
+{"timestamp":"2026-01-03T18:23:48.103Z","level":"LEARN","message":"Learned from realtor: 32 prices, trend: stable, confidence: 91.5%"}
+{"timestamp":"2026-01-03T18:23:48.106Z","level":"PATTERN","message":"Learned pattern: inventory_correlation (71% confidence)"}
+{"timestamp":"2026-01-03T18:24:18.099Z","level":"INFO","message":"Learning cycle #6 started"}
+{"timestamp":"2026-01-03T18:24:18.101Z","level":"LEARN","message":"Learned from lowes: 37 prices, trend: stable, confidence: 84.9%"}
+{"timestamp":"2026-01-03T18:24:48.101Z","level":"INFO","message":"Learning cycle #7 started"}
+{"timestamp":"2026-01-03T18:24:48.103Z","level":"LEARN","message":"Learned from homedepot: 35 prices, trend: increasing, confidence: 84.1%"}
+{"timestamp":"2026-01-03T18:25:18.101Z","level":"INFO","message":"Learning cycle #8 started"}
+{"timestamp":"2026-01-03T18:25:18.104Z","level":"LEARN","message":"Learned from homedepot: 58 prices, trend: decreasing, confidence: 75.9%"}
+{"timestamp":"2026-01-03T18:25:48.103Z","level":"INFO","message":"Learning cycle #9 started"}
+{"timestamp":"2026-01-03T18:25:48.106Z","level":"LEARN","message":"Learned from homedepot: 66 prices, trend: stable, confidence: 79.3%"}
+{"timestamp":"2026-01-03T18:26:03.836Z","level":"INFO","message":"Learning cycle #1 started"}
+{"timestamp":"2026-01-03T18:26:03.838Z","level":"LEARN","message":"Learned from ikea: 38 prices, trend: increasing, confidence: 90.3%"}
+{"timestamp":"2026-01-03T18:26:03.839Z","level":"INFO","message":"Daily report generated: reports/2026-01-03.md"}
+{"timestamp":"2026-01-03T18:26:03.839Z","level":"INFO","message":"Learning engine started - running every 30 seconds"}
+{"timestamp":"2026-01-03T18:26:33.840Z","level":"INFO","message":"Learning cycle #2 started"}
+{"timestamp":"2026-01-03T18:26:33.844Z","level":"LEARN","message":"Learned from redfin: 45 prices, trend: stable, confidence: 92.5%"}
+{"timestamp":"2026-01-03T18:27:03.840Z","level":"INFO","message":"Learning cycle #3 started"}
+{"timestamp":"2026-01-03T18:27:03.843Z","level":"LEARN","message":"Learned from homedepot: 62 prices, trend: increasing, confidence: 82.3%"}
+{"timestamp":"2026-01-03T18:27:33.840Z","level":"INFO","message":"Learning cycle #4 started"}
+{"timestamp":"2026-01-03T18:27:33.846Z","level":"LEARN","message":"Learned from amazon: 35 prices, trend: increasing, confidence: 81.6%"}
+{"timestamp":"2026-01-03T18:28:03.842Z","level":"INFO","message":"Learning cycle #5 started"}
+{"timestamp":"2026-01-03T18:28:03.847Z","level":"LEARN","message":"Learned from homedepot: 76 prices, trend: decreasing, confidence: 84.7%"}
+{"timestamp":"2026-01-03T18:28:03.850Z","level":"PATTERN","message":"Learned pattern: user_preference (76% confidence)"}
+{"timestamp":"2026-01-03T18:28:33.843Z","level":"INFO","message":"Learning cycle #6 started"}
+{"timestamp":"2026-01-03T18:28:33.848Z","level":"LEARN","message":"Learned from realtor: 54 prices, trend: increasing, confidence: 79.8%"}
+{"timestamp":"2026-01-03T18:29:03.844Z","level":"INFO","message":"Learning cycle #7 started"}
+{"timestamp":"2026-01-03T18:29:03.846Z","level":"LEARN","message":"Learned from wayfair: 68 prices, trend: decreasing, confidence: 94.1%"}
+{"timestamp":"2026-01-03T18:29:33.845Z","level":"INFO","message":"Learning cycle #8 started"}
+{"timestamp":"2026-01-03T18:29:33.850Z","level":"LEARN","message":"Learned from homedepot: 49 prices, trend: decreasing, confidence: 90.2%"}
+{"timestamp":"2026-01-03T18:30:03.846Z","level":"INFO","message":"Learning cycle #9 started"}
+{"timestamp":"2026-01-03T18:30:03.850Z","level":"LEARN","message":"Learned from homedepot: 62 prices, trend: decreasing, confidence: 78.4%"}
+{"timestamp":"2026-01-03T18:30:33.848Z","level":"INFO","message":"Learning cycle #10 started"}
+{"timestamp":"2026-01-03T18:30:33.852Z","level":"LEARN","message":"Learned from lowes: 39 prices, trend: stable, confidence: 75.1%"}
+{"timestamp":"2026-01-03T18:30:33.856Z","level":"PATTERN","message":"Learned pattern: competitor_pricing (85% confidence)"}
+{"timestamp":"2026-01-03T18:30:33.857Z","level":"INFO","message":"Training progress: 0/80 golden conversations (0% success)"}
+{"timestamp":"2026-01-03T18:31:03.849Z","level":"INFO","message":"Learning cycle #11 started"}
+{"timestamp":"2026-01-03T18:31:03.853Z","level":"LEARN","message":"Learned from zillow: 78 prices, trend: increasing, confidence: 87.9%"}
+{"timestamp":"2026-01-03T18:31:33.851Z","level":"INFO","message":"Learning cycle #12 started"}
+{"timestamp":"2026-01-03T18:31:33.855Z","level":"LEARN","message":"Learned from homedepot: 40 prices, trend: increasing, confidence: 87.0%"}
+{"timestamp":"2026-01-03T18:32:03.852Z","level":"INFO","message":"Learning cycle #13 started"}
+{"timestamp":"2026-01-03T18:32:03.859Z","level":"LEARN","message":"Learned from wayfair: 36 prices, trend: decreasing, confidence: 78.1%"}
+{"timestamp":"2026-01-03T18:32:33.852Z","level":"INFO","message":"Learning cycle #14 started"}
+{"timestamp":"2026-01-03T18:32:33.857Z","level":"LEARN","message":"Learned from redfin: 51 prices, trend: increasing, confidence: 93.5%"}
+{"timestamp":"2026-01-03T18:33:03.854Z","level":"INFO","message":"Learning cycle #15 started"}
+{"timestamp":"2026-01-03T18:33:03.856Z","level":"LEARN","message":"Learned from amazon: 55 prices, trend: increasing, confidence: 85.3%"}
+{"timestamp":"2026-01-03T18:33:03.857Z","level":"PATTERN","message":"Learned pattern: search_intent (83% confidence)"}
+{"timestamp":"2026-01-03T18:33:33.855Z","level":"INFO","message":"Learning cycle #16 started"}
+{"timestamp":"2026-01-03T18:33:33.859Z","level":"LEARN","message":"Learned from lowes: 78 prices, trend: stable, confidence: 80.2%"}
+{"timestamp":"2026-01-03T19:20:12.983Z","level":"INFO","message":"Learning cycle #1 started"}
+{"timestamp":"2026-01-03T19:20:12.984Z","level":"LEARN","message":"Learned from lowes: 48 prices, trend: stable, confidence: 92.1%"}
+{"timestamp":"2026-01-03T19:20:12.985Z","level":"INFO","message":"Daily report generated: reports/2026-01-03.md"}
+{"timestamp":"2026-01-03T19:20:12.985Z","level":"INFO","message":"Learning engine started - running every 30 seconds"}
+{"timestamp":"2026-01-03T19:20:42.986Z","level":"INFO","message":"Learning cycle #2 started"}
+{"timestamp":"2026-01-03T19:20:42.988Z","level":"LEARN","message":"Learned from homedepot: 46 prices, trend: increasing, confidence: 85.7%"}
+{"timestamp":"2026-01-03T19:21:13.828Z","level":"INFO","message":"Learning cycle #1 started"}
+{"timestamp":"2026-01-03T19:21:13.829Z","level":"LEARN","message":"Learned from redfin: 31 prices, trend: decreasing, confidence: 93.7%"}
+{"timestamp":"2026-01-03T19:21:13.829Z","level":"INFO","message":"Daily report generated: reports/2026-01-03.md"}
+{"timestamp":"2026-01-03T19:21:13.830Z","level":"INFO","message":"Learning engine started - running every 30 seconds"}
+{"timestamp":"2026-01-03T19:21:43.830Z","level":"INFO","message":"Learning cycle #2 started"}
+{"timestamp":"2026-01-03T19:21:43.833Z","level":"LEARN","message":"Learned from homedepot: 43 prices, trend: decreasing, confidence: 77.5%"}
+{"timestamp":"2026-01-03T19:22:13.831Z","level":"INFO","message":"Learning cycle #3 started"}
+{"timestamp":"2026-01-03T19:22:13.834Z","level":"LEARN","message":"Learned from realtor: 38 prices, trend: decreasing, confidence: 93.3%"}
+{"timestamp":"2026-01-03T19:22:43.833Z","level":"INFO","message":"Learning cycle #4 started"}
+{"timestamp":"2026-01-03T19:22:43.834Z","level":"LEARN","message":"Learned from zillow: 70 prices, trend: increasing, confidence: 92.6%"}
+{"timestamp":"2026-01-03T19:23:13.834Z","level":"INFO","message":"Learning cycle #5 started"}
+{"timestamp":"2026-01-03T19:23:13.836Z","level":"LEARN","message":"Learned from redfin: 73 prices, trend: stable, confidence: 89.6%"}
+{"timestamp":"2026-01-03T19:23:13.837Z","level":"PATTERN","message":"Learned pattern: search_intent (83% confidence)"}
+{"timestamp":"2026-01-03T19:23:43.836Z","level":"INFO","message":"Learning cycle #6 started"}
+{"timestamp":"2026-01-03T19:23:43.838Z","level":"LEARN","message":"Learned from amazon: 68 prices, trend: decreasing, confidence: 81.7%"}
+{"timestamp":"2026-01-03T19:24:13.837Z","level":"INFO","message":"Learning cycle #7 started"}
+{"timestamp":"2026-01-03T19:24:13.840Z","level":"LEARN","message":"Learned from realtor: 40 prices, trend: stable, confidence: 91.0%"}
+{"timestamp":"2026-01-03T19:24:43.839Z","level":"INFO","message":"Learning cycle #8 started"}
+{"timestamp":"2026-01-03T19:24:43.841Z","level":"LEARN","message":"Learned from amazon: 55 prices, trend: stable, confidence: 94.1%"}
+{"timestamp":"2026-01-03T19:25:13.839Z","level":"INFO","message":"Learning cycle #9 started"}
+{"timestamp":"2026-01-03T19:25:13.842Z","level":"LEARN","message":"Learned from amazon: 37 prices, trend: decreasing, confidence: 80.9%"}
+{"timestamp":"2026-01-03T19:25:43.840Z","level":"INFO","message":"Learning cycle #10 started"}
+{"timestamp":"2026-01-03T19:25:43.841Z","level":"LEARN","message":"Learned from lowes: 78 prices, trend: decreasing, confidence: 86.9%"}
+{"timestamp":"2026-01-03T19:25:43.842Z","level":"PATTERN","message":"Learned pattern: competitor_pricing (85% confidence)"}
+{"timestamp":"2026-01-03T19:25:43.842Z","level":"INFO","message":"Training progress: 0/80 golden conversations (0% success)"}
+{"timestamp":"2026-01-03T19:26:13.842Z","level":"INFO","message":"Learning cycle #11 started"}
+{"timestamp":"2026-01-03T19:26:13.845Z","level":"LEARN","message":"Learned from amazon: 76 prices, trend: increasing, confidence: 90.1%"}
+{"timestamp":"2026-01-03T19:26:43.844Z","level":"INFO","message":"Learning cycle #12 started"}
+{"timestamp":"2026-01-03T19:26:43.845Z","level":"LEARN","message":"Learned from lowes: 37 prices, trend: decreasing, confidence: 77.4%"}
+{"timestamp":"2026-01-03T19:27:13.845Z","level":"INFO","message":"Learning cycle #13 started"}
+{"timestamp":"2026-01-03T19:27:13.846Z","level":"LEARN","message":"Learned from wayfair: 60 prices, trend: increasing, confidence: 80.9%"}
+{"timestamp":"2026-01-03T19:27:43.845Z","level":"INFO","message":"Learning cycle #14 started"}
+{"timestamp":"2026-01-03T19:27:43.846Z","level":"LEARN","message":"Learned from redfin: 56 prices, trend: stable, confidence: 93.7%"}
+{"timestamp":"2026-01-03T19:28:13.847Z","level":"INFO","message":"Learning cycle #15 started"}
+{"timestamp":"2026-01-03T19:28:13.849Z","level":"LEARN","message":"Learned from realtor: 35 prices, trend: stable, confidence: 81.9%"}
+{"timestamp":"2026-01-03T19:28:13.850Z","level":"PATTERN","message":"Learned pattern: competitor_pricing (85% confidence)"}
+{"timestamp":"2026-01-03T19:28:43.849Z","level":"INFO","message":"Learning cycle #16 started"}
+{"timestamp":"2026-01-03T19:28:43.850Z","level":"LEARN","message":"Learned from realtor: 69 prices, trend: stable, confidence: 84.9%"}
+{"timestamp":"2026-01-03T19:29:13.850Z","level":"INFO","message":"Learning cycle #17 started"}
+{"timestamp":"2026-01-03T19:29:13.852Z","level":"LEARN","message":"Learned from lowes: 53 prices, trend: decreasing, confidence: 76.5%"}
+{"timestamp":"2026-01-03T19:29:43.852Z","level":"INFO","message":"Learning cycle #18 started"}
+{"timestamp":"2026-01-03T19:29:43.854Z","level":"LEARN","message":"Learned from wayfair: 67 prices, trend: decreasing, confidence: 82.0%"}
+{"timestamp":"2026-01-03T19:30:13.854Z","level":"INFO","message":"Learning cycle #19 started"}
+{"timestamp":"2026-01-03T19:30:13.856Z","level":"LEARN","message":"Learned from amazon: 43 prices, trend: increasing, confidence: 77.6%"}
+{"timestamp":"2026-01-03T19:30:43.855Z","level":"INFO","message":"Learning cycle #20 started"}
+{"timestamp":"2026-01-03T19:30:43.857Z","level":"LEARN","message":"Learned from homedepot: 38 prices, trend: increasing, confidence: 80.2%"}
+{"timestamp":"2026-01-03T19:30:43.858Z","level":"PATTERN","message":"Learned pattern: regional_variance (88% confidence)"}
+{"timestamp":"2026-01-03T19:30:43.859Z","level":"INFO","message":"Training progress: 0/80 golden conversations (0% success)"}
+{"timestamp":"2026-01-03T19:31:13.856Z","level":"INFO","message":"Learning cycle #21 started"}
+{"timestamp":"2026-01-03T19:31:13.859Z","level":"LEARN","message":"Learned from amazon: 73 prices, trend: increasing, confidence: 79.3%"}
+{"timestamp":"2026-01-03T19:31:43.858Z","level":"INFO","message":"Learning cycle #22 started"}
+{"timestamp":"2026-01-03T19:31:43.860Z","level":"LEARN","message":"Learned from zillow: 74 prices, trend: increasing, confidence: 78.7%"}
+{"timestamp":"2026-01-03T19:32:13.858Z","level":"INFO","message":"Learning cycle #23 started"}
+{"timestamp":"2026-01-03T19:32:13.861Z","level":"LEARN","message":"Learned from realtor: 78 prices, trend: stable, confidence: 86.0%"}
+{"timestamp":"2026-01-03T19:32:43.859Z","level":"INFO","message":"Learning cycle #24 started"}
+{"timestamp":"2026-01-03T19:32:43.862Z","level":"LEARN","message":"Learned from redfin: 35 prices, trend: increasing, confidence: 83.3%"}
+{"timestamp":"2026-01-03T19:33:13.861Z","level":"INFO","message":"Learning cycle #25 started"}
+{"timestamp":"2026-01-03T19:33:13.863Z","level":"LEARN","message":"Learned from zillow: 68 prices, trend: decreasing, confidence: 94.8%"}
+{"timestamp":"2026-01-03T19:33:13.865Z","level":"PATTERN","message":"Learned pattern: conversion_trigger (79% confidence)"}
+{"timestamp":"2026-01-03T19:33:43.861Z","level":"INFO","message":"Learning cycle #26 started"}
+{"timestamp":"2026-01-03T19:33:43.864Z","level":"LEARN","message":"Learned from amazon: 52 prices, trend: stable, confidence: 80.3%"}
+{"timestamp":"2026-01-03T19:34:13.863Z","level":"INFO","message":"Learning cycle #27 started"}
+{"timestamp":"2026-01-03T19:34:13.865Z","level":"LEARN","message":"Learned from zillow: 33 prices, trend: increasing, confidence: 87.8%"}
+{"timestamp":"2026-01-03T19:34:43.864Z","level":"INFO","message":"Learning cycle #28 started"}
+{"timestamp":"2026-01-03T19:34:43.865Z","level":"LEARN","message":"Learned from ikea: 74 prices, trend: decreasing, confidence: 77.0%"}
+{"timestamp":"2026-01-03T19:35:13.865Z","level":"INFO","message":"Learning cycle #29 started"}
+{"timestamp":"2026-01-03T19:35:13.867Z","level":"LEARN","message":"Learned from zillow: 32 prices, trend: increasing, confidence: 79.0%"}
+{"timestamp":"2026-01-03T19:35:43.867Z","level":"INFO","message":"Learning cycle #30 started"}
+{"timestamp":"2026-01-03T19:35:43.869Z","level":"LEARN","message":"Learned from redfin: 58 prices, trend: decreasing, confidence: 86.4%"}
+{"timestamp":"2026-01-03T19:35:43.870Z","level":"PATTERN","message":"Learned pattern: conversion_trigger (79% confidence)"}
+{"timestamp":"2026-01-03T19:35:43.871Z","level":"INFO","message":"Training progress: 0/80 golden conversations (0% success)"}
+{"timestamp":"2026-01-03T19:36:13.868Z","level":"INFO","message":"Learning cycle #31 started"}
+{"timestamp":"2026-01-03T19:36:13.871Z","level":"LEARN","message":"Learned from ikea: 74 prices, trend: stable, confidence: 88.9%"}
+{"timestamp":"2026-01-03T19:36:43.869Z","level":"INFO","message":"Learning cycle #32 started"}
+{"timestamp":"2026-01-03T19:36:43.871Z","level":"LEARN","message":"Learned from homedepot: 35 prices, trend: increasing, confidence: 78.4%"}
+{"timestamp":"2026-01-03T19:37:13.871Z","level":"INFO","message":"Learning cycle #33 started"}
+{"timestamp":"2026-01-03T19:37:13.873Z","level":"LEARN","message":"Learned from zillow: 50 prices, trend: increasing, confidence: 81.5%"}
+{"timestamp":"2026-01-03T19:37:43.873Z","level":"INFO","message":"Learning cycle #34 started"}
+{"timestamp":"2026-01-03T19:37:43.876Z","level":"LEARN","message":"Learned from redfin: 31 prices, trend: increasing, confidence: 82.3%"}
+{"timestamp":"2026-01-03T19:38:13.875Z","level":"INFO","message":"Learning cycle #35 started"}
+{"timestamp":"2026-01-03T19:38:13.877Z","level":"LEARN","message":"Learned from amazon: 48 prices, trend: decreasing, confidence: 84.5%"}
+{"timestamp":"2026-01-03T19:38:13.878Z","level":"PATTERN","message":"Learned pattern: search_intent (83% confidence)"}

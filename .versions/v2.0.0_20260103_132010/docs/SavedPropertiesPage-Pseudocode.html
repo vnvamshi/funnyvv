@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Saved Properties Page - Pseudocode</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 4rem;
+        line-height: 1.5;
+        color: #111827;
+        background-color: #f9fafb;
+      }
+      h1, h2, h3 {
+        color: #111827;
+      }
+      h1 {
+        margin-bottom: 1.5rem;
+      }
+      h2 {
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+        border-bottom: 1px solid #e5e7eb;
+        padding-bottom: 0.25rem;
+      }
+      h3 {
+        margin-top: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
+      section {
+        margin-bottom: 2rem;
+      }
+      pre {
+        background-color: #0b1120;
+        color: #e5e7eb;
+        padding: 1rem 1.25rem;
+        border-radius: 0.375rem;
+        overflow-x: auto;
+        font-size: 0.9rem;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+      }
+      .note {
+        font-size: 0.85rem;
+        color: #6b7280;
+        margin-top: 0.25rem;
+      }
+      ul {
+        margin: 0.25rem 0 0.75rem 1.25rem;
+      }
+      .api-endpoint {
+        background-color: #f3f4f6;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        margin: 0.5rem 0;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        font-size: 0.85rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Saved Properties Page - Pseudocode</h1>
+
+    <p>
+      This document describes high-level pseudocode and interaction flow for the
+      <strong>Saved Properties</strong> page, including API integration, property listing,
+      sorting, pagination, and save/unsave functionality. It is framework-agnostic and
+      intended as an implementation guide.
+    </p>
+
+    <section id="overview">
+      <h2>Page Overview</h2>
+      <p>
+        The Saved Properties page displays a list of properties that the user has saved.
+        It supports pagination, sorting, and allows users to unsave properties. The page
+        adapts to mobile and desktop layouts.
+      </p>
+    </section>
+
+    <section id="state-management">
+      <h2>State Management</h2>
+      <pre><code>// SavedPropertiesPage(props: {})
+INIT state:
+  homes = []                    // Array of saved property objects
+  loading = false               // Initial load state
+  page = 1                      // Current page number (1-based)
+  hasMore = true                // Whether more pages are available
+  sortOption = 'all'            // 'all' | 'high' | 'low'
+  totalCount = 0                // Total number of saved properties
+  confirmUnsave = null          // { propertyId, idx } | null
+  saving = null                 // propertyId currently being saved/unsaved
+  error = null                  // Error message if API call fails
+
+  // User context (from auth)
+  user = getCurrentUser()
+  isMobile = windowWidth <= 1024
+
+ON MOUNT:
+  call loadSavedHomes(page = 1, sortOption = 'all')</code></pre>
+    </section>
+
+    <section id="api-integration">
+      <h2>API Integration</h2>
+
+      <h3>Fetch Saved Homes</h3>
+      <div class="api-endpoint">
+        <strong>Endpoint:</strong> POST /buyer/saved-homes/?page={page}&amp;page_size={pageSize}<br/>
+        <strong>Request Body:</strong> { sort_by?: 'low_to_high' | 'high_to_low' }<br/>
+        <strong>Response:</strong> { data: { results: SavedHome[], count: number, has_more: boolean } }
+      </div>
+
+      <pre><code>FUNCTION fetchSavedHomes(page, pageSize, sort_by):
+  REQUEST_BODY = {}
+  IF sort_by is provided
+    REQUEST_BODY.sort_by = sort_by
+
+  API_URL = `/buyer/saved-homes/?page=${page}&page_size=${pageSize}`
+  
+  try
+    response = API.post(API_URL, REQUEST_BODY)
+    RETURN {
+      results: response.data.data.results,
+      count: response.data.data.count,
+      has_more: response.data.data.has_more
+    }
+  catch (error)
+    THROW error</code></pre>
+
+      <h3>Toggle Save/Unsave Property</h3>
+      <div class="api-endpoint">
+        <strong>Endpoint:</strong> POST /buyer/saved-homes/toggle/<br/>
+        <strong>Request Body:</strong> { user_id: string, property_id: string, is_saved: boolean }<br/>
+        <strong>Response:</strong> { is_saved: boolean, ... }
+      </div>
+
+      <pre><code>FUNCTION toggleSaveProperty(userId, propertyId, isSaved):
+  REQUEST_BODY = {
+    user_id: userId,
+    property_id: propertyId,
+    is_saved: isSaved
+  }
+
+  try
+    response = API.post('/buyer/saved-homes/toggle/', REQUEST_BODY)
+    RETURN response.data
+  catch (error)
+    THROW error</code></pre>
+
+      <h3>Data Contract - SavedHome Object</h3>
+      <pre><code>SavedHome = {
+  property_id: string,
+  name: string,
+  address: string,
+  bedrooms: number,
+  bathrooms: number,
+  total_sqft: number,
+  selling_price: number,
+  mainphoto_url: string,
+  isSaved?: boolean              // Optional, defaults to true for saved homes
+}</code></pre>
+    </section>
+
+    <section id="loading-properties">
+      <h2>Loading Saved Properties</h2>
+
+      <h3>Initial Load</h3>
+      <pre><code>FUNCTION loadSavedHomes(page, sortOption):
+  // Prevent concurrent loads
+  IF loading OR (NOT hasMore AND page > 1)
+    RETURN
+
+  loading = true
+  error = null
+
+  // Map sort option to API parameter
+  sort_by = undefined
+  IF sortOption == 'high'
+    sort_by = 'high_to_low'
+  ELSE IF sortOption == 'low'
+    sort_by = 'low_to_high'
+
+  try
+    data = await fetchSavedHomes(page, PAGE_SIZE, sort_by)
+    
+    IF data.results is array
+      IF page == 1
+        // Replace existing homes for first page or sort change
+        homes = data.results
+      ELSE
+        // Append new homes, avoiding duplicates
+        existingIds = Set(homes.map(h => h.property_id))
+        newHomes = data.results.filter(h => NOT existingIds.has(h.property_id))
+        homes = [...homes, ...newHomes]
+      
+      hasMore = data.has_more
+      totalCount = data.count
+    ELSE
+      hasMore = false
+  catch (e)
+    error = toUserFriendlyError(e)
+    hasMore = false
+  finally
+    loading = false</code></pre>
+
+      <h3>Pagination & Infinite Scroll</h3>
+      <pre><code>// Triggered when sort option changes
+ON sortOption CHANGE:
+  homes = []
+  page = 1
+  hasMore = true
+  call loadSavedHomes(1, sortOption)
+
+// Infinite scroll using Intersection Observer
+FUNCTION setupInfiniteScroll():
+  lastHomeRef = callback for last home element
+  
+  observer = new IntersectionObserver(entries => {
+    IF entries[0].isIntersecting AND hasMore AND NOT loading
+      page = page + 1
+      call loadSavedHomes(page, sortOption)
+  })
+  
+  IF lastHomeElement exists AND hasMore
+    observer.observe(lastHomeElement)
+  ELSE
+    observer.disconnect()</code></pre>
+    </section>
+
+    <section id="property-card">
+      <h2>Property Card Rendering</h2>
+
+      <h3>Desktop Card</h3>
+      <pre><code>FUNCTION renderDesktopCard(home, index):
+  DISPLAY card container:
+    width = 303px
+    height = 315px
+    border = 1px solid gray
+    border-radius = 10px
+    shadow = medium
+    cursor = pointer
+    hover: shadow = large
+
+  DISPLAY image container (relative):
+    height = 160px
+    image = home.mainphoto_url
+    border-radius = 10px (top only)
+    object-fit = cover
+    
+    // Loading state
+    IF image NOT loaded
+      DISPLAY loading spinner overlay
+    
+    // Save button overlay
+    DISPLAY save button (absolute, top-right):
+      background = white with opacity
+      border-radius = full circle
+      icon = home.isSaved ? SavedIcon : UnsavedIcon
+      ON_CLICK (stop propagation):
+        call handleToggleSave(home.property_id, index, home.isSaved)
+
+  DISPLAY content container (flex column):
+    padding = 12px
+    
+    DISPLAY property name:
+      font-family = serif
+      font-size = 20px
+      font-weight = 550
+      gradient text color
+      line-clamp = 2
+      text = home.name
+    
+    DISPLAY address:
+      font-size = 12px
+      color = gray
+      text = home.address
+    
+    DISPLAY property details:
+      font-size = 12px
+      font-weight = 550
+      text = "${home.bedrooms} Bedroom(s) | ${home.bathrooms} Baths | ${home.total_sqft} Sq. Ft."
+    
+    DISPLAY price:
+      font-size = 17px
+      font-weight = bold
+      color = dark green
+      text = formatCurrency(home.selling_price)
+
+  ON card CLICK:
+    navigate to `/property/${home.property_id}`</code></pre>
+
+      <h3>Mobile Card</h3>
+      <pre><code>FUNCTION renderMobileCard(home, index):
+  // Similar to desktop but:
+  - width = 100%
+  - margin-bottom = 16px
+  - font sizes slightly smaller
+  - name line-clamp = 2 with min-height = 40px</code></pre>
+    </section>
+
+    <section id="sorting">
+      <h2>Sorting Functionality</h2>
+
+      <pre><code>FUNCTION renderSortDropdown():
+  DISPLAY label: "Sort:"
+  
+  DISPLAY dropdown select:
+    options = [
+      { value: 'all', label: 'Showing all' },
+      { value: 'high', label: 'Price high to low' },
+      { value: 'low', label: 'Price low to high' }
+    ]
+    value = sortOption
+    
+    ON_CHANGE(newValue):
+      // Reset pagination
+      homes = []
+      page = 1
+      hasMore = true
+      sortOption = newValue
+      call loadSavedHomes(1, newValue)</code></pre>
+
+      <p class="note">
+        Note: Sorting is handled server-side via the API. The client resets the list
+        and fetches the first page with the new sort parameter.
+      </p>
+    </section>
+
+    <section id="save-unsave">
+      <h2>Save/Unsave Functionality</h2>
+
+      <h3>Toggle Save Handler</h3>
+      <pre><code>FUNCTION handleToggleSave(propertyId, index, isSaved):
+  // Check authentication
+  IF user is null OR user.user_id is null
+    redirect to '/login'
+    RETURN
+
+  IF isSaved is true
+    // Show confirmation dialog for unsave
+    confirmUnsave = { propertyId, idx: index }
+    RETURN
+
+  // Direct save (shouldn't happen on saved properties page, but handle it)
+  call doToggleSave(propertyId, index, true)</code></pre>
+
+      <h3>Execute Save/Unsave</h3>
+      <pre><code>FUNCTION doToggleSave(propertyId, index, isSaved):
+  saving = propertyId  // Track which property is being saved/unsaved
+
+  // Optimistic UI update
+  IF isSaved is false
+    // Remove from list immediately
+    homes = homes.filter((h, i) => i != index)
+  ELSE
+    // Update saved status
+    homes = homes.map((h, i) => 
+      IF i == index THEN { ...h, isSaved: true } ELSE h
+    )
+
+  try
+    await toggleSaveProperty(user.user_id, propertyId, isSaved)
+    
+    // Update total count
+    IF isSaved is false
+      totalCount = max(0, totalCount - 1)
+    
+  catch (error)
+    // Revert optimistic update on error
+    IF isSaved is false
+      // Reload page to restore state (or refetch)
+      window.location.reload()
+    ELSE
+      homes = homes.map((h, i) => 
+        IF i == index THEN { ...h, isSaved: !isSaved } ELSE h
+      )
+    
+    showErrorMessage("Failed to update saved property")
+  finally
+    saving = null</code></pre>
+
+      <h3>Unsave Confirmation Modal</h3>
+      <pre><code>FUNCTION renderUnsaveConfirmation():
+  IF confirmUnsave is null
+    RETURN
+
+  DISPLAY modal overlay:
+    background = black with 40% opacity
+    z-index = high
+    position = fixed, full screen
+    display = flex, centered
+
+  DISPLAY modal content:
+    background = white
+    border-radius = 16px
+    padding = 32px
+    max-width = 384px
+    shadow = large
+
+    DISPLAY title:
+      text = "Are you sure you want to unsave the property?"
+      font-size = 18px
+      font-weight = bold
+      margin-bottom = 8px
+
+    DISPLAY description:
+      text = "This property will be removed from your saved homes."
+      color = gray
+      margin-bottom = 16px
+
+    DISPLAY button group (flex, justify-end):
+      DISPLAY "No" button:
+        background = white
+        color = green
+        border = none
+        padding = 8px 20px
+        border-radius = 16px
+        ON_CLICK:
+          confirmUnsave = null
+
+      DISPLAY "Yes" button:
+        background = gradient green
+        color = white
+        padding = 8px 20px
+        border-radius = 16px
+        ON_CLICK:
+          confirmUnsave = null  // Close immediately
+          call doToggleSave(
+            confirmUnsave.propertyId,
+            confirmUnsave.idx,
+            false
+          )</code></pre>
+    </section>
+
+    <section id="layout">
+      <h2>Page Layout</h2>
+
+      <h3>Header Section</h3>
+      <pre><code>FUNCTION renderHeader():
+  // Mobile header (sticky)
+  IF isMobile
+    DISPLAY mobile header (sticky, top):
+      DISPLAY menu button (hamburger icon)
+        ON_CLICK: open mobile menu
+      
+      DISPLAY page title:
+        text = "Saved Homes"
+        font-size = 20px
+        font-weight = bold
+        color = dark green
+
+  // Desktop header
+  DISPLAY header row (flex, space-between):
+    DISPLAY info section:
+      DISPLAY count text:
+        text = "${totalCount} saved homes"
+        font-size = 12px-14px
+      
+      IF homes.length == 0
+        DISPLAY empty message:
+          text = "No saved homes found."
+          color = light gray
+
+    DISPLAY sort section:
+      DISPLAY sort dropdown (see Sorting section)</code></pre>
+
+      <h3>Property Grid/List</h3>
+      <pre><code>FUNCTION renderPropertyList():
+  IF isMobile
+    DISPLAY vertical list container:
+      FOR each home IN homes WITH index i
+        DISPLAY MobileCard(home, i)
+        
+        // Attach intersection observer to last item
+        IF i == homes.length - 1 AND hasMore
+          attach lastHomeRef to this card
+      
+      // Loading skeletons
+      IF loading AND page == 1
+        DISPLAY SavedHomeListSkeletonMobile()
+      ELSE IF loading AND page > 1
+        DISPLAY SavedHomeListSkeletonMobile() (below list)
+      
+      // Empty state
+      IF NOT hasMore AND homes.length == 0 AND NOT loading
+        DISPLAY empty message:
+          text = "No saved homes."
+          text-align = center
+          padding = 16px
+          color = gray
+
+  ELSE // Desktop
+    DISPLAY grid container:
+      grid = 4 columns
+      gap = 4px horizontal, 24px vertical
+      padding = 24px
+
+      FOR each home IN homes WITH index i
+        DISPLAY DesktopCard(home, i)
+        
+        // Attach intersection observer to last item
+        IF i == homes.length - 1 AND hasMore
+          attach lastHomeRef to this card
+      
+      // Loading skeletons (fill remaining row)
+      IF loading AND page > 1
+        remainingSlots = 4 - (homes.length % 4)
+        IF remainingSlots < 4
+          FOR i = 1 to remainingSlots
+            DISPLAY skeleton card
+      
+      // Initial loading
+      IF loading AND page == 1
+        DISPLAY SavedHomeListSkeleton()
+      
+      // Empty state
+      IF NOT hasMore AND homes.length == 0 AND NOT loading
+        DISPLAY empty message (span all columns):
+          text = "No saved homes."
+          text-align = center
+          padding = 16px
+          color = gray</code></pre>
+
+      <h3>Footer Navigation (Mobile Only)</h3>
+      <pre><code>IF isMobile
+  DISPLAY BuyerFooterNav component</code></pre>
+    </section>
+
+    <section id="loading-states">
+      <h2>Loading States & Error Handling</h2>
+
+      <h3>Loading Skeletons</h3>
+      <pre><code>FUNCTION renderLoadingSkeleton():
+  // Desktop skeleton
+  DISPLAY card skeleton:
+    image placeholder = gray rectangle, 160px height
+    title placeholder = gray bar, 40px width, 20px height
+    details placeholder = gray bar, 60% width, 12px height
+    price placeholder = gray bar, 50% width, 17px height
+
+  // Mobile skeleton
+  Similar structure but full width</code></pre>
+
+      <h3>Error Handling</h3>
+      <pre><code>FUNCTION handleError(error):
+  IF error is authentication error
+    redirect to '/login'
+  ELSE IF error is network error
+    showErrorMessage("Network error. Please check your connection.")
+  ELSE IF error is API error
+    showErrorMessage(error.message || "Failed to load saved properties.")
+  
+  // Reset loading state
+  loading = false
+  hasMore = false</code></pre>
+    </section>
+
+    <section id="file-location">
+      <h2>File Location</h2>
+      <p>
+        <strong>Save this pseudocode file at:</strong><br/>
+        <code>docs/SavedPropertiesPage-Pseudocode.html</code>
+      </p>
+      <p class="note">
+        This file should be saved in the <code>docs/</code> directory alongside other
+        pseudocode documentation files like <code>PropertyDetailPage-Pseudocode.html</code>.
+      </p>
+    </section>
+
+    <section id="implementation-notes">
+      <h2>Implementation Notes</h2>
+      <ul>
+        <li>
+          <strong>Authentication:</strong> The page requires user authentication. Redirect
+          to login if user is not authenticated.
+        </li>
+        <li>
+          <strong>Optimistic Updates:</strong> The UI updates immediately when unsaving a
+          property, before the API call completes. Revert on error.
+        </li>
+        <li>
+          <strong>Duplicate Prevention:</strong> When appending new pages, filter out
+          properties that already exist in the list based on property_id.
+        </li>
+        <li>
+          <strong>Intersection Observer:</strong> Use Intersection Observer API for
+          infinite scroll. Disconnect and reconnect when dependencies change.
+        </li>
+        <li>
+          <strong>Image Loading:</strong> Show loading spinner while property images are
+          loading. Use lazy loading for better performance.
+        </li>
+        <li>
+          <strong>Responsive Design:</strong> Adapt layout and component sizes based on
+          screen width (breakpoint: 1024px).
+        </li>
+        <li>
+          <strong>State Cleanup:</strong> Cancel in-flight API requests when component
+          unmounts or when dependencies change (use cancellation tokens or flags).
+        </li>
+      </ul>
+    </section>
+
+    <p class="note">
+      Note: All code shown above is pseudocode for product and engineering
+      discussion. It intentionally omits framework-specific details such as
+      React hooks, Vue refs, or concrete API client implementations.
+    </p>
+  </body>
+</html>

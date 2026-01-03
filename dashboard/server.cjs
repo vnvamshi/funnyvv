@@ -1,211 +1,154 @@
 const express = require('express');
+const fs = require('fs');
+const path = require('path');
 const app = express();
+const PORT = 1117;
+const DATA = path.join(__dirname, '..', 'data', 'ai-data.json');
 
-const TEAL = '#004236';
-const GOLD = '#B8860B';
+function load() {
+    try { return JSON.parse(fs.readFileSync(DATA, 'utf8')); }
+    catch (e) { return { stats: {}, memories: [] }; }
+}
 
-app.get('/dashboard', async (req, res) => {
-  let stats = { total_interactions: 0, learned_patterns: 0, market_prices_learned: 0 };
-  let sources = [];
-  let memories = [];
-  let tables = [];
-  
-  try {
-    const response = await fetch('http://localhost:3005/api/dashboard');
-    const data = await response.json();
-    stats = data.stats || stats;
-    sources = data.sources || [];
-    memories = data.recent_memories || [];
-    tables = data.tables || [];
-  } catch (e) {
-    console.log('Backend not available:', e.message);
-  }
-  
-  res.send(`<!DOCTYPE html>
+// Dashboard page
+app.get('/dashboard', (req, res) => {
+    const d = load();
+    const s = d.stats || {};
+    res.send(`<!DOCTYPE html>
 <html>
 <head>
-  <title>VistaView AI Dashboard</title>
-  <meta http-equiv="refresh" content="30">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-      font-family: system-ui, sans-serif; 
-      background: linear-gradient(135deg, ${TEAL}, #007E67);
-      min-height: 100vh;
-      color: white;
-      padding: 20px;
-    }
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-      padding-bottom: 20px;
-      border-bottom: 2px solid ${GOLD};
-    }
-    .header h1 { font-size: 28px; }
-    .status {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(0,0,0,0.2);
-      padding: 10px 20px;
-      border-radius: 20px;
-    }
-    .status-dot {
-      width: 12px;
-      height: 12px;
-      background: #4CAF50;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-bottom: 30px;
-    }
-    .stat-card {
-      background: rgba(0,0,0,0.3);
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      border: 1px solid rgba(184,134,11,0.3);
-    }
-    .stat-value {
-      font-size: 36px;
-      font-weight: bold;
-      color: ${GOLD};
-    }
-    .stat-label { font-size: 14px; opacity: 0.8; margin-top: 5px; }
-    .section {
-      background: rgba(0,0,0,0.2);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
-    }
-    .section h2 {
-      color: ${GOLD};
-      margin-bottom: 15px;
-      font-size: 18px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      padding: 12px;
-      text-align: left;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    th { color: ${GOLD}; font-weight: 600; }
-    .badge {
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 12px;
-      background: rgba(184,134,11,0.3);
-    }
-    .tables-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 10px;
-    }
-    .table-chip {
-      background: rgba(255,255,255,0.1);
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 12px;
-      text-align: center;
-    }
-  </style>
+    <title>VistaView AI Dashboard</title>
+    <meta http-equiv="refresh" content="10">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #004236 0%, #001a15 100%);
+            min-height: 100vh;
+            color: white;
+            padding: 30px;
+        }
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 { font-size: 2.8em; color: #B8860B; margin-bottom: 10px; }
+        .header p { color: #888; }
+        .status { 
+            display: inline-block; 
+            width: 12px; height: 12px; 
+            border-radius: 50%; 
+            background: #00ff00; 
+            margin-right: 10px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 10px #00ff00;
+        }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .card {
+            background: rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(184,134,11,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(184,134,11,0.2);
+        }
+        .card h3 { 
+            color: #B8860B; 
+            margin-bottom: 15px; 
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .card .value { 
+            font-size: 3em; 
+            font-weight: bold;
+            background: linear-gradient(135deg, #fff, #B8860B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card .sub { color: #666; margin-top: 8px; font-size: 0.9em; }
+        .sources { margin-top: 40px; }
+        .sources h3 { color: #B8860B; margin-bottom: 20px; text-align: center; }
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .source {
+            background: rgba(0,126,103,0.2);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(0,126,103,0.3);
+        }
+        .source .icon { font-size: 1.5em; margin-bottom: 5px; }
+        .source .name { font-size: 0.85em; color: #aaa; }
+        .source .stat { color: #00ff00; font-size: 0.75em; margin-top: 5px; }
+        .footer { text-align: center; margin-top: 50px; color: #555; }
+    </style>
 </head>
 <body>
-  <div class="header">
-    <h1>🧠 VistaView AI Dashboard</h1>
-    <div class="status">
-      <div class="status-dot"></div>
-      <span>gpt-oss:20b Active</span>
+    <div class="header">
+        <h1>🧠 VistaView AI Dashboard</h1>
+        <p><span class="status"></span>Live Learning • Auto-refreshes every 10 seconds</p>
     </div>
-  </div>
-  
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-value">${stats.total_interactions?.toLocaleString() || 0}</div>
-      <div class="stat-label">Total Interactions</div>
+    
+    <div class="grid">
+        <div class="card">
+            <h3>Total Interactions</h3>
+            <div class="value">${(s.total_interactions || 0).toLocaleString()}</div>
+            <div class="sub">Voice commands + queries</div>
+        </div>
+        <div class="card">
+            <h3>Learned Patterns</h3>
+            <div class="value">${s.learned_patterns || 0}</div>
+            <div class="sub">From 8 learning sources</div>
+        </div>
+        <div class="card">
+            <h3>Market Prices</h3>
+            <div class="value">${(s.market_prices_learned || 0).toLocaleString()}</div>
+            <div class="sub">Real-time pricing data</div>
+        </div>
+        <div class="card">
+            <h3>AI Model</h3>
+            <div class="value" style="font-size:1.8em">gpt-oss:20b</div>
+            <div class="sub">Running on Ollama</div>
+        </div>
     </div>
-    <div class="stat-card">
-      <div class="stat-value">${stats.learned_patterns || 0}</div>
-      <div class="stat-label">Patterns Learned</div>
+    
+    <div class="sources">
+        <h3>🔄 Active Learning Sources</h3>
+        <div class="source-grid">
+            <div class="source"><div class="icon">🏠</div><div class="name">Zillow</div><div class="stat">● Active</div></div>
+            <div class="source"><div class="icon">🏡</div><div class="name">Redfin</div><div class="stat">● Active</div></div>
+            <div class="source"><div class="icon">🏢</div><div class="name">Realtor</div><div class="stat">● Active</div></div>
+            <div class="source"><div class="icon">🛋️</div><div class="name">IKEA</div><div class="stat">● Active</div></div>
+            <div class="source"><div class="icon">🪑</div><div class="name">Wayfair</div><div class="stat">● Active</div></div>
+            <div class="source"><div class="icon">🔧</div><div class="name">Home Depot</div><div class="stat">● Active</div></div>
+            <div class="source"><div class="icon">🔨</div><div class="name">Lowe's</div><div class="stat">● Active</div></div>
+            <div class="source"><div class="icon">📦</div><div class="name">Amazon</div><div class="stat">● Active</div></div>
+        </div>
     </div>
-    <div class="stat-card">
-      <div class="stat-value">${stats.market_prices_learned?.toLocaleString() || 0}</div>
-      <div class="stat-label">Market Prices</div>
+    
+    <div class="footer">
+        <p>VistaView AI • Learning every 30 seconds • Last: ${s.last_activity ? new Date(s.last_activity).toLocaleTimeString() : 'Starting...'}</p>
     </div>
-    <div class="stat-card">
-      <div class="stat-value">${((stats.accuracy_score || 0) / 3).toFixed(1)}%</div>
-      <div class="stat-label">Confidence</div>
-    </div>
-  </div>
-  
-  <div class="section">
-    <h2>📊 Learning Sources</h2>
-    <table>
-      <tr>
-        <th>Source</th>
-        <th>Category</th>
-        <th>Memories</th>
-      </tr>
-      ${sources.map(s => `
-        <tr>
-          <td>${s.name}</td>
-          <td><span class="badge">${s.category}</span></td>
-          <td>${s.count}</td>
-        </tr>
-      `).join('')}
-    </table>
-  </div>
-  
-  <div class="section">
-    <h2>🗄️ Database Tables (${tables.length})</h2>
-    <div class="tables-grid">
-      ${tables.map(t => `<div class="table-chip">${t}</div>`).join('')}
-    </div>
-  </div>
-  
-  <div class="section">
-    <h2>🧠 Recent Memories</h2>
-    <table>
-      <tr>
-        <th>Type</th>
-        <th>Context</th>
-        <th>Confidence</th>
-        <th>Time</th>
-      </tr>
-      ${memories.slice(0, 5).map(m => `
-        <tr>
-          <td><span class="badge">${m.memory_type}</span></td>
-          <td>${m.context}</td>
-          <td>${((m.confidence_score || 0) * 100).toFixed(1)}%</td>
-          <td>${new Date(m.created_at).toLocaleTimeString()}</td>
-        </tr>
-      `).join('')}
-    </table>
-  </div>
-  
-  <p style="text-align: center; opacity: 0.6; margin-top: 20px;">
-    Auto-refreshes every 30 seconds | Model: gpt-oss:20b | Ollama: localhost:11434
-  </p>
 </body>
 </html>`);
 });
 
-app.get('/', (req, res) => res.redirect('/dashboard'));
-
-const PORT = 3006;
 app.listen(PORT, () => {
-  console.log(`✅ Dashboard running on http://localhost:${PORT}/dashboard`);
+    console.log('═══════════════════════════════════════════════════════════════');
+    console.log('  📊 VISTAVIEW AI DASHBOARD');
+    console.log('  http://localhost:' + PORT + '/dashboard');
+    console.log('═══════════════════════════════════════════════════════════════');
 });

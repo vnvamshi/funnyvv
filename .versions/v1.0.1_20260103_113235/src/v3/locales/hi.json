@@ -1,0 +1,157 @@
+{
+  "globalHeader": {
+    "logoAlt": "VistaView",
+    "navigation": {
+      "home": "होम",
+      "services": "सेवाएँ",
+      "explore": "एक्सप्लोर",
+      "help": "सहायता"
+    }
+  },
+  "footer": {
+    "copyright": "© {{year}} VistaView. सर्वाधिकार सुरक्षित.",
+    "yearCopyright": "{{year}} VistaView. सर्वाधिकार सुरक्षित",
+    "support": "समर्थन",
+    "reports": "रिपोर्ट्स",
+    "tagline": "दुनिया का #1 रियल एस्टेट इंटेलिजेंस और वर्चुअल अनुभव प्लेटफ़ॉर्म",
+    "brandName": "VistaView",
+    "address": {
+      "line1": "400 University Drive Suite 200 Coral Gables,",
+      "line2": "FL 33134 USA"
+    },
+    "columns": {
+      "links": "लिंक्स",
+      "help": "मदद",
+      "newsletter": "न्यूज़लेटर"
+    },
+    "links": {
+      "about": "हमारे बारे में",
+      "careers": "कैरियर",
+      "blog": "ब्लॉग",
+      "contact": "संपर्क करें",
+      "realEstate": "रियल एस्टेट",
+      "services": "सेवाएँ",
+      "help": "सहायता",
+      "reports": "रिपोर्ट्स",
+      "privacy": "प्राइवेसी पॉलिसी",
+      "terms": "टर्म्स ऑफ सर्विस",
+      "cookies": "कुकी पॉलिसी"
+    },
+    "linksMap": {
+      "home": "होम",
+      "catalog": "कैटलॉग",
+      "about": "हमारे बारे में",
+      "contact": "संपर्क",
+      "paymentOptions": "भुगतान विकल्प",
+      "returns": "रिटर्न",
+      "privacyPolicies": "गोपनीयता नीतियाँ"
+    },
+    "newsletter": {
+      "title": "हमारे न्यूज़लेटर की सदस्यता लें",
+      "placeholder": "अपना ईमेल पता दर्ज करें",
+      "button": "सब्सक्राइब",
+      "disclaimer": "हम आपकी गोपनीयता का सम्मान करते हैं. स्पैम नहीं."
+    }
+  },
+  "landing": {
+    "hero": {
+      "title": "रियल एस्टेट का अमेज़न",
+      "subtitle": "दुनिया का #1 रियल एस्टेट इंटेलिजेंस और वर्चुअल अनुभव प्लेटफ़ॉर्म"
+    },
+    "grid": {
+      "items": [
+        { "label": "रियल एस्टेट" },
+        { "label": "उत्पाद कैटलॉग" },
+        { "label": "इंटीरियर डिज़ाइन" },
+        { "label": "सेवाएँ" }
+      ]
+    }
+  },
+  "header": {
+    "logoAlt": "Vista View Realty Services",
+    "navigation": {
+      "aboutUs": "हमारे बारे में",
+      "howItWorks": "यह कैसे काम करता है",
+      "ourPartners": "हमारे साझेदार",
+      "lendWithUs": "हमारे साथ ऋण दें"
+    },
+    "controls": {
+      "signIn": "साइन इन"
+    },
+    "modal": {
+      "tabs": {
+        "countryAndLanguage": "देश और भाषा",
+        "currency": "मुद्रा"
+      },
+      "countries": [
+        { "country": "USA", "language": "अंग्रेज़ी", "flag": "https://flagcdn.com/w40/us.png" },
+        { "country": "India", "language": "हिंदी", "flag": "https://flagcdn.com/w40/in.png" },
+        { "country": "Australia", "language": "अंग्रेज़ी", "flag": "https://flagcdn.com/w40/au.png" },
+        { "country": "Dubai", "language": "अंग्रेज़ी", "flag": "https://flagcdn.com/w40/ae.png" }
+      ],
+      "currencies": [
+        { "name": "संयुक्त राज्य डॉलर", "code": "USD", "symbol": "$" },
+        { "name": "भारतीय रुपया", "code": "INR", "symbol": "₹" },
+        { "name": "ऑस्ट्रेलियाई डॉलर", "code": "AUD", "symbol": "$" },
+        { "name": "यूएई दिरहम", "code": "AED", "symbol": "د.إ" },
+        { "name": "सऊदी रियाल", "code": "SAR", "symbol": "﷼" }
+      ],
+      "footer": {
+        "useCurrentLocation": "वर्तमान स्थान का उपयोग करें"
+      },
+      "beginJourney": "अपनी यात्रा शुरू करें ≫"
+    }
+  },
+  "realEstateHero": {
+    "title": "दुनिया का #1 रियल एस्टेट इंटेलिजेंस और वर्चुअल अनुभव प्लेटफ़ॉर्म",
+    "tabs": ["बिक्री के लिए", "पट्टे पर", "किराए पर"],
+    "categories": [
+      { "key": "flat", "label": "फ़्लैट / अपार्टमेंट" },
+      { "key": "villa", "label": "विला" },
+      { "key": "land", "label": "भूमि" },
+      { "key": "office", "label": "ऑफिस" },
+      { "key": "retail", "label": "रीटेल" }
+    ],
+    "askPlaceholder": "Vistaview AI से कुछ भी पूछें",
+    "aiMode": "एआई मोड",
+    "country": "यूएसए"
+  }
+  ,
+  "plan": {
+    "title": "विस्टाव्यू में आपका स्वागत है!",
+    "subtitle": "अपनी योजना चुनें और वे फीचर्स देखें जो केवल विस्टाव्यू देता है",
+    "heading": "अपनी योजना चुनें!",
+    "annual": "वार्षिक",
+    "monthly": "मासिक",
+    "choose_plan": "योजना चुनें",
+    "view_plan": "योजना देखें",
+    "skip": "स्किप",
+    "checkout": "चेकआउट",
+    "confirmTitle": "योजना पुष्टि",
+    "confirmAndSubmit": "अपनी योजना की पुष्टि करें और सबमिट करें",
+    "confirmDesc": "अपनी सदस्यता का ट्रैक रखें और फीचर अपग्रेड पर अपडेट प्राप्त करें!",
+    "confirmSubscription": "अपनी सदस्यता की पुष्टि करें",
+    "changePlan": "योजना बदलें",
+    "basic": "बेसिक",
+    "free": "फ्री",
+    "totalPrice": "कुल कीमत",
+    "confirm": "कन्फर्म",
+    "back": "पीछे",
+    "cancel": "रद्द करें",
+    "orderSummary": "ऑर्डर सारांश",
+    "discount": "डिस्काउंट",
+    "subtotal": "सबटोटल",
+    "total": "टोटल",
+    "makePayment": "भुगतान करें",
+    "paymentMethod": "भुगतान विधि",
+    "paymentMethods": "भुगतान विधियाँ",
+    "choose_button": "योजना चुनें",
+    "mySubscriptions": "मेरी सदस्यताएँ",
+    "history": "इतिहास",
+    "downloadInvoice": "इनवॉइस डाउनलोड करें",
+    "noBilling": "कोई बिलिंग नहीं",
+    "purchaseDate": "खरीद की तारीख",
+    "update_subscription": "अपनी योजना अपग्रेड करें",
+    "features": "योजना की विशेषताएँ"
+  }
+}

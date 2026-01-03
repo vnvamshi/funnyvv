@@ -1,0 +1,11 @@
+{
+  "name": "vistaview-dashboard",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.cjs"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

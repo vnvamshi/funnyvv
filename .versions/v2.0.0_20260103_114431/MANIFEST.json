@@ -1,0 +1,14 @@
+{
+    "version": "v2.0.0",
+    "timestamp": "20260103_114431",
+    "description": "v2.0 Installation with Golden Rules",
+    "created_at": "2026-01-03T11:44:31-06:00",
+    "features": [
+        "UI Action Bus",
+        "Full Logging",
+        "Golden Conversations",
+        "Failure Replays",
+        "Training Progress",
+        "Daily Reports"
+    ]
+}

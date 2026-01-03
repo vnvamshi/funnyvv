@@ -12,6 +12,8 @@ import WebAgentSignup from '../../pages/auth/WebAgentSignup';
 import { useAuth } from '../../contexts/AuthContext';
 import V3SignupModal from './V3SignupModal';
 import V3AgentSignupModal from './V3AgentSignupModal';
+import AboutUsModal from '../../components/AboutUsModal';
+import HowItWorksModal from '../../components/HowItWorksModal';
 
 const V3LandingHeader = () => {
     const { t, i18n } = useTranslation();
@@ -28,6 +30,10 @@ const V3LandingHeader = () => {
     const [selectedCurrency, setSelectedCurrency] = React.useState<{ code: string; symbol: string; name: string }>(defaultCurrency);
     const modalRef = React.useRef<HTMLDivElement | null>(null);
     const [authModalView, setAuthModalView] = React.useState<'signup' | 'login' | 'agentSignUp' | 'professionalLogin' | 'professionalSignup' | null>(null);
+    
+    // About Us & How It Works Modal States
+    const [showAboutUs, setShowAboutUs] = React.useState(false);
+    const [showHowItWorks, setShowHowItWorks] = React.useState(false);
 
     // Close on click outside
     React.useEffect(() => {
@@ -53,8 +59,22 @@ const V3LandingHeader = () => {
                     <div className="hidden md:flex items-center gap-6">
                         {/* Nav - Desktop */}
                         <nav className="flex items-center gap-16">
-                            <a href="#about" className="text-gold-gradient font-bold transition">{t('header.navigation.aboutUs')}</a>
-                            <a href="#how-it-works" className="text-gold-gradient font-bold transition">{t('header.navigation.howItWorks')}</a>
+                            {/* About Us - Opens Modal */}
+                            <button 
+                                onClick={() => setShowAboutUs(true)} 
+                                className="text-gold-gradient font-bold transition hover:opacity-80 bg-transparent border-none cursor-pointer"
+                            >
+                                {t('header.navigation.aboutUs')}
+                            </button>
+                            
+                            {/* How It Works - Opens Modal */}
+                            <button 
+                                onClick={() => setShowHowItWorks(true)} 
+                                className="text-gold-gradient font-bold transition hover:opacity-80 bg-transparent border-none cursor-pointer"
+                            >
+                                {t('header.navigation.howItWorks')}
+                            </button>
+                            
                             <a href="#partners" className="text-gold-gradient font-bold transition">{t('header.navigation.ourPartners')}</a>
                             <a href="#lend" className="text-gold-gradient font-bold transition">{t('header.navigation.lendWithUs')}</a>
                         </nav>
@@ -126,7 +146,7 @@ const V3LandingHeader = () => {
                     </div>
                 </div>
 
-                {/* Modal */}
+                {/* Country/Currency Modal */}
                 {isModalOpen && (
                     <div className="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-4">
                         <div className="absolute inset-0" style={{ background: 'rgba(0, 66, 54, 0.7)' }} />
@@ -224,6 +244,12 @@ const V3LandingHeader = () => {
                     </div>
                 )}
 
+                {/* About Us Modal */}
+                <AboutUsModal isOpen={showAboutUs} onClose={() => setShowAboutUs(false)} />
+                
+                {/* How It Works Modal */}
+                <HowItWorksModal isOpen={showHowItWorks} onClose={() => setShowHowItWorks(false)} />
+
                 {authModalView === 'agentSignUp' && (
                     <V3AgentSignupModal
                         isOpen
@@ -270,4 +296,4 @@ const V3LandingHeader = () => {
     );
 };
 
-export default V3LandingHeader; 
+export default V3LandingHeader;

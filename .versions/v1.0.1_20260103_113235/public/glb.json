@@ -1,0 +1,3926 @@
+{
+  "Plane368": {
+    "floor": 1,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 3.1,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 3.4,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 3.7,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 4,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane367": {
+    "floor": 2,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 3.1,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 3.4,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 3.7,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 4,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane369" : {
+    "floor": 3,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 3.1,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 3.4,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 3.7,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 4,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane428" : {
+    "floor": 4,
+    "property": [
+      {
+        "id": "Swimming Pool",
+        "notProperty": true,
+        "details" : "Clubhouse - one of the finest apartments with infinity swimming pool, offers unmatched skyline views",
+        "amenities": ["Clubhouses"],
+        "image": "swimming_pool",
+        "propertyType": "Clubhouse"
+      },
+      {
+        "id": "Badminton Court",
+        "notProperty": true,
+        "details" : "Clubhouse - one of the finest apartments with infinity swimming pool, offers unmatched skyline views",
+        "amenities": ["Clubhouses"],
+        "image": "tennis_court",
+        "propertyType": "Clubhouse"
+      },
+      {
+        "id": "Library",
+        "notProperty": true,
+        "details" : "Clubhouse - one of the finest apartments with infinity swimming pool, offers unmatched skyline views",
+        "amenities": ["Clubhouses"],
+        "image": "library",
+        "propertyType": "Clubhouse"
+      }
+    ]
+  },
+  "Plane429" : {
+    "floor": 5,
+    "property": [
+      {
+        "id": "Squash Court",
+        "notProperty": true,
+        "details" : "Clubhouse - one of the finest apartments with infinity swimming pool, offers unmatched skyline views",
+        "amenities": ["Clubhouses"],
+        "image": "one",
+        "propertyType": "Clubhouse"
+      },
+      {
+        "id": "Banquet Halls",
+        "notProperty": true,
+        "details" : "Clubhouse - one of the finest apartments with infinity swimming pool, offers unmatched skyline views",
+        "amenities": ["Clubhouses"],
+        "image": "banquet_hall",
+        "propertyType": "Clubhouse"
+      },
+      {
+        "id": "Amphie Theatre",
+        "notProperty": true,
+        "details" : "Clubhouse - one of the finest apartments with infinity swimming pool, offers unmatched skyline views",
+        "amenities": ["Clubhouses"],
+        "image": "amphitheater",
+        "propertyType": "Clubhouse"
+      }
+    ]
+  },
+  "Plane370": {
+    "floor": 6,
+    "property": [
+      {
+        "id": "Saloon",
+        "notProperty": true,
+        "details" : "Clubhouse - one of the finest apartments with infinity swimming pool, offers unmatched skyline views",
+        "amenities": ["Clubhouses"],
+        "image": "saloon",
+        "propertyType": "Clubhouse"
+      },
+      {
+        "id": "Spa",
+        "notProperty": true,
+        "details" : "Clubhouse - one of the finest apartments with infinity swimming pool, offers unmatched skyline views",
+        "amenities": ["Clubhouses"],
+        "image": "spa",
+        "propertyType": "Clubhouse"
+      },
+      {
+        "id": "Kids Play Area",
+        "notProperty": true,
+        "details" : "Clubhouse - one of the finest apartments with infinity swimming pool, offers unmatched skyline views",
+        "amenities": ["Clubhouses"],
+        "image": "kids_play_area",
+        "propertyType": "Clubhouse"
+      },
+      {
+        "id": "Yoga Studio",
+        "notProperty": true,
+        "details" : "Clubhouse - one of the finest apartments with infinity swimming pool, offers unmatched skyline views",
+        "amenities": ["Clubhouses"],
+        "image": "yoga_studio",
+        "propertyType": "Clubhouse"
+      },
+      {
+        "id": "Workstation",
+        "notProperty": true,
+        "details" : "Clubhouse - one of the finest apartments with infinity swimming pool, offers unmatched skyline views",
+        "amenities": ["Clubhouses"],
+        "image": "workstation",
+        "propertyType": "Clubhouse"
+      }
+    ]
+  },
+  "Plane371": {
+    "floor": 7,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 3.2,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 3.5,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 3.8,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 4.1,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane372": {
+    "floor": 8,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 3.3,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 3.6,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 3.9,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 4.2,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane373": {
+    "floor": 9,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 3.4,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 3.7,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 4,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 4.3,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane374": {
+    "floor": 10,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 3.5,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 3.8,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 4.1,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 4.4,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane375": {
+    "floor": 11,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 3.6,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 3.9,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 4.2,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 4.5,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane376": {
+    "floor": 12,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior":"5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 3.7,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 4,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 4.3,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 4.6,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane377": {
+    "floor": 13,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 3.8,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 4.1,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 4.4,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 4.7,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane378": {
+    "floor": 14,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 3.9,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 4.2,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 4.5,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 4.8,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane379": {
+    "floor": 15,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 4,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 4.3,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 4.6,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 4.9,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane380": {
+    "floor": 16,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 4.1,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 4.4,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 4.7,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 5,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane381": {
+    "floor": 17,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 4.2,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 4.5,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 4.8,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 5.1,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane382": {
+    "floor": 18,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 4.3,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 4.6,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 4.9,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 5.2,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane383": {
+    "floor": 19,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 4.4,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 4.7,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 5,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 5.3,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane384": {
+    "floor": 20,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 4.5,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 4.8,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 5.1,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 5.4,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane385": {
+    "floor": 21,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 4.6,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 4.9,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 5.2,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 5.5,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane386": {
+    "floor": 22,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 4.7,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 5,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 5.3,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 5.6,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane387": {
+    "floor": 23,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 4.8,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 5.1,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 5.4,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 5.7,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane388": {
+    "floor": 24,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 4.9,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 5.2,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 5.5,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 5.8,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane389": {
+    "floor": 25,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 5,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 5.3,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 5.6,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 5.9,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane390": {
+    "floor": 26,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 5.1,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 5.4,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 5.7,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 6,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane391": {
+    "floor": 27,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 5.2,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 5.5,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 5.8,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 6.1,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane392": {
+    "floor": 28,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 5.3,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 5.6,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 5.9,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 6.2,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane393": {
+    "floor": 29,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 5.4,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 5.7,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 6,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 6.3,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane394": {
+    "floor": 30,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 5.5,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 5.8,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 6.1,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 6.4,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane395": {
+    "floor": 31,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 5.6,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 5.9,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 6.2,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 6.5,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane396": {
+    "floor": 32,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 5.7,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 6,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 6.3,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 6.6,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane397": {
+    "floor": 33,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 5.8,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 6.1,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 6.4,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 6.7,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane398": {
+    "floor": 34,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 5.9,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 6.2,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 6.5,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 6.8,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane399": {
+    "floor": 35,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 6,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 6.3,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 6.6,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 6.9,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane400": {
+    "floor": 36,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 6.1,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 6.4,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 6.7,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 7,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane401": {
+    "floor": 37,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 6.2,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 6.5,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 6.8,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 7.1,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane402": {
+    "floor": 38,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 6.3,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 6.6,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 6.9,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 7.2,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane403": {
+    "floor": 39,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 6.4,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 6.7,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 7,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 7.3,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane404": {
+    "floor": 40,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 6.5,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 6.8,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 7.1,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 7.4,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane405": {
+    "floor": 41,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 6.6,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 6.9,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 7.2,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 7.5,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane406": {
+    "floor": 42,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 6.7,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 7,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 7.3,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 7.6,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane407": {
+    "floor": 43,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 6.8,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 7.1,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 7.4,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 7.7,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane408": {
+    "floor": 44,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 6.9,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 7.2,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 7.5,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 7.8,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane409": {
+    "floor": 45,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 7,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 7.3,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 7.6,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 7.9,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane410": {
+    "floor": 46,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 7.1,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 7.4,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 7.7,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 8,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane411": {
+    "floor": 47,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 7.2,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 7.5,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 7.8,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 8.1,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane412": {
+    "floor": 48,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 7.3,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 7.6,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 7.9,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 8.2,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane413": {
+    "floor": 49,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 7.4,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 7.7,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 8,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 8.3,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane414": {
+    "floor": 50,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 7.5,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 7.8,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 8.1,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 8.4,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane415": {
+    "floor": 51,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 7.6,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 7.9,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "West",
+        "price": 8.2,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 8.5,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane416": {
+    "floor": 52,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 7.7,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 8,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 8.3,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 8.6,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane417": {
+    "floor": 53,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 7.8,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 8.1,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft",
+        "facing": "East",
+        "price": 8.4,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 8.7,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane418": {
+    "floor": 54,
+    "property": [
+      {
+        "id": "01 Duplex - Sky Villa - 5BHK",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "5 Beds",
+        "interior": "11,790 Sq. Ft.",
+        "facing": "East",
+        "price": 7.95,
+        "residenceType": "Sky Villas",
+        "amenities": [],
+        "image": "one_duplex",
+        "propertyType": "Sky Villas"
+      },
+      {
+        "id": "02 Duplex - Penthouse - 5BHK",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "5 Beds",
+        "interior": "12,556 Sq. Ft.",
+        "facing": "West",
+        "price": 8.95,
+        "residenceType": "Sky Villas",
+        "amenities": [],
+        "image": "two_duplex",
+        "propertyType": "Sky Villas"
+      }
+    ]
+  },
+  "Plane419": {
+    "floor": 55,
+    "property": [
+      {
+        "id": "01 Duplex - Sky Villa - 5BHK",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "5 Beds",
+        "interior": "11,790 Sq. Ft.",
+        "facing": "East",
+        "price": 7.95,
+        "residenceType": "Sky Villas",
+        "amenities": [],
+        "image": "one_duplex",
+        "propertyType": "Sky Villas"
+      },
+      {
+        "id": "02 Duplex - Penthouse - 5BHK",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "5 Beds",
+        "interior": "12,556 Sq. Ft.",
+        "facing": "West",
+        "price": 8.95,
+        "residenceType": "Sky Villas",
+        "amenities": [],
+        "image": "two_duplex",
+        "propertyType": "Sky Villas"
+      }
+    ]
+  },
+  "Plane420": {
+    "floor": 56,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 8.2,
+        "residenceType": "1NE",
+        "amenities": [
+        ],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 8.5,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft.",
+        "facing": "East",
+        "price": 8.8,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 9.1,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane421": {
+    "floor": 57,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 8.3,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 8.6,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft.",
+        "facing": "East",
+        "price": 8.9,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 9.2,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane422": {
+    "floor": 58,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 8.4,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 8.7,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft.",
+        "facing": "West",
+        "price": 9,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 9.3,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane423": {
+    "floor": 59,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 8.5,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 8.8,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft.",
+        "facing": "West",
+        "price": 9.1,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 9.4,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane424": {
+    "floor": 60,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 8.6,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "East",
+        "price": 8.9,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft.",
+        "facing": "East",
+        "price": 9.2,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "West",
+        "price": 9.5,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane425": {
+    "floor": 61,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "West",
+        "price": 8.7,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 9,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft.",
+        "facing": "East",
+        "price": 9.3,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 9.6,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane426": {
+    "floor": 62,
+    "property": [
+      {
+        "id": "1NE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,896 Sq. Ft.",
+        "facing": "East",
+        "price": 8.8,
+        "residenceType": "1NE",
+        "amenities": [],
+        "image": "one",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "2WO",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "6,278 Sq. Ft.",
+        "facing": "West",
+        "price": 9.1,
+        "residenceType": "2WO",
+        "amenities": [],
+        "image": "two",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "3HREE",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,662 Sq. Ft.",
+        "facing": "West",
+        "price": 9.4,
+        "residenceType": "3HREE",
+        "amenities": [],
+        "image": "three",
+        "propertyType": "Residence"
+      },
+      {
+        "id": "4OUR",
+        "status": {
+          "label": "Available",
+          "tone": "green"
+        },
+        "beds": "4 Beds",
+        "interior": "5,962 Sq. Ft.",
+        "facing": "East",
+        "price": 9.7,
+        "residenceType": "4OUR",
+        "amenities": [],
+        "image": "four",
+        "propertyType": "Residence"
+      }
+    ]
+  },
+  "Plane427": {
+    "floor": 63,
+    "property": [
+      {
+        "id": "Crossfit Area",
+        "notProperty": true,
+        "details" : "Clubhouse - one of the finest apartments with infinity swimming pool, offers unmatched skyline views",
+        "amenities": ["Clubhouses", "Helipad", "Rooftop"],
+        "image": "gym",
+        "propertyType": "Clubhouse"
+      },
+      {
+        "id": "Infinte Swimming Pool",
+        "notProperty": true,
+        "details" : "Clubhouse - one of the finest apartments with infinity swimming pool, offers unmatched skyline views",
+        "amenities": ["Clubhouses", "Helipad", "Rooftop"],
+        "image": "infinte_pool",
+        "propertyType": "Clubhouse"
+      },
+      {
+        "id": "Observatory",
+        "notProperty": true,
+        "details" : "Clubhouse - one of the finest apartments with infinity swimming pool, offers unmatched skyline views",
+        "amenities": ["Clubhouses", "Helipad", "Rooftop"],
+        "image": "observatory",
+        "propertyType": "Clubhouse"
+      },
+      {
+        "id": "360 Walkout Area",
+        "notProperty": true,
+        "details" : "Clubhouse - one of the finest apartments with infinity swimming pool, offers unmatched skyline views",
+        "amenities": ["Clubhouses", "Helipad", "Rooftop"],
+        "image": "three60_walkout_area",
+        "propertyType": "Clubhouse"
+      },
+      {
+        "id": "Helipad",
+        "notProperty": true,
+        "details" : "Clubhouse - one of the finest apartments with infinity swimming pool, offers unmatched skyline views",
+        "amenities": ["Clubhouses", "Helipad", "Rooftop"],
+        "image": "heli_pad",
+        "propertyType": "Clubhouse"
+      }
+    ]
+  }
+}

@@ -1,0 +1,275 @@
+[
+  {
+    "id": 1,
+    "name": "Premium Marble Tiles",
+    "description": "High-quality Italian marble tiles for flooring and walls",
+    "category": "Flooring",
+    "price": 301.20,
+    "mrp": 361.45,
+    "vendor": "Luxury Tiles Co.",
+    "warranty": "10 years",
+    "extendedWarranty": {
+      "years": 2,
+      "price": 30.12
+    },
+    "insurance": {
+      "available": true,
+      "coverage": "Damage protection",
+      "price": 12.05
+    },
+    "alternatives": {
+      "budget": {
+        "id": 101,
+        "name": "Classic Ceramic Tiles",
+        "price": 216.87,
+        "description": "High-quality ceramic tiles with marble finish",
+        "image": "/assets/images/v3.2/property-images/living.png",
+        "rating": 4.5,
+        "vendor": "Budget Tiles Co."
+      },
+      "premium": {
+        "id": 102, 
+        "name": "Luxury Granite Tiles",
+        "price": 421.69,
+        "description": "Premium granite tiles with natural stone finish",
+        "image": "/assets/images/v3.2/property-images/living.png",
+        "rating": 4.9,
+        "vendor": "Premium Stone Co."
+      },
+      "similar": {
+        "id": 103,
+        "name": "Modern Porcelain Tiles", 
+        "price": 265.06,
+        "description": "Durable porcelain tiles with contemporary design",
+        "image": "/assets/images/v3.2/property-images/living.png",
+        "rating": 4.7,
+        "vendor": "Modern Tiles Co."
+      }
+    },
+    "relatedProducts": [4, 6],
+    "accessories": [7, 8],
+    "image": "/assets/images/v3.2/property-images/living.png",
+    "rating": 4.8,
+    "reviews": 124,
+    "inStock": true,
+    "features": ["Water resistant", "Scratch proof", "Easy maintenance"],
+    "specifications": {
+      "material": "Italian Marble",
+      "size": "12x12 inches",
+      "thickness": "10mm",
+      "finish": "Polished"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Modern Dining Set",
+    "description": "Contemporary dining table with 4 chairs, perfect for modern homes",
+    "category": "Furniture",
+    "price": 542.17,
+    "mrp": 662.65,
+    "vendor": "Furniture World",
+    "warranty": "5 years",
+    "extendedWarranty": {
+      "years": 3,
+      "price": 42.17
+    },
+    "insurance": {
+      "available": true,
+      "coverage": "Accidental damage",
+      "price": 24.10
+    },
+    "alternatives": {
+      "budget": {
+        "id": 201,
+        "name": "Basic Dining Set",
+        "price": 385.54,
+        "description": "Simple dining table with 4 chairs, great value",
+        "image": "/assets/images/v3.2/property-images/kitchen.png",
+        "rating": 4.3,
+        "vendor": "Budget Furniture"
+      },
+      "premium": {
+        "id": 202, 
+        "name": "Luxury Oak Dining Set",
+        "price": 783.13,
+        "description": "Premium solid oak dining set with 6 chairs",
+        "image": "/assets/images/v3.2/property-images/kitchen.png",
+        "rating": 4.9,
+        "vendor": "Luxury Furniture Co."
+      },
+      "similar": {
+        "id": 203,
+        "name": "Contemporary Glass Dining Set", 
+        "price": 578.31,
+        "description": "Modern glass top dining table with metal chairs",
+        "image": "/assets/images/v3.2/property-images/kitchen.png",
+        "rating": 4.6,
+        "vendor": "Modern Living"
+      }
+    },
+    "relatedProducts": [3, 4],
+    "accessories": [9, 10],
+    "image": "/assets/images/v3.2/property-images/kitchen.png",
+    "rating": 4.6,
+    "reviews": 89,
+    "inStock": true,
+    "features": ["Solid wood construction", "Easy assembly", "Modern design"],
+    "specifications": {
+      "material": "Solid Oak Wood",
+      "tableSize": "120x80 cm",
+      "chairCount": 4,
+      "color": "Natural Oak"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Luxury 3-Seater Sofa",
+    "description": "Premium leather sofa with comfortable seating for living room",
+    "category": "Furniture",
+    "price": 903.61,
+    "mrp": 1084.34,
+    "vendor": "Comfort Living",
+    "warranty": "7 years",
+    "extendedWarranty": {
+      "years": 3,
+      "price": 60.24
+    },
+    "insurance": {
+      "available": true,
+      "coverage": "Full protection",
+      "price": 36.14
+    },
+    "alternatives": {
+      "budget": {
+        "id": 301,
+        "name": "Comfort Fabric Sofa",
+        "price": 662.65,
+        "description": "Comfortable fabric sofa with modern design",
+        "image": "/assets/images/v3.2/property-images/bedroom.png",
+        "rating": 4.4,
+        "vendor": "Budget Comfort"
+      },
+      "premium": {
+        "id": 302, 
+        "name": "Executive Leather Sofa Set",
+        "price": 1144.58,
+        "description": "Premium leather sofa set with matching chairs",
+        "image": "/assets/images/v3.2/property-images/bedroom.png",
+        "rating": 4.9,
+        "vendor": "Executive Living"
+      },
+      "similar": {
+        "id": 303,
+        "name": "Modern Sectional Sofa", 
+        "price": 939.76,
+        "description": "Contemporary sectional sofa with modular design",
+        "image": "/assets/images/v3.2/property-images/bedroom.png",
+        "rating": 4.7,
+        "vendor": "Modern Comfort"
+      }
+    },
+    "relatedProducts": [2, 4],
+    "accessories": [11, 12],
+    "image": "/assets/images/v3.2/property-images/bedroom.png",
+    "rating": 4.9,
+    "reviews": 156,
+    "inStock": true,
+    "features": ["Genuine leather", "Reclining function", "Easy cleaning"],
+    "specifications": {
+      "material": "Genuine Leather",
+      "seatingCapacity": 3,
+      "dimensions": "200x90x85 cm",
+      "color": "Brown"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Smart LED Lighting Kit",
+    "description": "Energy-efficient smart LED lights with app control and voice integration",
+    "category": "Lighting",
+    "price": 180.72,
+    "mrp": 240.96,
+    "vendor": "Smart Home Solutions",
+    "warranty": "3 years",
+    "extendedWarranty": {
+      "years": 2,
+      "price": 18.07
+    },
+    "insurance": {
+      "available": true,
+      "coverage": "Electrical damage",
+      "price": 9.64
+    },
+    "image": "/assets/images/v3.2/property-images/living.png",
+    "rating": 4.7,
+    "reviews": 203,
+    "inStock": true,
+    "features": ["WiFi enabled", "Voice control", "Color changing", "Energy efficient"],
+    "specifications": {
+      "power": "12W per bulb",
+      "lifespan": "25000 hours",
+      "connectivity": "WiFi + Bluetooth",
+      "compatibility": "Alexa, Google Home"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Premium Kitchen Appliances Set",
+    "description": "Complete kitchen appliance package including refrigerator, microwave, and dishwasher",
+    "category": "Appliances",
+    "price": 1445.78,
+    "mrp": 1807.23,
+    "vendor": "Kitchen Pro",
+    "warranty": "2 years",
+    "extendedWarranty": {
+      "years": 3,
+      "price": 96.39
+    },
+    "insurance": {
+      "available": true,
+      "coverage": "Comprehensive protection",
+      "price": 60.24
+    },
+    "image": "/assets/images/v3.2/property-images/kitchen.png",
+    "rating": 4.8,
+    "reviews": 67,
+    "inStock": true,
+    "features": ["Energy star rated", "Stainless steel finish", "Smart features"],
+    "specifications": {
+      "refrigeratorCapacity": "300L",
+      "microwavePower": "1000W",
+      "dishwasherCapacity": "12 place settings",
+      "energyRating": "A++"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Luxury Bathroom Fittings",
+    "description": "High-end bathroom fixtures including faucets, shower heads, and accessories",
+    "category": "Bathroom",
+    "price": 421.69,
+    "mrp": 542.17,
+    "vendor": "Bathroom Elegance",
+    "warranty": "5 years",
+    "extendedWarranty": {
+      "years": 2,
+      "price": 30.12
+    },
+    "insurance": {
+      "available": true,
+      "coverage": "Water damage protection",
+      "price": 18.07
+    },
+    "image": "/assets/images/v3.2/property-images/bedroom.png",
+    "rating": 4.5,
+    "reviews": 98,
+    "inStock": true,
+    "features": ["Chrome finish", "Water saving", "Easy installation"],
+    "specifications": {
+      "material": "Brass with Chrome",
+      "finish": "Chrome",
+      "waterFlow": "8L/min",
+      "installation": "Wall mounted"
+    }
+  }
+]
