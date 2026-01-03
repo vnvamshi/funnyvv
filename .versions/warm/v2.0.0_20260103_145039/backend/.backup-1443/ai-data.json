@@ -2922,201 +2922,24 @@
       "created_at": "2026-01-03T20:19:13.954Z"
     },
     {
-      "id": "mem_1767473064926_11yked4zn",
-      "memory_type": "market_pattern",
-      "context": "Price data from amazon",
-      "learned_data": {
-        "source": "amazon",
-        "category": "general",
-        "url": "https://www.amazon.com",
-        "prices_analyzed": 77,
-        "avg_price": "194.07",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T20:44:24.926Z"
-      },
-      "confidence_score": 0.8265373676180461,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:44:24.926Z"
-    },
-    {
-      "id": "mem_1767473094929_1kpfgt229",
-      "memory_type": "market_pattern",
-      "context": "Price data from ikea",
-      "learned_data": {
-        "source": "ikea",
-        "category": "furniture",
-        "url": "https://www.ikea.com",
-        "prices_analyzed": 51,
-        "avg_price": "142.00",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T20:44:54.929Z"
-      },
-      "confidence_score": 0.7578556057815864,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:44:54.929Z"
-    },
-    {
-      "id": "mem_1767473124927_liykkwi9b",
-      "memory_type": "market_pattern",
-      "context": "Price data from wayfair",
-      "learned_data": {
-        "source": "wayfair",
-        "category": "home_goods",
-        "url": "https://www.wayfair.com",
-        "prices_analyzed": 38,
-        "avg_price": "443.99",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T20:45:24.927Z"
-      },
-      "confidence_score": 0.8242294089861333,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:45:24.927Z"
-    },
-    {
-      "id": "mem_1767473154928_w1qqrxcoh",
+      "id": "mem_1767472125626_uh2s55w0t",
       "memory_type": "market_pattern",
       "context": "Price data from realtor",
       "learned_data": {
         "source": "realtor",
         "category": "real_estate",
         "url": "https://www.realtor.com",
-        "prices_analyzed": 53,
-        "avg_price": "101.74",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T20:45:54.928Z"
-      },
-      "confidence_score": 0.7829977213503937,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:45:54.928Z"
-    },
-    {
-      "id": "mem_1767473184928_fot402xfq",
-      "memory_type": "market_pattern",
-      "context": "Price data from wayfair",
-      "learned_data": {
-        "source": "wayfair",
-        "category": "home_goods",
-        "url": "https://www.wayfair.com",
         "prices_analyzed": 46,
-        "avg_price": "464.97",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T20:46:24.928Z"
+        "avg_price": "538.60",
+        "trend": "increasing",
+        "timestamp": "2026-01-03T20:28:45.626Z"
       },
-      "confidence_score": 0.9379909348265882,
+      "confidence_score": 0.7974926544572253,
       "accessed_count": 0,
-      "created_at": "2026-01-03T20:46:24.928Z"
+      "created_at": "2026-01-03T20:28:45.626Z"
     },
     {
-      "id": "pat_1767473184931",
-      "memory_type": "pattern",
-      "context": "Pattern: regional_variance",
-      "learned_data": {
-        "name": "regional_variance",
-        "confidence": 0.88,
-        "applications": 19
-      },
-      "confidence_score": 0.88,
-      "created_at": "2026-01-03T20:46:24.931Z"
-    },
-    {
-      "id": "mem_1767473214930_s0wpo4jju",
-      "memory_type": "market_pattern",
-      "context": "Price data from lowes",
-      "learned_data": {
-        "source": "lowes",
-        "category": "building_materials",
-        "url": "https://www.lowes.com",
-        "prices_analyzed": 65,
-        "avg_price": "349.88",
-        "trend": "stable",
-        "timestamp": "2026-01-03T20:46:54.930Z"
-      },
-      "confidence_score": 0.7824912264329585,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:46:54.930Z"
-    },
-    {
-      "id": "mem_1767473244932_svh64ekw7",
-      "memory_type": "market_pattern",
-      "context": "Price data from ikea",
-      "learned_data": {
-        "source": "ikea",
-        "category": "furniture",
-        "url": "https://www.ikea.com",
-        "prices_analyzed": 70,
-        "avg_price": "458.33",
-        "trend": "stable",
-        "timestamp": "2026-01-03T20:47:24.932Z"
-      },
-      "confidence_score": 0.8060273053753885,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:47:24.932Z"
-    },
-    {
-      "id": "mem_1767473274932_d0yd41qtq",
-      "memory_type": "market_pattern",
-      "context": "Price data from wayfair",
-      "learned_data": {
-        "source": "wayfair",
-        "category": "home_goods",
-        "url": "https://www.wayfair.com",
-        "prices_analyzed": 47,
-        "avg_price": "223.20",
-        "trend": "stable",
-        "timestamp": "2026-01-03T20:47:54.932Z"
-      },
-      "confidence_score": 0.8388538936633542,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:47:54.932Z"
-    },
-    {
-      "id": "mem_1767473304934_4o7u86kez",
-      "memory_type": "market_pattern",
-      "context": "Price data from homedepot",
-      "learned_data": {
-        "source": "homedepot",
-        "category": "building_materials",
-        "url": "https://www.homedepot.com",
-        "prices_analyzed": 54,
-        "avg_price": "366.24",
-        "trend": "stable",
-        "timestamp": "2026-01-03T20:48:24.934Z"
-      },
-      "confidence_score": 0.8015985126793379,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:48:24.934Z"
-    },
-    {
-      "id": "mem_1767473334933_bys736ckf",
-      "memory_type": "market_pattern",
-      "context": "Price data from realtor",
-      "learned_data": {
-        "source": "realtor",
-        "category": "real_estate",
-        "url": "https://www.realtor.com",
-        "prices_analyzed": 65,
-        "avg_price": "545.02",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T20:48:54.933Z"
-      },
-      "confidence_score": 0.9331129321428907,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:48:54.933Z"
-    },
-    {
-      "id": "pat_1767473334935",
-      "memory_type": "pattern",
-      "context": "Pattern: regional_variance",
-      "learned_data": {
-        "name": "regional_variance",
-        "confidence": 0.88,
-        "applications": 24
-      },
-      "confidence_score": 0.88,
-      "created_at": "2026-01-03T20:48:54.935Z"
-    },
-    {
-      "id": "mem_1767473364934_7ar284vz5",
+      "id": "mem_1767472155630_1e08qrmrx",
       "memory_type": "market_pattern",
       "context": "Price data from lowes",
       "learned_data": {
@@ -3124,16 +2947,193 @@
         "category": "building_materials",
         "url": "https://www.lowes.com",
         "prices_analyzed": 72,
-        "avg_price": "557.27",
-        "trend": "stable",
-        "timestamp": "2026-01-03T20:49:24.934Z"
+        "avg_price": "512.85",
+        "trend": "decreasing",
+        "timestamp": "2026-01-03T20:29:15.630Z"
       },
-      "confidence_score": 0.8361598791345537,
+      "confidence_score": 0.8097175988771275,
       "accessed_count": 0,
-      "created_at": "2026-01-03T20:49:24.934Z"
+      "created_at": "2026-01-03T20:29:15.630Z"
     },
     {
-      "id": "mem_1767473394934_xbyv6oh32",
+      "id": "mem_1767472185632_sl46apefa",
+      "memory_type": "market_pattern",
+      "context": "Price data from amazon",
+      "learned_data": {
+        "source": "amazon",
+        "category": "general",
+        "url": "https://www.amazon.com",
+        "prices_analyzed": 72,
+        "avg_price": "269.00",
+        "trend": "increasing",
+        "timestamp": "2026-01-03T20:29:45.632Z"
+      },
+      "confidence_score": 0.8639426898831363,
+      "accessed_count": 0,
+      "created_at": "2026-01-03T20:29:45.632Z"
+    },
+    {
+      "id": "mem_1767472215632_20fdsbhme",
+      "memory_type": "market_pattern",
+      "context": "Price data from ikea",
+      "learned_data": {
+        "source": "ikea",
+        "category": "furniture",
+        "url": "https://www.ikea.com",
+        "prices_analyzed": 58,
+        "avg_price": "493.69",
+        "trend": "stable",
+        "timestamp": "2026-01-03T20:30:15.632Z"
+      },
+      "confidence_score": 0.9269256291337907,
+      "accessed_count": 0,
+      "created_at": "2026-01-03T20:30:15.632Z"
+    },
+    {
+      "id": "mem_1767472245633_h9xmplhzl",
+      "memory_type": "market_pattern",
+      "context": "Price data from zillow",
+      "learned_data": {
+        "source": "zillow",
+        "category": "real_estate",
+        "url": "https://www.zillow.com",
+        "prices_analyzed": 78,
+        "avg_price": "141.70",
+        "trend": "increasing",
+        "timestamp": "2026-01-03T20:30:45.634Z"
+      },
+      "confidence_score": 0.8191311183116298,
+      "accessed_count": 0,
+      "created_at": "2026-01-03T20:30:45.634Z"
+    },
+    {
+      "id": "pat_1767472245636",
+      "memory_type": "pattern",
+      "context": "Pattern: inventory_correlation",
+      "learned_data": {
+        "name": "inventory_correlation",
+        "confidence": 0.71,
+        "applications": 22
+      },
+      "confidence_score": 0.71,
+      "created_at": "2026-01-03T20:30:45.636Z"
+    },
+    {
+      "id": "mem_1767472275634_s52eagroy",
+      "memory_type": "market_pattern",
+      "context": "Price data from zillow",
+      "learned_data": {
+        "source": "zillow",
+        "category": "real_estate",
+        "url": "https://www.zillow.com",
+        "prices_analyzed": 72,
+        "avg_price": "453.22",
+        "trend": "stable",
+        "timestamp": "2026-01-03T20:31:15.634Z"
+      },
+      "confidence_score": 0.7571259481654602,
+      "accessed_count": 0,
+      "created_at": "2026-01-03T20:31:15.634Z"
+    },
+    {
+      "id": "mem_1767472305633_1rasli9bm",
+      "memory_type": "market_pattern",
+      "context": "Price data from amazon",
+      "learned_data": {
+        "source": "amazon",
+        "category": "general",
+        "url": "https://www.amazon.com",
+        "prices_analyzed": 59,
+        "avg_price": "551.78",
+        "trend": "decreasing",
+        "timestamp": "2026-01-03T20:31:45.633Z"
+      },
+      "confidence_score": 0.7719734104839505,
+      "accessed_count": 0,
+      "created_at": "2026-01-03T20:31:45.633Z"
+    },
+    {
+      "id": "mem_1767472335635_si9ewzq8z",
+      "memory_type": "market_pattern",
+      "context": "Price data from lowes",
+      "learned_data": {
+        "source": "lowes",
+        "category": "building_materials",
+        "url": "https://www.lowes.com",
+        "prices_analyzed": 69,
+        "avg_price": "372.87",
+        "trend": "stable",
+        "timestamp": "2026-01-03T20:32:15.635Z"
+      },
+      "confidence_score": 0.7704948559936131,
+      "accessed_count": 0,
+      "created_at": "2026-01-03T20:32:15.635Z"
+    },
+    {
+      "id": "mem_1767472365635_9xgmy3n8n",
+      "memory_type": "market_pattern",
+      "context": "Price data from realtor",
+      "learned_data": {
+        "source": "realtor",
+        "category": "real_estate",
+        "url": "https://www.realtor.com",
+        "prices_analyzed": 39,
+        "avg_price": "343.04",
+        "trend": "stable",
+        "timestamp": "2026-01-03T20:32:45.635Z"
+      },
+      "confidence_score": 0.7841521378365371,
+      "accessed_count": 0,
+      "created_at": "2026-01-03T20:32:45.635Z"
+    },
+    {
+      "id": "mem_1767472395635_xkok3cewo",
+      "memory_type": "market_pattern",
+      "context": "Price data from redfin",
+      "learned_data": {
+        "source": "redfin",
+        "category": "real_estate",
+        "url": "https://www.redfin.com",
+        "prices_analyzed": 40,
+        "avg_price": "364.67",
+        "trend": "decreasing",
+        "timestamp": "2026-01-03T20:33:15.635Z"
+      },
+      "confidence_score": 0.9049898596755104,
+      "accessed_count": 0,
+      "created_at": "2026-01-03T20:33:15.635Z"
+    },
+    {
+      "id": "pat_1767472395638",
+      "memory_type": "pattern",
+      "context": "Pattern: seasonal_demand",
+      "learned_data": {
+        "name": "seasonal_demand",
+        "confidence": 0.78,
+        "applications": 49
+      },
+      "confidence_score": 0.78,
+      "created_at": "2026-01-03T20:33:15.638Z"
+    },
+    {
+      "id": "mem_1767472425635_2d7j81w1o",
+      "memory_type": "market_pattern",
+      "context": "Price data from lowes",
+      "learned_data": {
+        "source": "lowes",
+        "category": "building_materials",
+        "url": "https://www.lowes.com",
+        "prices_analyzed": 39,
+        "avg_price": "480.96",
+        "trend": "increasing",
+        "timestamp": "2026-01-03T20:33:45.635Z"
+      },
+      "confidence_score": 0.911339314956112,
+      "accessed_count": 0,
+      "created_at": "2026-01-03T20:33:45.635Z"
+    },
+    {
+      "id": "mem_1767472455636_dwjjwgaan",
       "memory_type": "market_pattern",
       "context": "Price data from zillow",
       "learned_data": {
@@ -3141,147 +3141,113 @@
         "category": "real_estate",
         "url": "https://www.zillow.com",
         "prices_analyzed": 43,
-        "avg_price": "356.03",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T20:49:54.934Z"
+        "avg_price": "467.44",
+        "trend": "decreasing",
+        "timestamp": "2026-01-03T20:34:15.636Z"
       },
-      "confidence_score": 0.9219532630004309,
+      "confidence_score": 0.759852803477814,
       "accessed_count": 0,
-      "created_at": "2026-01-03T20:49:54.934Z"
+      "created_at": "2026-01-03T20:34:15.636Z"
     },
     {
-      "id": "mem_1767473424935_4fknzyule",
+      "id": "mem_1767472485636_uwnw0wnrk",
+      "memory_type": "market_pattern",
+      "context": "Price data from amazon",
+      "learned_data": {
+        "source": "amazon",
+        "category": "general",
+        "url": "https://www.amazon.com",
+        "prices_analyzed": 76,
+        "avg_price": "425.06",
+        "trend": "increasing",
+        "timestamp": "2026-01-03T20:34:45.636Z"
+      },
+      "confidence_score": 0.8160290928575745,
+      "accessed_count": 0,
+      "created_at": "2026-01-03T20:34:45.636Z"
+    },
+    {
+      "id": "mem_1767472515636_ypc5qaxgo",
+      "memory_type": "market_pattern",
+      "context": "Price data from lowes",
+      "learned_data": {
+        "source": "lowes",
+        "category": "building_materials",
+        "url": "https://www.lowes.com",
+        "prices_analyzed": 64,
+        "avg_price": "279.05",
+        "trend": "stable",
+        "timestamp": "2026-01-03T20:35:15.636Z"
+      },
+      "confidence_score": 0.8418699650889694,
+      "accessed_count": 0,
+      "created_at": "2026-01-03T20:35:15.636Z"
+    },
+    {
+      "id": "mem_1767472545636_onld8fpaa",
       "memory_type": "market_pattern",
       "context": "Price data from ikea",
       "learned_data": {
         "source": "ikea",
         "category": "furniture",
         "url": "https://www.ikea.com",
-        "prices_analyzed": 63,
-        "avg_price": "379.93",
-        "trend": "stable",
-        "timestamp": "2026-01-03T20:50:24.935Z"
-      },
-      "confidence_score": 0.7680675776435413,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:50:24.935Z"
-    },
-    {
-      "id": "mem_1767473454934_xqxs8ds3w",
-      "memory_type": "market_pattern",
-      "context": "Price data from redfin",
-      "learned_data": {
-        "source": "redfin",
-        "category": "real_estate",
-        "url": "https://www.redfin.com",
-        "prices_analyzed": 43,
-        "avg_price": "413.24",
+        "prices_analyzed": 50,
+        "avg_price": "120.69",
         "trend": "decreasing",
-        "timestamp": "2026-01-03T20:50:54.934Z"
+        "timestamp": "2026-01-03T20:35:45.636Z"
       },
-      "confidence_score": 0.8189232205443588,
+      "confidence_score": 0.7994847093446795,
       "accessed_count": 0,
-      "created_at": "2026-01-03T20:50:54.934Z"
+      "created_at": "2026-01-03T20:35:45.636Z"
     },
     {
-      "id": "mem_1767473484936_ycrhhmmlw",
+      "id": "pat_1767472545640",
+      "memory_type": "pattern",
+      "context": "Pattern: competitor_pricing",
+      "learned_data": {
+        "name": "competitor_pricing",
+        "confidence": 0.85,
+        "applications": 32
+      },
+      "confidence_score": 0.85,
+      "created_at": "2026-01-03T20:35:45.640Z"
+    },
+    {
+      "id": "mem_1767472575637_7p1nx4wkh",
       "memory_type": "market_pattern",
       "context": "Price data from realtor",
       "learned_data": {
         "source": "realtor",
         "category": "real_estate",
         "url": "https://www.realtor.com",
-        "prices_analyzed": 75,
-        "avg_price": "222.66",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T20:51:24.936Z"
-      },
-      "confidence_score": 0.8103603378433842,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:51:24.936Z"
-    },
-    {
-      "id": "pat_1767473484939",
-      "memory_type": "pattern",
-      "context": "Pattern: search_intent",
-      "learned_data": {
-        "name": "search_intent",
-        "confidence": 0.83,
-        "applications": 20
-      },
-      "confidence_score": 0.83,
-      "created_at": "2026-01-03T20:51:24.939Z"
-    },
-    {
-      "id": "mem_1767473514937_2ycr8bs4q",
-      "memory_type": "market_pattern",
-      "context": "Price data from ikea",
-      "learned_data": {
-        "source": "ikea",
-        "category": "furniture",
-        "url": "https://www.ikea.com",
-        "prices_analyzed": 60,
-        "avg_price": "148.17",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T20:51:54.937Z"
-      },
-      "confidence_score": 0.7504500092882411,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:51:54.937Z"
-    },
-    {
-      "id": "mem_1767473544956_36gq09q85",
-      "memory_type": "market_pattern",
-      "context": "Price data from ikea",
-      "learned_data": {
-        "source": "ikea",
-        "category": "furniture",
-        "url": "https://www.ikea.com",
-        "prices_analyzed": 75,
-        "avg_price": "181.91",
+        "prices_analyzed": 38,
+        "avg_price": "532.34",
         "trend": "stable",
-        "timestamp": "2026-01-03T20:52:24.956Z"
+        "timestamp": "2026-01-03T20:36:15.637Z"
       },
-      "confidence_score": 0.9196620112120976,
+      "confidence_score": 0.9277243371472931,
       "accessed_count": 0,
-      "created_at": "2026-01-03T20:52:24.956Z"
+      "created_at": "2026-01-03T20:36:15.637Z"
     },
     {
-      "id": "mem_1767473574964_0yxrdexa7",
-      "memory_type": "market_pattern",
-      "context": "Price data from redfin",
-      "learned_data": {
-        "source": "redfin",
-        "category": "real_estate",
-        "url": "https://www.redfin.com",
-        "prices_analyzed": 41,
-        "avg_price": "274.50",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T20:52:54.964Z"
-      },
-      "confidence_score": 0.8175245416206085,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:52:54.964Z"
-    },
-    {
-      "id": "mem_1767473604967_248sxqf4q",
+      "id": "mem_1767472605638_cp3a4rgqe",
       "memory_type": "market_pattern",
       "context": "Price data from homedepot",
       "learned_data": {
         "source": "homedepot",
         "category": "building_materials",
         "url": "https://www.homedepot.com",
-        "prices_analyzed": 58,
-        "avg_price": "335.27",
-        "trend": "stable",
-        "timestamp": "2026-01-03T20:53:24.967Z"
+        "prices_analyzed": 36,
+        "avg_price": "319.79",
+        "trend": "decreasing",
+        "timestamp": "2026-01-03T20:36:45.638Z"
       },
-      "confidence_score": 0.7854277169110122,
+      "confidence_score": 0.8409611931772394,
       "accessed_count": 0,
-      "created_at": "2026-01-03T20:53:24.967Z"
+      "created_at": "2026-01-03T20:36:45.638Z"
     },
     {
-      "id": "mem_1767473634968_ka65v2u34",
+      "id": "mem_1767472635639_3dee19uza",
       "memory_type": "market_pattern",
       "context": "Price data from realtor",
       "learned_data": {
@@ -3289,564 +3255,79 @@
         "category": "real_estate",
         "url": "https://www.realtor.com",
         "prices_analyzed": 70,
-        "avg_price": "429.28",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T20:53:54.968Z"
+        "avg_price": "565.24",
+        "trend": "stable",
+        "timestamp": "2026-01-03T20:37:15.639Z"
       },
-      "confidence_score": 0.8381974482698243,
+      "confidence_score": 0.8059651912645028,
       "accessed_count": 0,
-      "created_at": "2026-01-03T20:53:54.968Z"
+      "created_at": "2026-01-03T20:37:15.639Z"
     },
     {
-      "id": "pat_1767473634970",
-      "memory_type": "pattern",
-      "context": "Pattern: search_intent",
-      "learned_data": {
-        "name": "search_intent",
-        "confidence": 0.83,
-        "applications": 26
-      },
-      "confidence_score": 0.83,
-      "created_at": "2026-01-03T20:53:54.970Z"
-    },
-    {
-      "id": "mem_1767473664969_a32hdw02x",
-      "memory_type": "market_pattern",
-      "context": "Price data from wayfair",
-      "learned_data": {
-        "source": "wayfair",
-        "category": "home_goods",
-        "url": "https://www.wayfair.com",
-        "prices_analyzed": 39,
-        "avg_price": "248.17",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T20:54:24.969Z"
-      },
-      "confidence_score": 0.9427108256363411,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:54:24.969Z"
-    },
-    {
-      "id": "mem_1767473694970_mheupbj8d",
-      "memory_type": "market_pattern",
-      "context": "Price data from amazon",
-      "learned_data": {
-        "source": "amazon",
-        "category": "general",
-        "url": "https://www.amazon.com",
-        "prices_analyzed": 75,
-        "avg_price": "455.70",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T20:54:54.970Z"
-      },
-      "confidence_score": 0.7662016017345374,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:54:54.970Z"
-    },
-    {
-      "id": "mem_1767473724971_r1qg24cej",
+      "id": "mem_1767472665641_dbqymtp68",
       "memory_type": "market_pattern",
       "context": "Price data from homedepot",
       "learned_data": {
         "source": "homedepot",
         "category": "building_materials",
         "url": "https://www.homedepot.com",
-        "prices_analyzed": 35,
-        "avg_price": "576.04",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T20:55:24.971Z"
-      },
-      "confidence_score": 0.9449296139014415,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:55:24.971Z"
-    },
-    {
-      "id": "mem_1767473754973_4dgdperlm",
-      "memory_type": "market_pattern",
-      "context": "Price data from amazon",
-      "learned_data": {
-        "source": "amazon",
-        "category": "general",
-        "url": "https://www.amazon.com",
-        "prices_analyzed": 44,
-        "avg_price": "532.78",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T20:55:54.973Z"
-      },
-      "confidence_score": 0.7838335344524742,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:55:54.973Z"
-    },
-    {
-      "id": "mem_1767473784974_1gj456i7n",
-      "memory_type": "market_pattern",
-      "context": "Price data from lowes",
-      "learned_data": {
-        "source": "lowes",
-        "category": "building_materials",
-        "url": "https://www.lowes.com",
-        "prices_analyzed": 47,
-        "avg_price": "459.72",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T20:56:24.974Z"
-      },
-      "confidence_score": 0.8175548348857375,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:56:24.974Z"
-    },
-    {
-      "id": "pat_1767473784977",
-      "memory_type": "pattern",
-      "context": "Pattern: inventory_correlation",
-      "learned_data": {
-        "name": "inventory_correlation",
-        "confidence": 0.71,
-        "applications": 44
-      },
-      "confidence_score": 0.71,
-      "created_at": "2026-01-03T20:56:24.977Z"
-    },
-    {
-      "id": "mem_1767473814975_18t4kqd7m",
-      "memory_type": "market_pattern",
-      "context": "Price data from zillow",
-      "learned_data": {
-        "source": "zillow",
-        "category": "real_estate",
-        "url": "https://www.zillow.com",
-        "prices_analyzed": 44,
-        "avg_price": "504.46",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T20:56:54.975Z"
-      },
-      "confidence_score": 0.9036420443504208,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:56:54.975Z"
-    },
-    {
-      "id": "mem_1767473844976_7lvnaz6tt",
-      "memory_type": "market_pattern",
-      "context": "Price data from lowes",
-      "learned_data": {
-        "source": "lowes",
-        "category": "building_materials",
-        "url": "https://www.lowes.com",
-        "prices_analyzed": 50,
-        "avg_price": "321.19",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T20:57:24.976Z"
-      },
-      "confidence_score": 0.8713305768874786,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:57:24.976Z"
-    },
-    {
-      "id": "mem_1767473874977_mepxza0uw",
-      "memory_type": "market_pattern",
-      "context": "Price data from wayfair",
-      "learned_data": {
-        "source": "wayfair",
-        "category": "home_goods",
-        "url": "https://www.wayfair.com",
-        "prices_analyzed": 65,
-        "avg_price": "352.40",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T20:57:54.977Z"
-      },
-      "confidence_score": 0.8710137551507677,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:57:54.977Z"
-    },
-    {
-      "id": "mem_1767473904978_i6bmg7io3",
-      "memory_type": "market_pattern",
-      "context": "Price data from lowes",
-      "learned_data": {
-        "source": "lowes",
-        "category": "building_materials",
-        "url": "https://www.lowes.com",
-        "prices_analyzed": 46,
-        "avg_price": "375.74",
+        "prices_analyzed": 70,
+        "avg_price": "447.72",
         "trend": "stable",
-        "timestamp": "2026-01-03T20:58:24.978Z"
+        "timestamp": "2026-01-03T20:37:45.641Z"
       },
-      "confidence_score": 0.8399868238839189,
+      "confidence_score": 0.866447829862526,
       "accessed_count": 0,
-      "created_at": "2026-01-03T20:58:24.978Z"
+      "created_at": "2026-01-03T20:37:45.641Z"
     },
     {
-      "id": "mem_1767473934978_klu2iqrpc",
+      "id": "mem_1767472695641_3o0yyyn63",
       "memory_type": "market_pattern",
       "context": "Price data from ikea",
       "learned_data": {
         "source": "ikea",
         "category": "furniture",
         "url": "https://www.ikea.com",
-        "prices_analyzed": 37,
-        "avg_price": "418.42",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T20:58:54.978Z"
+        "prices_analyzed": 62,
+        "avg_price": "352.39",
+        "trend": "increasing",
+        "timestamp": "2026-01-03T20:38:15.641Z"
       },
-      "confidence_score": 0.8406849887578904,
+      "confidence_score": 0.9215402528961846,
       "accessed_count": 0,
-      "created_at": "2026-01-03T20:58:54.978Z"
+      "created_at": "2026-01-03T20:38:15.641Z"
     },
     {
-      "id": "pat_1767473934980",
+      "id": "pat_1767472695644",
       "memory_type": "pattern",
-      "context": "Pattern: competitor_pricing",
+      "context": "Pattern: seasonal_demand",
       "learned_data": {
-        "name": "competitor_pricing",
-        "confidence": 0.85,
-        "applications": 50
+        "name": "seasonal_demand",
+        "confidence": 0.78,
+        "applications": 42
       },
-      "confidence_score": 0.85,
-      "created_at": "2026-01-03T20:58:54.980Z"
+      "confidence_score": 0.78,
+      "created_at": "2026-01-03T20:38:15.644Z"
     },
     {
-      "id": "mem_1767473964980_54xwgc3r4",
-      "memory_type": "market_pattern",
-      "context": "Price data from redfin",
-      "learned_data": {
-        "source": "redfin",
-        "category": "real_estate",
-        "url": "https://www.redfin.com",
-        "prices_analyzed": 36,
-        "avg_price": "579.81",
-        "trend": "stable",
-        "timestamp": "2026-01-03T20:59:24.980Z"
-      },
-      "confidence_score": 0.9021236344712857,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:59:24.980Z"
-    },
-    {
-      "id": "mem_1767473994982_105v1ve2k",
-      "memory_type": "market_pattern",
-      "context": "Price data from wayfair",
-      "learned_data": {
-        "source": "wayfair",
-        "category": "home_goods",
-        "url": "https://www.wayfair.com",
-        "prices_analyzed": 69,
-        "avg_price": "526.91",
-        "trend": "stable",
-        "timestamp": "2026-01-03T20:59:54.982Z"
-      },
-      "confidence_score": 0.8516913575895829,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T20:59:54.982Z"
-    },
-    {
-      "id": "mem_1767474024982_br2ly051q",
-      "memory_type": "market_pattern",
-      "context": "Price data from wayfair",
-      "learned_data": {
-        "source": "wayfair",
-        "category": "home_goods",
-        "url": "https://www.wayfair.com",
-        "prices_analyzed": 35,
-        "avg_price": "142.63",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:00:24.982Z"
-      },
-      "confidence_score": 0.7686186702144407,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:00:24.982Z"
-    },
-    {
-      "id": "mem_1767474054982_lpddnmrdp",
+      "id": "mem_1767472725641_xwe9p91nl",
       "memory_type": "market_pattern",
       "context": "Price data from amazon",
       "learned_data": {
         "source": "amazon",
         "category": "general",
         "url": "https://www.amazon.com",
-        "prices_analyzed": 65,
-        "avg_price": "258.00",
-        "trend": "stable",
-        "timestamp": "2026-01-03T21:00:54.982Z"
-      },
-      "confidence_score": 0.8743275712734155,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:00:54.982Z"
-    },
-    {
-      "id": "mem_1767474084984_yg83w4d6n",
-      "memory_type": "market_pattern",
-      "context": "Price data from realtor",
-      "learned_data": {
-        "source": "realtor",
-        "category": "real_estate",
-        "url": "https://www.realtor.com",
-        "prices_analyzed": 68,
-        "avg_price": "131.50",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:01:24.984Z"
-      },
-      "confidence_score": 0.9353739950830278,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:01:24.984Z"
-    },
-    {
-      "id": "pat_1767474084987",
-      "memory_type": "pattern",
-      "context": "Pattern: user_preference",
-      "learned_data": {
-        "name": "user_preference",
-        "confidence": 0.76,
-        "applications": 10
-      },
-      "confidence_score": 0.76,
-      "created_at": "2026-01-03T21:01:24.987Z"
-    },
-    {
-      "id": "mem_1767474114984_ycvqgbzab",
-      "memory_type": "market_pattern",
-      "context": "Price data from lowes",
-      "learned_data": {
-        "source": "lowes",
-        "category": "building_materials",
-        "url": "https://www.lowes.com",
-        "prices_analyzed": 41,
-        "avg_price": "484.36",
+        "prices_analyzed": 53,
+        "avg_price": "229.39",
         "trend": "increasing",
-        "timestamp": "2026-01-03T21:01:54.984Z"
+        "timestamp": "2026-01-03T20:38:45.641Z"
       },
-      "confidence_score": 0.7619784969374604,
+      "confidence_score": 0.9301777770496611,
       "accessed_count": 0,
-      "created_at": "2026-01-03T21:01:54.984Z"
+      "created_at": "2026-01-03T20:38:45.641Z"
     },
     {
-      "id": "mem_1767474144985_nydok6jv7",
-      "memory_type": "market_pattern",
-      "context": "Price data from realtor",
-      "learned_data": {
-        "source": "realtor",
-        "category": "real_estate",
-        "url": "https://www.realtor.com",
-        "prices_analyzed": 78,
-        "avg_price": "235.05",
-        "trend": "stable",
-        "timestamp": "2026-01-03T21:02:24.985Z"
-      },
-      "confidence_score": 0.7890163314538113,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:02:24.985Z"
-    },
-    {
-      "id": "mem_1767474174986_cb8g1bvjb",
-      "memory_type": "market_pattern",
-      "context": "Price data from ikea",
-      "learned_data": {
-        "source": "ikea",
-        "category": "furniture",
-        "url": "https://www.ikea.com",
-        "prices_analyzed": 79,
-        "avg_price": "133.40",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:02:54.986Z"
-      },
-      "confidence_score": 0.789501753306817,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:02:54.986Z"
-    },
-    {
-      "id": "mem_1767474204987_hic26ml4k",
-      "memory_type": "market_pattern",
-      "context": "Price data from zillow",
-      "learned_data": {
-        "source": "zillow",
-        "category": "real_estate",
-        "url": "https://www.zillow.com",
-        "prices_analyzed": 35,
-        "avg_price": "360.58",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:03:24.987Z"
-      },
-      "confidence_score": 0.8931425859541258,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:03:24.987Z"
-    },
-    {
-      "id": "mem_1767474234989_i7g113atn",
-      "memory_type": "market_pattern",
-      "context": "Price data from redfin",
-      "learned_data": {
-        "source": "redfin",
-        "category": "real_estate",
-        "url": "https://www.redfin.com",
-        "prices_analyzed": 71,
-        "avg_price": "521.23",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:03:54.989Z"
-      },
-      "confidence_score": 0.8020092526069126,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:03:54.989Z"
-    },
-    {
-      "id": "pat_1767474234992",
-      "memory_type": "pattern",
-      "context": "Pattern: user_preference",
-      "learned_data": {
-        "name": "user_preference",
-        "confidence": 0.76,
-        "applications": 32
-      },
-      "confidence_score": 0.76,
-      "created_at": "2026-01-03T21:03:54.992Z"
-    },
-    {
-      "id": "mem_1767474264990_wfb1sj07o",
-      "memory_type": "market_pattern",
-      "context": "Price data from zillow",
-      "learned_data": {
-        "source": "zillow",
-        "category": "real_estate",
-        "url": "https://www.zillow.com",
-        "prices_analyzed": 64,
-        "avg_price": "252.81",
-        "trend": "stable",
-        "timestamp": "2026-01-03T21:04:24.990Z"
-      },
-      "confidence_score": 0.8967947838345269,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:04:24.990Z"
-    },
-    {
-      "id": "mem_1767474294991_ercd7v1sm",
-      "memory_type": "market_pattern",
-      "context": "Price data from wayfair",
-      "learned_data": {
-        "source": "wayfair",
-        "category": "home_goods",
-        "url": "https://www.wayfair.com",
-        "prices_analyzed": 79,
-        "avg_price": "280.68",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T21:04:54.991Z"
-      },
-      "confidence_score": 0.8210117749265301,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:04:54.991Z"
-    },
-    {
-      "id": "mem_1767474324992_2rru1szon",
-      "memory_type": "market_pattern",
-      "context": "Price data from realtor",
-      "learned_data": {
-        "source": "realtor",
-        "category": "real_estate",
-        "url": "https://www.realtor.com",
-        "prices_analyzed": 75,
-        "avg_price": "586.73",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:05:24.992Z"
-      },
-      "confidence_score": 0.7961131283431417,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:05:24.992Z"
-    },
-    {
-      "id": "mem_1767474354993_44993pgeo",
-      "memory_type": "market_pattern",
-      "context": "Price data from zillow",
-      "learned_data": {
-        "source": "zillow",
-        "category": "real_estate",
-        "url": "https://www.zillow.com",
-        "prices_analyzed": 55,
-        "avg_price": "117.47",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:05:54.993Z"
-      },
-      "confidence_score": 0.7841296633981136,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:05:54.993Z"
-    },
-    {
-      "id": "mem_1767474384994_8bglhb5i8",
-      "memory_type": "market_pattern",
-      "context": "Price data from lowes",
-      "learned_data": {
-        "source": "lowes",
-        "category": "building_materials",
-        "url": "https://www.lowes.com",
-        "prices_analyzed": 37,
-        "avg_price": "383.60",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T21:06:24.994Z"
-      },
-      "confidence_score": 0.8177221066953488,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:06:24.994Z"
-    },
-    {
-      "id": "pat_1767474384998",
-      "memory_type": "pattern",
-      "context": "Pattern: price_elasticity",
-      "learned_data": {
-        "name": "price_elasticity",
-        "confidence": 0.82,
-        "applications": 26
-      },
-      "confidence_score": 0.82,
-      "created_at": "2026-01-03T21:06:24.998Z"
-    },
-    {
-      "id": "mem_1767474414996_ms6bdz3au",
-      "memory_type": "market_pattern",
-      "context": "Price data from redfin",
-      "learned_data": {
-        "source": "redfin",
-        "category": "real_estate",
-        "url": "https://www.redfin.com",
-        "prices_analyzed": 57,
-        "avg_price": "137.69",
-        "trend": "stable",
-        "timestamp": "2026-01-03T21:06:54.996Z"
-      },
-      "confidence_score": 0.8305319523568715,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:06:54.996Z"
-    },
-    {
-      "id": "mem_1767474444998_f7q27uoyp",
-      "memory_type": "market_pattern",
-      "context": "Price data from amazon",
-      "learned_data": {
-        "source": "amazon",
-        "category": "general",
-        "url": "https://www.amazon.com",
-        "prices_analyzed": 58,
-        "avg_price": "190.93",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:07:24.998Z"
-      },
-      "confidence_score": 0.9141765598547505,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:07:24.998Z"
-    },
-    {
-      "id": "mem_1767474474998_rzipgjhcc",
-      "memory_type": "market_pattern",
-      "context": "Price data from lowes",
-      "learned_data": {
-        "source": "lowes",
-        "category": "building_materials",
-        "url": "https://www.lowes.com",
-        "prices_analyzed": 68,
-        "avg_price": "384.23",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:07:54.998Z"
-      },
-      "confidence_score": 0.8721955954565697,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:07:54.998Z"
-    },
-    {
-      "id": "mem_1767474505000_l00gnahod",
+      "id": "mem_1767472755640_sxjrovqt6",
       "memory_type": "market_pattern",
       "context": "Price data from wayfair",
       "learned_data": {
@@ -3854,902 +3335,206 @@
         "category": "home_goods",
         "url": "https://www.wayfair.com",
         "prices_analyzed": 33,
-        "avg_price": "438.45",
+        "avg_price": "233.07",
         "trend": "decreasing",
-        "timestamp": "2026-01-03T21:08:25.000Z"
+        "timestamp": "2026-01-03T20:39:15.641Z"
       },
-      "confidence_score": 0.9369180095193226,
+      "confidence_score": 0.9214234048667043,
       "accessed_count": 0,
-      "created_at": "2026-01-03T21:08:25.000Z"
+      "created_at": "2026-01-03T20:39:15.641Z"
     },
     {
-      "id": "mem_1767474535001_3zhh1ma2t",
-      "memory_type": "market_pattern",
-      "context": "Price data from zillow",
-      "learned_data": {
-        "source": "zillow",
-        "category": "real_estate",
-        "url": "https://www.zillow.com",
-        "prices_analyzed": 60,
-        "avg_price": "576.80",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T21:08:55.001Z"
-      },
-      "confidence_score": 0.8473553897951154,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:08:55.001Z"
-    },
-    {
-      "id": "pat_1767474535005",
-      "memory_type": "pattern",
-      "context": "Pattern: inventory_correlation",
-      "learned_data": {
-        "name": "inventory_correlation",
-        "confidence": 0.71,
-        "applications": 42
-      },
-      "confidence_score": 0.71,
-      "created_at": "2026-01-03T21:08:55.005Z"
-    },
-    {
-      "id": "mem_1767474565002_gjzcb8ivw",
-      "memory_type": "market_pattern",
-      "context": "Price data from redfin",
-      "learned_data": {
-        "source": "redfin",
-        "category": "real_estate",
-        "url": "https://www.redfin.com",
-        "prices_analyzed": 45,
-        "avg_price": "384.55",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T21:09:25.002Z"
-      },
-      "confidence_score": 0.8288877080281865,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:09:25.002Z"
-    },
-    {
-      "id": "mem_1767474595003_51fvk7mqk",
-      "memory_type": "market_pattern",
-      "context": "Price data from homedepot",
-      "learned_data": {
-        "source": "homedepot",
-        "category": "building_materials",
-        "url": "https://www.homedepot.com",
-        "prices_analyzed": 75,
-        "avg_price": "186.45",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:09:55.003Z"
-      },
-      "confidence_score": 0.897821835541333,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:09:55.003Z"
-    },
-    {
-      "id": "mem_1767474625004_sc410219b",
-      "memory_type": "market_pattern",
-      "context": "Price data from wayfair",
-      "learned_data": {
-        "source": "wayfair",
-        "category": "home_goods",
-        "url": "https://www.wayfair.com",
-        "prices_analyzed": 76,
-        "avg_price": "557.95",
-        "trend": "stable",
-        "timestamp": "2026-01-03T21:10:25.004Z"
-      },
-      "confidence_score": 0.7791634484399794,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:10:25.004Z"
-    },
-    {
-      "id": "mem_1767474655005_hqcs5n141",
-      "memory_type": "market_pattern",
-      "context": "Price data from zillow",
-      "learned_data": {
-        "source": "zillow",
-        "category": "real_estate",
-        "url": "https://www.zillow.com",
-        "prices_analyzed": 75,
-        "avg_price": "182.94",
-        "trend": "stable",
-        "timestamp": "2026-01-03T21:10:55.005Z"
-      },
-      "confidence_score": 0.8948593576727127,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:10:55.005Z"
-    },
-    {
-      "id": "mem_1767474685006_j1oog9qa3",
-      "memory_type": "market_pattern",
-      "context": "Price data from wayfair",
-      "learned_data": {
-        "source": "wayfair",
-        "category": "home_goods",
-        "url": "https://www.wayfair.com",
-        "prices_analyzed": 46,
-        "avg_price": "358.32",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:11:25.006Z"
-      },
-      "confidence_score": 0.8618273465920085,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:11:25.006Z"
-    },
-    {
-      "id": "pat_1767474685010",
-      "memory_type": "pattern",
-      "context": "Pattern: regional_variance",
-      "learned_data": {
-        "name": "regional_variance",
-        "confidence": 0.88,
-        "applications": 53
-      },
-      "confidence_score": 0.88,
-      "created_at": "2026-01-03T21:11:25.010Z"
-    },
-    {
-      "id": "mem_1767474715006_af6n8scgw",
-      "memory_type": "market_pattern",
-      "context": "Price data from homedepot",
-      "learned_data": {
-        "source": "homedepot",
-        "category": "building_materials",
-        "url": "https://www.homedepot.com",
-        "prices_analyzed": 54,
-        "avg_price": "508.57",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:11:55.006Z"
-      },
-      "confidence_score": 0.7876923025103705,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:11:55.007Z"
-    },
-    {
-      "id": "mem_1767474745008_veyccqjg5",
-      "memory_type": "market_pattern",
-      "context": "Price data from lowes",
-      "learned_data": {
-        "source": "lowes",
-        "category": "building_materials",
-        "url": "https://www.lowes.com",
-        "prices_analyzed": 58,
-        "avg_price": "250.28",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T21:12:25.008Z"
-      },
-      "confidence_score": 0.8312155517762798,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:12:25.008Z"
-    },
-    {
-      "id": "mem_1767474775007_0w20rdvn1",
-      "memory_type": "market_pattern",
-      "context": "Price data from amazon",
-      "learned_data": {
-        "source": "amazon",
-        "category": "general",
-        "url": "https://www.amazon.com",
-        "prices_analyzed": 76,
-        "avg_price": "461.28",
-        "trend": "stable",
-        "timestamp": "2026-01-03T21:12:55.007Z"
-      },
-      "confidence_score": 0.9096892342758344,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:12:55.007Z"
-    },
-    {
-      "id": "mem_1767474805009_91svtxtj0",
-      "memory_type": "market_pattern",
-      "context": "Price data from lowes",
-      "learned_data": {
-        "source": "lowes",
-        "category": "building_materials",
-        "url": "https://www.lowes.com",
-        "prices_analyzed": 75,
-        "avg_price": "298.87",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:13:25.009Z"
-      },
-      "confidence_score": 0.7806696354192594,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:13:25.009Z"
-    },
-    {
-      "id": "mem_1767474835010_umyl6ykfb",
+      "id": "mem_1767472785642_906522ain",
       "memory_type": "market_pattern",
       "context": "Price data from ikea",
       "learned_data": {
         "source": "ikea",
         "category": "furniture",
         "url": "https://www.ikea.com",
-        "prices_analyzed": 35,
-        "avg_price": "579.70",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:13:55.010Z"
+        "prices_analyzed": 44,
+        "avg_price": "120.54",
+        "trend": "stable",
+        "timestamp": "2026-01-03T20:39:45.642Z"
       },
-      "confidence_score": 0.9151800860423457,
+      "confidence_score": 0.8408064712311993,
       "accessed_count": 0,
-      "created_at": "2026-01-03T21:13:55.011Z"
+      "created_at": "2026-01-03T20:39:45.642Z"
     },
     {
-      "id": "pat_1767474835014",
-      "memory_type": "pattern",
-      "context": "Pattern: regional_variance",
-      "learned_data": {
-        "name": "regional_variance",
-        "confidence": 0.88,
-        "applications": 59
-      },
-      "confidence_score": 0.88,
-      "created_at": "2026-01-03T21:13:55.014Z"
-    },
-    {
-      "id": "mem_1767474865011_thf00v298",
-      "memory_type": "market_pattern",
-      "context": "Price data from homedepot",
-      "learned_data": {
-        "source": "homedepot",
-        "category": "building_materials",
-        "url": "https://www.homedepot.com",
-        "prices_analyzed": 59,
-        "avg_price": "541.90",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T21:14:25.011Z"
-      },
-      "confidence_score": 0.7747298098237283,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:14:25.011Z"
-    },
-    {
-      "id": "mem_1767474895011_l3z6ate7p",
+      "id": "mem_1767472815642_4qc0up4jn",
       "memory_type": "market_pattern",
       "context": "Price data from amazon",
       "learned_data": {
         "source": "amazon",
         "category": "general",
         "url": "https://www.amazon.com",
-        "prices_analyzed": 40,
-        "avg_price": "351.48",
-        "trend": "stable",
-        "timestamp": "2026-01-03T21:14:55.011Z"
-      },
-      "confidence_score": 0.7734906320253644,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:14:55.011Z"
-    },
-    {
-      "id": "mem_1767474925013_1r9zdic5x",
-      "memory_type": "market_pattern",
-      "context": "Price data from realtor",
-      "learned_data": {
-        "source": "realtor",
-        "category": "real_estate",
-        "url": "https://www.realtor.com",
-        "prices_analyzed": 53,
-        "avg_price": "144.35",
+        "prices_analyzed": 44,
+        "avg_price": "566.42",
         "trend": "increasing",
-        "timestamp": "2026-01-03T21:15:25.013Z"
+        "timestamp": "2026-01-03T20:40:15.642Z"
       },
-      "confidence_score": 0.7540099252186543,
+      "confidence_score": 0.9092708944732727,
       "accessed_count": 0,
-      "created_at": "2026-01-03T21:15:25.013Z"
+      "created_at": "2026-01-03T20:40:15.642Z"
     },
     {
-      "id": "mem_1767474955013_uorwl4oyy",
+      "id": "mem_1767472845643_5ivytau71",
       "memory_type": "market_pattern",
       "context": "Price data from zillow",
       "learned_data": {
         "source": "zillow",
         "category": "real_estate",
         "url": "https://www.zillow.com",
-        "prices_analyzed": 40,
-        "avg_price": "567.22",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:15:55.013Z"
-      },
-      "confidence_score": 0.9421220926115735,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:15:55.013Z"
-    },
-    {
-      "id": "mem_1767474984996_8vygurkot",
-      "memory_type": "market_pattern",
-      "context": "Price data from lowes",
-      "learned_data": {
-        "source": "lowes",
-        "category": "building_materials",
-        "url": "https://www.lowes.com",
-        "prices_analyzed": 36,
-        "avg_price": "282.77",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:16:24.996Z"
-      },
-      "confidence_score": 0.9161393725008488,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:16:24.996Z"
-    },
-    {
-      "id": "pat_1767474984999",
-      "memory_type": "pattern",
-      "context": "Pattern: competitor_pricing",
-      "learned_data": {
-        "name": "competitor_pricing",
-        "confidence": 0.85,
-        "applications": 44
-      },
-      "confidence_score": 0.85,
-      "created_at": "2026-01-03T21:16:24.999Z"
-    },
-    {
-      "id": "mem_1767475014990_adwvpznb6",
-      "memory_type": "market_pattern",
-      "context": "Price data from zillow",
-      "learned_data": {
-        "source": "zillow",
-        "category": "real_estate",
-        "url": "https://www.zillow.com",
-        "prices_analyzed": 74,
-        "avg_price": "118.08",
+        "prices_analyzed": 79,
+        "avg_price": "175.19",
         "trend": "increasing",
-        "timestamp": "2026-01-03T21:16:54.990Z"
+        "timestamp": "2026-01-03T20:40:45.643Z"
       },
-      "confidence_score": 0.8828114851540007,
+      "confidence_score": 0.9338199074158098,
       "accessed_count": 0,
-      "created_at": "2026-01-03T21:16:54.990Z"
+      "created_at": "2026-01-03T20:40:45.643Z"
     },
     {
-      "id": "mem_1767475044991_w1rg3nuao",
-      "memory_type": "market_pattern",
-      "context": "Price data from zillow",
-      "learned_data": {
-        "source": "zillow",
-        "category": "real_estate",
-        "url": "https://www.zillow.com",
-        "prices_analyzed": 65,
-        "avg_price": "415.42",
-        "trend": "stable",
-        "timestamp": "2026-01-03T21:17:24.991Z"
-      },
-      "confidence_score": 0.7666745102327217,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:17:24.991Z"
-    },
-    {
-      "id": "mem_1767475074991_fcxdinqo2",
-      "memory_type": "market_pattern",
-      "context": "Price data from redfin",
-      "learned_data": {
-        "source": "redfin",
-        "category": "real_estate",
-        "url": "https://www.redfin.com",
-        "prices_analyzed": 76,
-        "avg_price": "373.55",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T21:17:54.991Z"
-      },
-      "confidence_score": 0.912483601453244,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:17:54.991Z"
-    },
-    {
-      "id": "mem_1767475104991_s9q1ztcng",
-      "memory_type": "market_pattern",
-      "context": "Price data from lowes",
-      "learned_data": {
-        "source": "lowes",
-        "category": "building_materials",
-        "url": "https://www.lowes.com",
-        "prices_analyzed": 55,
-        "avg_price": "363.91",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T21:18:24.991Z"
-      },
-      "confidence_score": 0.9434272463665472,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:18:24.991Z"
-    },
-    {
-      "id": "mem_1767475134991_7r04o68se",
-      "memory_type": "market_pattern",
-      "context": "Price data from homedepot",
-      "learned_data": {
-        "source": "homedepot",
-        "category": "building_materials",
-        "url": "https://www.homedepot.com",
-        "prices_analyzed": 30,
-        "avg_price": "366.16",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T21:18:54.991Z"
-      },
-      "confidence_score": 0.90226522562428,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:18:54.991Z"
-    },
-    {
-      "id": "pat_1767475134994",
-      "memory_type": "pattern",
-      "context": "Pattern: price_elasticity",
-      "learned_data": {
-        "name": "price_elasticity",
-        "confidence": 0.82,
-        "applications": 26
-      },
-      "confidence_score": 0.82,
-      "created_at": "2026-01-03T21:18:54.994Z"
-    },
-    {
-      "id": "mem_1767475164991_g67gu3q8p",
-      "memory_type": "market_pattern",
-      "context": "Price data from ikea",
-      "learned_data": {
-        "source": "ikea",
-        "category": "furniture",
-        "url": "https://www.ikea.com",
-        "prices_analyzed": 65,
-        "avg_price": "380.59",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:19:24.991Z"
-      },
-      "confidence_score": 0.8567027105203647,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:19:24.991Z"
-    },
-    {
-      "id": "mem_1767475194993_j0t5pbwil",
-      "memory_type": "market_pattern",
-      "context": "Price data from redfin",
-      "learned_data": {
-        "source": "redfin",
-        "category": "real_estate",
-        "url": "https://www.redfin.com",
-        "prices_analyzed": 72,
-        "avg_price": "232.96",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:19:54.993Z"
-      },
-      "confidence_score": 0.7861900588972515,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:19:54.993Z"
-    },
-    {
-      "id": "mem_1767475224994_6qraohixz",
-      "memory_type": "market_pattern",
-      "context": "Price data from realtor",
-      "learned_data": {
-        "source": "realtor",
-        "category": "real_estate",
-        "url": "https://www.realtor.com",
-        "prices_analyzed": 31,
-        "avg_price": "377.42",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T21:20:24.994Z"
-      },
-      "confidence_score": 0.9080488069671089,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:20:24.994Z"
-    },
-    {
-      "id": "mem_1767475254994_5owx45h98",
-      "memory_type": "market_pattern",
-      "context": "Price data from realtor",
-      "learned_data": {
-        "source": "realtor",
-        "category": "real_estate",
-        "url": "https://www.realtor.com",
-        "prices_analyzed": 71,
-        "avg_price": "178.08",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:20:54.994Z"
-      },
-      "confidence_score": 0.9404683405625568,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:20:54.994Z"
-    },
-    {
-      "id": "mem_1767475284994_tupy8d147",
-      "memory_type": "market_pattern",
-      "context": "Price data from lowes",
-      "learned_data": {
-        "source": "lowes",
-        "category": "building_materials",
-        "url": "https://www.lowes.com",
-        "prices_analyzed": 40,
-        "avg_price": "437.50",
-        "trend": "stable",
-        "timestamp": "2026-01-03T21:21:24.994Z"
-      },
-      "confidence_score": 0.7733196459972312,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:21:24.994Z"
-    },
-    {
-      "id": "pat_1767475284996",
-      "memory_type": "pattern",
-      "context": "Pattern: seasonal_demand",
-      "learned_data": {
-        "name": "seasonal_demand",
-        "confidence": 0.78,
-        "applications": 13
-      },
-      "confidence_score": 0.78,
-      "created_at": "2026-01-03T21:21:24.996Z"
-    },
-    {
-      "id": "mem_1767475314995_8kjxjgrcw",
-      "memory_type": "market_pattern",
-      "context": "Price data from homedepot",
-      "learned_data": {
-        "source": "homedepot",
-        "category": "building_materials",
-        "url": "https://www.homedepot.com",
-        "prices_analyzed": 62,
-        "avg_price": "537.73",
-        "trend": "stable",
-        "timestamp": "2026-01-03T21:21:54.995Z"
-      },
-      "confidence_score": 0.8813526824447886,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:21:54.995Z"
-    },
-    {
-      "id": "mem_1767475344997_zjxsijpke",
-      "memory_type": "market_pattern",
-      "context": "Price data from lowes",
-      "learned_data": {
-        "source": "lowes",
-        "category": "building_materials",
-        "url": "https://www.lowes.com",
-        "prices_analyzed": 74,
-        "avg_price": "159.89",
-        "trend": "stable",
-        "timestamp": "2026-01-03T21:22:24.997Z"
-      },
-      "confidence_score": 0.8659723636408253,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:22:24.997Z"
-    },
-    {
-      "id": "mem_1767475374998_vh20ige1g",
-      "memory_type": "market_pattern",
-      "context": "Price data from zillow",
-      "learned_data": {
-        "source": "zillow",
-        "category": "real_estate",
-        "url": "https://www.zillow.com",
-        "prices_analyzed": 54,
-        "avg_price": "184.31",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T21:22:54.998Z"
-      },
-      "confidence_score": 0.77696889631243,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:22:54.998Z"
-    },
-    {
-      "id": "mem_1767475404999_rluz6xlak",
-      "memory_type": "market_pattern",
-      "context": "Price data from redfin",
-      "learned_data": {
-        "source": "redfin",
-        "category": "real_estate",
-        "url": "https://www.redfin.com",
-        "prices_analyzed": 30,
-        "avg_price": "112.55",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:23:24.999Z"
-      },
-      "confidence_score": 0.84172883650758,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:23:24.999Z"
-    },
-    {
-      "id": "mem_1767475434999_jvbf4jau9",
-      "memory_type": "market_pattern",
-      "context": "Price data from lowes",
-      "learned_data": {
-        "source": "lowes",
-        "category": "building_materials",
-        "url": "https://www.lowes.com",
-        "prices_analyzed": 78,
-        "avg_price": "242.15",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T21:23:54.999Z"
-      },
-      "confidence_score": 0.9097591911756099,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:23:54.999Z"
-    },
-    {
-      "id": "pat_1767475435002",
+      "id": "pat_1767472845647",
       "memory_type": "pattern",
       "context": "Pattern: user_preference",
       "learned_data": {
         "name": "user_preference",
         "confidence": 0.76,
-        "applications": 35
+        "applications": 42
       },
       "confidence_score": 0.76,
-      "created_at": "2026-01-03T21:23:55.002Z"
+      "created_at": "2026-01-03T20:40:45.647Z"
     },
     {
-      "id": "mem_1767475465000_ayh5snujx",
-      "memory_type": "market_pattern",
-      "context": "Price data from redfin",
-      "learned_data": {
-        "source": "redfin",
-        "category": "real_estate",
-        "url": "https://www.redfin.com",
-        "prices_analyzed": 46,
-        "avg_price": "423.90",
-        "trend": "stable",
-        "timestamp": "2026-01-03T21:24:25.000Z"
-      },
-      "confidence_score": 0.9111393585615047,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:24:25.000Z"
-    },
-    {
-      "id": "mem_1767475495000_matl4hk5u",
+      "id": "mem_1767472875644_1ibq3zc4f",
       "memory_type": "market_pattern",
       "context": "Price data from zillow",
       "learned_data": {
         "source": "zillow",
         "category": "real_estate",
         "url": "https://www.zillow.com",
-        "prices_analyzed": 71,
-        "avg_price": "353.73",
-        "trend": "stable",
-        "timestamp": "2026-01-03T21:24:55.000Z"
-      },
-      "confidence_score": 0.8707216753246039,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:24:55.000Z"
-    },
-    {
-      "id": "mem_1767475525001_iu2okmt4s",
-      "memory_type": "market_pattern",
-      "context": "Price data from amazon",
-      "learned_data": {
-        "source": "amazon",
-        "category": "general",
-        "url": "https://www.amazon.com",
-        "prices_analyzed": 53,
-        "avg_price": "346.20",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:25:25.001Z"
-      },
-      "confidence_score": 0.7999605728451139,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:25:25.001Z"
-    },
-    {
-      "id": "mem_1767475555002_4k1tlgbuc",
-      "memory_type": "market_pattern",
-      "context": "Price data from lowes",
-      "learned_data": {
-        "source": "lowes",
-        "category": "building_materials",
-        "url": "https://www.lowes.com",
-        "prices_analyzed": 52,
-        "avg_price": "449.23",
+        "prices_analyzed": 68,
+        "avg_price": "583.32",
         "trend": "increasing",
-        "timestamp": "2026-01-03T21:25:55.002Z"
+        "timestamp": "2026-01-03T20:41:15.644Z"
       },
-      "confidence_score": 0.8663270674856726,
+      "confidence_score": 0.8467038405316956,
       "accessed_count": 0,
-      "created_at": "2026-01-03T21:25:55.002Z"
+      "created_at": "2026-01-03T20:41:15.644Z"
     },
     {
-      "id": "mem_1767475585003_0ypdlrohj",
-      "memory_type": "market_pattern",
-      "context": "Price data from redfin",
-      "learned_data": {
-        "source": "redfin",
-        "category": "real_estate",
-        "url": "https://www.redfin.com",
-        "prices_analyzed": 42,
-        "avg_price": "440.48",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:26:25.003Z"
-      },
-      "confidence_score": 0.7815559601940524,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:26:25.003Z"
-    },
-    {
-      "id": "pat_1767475585006",
-      "memory_type": "pattern",
-      "context": "Pattern: seasonal_demand",
-      "learned_data": {
-        "name": "seasonal_demand",
-        "confidence": 0.78,
-        "applications": 43
-      },
-      "confidence_score": 0.78,
-      "created_at": "2026-01-03T21:26:25.006Z"
-    },
-    {
-      "id": "mem_1767475615004_me3o3z7g6",
-      "memory_type": "market_pattern",
-      "context": "Price data from homedepot",
-      "learned_data": {
-        "source": "homedepot",
-        "category": "building_materials",
-        "url": "https://www.homedepot.com",
-        "prices_analyzed": 46,
-        "avg_price": "427.49",
-        "trend": "stable",
-        "timestamp": "2026-01-03T21:26:55.004Z"
-      },
-      "confidence_score": 0.7595149428827316,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:26:55.004Z"
-    },
-    {
-      "id": "mem_1767475645006_vcll8ee9n",
+      "id": "mem_1767472905643_t7ppve2g9",
       "memory_type": "market_pattern",
       "context": "Price data from ikea",
       "learned_data": {
         "source": "ikea",
         "category": "furniture",
         "url": "https://www.ikea.com",
-        "prices_analyzed": 71,
-        "avg_price": "511.72",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:27:25.006Z"
+        "prices_analyzed": 54,
+        "avg_price": "333.62",
+        "trend": "increasing",
+        "timestamp": "2026-01-03T20:41:45.643Z"
       },
-      "confidence_score": 0.8467027436606458,
+      "confidence_score": 0.80951394986221,
       "accessed_count": 0,
-      "created_at": "2026-01-03T21:27:25.006Z"
+      "created_at": "2026-01-03T20:41:45.643Z"
     },
     {
-      "id": "mem_1767475675006_3jmzesp3r",
-      "memory_type": "market_pattern",
-      "context": "Price data from lowes",
-      "learned_data": {
-        "source": "lowes",
-        "category": "building_materials",
-        "url": "https://www.lowes.com",
-        "prices_analyzed": 60,
-        "avg_price": "527.83",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:27:55.006Z"
-      },
-      "confidence_score": 0.8394873761161751,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:27:55.006Z"
-    },
-    {
-      "id": "mem_1767475705008_qgrc2lzfh",
+      "id": "mem_1767472935645_i4zdhy48r",
       "memory_type": "market_pattern",
       "context": "Price data from zillow",
       "learned_data": {
         "source": "zillow",
         "category": "real_estate",
         "url": "https://www.zillow.com",
-        "prices_analyzed": 64,
-        "avg_price": "387.97",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:28:25.008Z"
-      },
-      "confidence_score": 0.7926941955198217,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:28:25.008Z"
-    },
-    {
-      "id": "mem_1767475735007_zz6iwm4r7",
-      "memory_type": "market_pattern",
-      "context": "Price data from redfin",
-      "learned_data": {
-        "source": "redfin",
-        "category": "real_estate",
-        "url": "https://www.redfin.com",
-        "prices_analyzed": 54,
-        "avg_price": "453.35",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:28:55.007Z"
-      },
-      "confidence_score": 0.9001327268102463,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:28:55.007Z"
-    },
-    {
-      "id": "pat_1767475735010",
-      "memory_type": "pattern",
-      "context": "Pattern: competitor_pricing",
-      "learned_data": {
-        "name": "competitor_pricing",
-        "confidence": 0.85,
-        "applications": 48
-      },
-      "confidence_score": 0.85,
-      "created_at": "2026-01-03T21:28:55.010Z"
-    },
-    {
-      "id": "mem_1767475765010_jevyesz5r",
-      "memory_type": "market_pattern",
-      "context": "Price data from homedepot",
-      "learned_data": {
-        "source": "homedepot",
-        "category": "building_materials",
-        "url": "https://www.homedepot.com",
-        "prices_analyzed": 69,
-        "avg_price": "336.29",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:29:25.010Z"
-      },
-      "confidence_score": 0.7906062940078946,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:29:25.010Z"
-    },
-    {
-      "id": "mem_1767475795011_0qwh9msi8",
-      "memory_type": "market_pattern",
-      "context": "Price data from homedepot",
-      "learned_data": {
-        "source": "homedepot",
-        "category": "building_materials",
-        "url": "https://www.homedepot.com",
-        "prices_analyzed": 51,
-        "avg_price": "282.49",
-        "trend": "decreasing",
-        "timestamp": "2026-01-03T21:29:55.011Z"
-      },
-      "confidence_score": 0.7699785229628099,
-      "accessed_count": 0,
-      "created_at": "2026-01-03T21:29:55.011Z"
-    },
-    {
-      "id": "mem_1767475825027_oh9d8g18s",
-      "memory_type": "market_pattern",
-      "context": "Price data from redfin",
-      "learned_data": {
-        "source": "redfin",
-        "category": "real_estate",
-        "url": "https://www.redfin.com",
-        "prices_analyzed": 48,
-        "avg_price": "333.48",
+        "prices_analyzed": 56,
+        "avg_price": "139.10",
         "trend": "increasing",
-        "timestamp": "2026-01-03T21:30:25.027Z"
+        "timestamp": "2026-01-03T20:42:15.645Z"
       },
-      "confidence_score": 0.7853485108581505,
+      "confidence_score": 0.9307448596511962,
       "accessed_count": 0,
-      "created_at": "2026-01-03T21:30:25.027Z"
+      "created_at": "2026-01-03T20:42:15.645Z"
     },
     {
-      "id": "mem_1767475855013_4eqnr8ux1",
+      "id": "mem_1767472965645_u5egsm36a",
       "memory_type": "market_pattern",
       "context": "Price data from realtor",
       "learned_data": {
         "source": "realtor",
         "category": "real_estate",
         "url": "https://www.realtor.com",
-        "prices_analyzed": 64,
-        "avg_price": "562.30",
-        "trend": "increasing",
-        "timestamp": "2026-01-03T21:30:55.013Z"
+        "prices_analyzed": 74,
+        "avg_price": "590.72",
+        "trend": "stable",
+        "timestamp": "2026-01-03T20:42:45.645Z"
       },
-      "confidence_score": 0.926853050836916,
+      "confidence_score": 0.9294884018238138,
       "accessed_count": 0,
-      "created_at": "2026-01-03T21:30:55.013Z"
+      "created_at": "2026-01-03T20:42:45.645Z"
+    },
+    {
+      "id": "mem_1767472995646_5kner2zws",
+      "memory_type": "market_pattern",
+      "context": "Price data from lowes",
+      "learned_data": {
+        "source": "lowes",
+        "category": "building_materials",
+        "url": "https://www.lowes.com",
+        "prices_analyzed": 74,
+        "avg_price": "207.24",
+        "trend": "increasing",
+        "timestamp": "2026-01-03T20:43:15.646Z"
+      },
+      "confidence_score": 0.9105531629850481,
+      "accessed_count": 0,
+      "created_at": "2026-01-03T20:43:15.646Z"
+    },
+    {
+      "id": "pat_1767472995648",
+      "memory_type": "pattern",
+      "context": "Pattern: seasonal_demand",
+      "learned_data": {
+        "name": "seasonal_demand",
+        "confidence": 0.78,
+        "applications": 12
+      },
+      "confidence_score": 0.78,
+      "created_at": "2026-01-03T20:43:15.648Z"
+    },
+    {
+      "id": "mem_1767473025647_un52pekc2",
+      "memory_type": "market_pattern",
+      "context": "Price data from redfin",
+      "learned_data": {
+        "source": "redfin",
+        "category": "real_estate",
+        "url": "https://www.redfin.com",
+        "prices_analyzed": 68,
+        "avg_price": "491.44",
+        "trend": "stable",
+        "timestamp": "2026-01-03T20:43:45.647Z"
+      },
+      "confidence_score": 0.7730252927114745,
+      "accessed_count": 0,
+      "created_at": "2026-01-03T20:43:45.647Z"
     }
   ],
   "sessions": [],
   "commands": [],
   "pages": [],
   "stats": {
-    "total_interactions": 2811,
-    "learned_patterns": 699,
+    "total_interactions": 2748,
+    "learned_patterns": 624,
     "vendors_onboarded": 0,
     "builders_onboarded": 0,
     "products_created": 0,
-    "market_prices_learned": 33910,
-    "accuracy_score": "63.3",
+    "market_prices_learned": 30388,
+    "accuracy_score": "57.8",
     "voice_commands": 0,
     "started_at": "2026-01-03T05:41:04.433Z",
-    "last_learning": "2026-01-03T21:30:55.013Z",
+    "last_learning": "2026-01-03T20:43:45.647Z",
     "last_activity": "2026-01-03T19:16:33.078Z",
     "version": "v2.0",
     "features": [
