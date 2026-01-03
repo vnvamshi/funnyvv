@@ -1,0 +1,283 @@
+{
+  "navigation": {
+    "buy": "Comprar",
+    "sell": "Vender",
+    "savedHomes": "Casas Guardadas",
+    "help": "Ayuda",
+    "loginSignup": "Iniciar Sesión / Registrarse",
+    "home": "Inicio",
+    "explore": "Explorar",
+    "saves": "Guardados",
+    "login": "Acceso",
+    "rent": "Rentar"
+  },
+  "home": {
+    "hero": {
+      "title": "Encuentra Tu Casa Soñada",
+      "subtitle": "Descubre la propiedad perfecta con la búsqueda avanzada y tours virtuales de VistaView",
+      "searchPlaceholder": "Buscar por ubicación",
+      "searchButton": "Buscar Propiedades"
+    },
+    "services": {
+      "title": "Nuestros Servicios",
+      "buyHome": "Comprar una Casa",
+      "sellHome": "Vender Tu Casa",
+      "rentProperty": "Rentar Propiedad",
+      "virtualTours": "Tours Virtuales"
+    },
+    "spotlight": {
+      "title": "Propiedades Destacadas",
+      "viewAll": "Ver Todas las Propiedades"
+    },
+    "projects": {
+      "pacificHeights": {
+        "title": "Alturas del Pacífico",
+        "subtitle": "Calle Broadway, San Francisco"
+      },
+      "dairyFarm": {
+        "title": "Granja Lechera",
+        "subtitle": "Palo Alto, San José"
+      }
+    },
+    "highlight": {
+      "title": "Punta Cana",
+      "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Ocurrió un error",
+    "retry": "Reintentar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "view": "Ver",
+    "close": "Cerrar",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "submit": "Enviar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "price": "Precio",
+    "location": "Ubicación",
+    "bedrooms": "Habitaciones",
+    "bathrooms": "Baños",
+    "sqft": "Pies Cuadrados",
+    "contact": "Contacto",
+    "phone": "Teléfono",
+    "email": "Correo Electrónico",
+    "address": "Dirección",
+    "shareSuccess": "¡Compartido exitosamente!",
+    "linkCopied": "¡Enlace copiado al portapapeles!",
+    "shareError": "Error al compartir. Por favor, inténtalo de nuevo.",
+    "sharing": "Compartiendo...",
+    "shareDescription": "Comparte esta propiedad con amigos y familiares",
+    "copyLink": "Copiar Enlace",
+    "copy": "Copiar"
+  },
+  "property": {
+    "details": {
+      "overview": "Resumen",
+      "features": "Características",
+      "location": "Ubicación",
+      "photos": "Fotos",
+      "virtualTour": "Tour Virtual",
+      "contactAgent": "Contactar Agente",
+      "scheduleViewing": "Programar Visita",
+      "saveProperty": "Guardar Propiedad",
+      "shareProperty": "Compartir Propiedad"
+    },
+    "filters": {
+      "priceRange": "Rango de Precio",
+      "propertyType": "Tipo de Propiedad",
+      "bedrooms": "Habitaciones",
+      "bathrooms": "Baños",
+      "squareFootage": "Pies Cuadrados",
+      "yearBuilt": "Año de Construcción",
+      "amenities": "Amenidades",
+      "bedsBath": "Habitaciones y Baños",
+      "more": "Más"
+    },
+    "listing": {
+      "viewing": "Viendo {{currentCount}} de {{totalCount}} {{type}} en {{location}}",
+      "forSale": "en Venta",
+      "showingAllBrokers": "Mostrando listados comercializados por todos los corredores en el área buscada.",
+      "sort": "ORDENAR",
+      "homesForYou": "Casas para ti",
+      "priceLowToHigh": "Precio: Bajo a Alto",
+      "priceHighToLow": "Precio: Alto a Bajo"
+    }
+  },
+  "auth": {
+    "loginTitle": "Iniciar Sesión",
+    "loginSubtitle": "Guarda tus propiedades favoritas y explora más sobre las propiedades",
+    "newToSite": "¿Nuevo en el sitio?",
+    "signUpForAccount": "Regístrate para una cuenta",
+    "dontHaveAccount": "¿No tienes una cuenta?",
+    "signUp": "Regístrate",
+    "signInWithEmail": "INICIAR SESIÓN CON CORREO ELECTRÓNICO",
+    "emailLabel": "Correo Electrónico",
+    "passwordLabel": "Contraseña",
+    "emailPlaceholder": "Introduce tu correo electrónico",
+    "passwordPlaceholder": "Introduce tu contraseña",
+    "keepMeSignedIn": "Mantenerme Conectado",
+    "forgotPassword": "¿Olvidaste la Contraseña?",
+    "signIn": "Iniciar Sesión",
+    "orSignInWith": "O INICIAR SESIÓN CON",
+    "google": "Google",
+    "apple": "Apple",
+    "facebook": "Facebook"
+  },
+  "signup": {
+    "account_title": "Regístrate para una cuenta",
+    "save_favorite": "Guarda tus propiedades favoritas y explora más sobre las propiedades",
+    "already_account": "¿Ya tienes una cuenta?",
+    "as_agent": "¿Eres un agente?",
+    "as_agent_link": "Regístrate como Agente",
+    "with_email": "REGÍSTRATE CON DIRECCIÓN DE CORREO ELECTRÓNICO",
+    "name_label": "Nombre",
+    "name_placeholder": "Enrique",
+    "email_label": "Dirección de correo electrónico",
+    "email_placeholder": "Introduce tu correo electrónico",
+    "mobile_label": "Número de móvil (Opcional)",
+    "mobile_placeholder": "Introduce el número de móvil",
+    "password_label": "Contraseña",
+    "password_placeholder": "Introduce tu contraseña",
+    "confirm_password_label": "Confirmar Contraseña",
+    "confirm_password_placeholder": "Confirmar contraseña",
+    "terms_agreement": "Al crear una cuenta, aceptas nuestros",
+    "terms_of_use": "Términos de uso",
+    "and": "y",
+    "privacy_policy": "Política de Privacidad",
+    "create_account_button": "Crear cuenta",
+    "or_with": "O REGÍSTRATE CON",
+    "google": "Google",
+    "apple": "Apple",
+    "facebook": "Facebook"
+  },
+  "validation": {
+    "name_required": "El nombre es obligatorio",
+    "email_required": "El correo electrónico es obligatorio",
+    "email_invalid": "Dirección de correo electrónico inválida",
+    "password_required": "La contraseña es obligatoria",
+    "password_min": "La contraseña debe tener al menos 8 caracteres",
+    "confirm_password_required": "Confirmar la contraseña es obligatorio",
+    "confirm_password_match": "Las contraseñas deben coincidir"
+  },
+  "otp": {
+    "title_email": "Se ha enviado una OTP a tu correo electrónico",
+    "title_mobile": "Se ha enviado una OTP a tu número de móvil",
+    "change_mail": "Cambiar correo electrónico",
+    "change_mobile": "Cambiar número de móvil",
+    "enter_otp": "INTRODUCE LA CONTRASEÑA DE UN SOLO USO",
+    "submit_button": "Enviar",
+    "resend": "Reenviar",
+    "otp_required": "La OTP es obligatoria",
+    "otp_invalid": "La OTP debe tener 6 dígitos"
+  },
+  "footer": {
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "cookies": "Política de Cookies",
+    "support": "Soporte",
+    "careers": "Carreras",
+    "blog": "Blog",
+    "brandName": "VistaView",
+    "yearCopyright": "{{year}} VistaView. Todos los derechos reservados",
+    "address": {
+      "line1": "400 University Drive Suite 200 Coral Gables,",
+      "line2": "FL 33134 USA"
+    },
+    "columns": {
+      "links": "Enlaces",
+      "help": "Ayuda",
+      "newsletter": "Boletín"
+    },
+    "linksMap": {
+      "home": "Inicio",
+      "catalog": "Catálogo",
+      "about": "Acerca de",
+      "contact": "Contacto",
+      "paymentOptions": "Opciones de Pago",
+      "returns": "Devoluciones",
+      "privacyPolicies": "Políticas de Privacidad"
+    },
+    "newsletter": {
+      "placeholder": "Ingrese su dirección de correo electrónico",
+      "button": "SUSCRIBIRSE"
+    }
+  },
+  "plan": {
+    "title": "¡Bienvenido a Vistaview!",
+    "subtitle": "Seleccione su plan para explorar las características de la propiedad que solo Vistaview ofrece",
+    "heading": "¡Elige tu plan!",
+    "annual": "Anual",
+    "monthly": "Mensual",
+    "basic_plan": "Básico",
+    "basic_features": "5 Características",
+    "basic_price_annual": "$0",
+    "basic_price_monthly": "$0",
+    "basic_billing_annual": "Gratis",
+    "basic_billing_monthly": "Gratis",
+    "standard_plan": "Estándar",
+    "standard_features": "8 Características",
+    "standard_price_annual": "$200",
+    "standard_price_monthly": "$20",
+    "standard_billing_annual": "Facturado anualmente",
+    "standard_billing_monthly": "Facturado mensualmente",
+    "premium_plan": "Premium",
+    "premium_features": "12 Características",
+    "premium_price_annual": "$400",
+    "premium_price_monthly": "$40",
+    "premium_billing_annual": "Facturado anualmente",
+    "premium_billing_monthly": "Facturado mensualmente",
+    "choose_plan": "Elegir plan",
+    "view_plan": "Ver plan",
+    "feature_1": "Lorem ipsum dolor sit",
+    "feature_2": "Consectetur adipiscing",
+    "feature_3": "Ut enim ad minim veniam",
+    "feature_4": "Quis nostrud exercitation",
+    "feature_5": "Lorem ipsum dolor sit",
+    "feature_6": "Consectetur adipiscing",
+    "skip": "Omitir"
+  },
+  "my_orders": {
+    "title": "Mis Pedidos",
+    "order_no": "Nº de pedido",
+    "total": "Total",
+    "invoice": "Factura",
+    "date_placed": "Fecha de pedido",
+    "track_package": "Rastrear paquete",
+    "view_item": "Ver artículo",
+    "buy_again": "Comprar de nuevo",
+    "sort": "ORDENAR",
+    "showing_all": "Mostrando todo",
+    "delivered": "Entregado",
+    "in_transit": "En tránsito",
+    "in_progress": "En Progreso",
+    "past_6_months": "Últimos 6 meses",
+    "past_year": "Último año",
+    "back": "Atrás",
+    "not_found": "Pedido no encontrado",
+    "date": "Fecha",
+    "past_30_days": "Últimos 30 días",
+    "download_invoice": "Descargar factura",
+    "status": {
+      "in_transit": "En tránsito",
+      "delivered": "Entregado",
+      "pending": "Pendiente",
+      "paid": "Pagado",
+      "confirmed": "Confirmado",
+      "cancelled": "Cancelado",
+      "failed": "Fallido",
+      "processing": "Procesando",
+      "shipped": "Enviado",
+      "refunded": "Reembolsado"
+    },
+    "summary": "{{count}} pedidos – {{delivered}} entregados, {{in_progress}} en progreso"
+  }
+} 

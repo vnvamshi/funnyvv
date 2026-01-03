@@ -1,0 +1,20 @@
+<svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <!-- Checkmark in circle -->
+    <circle cx="60" cy="40" r="24" stroke="#007E67" stroke-width="4" fill="none" />
+    <path d="M52 41.5L58 47L68 33" stroke="#007E67" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Gold stars -->
+    <g fill="#BFA14A">
+      <polygon points="20,20 22,25 27,25 23,28 25,33 20,30 15,33 17,28 13,25 18,25"/>
+      <polygon points="100,20 102,24 106,24 103,27 104,31 100,29 96,31 97,27 94,24 98,24"/>
+      <polygon points="60,10 61,13 64,13 62,15 63,18 60,16 57,18 58,15 56,13 59,13"/>
+    </g>
+    <!-- Accent lines -->
+    <g stroke="#BFA14A" stroke-width="2">
+      <line x1="30" y1="18" x2="40" y2="25" />
+      <line x1="90" y1="18" x2="80" y2="25" />
+      <line x1="25" y1="35" x2="35" y2="38" />
+      <line x1="95" y1="35" x2="85" y2="38" />
+    </g>
+  </g>
+</svg> 

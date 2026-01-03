@@ -1,0 +1,28 @@
+import React from 'react';
+
+export const MinusIcon = () => (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="22" height="22" rx="5" fill="url(#paint0_linear_93_8806)"/>
+<path d="M5.5 11H16.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<linearGradient id="paint0_linear_93_8806" x1="2.24818" y1="3.41379" x2="24.7851" y2="12.4431" gradientUnits="userSpaceOnUse">
+<stop stop-color="#004236"/>
+<stop offset="1" stop-color="#007E67"/>
+</linearGradient>
+</defs>
+</svg>
+);
+
+export const PlusIcon = () => (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="22" height="22" rx="5" fill="url(#paint0_linear_292_9166)"/>
+<path d="M6 11.5H17M11.5 6V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<linearGradient id="paint0_linear_292_9166" x1="2.24818" y1="3.41379" x2="24.7851" y2="12.4431" gradientUnits="userSpaceOnUse">
+<stop stop-color="#004236"/>
+<stop offset="1" stop-color="#007E67"/>
+</linearGradient>
+</defs>
+</svg>
+);
+

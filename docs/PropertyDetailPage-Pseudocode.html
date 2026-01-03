@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Property Detail Page - Pseudocode</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 4rem;
+        line-height: 1.5;
+        color: #111827;
+        background-color: #f9fafb;
+      }
+      h1, h2, h3 {
+        color: #111827;
+      }
+      h1 {
+        margin-bottom: 1.5rem;
+      }
+      h2 {
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+        border-bottom: 1px solid #e5e7eb;
+        padding-bottom: 0.25rem;
+      }
+      h3 {
+        margin-top: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
+      section {
+        margin-bottom: 2rem;
+      }
+      pre {
+        background-color: #0b1120;
+        color: #e5e7eb;
+        padding: 1rem 1.25rem;
+        border-radius: 0.375rem;
+        overflow-x: auto;
+        font-size: 0.9rem;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+      }
+      .note {
+        font-size: 0.85rem;
+        color: #6b7280;
+        margin-top: 0.25rem;
+      }
+      ul {
+        margin: 0.25rem 0 0.75rem 1.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Property Detail Page - Pseudocode</h1>
+
+    <p>
+      This document describes high-level pseudocode and interaction flow for the
+      <strong>Photos</strong>, <strong>Videos</strong>, <strong>AI Forecast</strong>, and
+      <strong>Mortgage</strong> sections in the <strong>Property Detail</strong> page.
+      It is framework-agnostic and intended as an implementation guide.
+    </p>
+
+    <section id="layout">
+      <h2>Overall Property Detail Layout</h2>
+      <pre><code>// PropertyDetailPage(props: { propertyId })
+INIT state:
+  property = null
+  isLoadingProperty = true
+  error = null
+
+  selectedPhotoIndex = 0
+  isPhotosModalOpen = false
+
+  selectedVideoIndex = 0
+  isVideosModalOpen = false
+
+  aiForecastData = null
+  isLoadingAI = false
+  aiError = null
+
+  mortgageInput = {
+    price: null,        // default from property.listPrice
+    downPayment: null,
+    interestRate: null,
+    termYears: 30,
+    propertyTaxRate: default_tax_rate,
+    insurancePerYear: default_insurance,
+  }
+  mortgageResult = null
+
+ON MOUNT:
+  call loadProperty(propertyId)
+
+FUNCTION loadProperty(id):
+  try
+    isLoadingProperty = true
+    error = null
+    response = PropertyAPI.getPropertyDetails(id)
+    property = response.data
+
+    // initialize dependent modules
+    if property has photos
+      selectedPhotoIndex = 0
+    if property has videos
+      selectedVideoIndex = 0
+
+    if mortgageInput.price is null
+      mortgageInput.price = property.listPrice
+  catch (e)
+    error = toUserFriendlyError(e)
+  finally
+    isLoadingProperty = false
+
+RENDER:
+  if isLoadingProperty
+    showPropertySkeleton()
+    return
+
+  if error
+    showErrorBanner(error)
+    return
+
+  renderPrimaryHeader(property)
+
+  renderPhotosSection(property.photos)
+  renderVideosSection(property.videos)
+  renderAIForecastSection(property)
+  renderMortgageSection(property, mortgageInput, mortgageResult)
+
+  if isPhotosModalOpen
+    renderPhotosModal(property.photos, selectedPhotoIndex)
+
+  if isVideosModalOpen
+    renderVideosModal(property.videos, selectedVideoIndex)</code></pre>
+    </section>
+
+    <section id="photos">
+      <h2>Photos Section</h2>
+
+      <h3>Goals</h3>
+      <ul>
+        <li>Display primary hero image with thumbnails or gallery strip.</li>
+        <li>Allow user to open full-screen/lightbox view (Photos Modal).</li>
+        <li>Allow navigation between photos with keyboard/mouse/swipe.</li>
+      </ul>
+
+      <h3>Pseudocode</h3>
+      <pre><code>// renderPhotosSection(photos)
+IF photos is empty or null
+  RETURN (do not render photos section)
+
+// Layout
+DISPLAY sectionHeader("Photos")
+
+DISPLAY mainPhoto = photos[selectedPhotoIndex]
+  ON_CLICK:
+    isPhotosModalOpen = true
+    trackEvent("photos_open_modal", { propertyId })
+
+DISPLAY thumbnailStrip:
+  FOR each photo IN photos WITH index i
+    DISPLAY thumbnail(photo)
+      IF i == selectedPhotoIndex
+        markAsSelected()
+      ON_CLICK:
+        selectedPhotoIndex = i
+
+
+// PhotosModal behavior (full-screen gallery)
+FUNCTION renderPhotosModal(photos, selectedIndex)
+  INIT localIndex = selectedIndex
+
+  ON_MODAL_OPEN:
+    lockBodyScroll()
+    focusOnModalRoot()
+
+  ON_MODAL_CLOSE:
+    unlockBodyScroll()
+    isPhotosModalOpen = false
+
+  KEYBOARD HANDLERS (when modal focused):
+    OnArrowRight:
+      if localIndex &lt; photos.length - 1
+        localIndex++
+      else
+        localIndex = 0          // optional: wrap around
+
+    OnArrowLeft:
+      if localIndex &gt; 0
+        localIndex--
+      else
+        localIndex = photos.length - 1
+
+    OnEscape:
+      closeModal()
+
+  CLICK HANDLERS:
+    onClickBackdrop:
+      closeModal()
+    onClickCloseButton:
+      closeModal()
+
+  RENDER:
+    display fullSizePhoto = photos[localIndex]
+    display counter "(localIndex + 1) / photos.length"
+
+    display navigationButtons:
+      prevButton.onClick = ArrowLeft handler
+      nextButton.onClick = ArrowRight handler
+
+    display miniThumbnailStrip for quick jumping:
+      FOR each photo with index i
+        DISPLAY smallThumbnail(photo)
+          IF i == localIndex
+            markAsSelected()
+          ON_CLICK:
+            localIndex = i
+
+  ON_MODAL_UNMOUNT:
+    selectedPhotoIndex = localIndex  // persist last viewed index to main page</code></pre>
+    </section>
+
+    <section id="videos">
+      <h2>Videos Section</h2>
+
+      <h3>Goals</h3>
+      <ul>
+        <li>Preview property walkthrough or drone videos.</li>
+        <li>Open a modal with embedded video player.</li>
+        <li>Support YouTube, MP4, or other common sources.</li>
+      </ul>
+
+      <h3>Pseudocode</h3>
+      <pre><code>// renderVideosSection(videos)
+IF videos is empty or null
+  RETURN (do not render videos section)
+
+DISPLAY sectionHeader("Videos")
+
+// Show first video as primary preview tile
+DISPLAY mainVideoTile using videos[selectedVideoIndex]
+  show thumbnail (poster image) + play icon overlay
+  show duration label if available
+
+  ON_CLICK:
+    isVideosModalOpen = true
+    trackEvent("videos_open_modal", { propertyId })
+
+// Optional: render list/strip of all videos
+FOR each video IN videos WITH index i
+  DISPLAY videoThumbnail(video)
+    IF i == selectedVideoIndex
+      markAsSelected()
+    ON_CLICK:
+      selectedVideoIndex = i
+
+
+// VideosModal behavior
+FUNCTION renderVideosModal(videos, selectedIndex)
+  INIT localIndex = selectedIndex
+  INIT isPlaying = true
+
+  ON_MODAL_OPEN:
+    lockBodyScroll()
+    // Preload metadata for current video
+
+  ON_MODAL_CLOSE:
+    unlockBodyScroll()
+    stopCurrentVideoPlayback()
+    isVideosModalOpen = false
+
+  RENDER:
+    currentVideo = videos[localIndex]
+
+    displayCloseButton(onClick = closeModal)
+
+    // Choose player type by source
+    IF currentVideo.type == "YOUTUBE"
+      RENDER YouTubePlayer(currentVideo.youtubeId, autoplay = true)
+    ELSE IF currentVideo.type == "MP4" OR currentVideo.url ends with ".mp4"
+      RENDER HTML5VideoPlayer(src = currentVideo.url, autoplay = true, controls = true)
+    ELSE
+      showUnsupportedVideoMessage()
+
+    display video title and description
+
+    // navigation
+    displayPrevButton:
+      disabled = (videos.length == 1)
+      onClick:
+        stopCurrentVideoPlayback()
+        localIndex = (localIndex - 1 + videos.length) mod videos.length
+
+    displayNextButton:
+      disabled = (videos.length == 1)
+      onClick:
+        stopCurrentVideoPlayback()
+        localIndex = (localIndex + 1) mod videos.length
+
+    // optionally render video list for quick jump
+    FOR each video WITH index i
+      DISPLAY smallVideoThumbnail(video)
+        IF i == localIndex
+          markAsSelected()
+        ON_CLICK:
+          stopCurrentVideoPlayback()
+          localIndex = i
+
+  ON_MODAL_UNMOUNT:
+    selectedVideoIndex = localIndex</code></pre>
+    </section>
+
+    <section id="ai-forecast">
+      <h2>AI Forecast Section</h2>
+
+      <h3>Goals</h3>
+      <ul>
+        <li>Fetch AI-based price and appreciation forecast for the property.</li>
+        <li>Visualize forecast in a simple, understandable way (chart + summary).</li>
+        <li>Handle loading, error, and no-data states gracefully.</li>
+      </ul>
+
+      <h3>Data Contract (Example)</h3>
+      <pre><code>// Expected AI forecast payload (example)
+aiForecastData = {
+  currentPrice: number,
+  fairPriceRange: { low: number, high: number },
+  oneYearForecast: {
+    predictedPrice: number,
+    minPrice: number,
+    maxPrice: number,
+    confidence: number,      // 0..1
+  },
+  fiveYearForecast: {
+    yearlyPoints: [          // one point per year
+      { yearOffset: 0, price: number },
+      { yearOffset: 1, price: number },
+      ...
+    ],
+    cagr: number,            // compound annual growth rate
+  },
+  explanation: string,       // short natural language summary
+  lastUpdatedAt: ISOString,
+}</code></pre>
+
+      <h3>Pseudocode</h3>
+      <pre><code>// renderAIForecastSection(property)
+ON_SECTION_VISIBLE (intersection observer or on first expand):
+  if aiForecastData is null AND isLoadingAI is false
+    call loadAIForecast(property)
+
+FUNCTION loadAIForecast(property):
+  isLoadingAI = true
+  aiError = null
+
+  REQUEST_BODY = {
+    propertyId: property.id,
+    address: property.address.fullAddress,
+    lat: property.location.lat,
+    lng: property.location.lng,
+    bedrooms: property.bedrooms,
+    bathrooms: property.bathrooms,
+    sqft: property.areaSqFt,
+    lotSize: property.lotSize,
+    yearBuilt: property.yearBuilt,
+    listPrice: property.listPrice,
+    historicalPrices: property.historicalPrices,
+  }
+
+  try
+    response = AIForecastAPI.getForecast(REQUEST_BODY)
+    if response.status == 200 and response.data is not empty
+      aiForecastData = normalizeForecast(response.data)
+    else
+      aiError = "No AI forecast available for this property."
+  catch (e)
+    aiError = toUserFriendlyError(e)
+  finally
+    isLoadingAI = false
+
+
+// Render logic
+IF aiForecastData is null AND isLoadingAI is false AND aiError is not null
+  DISPLAY sectionHeader("AI Forecast")
+  DISPLAY errorMessage(aiError)
+  DISPLAY link "Try again" with onClick = loadAIForecast(property)
+  RETURN
+
+DISPLAY sectionHeader("AI Forecast")
+
+IF isLoadingAI
+  DISPLAY forecastSkeleton()   // shimmer blocks for chart + numbers
+  RETURN
+
+IF aiForecastData is null
+  DISPLAY emptyState("AI forecast is not available.")
+  RETURN
+
+// When data is present
+DISPLAY summaryCard:
+  show currentPrice vs. AI fairPriceRange
+  show oneYearForecast.predictedPrice and confidence as percentage
+
+DISPLAY chart for fiveYearForecast.yearlyPoints:
+  x-axis: years from now (0..5)
+  y-axis: predicted price
+  plot line with markers
+
+DISPLAY statsRow:
+  - "5-year CAGR" = aiForecastData.fiveYearForecast.cagr
+  - "1-year upside" = (oneYearForecast.predictedPrice / currentPrice) - 1
+  - optional risk/confidence indicators
+
+DISPLAY explanationText(aiForecastData.explanation)
+
+DISPLAY disclaimer:
+  small text: "AI forecast is for informational purposes only and is not financial advice."</code></pre>
+    </section>
+
+    <section id="mortgage">
+      <h2>Mortgage Section</h2>
+
+      <h3>Goals</h3>
+      <ul>
+        <li>Allow user to estimate monthly payment for this property.</li>
+        <li>Pre-fill price from listing, but editable.</li>
+        <li>Break down payment into principal &amp; interest, taxes, insurance, and HOA (if applicable).</li>
+      </ul>
+
+      <h3>Calculation Model</h3>
+      <pre><code>// Inputs
+price = mortgageInput.price or property.listPrice
+
+// Down payment can be absolute amount or percentage
+IF user selects "percent"
+  downPayment = price * (downPaymentPercent / 100)
+ELSE
+  downPayment = downPaymentAmount
+
+loanAmount = max(price - downPayment, 0)
+
+// Monthly interest rate
+monthlyRate = (interestRate / 100) / 12
+
+// Number of payments
+n = termYears * 12
+
+// Standard fixed-rate mortgage formula
+IF monthlyRate == 0
+  principalAndInterest = loanAmount / n
+ELSE
+  principalAndInterest = loanAmount * (monthlyRate * (1 + monthlyRate)^n) / ((1 + monthlyRate)^n - 1)
+
+// Taxes & insurance
+monthlyPropertyTax = (price * propertyTaxRate) / 12
+monthlyInsurance = insurancePerYear / 12
+monthlyHOA = property.monthlyHOAFees or 0
+
+totalMonthlyPayment = principalAndInterest + monthlyPropertyTax + monthlyInsurance + monthlyHOA
+
+mortgageResult = {
+  loanAmount,
+  principalAndInterest,
+  monthlyPropertyTax,
+  monthlyInsurance,
+  monthlyHOA,
+  totalMonthlyPayment,
+}</code></pre>
+
+      <h3>Pseudocode</h3>
+      <pre><code>// renderMortgageSection(property, mortgageInput, mortgageResult)
+DISPLAY sectionHeader("Mortgage Estimator")
+
+// Form
+DISPLAY numericInput("Home price", value = mortgageInput.price)
+  onChange(newValue):
+    mortgageInput.price = newValue
+
+DISPLAY downPaymentControl:
+  toggle between [percent] and [amount]
+  input for value
+
+DISPLAY numericInput("Interest rate (%)", value = mortgageInput.interestRate)
+DISPLAY numericInput("Term (years)",    value = mortgageInput.termYears)
+DISPLAY numericInput("Property tax (%)", value = mortgageInput.propertyTaxRate)
+DISPLAY numericInput("Insurance (per year)", value = mortgageInput.insurancePerYear)
+
+IF property.monthlyHOAFees exists
+  DISPLAY readonlyField("HOA fees", property.monthlyHOAFees)
+
+DISPLAY primaryButton("Calculate payment")
+  disabled if required fields invalid
+  onClick:
+    mortgageResult = calculateMortgage(mortgageInput, property)
+    trackEvent("mortgage_calculated", { propertyId, loanAmount: mortgageResult.loanAmount })
+
+
+// Display results
+IF mortgageResult is not null
+  DISPLAY totalMonthlyPayment prominently
+
+  DISPLAY breakdown list:
+    - "Principal &amp; interest"  = mortgageResult.principalAndInterest
+    - "Property tax"          = mortgageResult.monthlyPropertyTax
+    - "Insurance"             = mortgageResult.monthlyInsurance
+    - "HOA" (if applicable)   = mortgageResult.monthlyHOA
+
+  DISPLAY small text explaining assumptions and that rates are illustrative only
+
+  DISPLAY secondaryButton("Get pre-approved")
+    onClick:
+      redirectToLenderFlow(propertyId, mortgageInput, mortgageResult)</code></pre>
+    </section>
+
+    <p class="note">
+      Note: All code shown above is pseudocode for product and engineering
+      discussion. It intentionally omits framework-specific details such as
+      React hooks, Vue refs, or concrete API client implementations.
+    </p>
+  </body>
+</html>

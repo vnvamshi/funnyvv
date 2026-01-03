@@ -1,0 +1,236 @@
+{
+  "globalHeader": {
+    "logoAlt": "VistaView",
+    "navigation": {
+      "home": "Home",
+      "services": "Services",
+      "explore": "Explore",
+      "help": "Help"
+    }
+  },
+  "footer": {
+    "copyright": "© {{year}} VistaView. All rights reserved.",
+    "yearCopyright": "{{year}} VistaView. All rights reserved",
+    "support": "Support",
+    "reports": "Reports",
+    "tagline": "World’s #1 Real Estate Intelligence & Virtual Experience Platform",
+    "brandName": "VistaView",
+    "address": {
+      "line1": "400 University Drive Suite 200 Coral Gables,",
+      "line2": "FL 33134 USA"
+    },
+    "columns": {
+      "links": "Links",
+      "help": "Help",
+      "newsletter": "Newsletter"
+    },
+    "links": {
+      "about": "About us",
+      "careers": "Careers",
+      "blog": "Blog",
+      "contact": "Contact us",
+      "realEstate": "Real Estate",
+      "services": "Services",
+      "help": "Help",
+      "reports": "Reports",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy"
+    },
+    "linksMap": {
+      "home": "Home",
+      "catalog": "Catalog",
+      "about": "About",
+      "contact": "Contact",
+      "paymentOptions": "Payment Options",
+      "returns": "Returns",
+      "privacyPolicies": "Privacy Policies"
+    },
+    "newsletter": {
+      "title": "Subscribe to our newsletter",
+      "placeholder": "Enter Your Email Address",
+      "button": "SUBSCRIBE",
+      "disclaimer": "We respect your privacy. No spam."
+    }
+  },
+  "landing": {
+    "hero": {
+      "title": "The Amazon of Real Estate",
+      "subtitle": "World’s #1 Real Estate Intelligence & Virtual Experience Platform"
+    },
+    "grid": {
+      "items": [
+        { "label": "Real Estate" },
+        { "label": "Product Catalogue" },
+        { "label": "Interior Design" },
+        { "label": "Services" }
+      ]
+    }
+  },
+  "header": {
+    "logoAlt": "Vista View Realty Services",
+    "navigation": {
+      "aboutUs": "About us",
+      "howItWorks": "How it works",
+      "ourPartners": "Our Partners",
+      "lendWithUs": "Lend with us"
+    },
+    "controls": {
+      "signIn": "Sign in"
+    },
+    "modal": {
+      "tabs": {
+        "countryAndLanguage": "Country and Language",
+        "currency": "Currency"
+      },
+      "countries": [
+        { "country": "USA", "language": "English", "flag": "https://flagcdn.com/w40/us.png" },
+        { "country": "India", "language": "English", "flag": "https://flagcdn.com/w40/in.png" },
+        { "country": "Australia", "language": "English", "flag": "https://flagcdn.com/w40/au.png" },
+        { "country": "Dubai", "language": "English", "flag": "https://flagcdn.com/w40/ae.png" }
+      ],
+      "currencies": [
+        { "name": "United States Dollar", "code": "USD", "symbol": "$" },
+        { "name": "Indian Rupee", "code": "INR", "symbol": "₹" },
+        { "name": "Australian Dollar", "code": "AUD", "symbol": "$" },
+        { "name": "UAE Dirham", "code": "AED", "symbol": "د.إ" },
+        { "name": "Saudi Arabian Riyal", "code": "SAR", "symbol": "﷼" }
+      ],
+      "footer": {
+        "useCurrentLocation": "Use current location"
+      },
+      "beginJourney": "Begin your journey ≫"
+    }
+  },
+  "realEstateHero": {
+    "title": "World's #1 Real Estate Intelligence & Virtual Experience Platform",
+    "tabs": ["For Sale", "For Lease", "For Rent"],
+    "categories": [
+      { "key": "flat", "label": "Flat / Apartment" },
+      { "key": "villa", "label": "Villa" },
+      { "key": "land", "label": "Land" },
+      { "key": "office", "label": "Office" },
+      { "key": "retail", "label": "Retail" }
+    ],
+    "askPlaceholder": "Ask anything with Vistaview AI",
+    "aiMode": "AI Mode",
+    "country": "USA"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "items": "Cart Items",
+    "orderSummary": "Order Summary",
+    "subtotal": "Subtotal",
+    "tax": "Tax (10%)",
+    "shipping": "Shipping",
+    "free": "Free",
+    "total": "Total",
+    "proceedToCheckout": "Proceed to Checkout",
+    "continueShopping": "Continue Shopping",
+    "checkout": "Checkout",
+    "contactInfo": "Contact Information",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "shippingAddress": "Shipping Address",
+    "address": "Street Address",
+    "city": "City",
+    "state": "State",
+    "zipCode": "ZIP Code",
+    "paymentMethod": "Payment Method",
+    "placeOrder": "Place Order",
+    "orderComplete": "Order Complete",
+    "orderSuccess": "Order Placed Successfully!",
+    "orderSuccessMessage": "Thank you for your purchase. Your order has been confirmed and will be processed shortly.",
+    "orderNumber": "Order Number",
+    "orderDate": "Date",
+    "orderDetails": "Order Details",
+    "quantity": "Qty",
+    "viewOrders": "View My Orders",
+    "downloadReceipt": "Download Receipt",
+    "shareOrder": "Share Order",
+    "whatsNext": "What's Next?",
+    "step1": "Order Confirmation",
+    "step1Desc": "You'll receive an email confirmation with your order details.",
+    "step2": "Processing",
+    "step2Desc": "We'll prepare your items and arrange for shipping.",
+    "step3": "Delivery",
+    "step3Desc": "Your order will be delivered within 3-5 business days."
+  }
+  ,
+  "plan": {
+    "title": "Welcome to Vistaview !",
+    "subtitle": "Select your plan to explore the property features that only providing by Vistaview",
+    "heading": "Pick your Plan !",
+    "annual": "Annual",
+    "monthly": "Monthly",
+    "basic_plan": "Basic",
+    "basic_features": "5 Features",
+    "basic_price_annual": "$ 0",
+    "basic_price_monthly": "$ 0",
+    "basic_billing_annual": "Free",
+    "basic_billing_monthly": "Free",
+    "standard_plan": "Standard",
+    "standard_features": "8 Features",
+    "standard_price_annual": "$ 200",
+    "standard_price_monthly": "$ 20",
+    "standard_billing_annual": "Billed Annually",
+    "standard_billing_monthly": "Billed Monthly",
+    "premium_plan": "Premium",
+    "premium_features": "12 Features",
+    "premium_price_annual": "$ 400",
+    "premium_price_monthly": "$ 40",
+    "premium_billing_annual": "Billed Annually",
+    "premium_billing_monthly": "Billed Monthly",
+    "choose_plan": "Choose Plan",
+    "view_plan": "View plan",
+    "skip": "Skip",
+    "summary": "{{count}} Orders – {{delivered}} delivered, {{in_progress}} in progress",
+    "checkout": "Checkout",
+    "confirmTitle": "Plan confirmation",
+    "confirmAndSubmit": "Confirm your plan and submit",
+    "confirmDesc": "Keep track on your subscription details and get update on the feature upgrade!",
+    "confirmSubscription": "Confirm your subscription",
+    "changePlan": "Change plan",
+    "basic": "Basic",
+    "free": "FREE",
+    "price0": "$ 0",
+    "totalPrice": "Total price",
+    "confirm": "Confirm",
+    "back": "Back",
+    "cancel": "Cancel",
+    "orderSummary": "Order summary",
+    "discount": "Discount",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "makePayment": "Make Payment",
+    "paymentMethod": "Payment method",
+    "paymentMethods": "Payment Methods",
+    "feature1": "Lorem ipsum dolor sit",
+    "feature2": "Consectetur adipiscing",
+    "feature3": "Ut enim ad minim veniam",
+    "feature4": "Quis nostrud exercitation",
+    "choose_button": "Choose Plan",
+    "mySubscriptions": "My Subscriptions",
+    "history": "History",
+    "downloadInvoice": "Download Invoice",
+    "noBilling": "No Billing",
+    "purchaseDate": "Purchase date",
+    "update_subscription": "Upgrade your plan",
+    "features": "Plan Features"
+  },
+  "productCatalog": {
+    "newArrival": "New Arrival",
+    "title": "Discover Our New Collection",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.",
+    "buyNow": "BUY NOW"
+  },
+  "productGrid": {
+    "title": "Our Products",
+    "showMore": "Show More"
+  },
+  "relatedProducts": {
+    "title": "Related Products"
+  }
+}

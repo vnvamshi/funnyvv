@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "═══════════════════════════════════════════════════════════════"
+echo "  BACKEND LOG (last 50 lines)"
+echo "═══════════════════════════════════════════════════════════════"
+tail -50 /tmp/vistaview-backend.log 2>/dev/null || echo "No backend log"
+echo ""
+echo "═══════════════════════════════════════════════════════════════"
+echo "  LEARNER LOG (last 50 lines)"
+echo "═══════════════════════════════════════════════════════════════"
+tail -50 /tmp/vistaview-learner.log 2>/dev/null || echo "No learner log"
