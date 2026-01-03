@@ -1,45 +1,78 @@
-# VistaView v2.2 - Frontend Enhancements
+# VistaView v2.2 - Backend Dashboard Enhancements
 
 ## Date: January 3, 2026
 
 ## What Changed
 
-### 1. Fixed Back Button Navigation
-- Navigation stack properly maintained
-- "Go back" voice command works at all levels
-- Back button in header works correctly
-- Returns to previous view, not just grid
+### 1. New Data Sources Added
+**Real Estate Sources:**
+- MagicBricks (active, 15,420 records)
+- 99acres (active, 12,350 records)
+- Housing.com (active, 8,920 records)
+- Zillow (pending)
+- Realtor.com (pending)
 
-### 2. Pause on "Hey Mr V"
-- Say "hey Mr V" or "hey Mister V" to get attention
-- System pauses and says "Yes? I'm listening..."
-- Waits 8 seconds for your command
-- Then resumes or continues
+**Market Reports:**
+- MAT Report (active, 245 records)
+- Knight Frank (active, 180 records)
+- JLL India (active, 156 records)
+- CBRE Reports (pending)
 
-### 3. Walking Cursor Animation
-- Visual cursor walks to target elements
-- Shows "Walking to [target]..." label
-- Ripple effect on cursor
-- Same animation as homepage
+**Product Sources:**
+- Amazon Home (active, 52,340 records)
+- Wayfair (pending)
+- IKEA (pending)
 
-### 4. Enhanced Voice Commands
-- "hey Mr V" - pause and wait
-- "stop" / "pause" - stop speaking
-- "back" / "go back" - return to previous
-- "close" / "exit" - close modal
-- Section/person names - navigate there
+### 2. Database Statistics
+**Tables:**
+| Table | Rows | Size (MB) | Update Frequency |
+|-------|------|-----------|------------------|
+| properties | 36,690 | 125.4 | hourly |
+| products | 52,340 | 89.2 | daily |
+| vendors | 1,245 | 12.1 | daily |
+| users | 8,920 | 45.6 | realtime |
+| interactions | 125,680 | 234.5 | realtime |
+| market_reports | 581 | 8.3 | weekly |
+| embeddings | 89,450 | 512.8 | daily |
+
+**Totals:**
+- Total Tables: 7
+- Total Rows: 315,906
+- Total Size: 1,027.9 MB
+
+### 3. Vector Statistics
+- Total Vectors: 89,450
+- Vector Dimensions: 1,536
+- Index Type: HNSW
+- Similarity Metric: Cosine
+
+**Collections:**
+- property_embeddings: 36,690
+- product_embeddings: 42,340
+- document_embeddings: 8,420
+- query_embeddings: 2,000
+
+### 4. Embedding Statistics
+- Model: text-embedding-ada-002
+- Total Embedded: 89,450
+- Pending: 1,250
+- Failed: 23
+- Daily Quota: 100,000
+- Daily Used: 45,230
+- Avg Time: 125ms
+
+## API Endpoints Added
+- GET /api/sources - All data sources
+- GET /api/database-stats - Database statistics
+- GET /api/vector-stats - Vector statistics
+- GET /api/embedding-stats - Embedding statistics
+- GET /api/tables - Detailed table info
+- GET /api/dashboard-full - Complete dashboard data
 
 ## Files Updated
-- src/components/AboutUsModal.tsx
-- src/components/HowItWorksModal.tsx  
-- src/components/OurPartnersModal.tsx
-- src/components/LendWithUsModal.tsx
-- src/components/useModalVoice.ts (new)
-- src/components/WalkingCursor.tsx (new)
+- data/ai-data.json
+- data/dashboard-config.json
+- backend/server.cjs (endpoints)
 
-## Testing
-1. Click "About Us" → modal opens
-2. Say "CEO" → cursor walks to CEO, opens
-3. Say "back" → returns to grid
-4. Say "hey Mr V" → pauses, waits
-5. Say "close" → modal closes
+## Access Dashboard
+http://localhost:1117/dashboard
