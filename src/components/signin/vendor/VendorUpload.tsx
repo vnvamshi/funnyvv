@@ -1,47 +1,177 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef } from 'react';
+import UnifiedAgenticBar from '../common/UnifiedAgenticBar';
 
-interface Props { onFileSelected: (file: File) => void; speak: (text: string) => void; }
+interface Props {
+  onFileSelect: (file: File) => void;
+  onProductsExtracted: (products: any[]) => void;
+  speak: (t: string) => void;
+}
 
-const THEME = { gold: '#B8860B', goldLight: '#F5EC9B' };
+const THEME = { teal: '#004236', gold: '#B8860B' };
 
-const VendorUpload: React.FC<Props> = ({ onFileSelected, speak }) => {
-  const [isDragging, setIsDragging] = useState(false);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+const VendorUpload: React.FC<Props> = ({ onFileSelect, onProductsExtracted, speak }) => {
+  const [uploading, setUploading] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [status, setStatus] = useState<'idle' | 'uploading' | 'success' | 'error'>('idle');
+  const [fileName, setFileName] = useState('');
+  const [productCount, setProductCount] = useState(0);
+  const [error, setError] = useState('');
+  const fileRef = useRef<HTMLInputElement>(null);
 
-  const processFile = (file: File) => {
-    const valid = ['.pdf', '.xlsx', '.xls', '.csv'].some(ext => file.name.toLowerCase().endsWith(ext));
-    if (!valid) { speak("Sorry, I only accept PDF, Excel, or CSV."); return; }
-    setSelectedFile(file);
-    speak(`Got ${file.name}. Click Process to start.`);
+  const handleUpload = async (file: File) => {
+    if (!file.name.toLowerCase().endsWith('.pdf')) {
+      setStatus('error');
+      setError('Please upload a PDF file');
+      speak("Please upload a PDF file.");
+      return;
+    }
+
+    setUploading(true);
+    setStatus('uploading');
+    setProgress(20);
+    setFileName(file.name);
+    setError('');
+    
+    speak(`Uploading ${file.name}`);
+    onFileSelect(file);
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      setProgress(50);
+      
+      const res = await fetch('http://localhost:1117/api/upload/pdf', {
+        method: 'POST',
+        body: formData
+      });
+
+      setProgress(80);
+      const data = await res.json();
+      setProgress(100);
+
+      if (data.success || data.products) {
+        setStatus('success');
+        const products = data.products || [];
+        setProductCount(products.length);
+        onProductsExtracted(products);
+        speak(`Upload complete! Found ${products.length} products.`);
+      } else {
+        throw new Error(data.error || 'Upload failed');
+      }
+    } catch (err: any) {
+      setStatus('error');
+      setError(err.message);
+      speak("Upload failed. Please try again.");
+    } finally {
+      setUploading(false);
+    }
   };
 
-  const handleDrop = useCallback((e: React.DragEvent) => { e.preventDefault(); setIsDragging(false); const file = e.dataTransfer.files[0]; if (file) processFile(file); }, []);
+  const handleCommand = (cmd: string) => {
+    const lower = cmd.toLowerCase();
+    if (lower.includes('upload') || lower.includes('select') || lower.includes('file')) {
+      fileRef.current?.click();
+    }
+    if (lower.includes('retry') || lower.includes('again')) {
+      setStatus('idle');
+      setProgress(0);
+    }
+    if (lower.includes('next') || lower.includes('continue')) {
+      if (status === 'success') {
+        speak("Moving to next step.");
+      }
+    }
+  };
 
   return (
-    <div style={{ textAlign: 'center' }}>
-      <span style={{ fontSize: '4em' }}>📤</span>
-      <h3 style={{ color: THEME.gold, marginTop: '16px' }}>Upload Your Catalog</h3>
-      <p style={{ color: '#888', marginBottom: '24px' }}>PDF, Excel, or CSV</p>
-      <input ref={fileInputRef} type="file" accept=".pdf,.xlsx,.xls,.csv" onChange={(e) => e.target.files?.[0] && processFile(e.target.files[0])} style={{ display: 'none' }} />
-      {!selectedFile ? (
-        <div onClick={() => fileInputRef.current?.click()} onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }} onDragLeave={() => setIsDragging(false)} onDrop={handleDrop} style={{ border: `3px dashed ${isDragging ? THEME.gold : 'rgba(184,134,11,0.5)'}`, borderRadius: '20px', padding: '50px', cursor: 'pointer', background: isDragging ? 'rgba(184,134,11,0.1)' : 'rgba(0,0,0,0.2)', maxWidth: '450px', margin: '0 auto' }}>
-          <span style={{ fontSize: '3em' }}>📁</span>
-          <p style={{ color: THEME.goldLight, marginTop: '16px' }}>{isDragging ? 'Drop here!' : 'Click or drag & drop'}</p>
-        </div>
-      ) : (
-        <div style={{ background: 'rgba(184,134,11,0.1)', border: `2px solid ${THEME.gold}`, borderRadius: '16px', padding: '24px', maxWidth: '450px', margin: '0 auto' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '20px' }}>
-            <span style={{ fontSize: '2.5em' }}>📄</span>
-            <div style={{ flex: 1, textAlign: 'left' }}>
-              <p style={{ color: '#fff', margin: 0, fontWeight: 500 }}>{selectedFile.name}</p>
-              <p style={{ color: '#888', margin: '4px 0 0', fontSize: '0.85em' }}>{(selectedFile.size / 1024).toFixed(1)} KB</p>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <div style={{ textAlign: 'center' }}>
+        <span style={{ fontSize: '2.5em' }}>📄</span>
+        <h3 style={{ color: THEME.gold, margin: '10px 0 5px' }}>Upload Your Catalog</h3>
+        <p style={{ color: '#888', fontSize: '0.9em' }}>Upload a PDF catalog to create product listings</p>
+      </div>
+
+      <div
+        onClick={() => status !== 'uploading' && fileRef.current?.click()}
+        onDrop={e => { e.preventDefault(); const f = e.dataTransfer.files?.[0]; if (f) handleUpload(f); }}
+        onDragOver={e => e.preventDefault()}
+        style={{
+          border: `2px dashed ${status === 'error' ? '#ef4444' : status === 'success' ? '#10b981' : THEME.gold}40`,
+          borderRadius: '16px',
+          padding: '40px',
+          textAlign: 'center',
+          cursor: uploading ? 'wait' : 'pointer',
+          background: uploading ? 'rgba(6, 182, 212, 0.1)' : 'rgba(0,0,0,0.2)'
+        }}
+      >
+        <input
+          ref={fileRef}
+          type="file"
+          accept=".pdf"
+          onChange={e => { const f = e.target.files?.[0]; if (f) handleUpload(f); }}
+          style={{ display: 'none' }}
+        />
+
+        {status === 'idle' && (
+          <>
+            <div style={{ fontSize: '3em', marginBottom: '15px' }}>📁</div>
+            <p style={{ color: '#fff', margin: '0 0 8px' }}>Click or drag PDF to upload</p>
+            <p style={{ color: '#888', fontSize: '0.85em', margin: 0 }}>Supports up to 50MB</p>
+          </>
+        )}
+
+        {status === 'uploading' && (
+          <>
+            <div style={{ fontSize: '2.5em', marginBottom: '15px' }}>📤</div>
+            <p style={{ color: '#06b6d4', margin: '0 0 15px' }}>Uploading {fileName}...</p>
+            <div style={{ height: '8px', background: 'rgba(0,0,0,0.3)', borderRadius: '4px', overflow: 'hidden', maxWidth: '300px', margin: '0 auto' }}>
+              <div style={{ width: `${progress}%`, height: '100%', background: 'linear-gradient(90deg, #06b6d4, #8b5cf6)', transition: 'width 0.3s' }} />
             </div>
-            <button onClick={() => setSelectedFile(null)} style={{ background: 'none', border: 'none', color: '#888', cursor: 'pointer' }}>✕</button>
-          </div>
-          <button onClick={() => onFileSelected(selectedFile)} style={{ padding: '14px 40px', background: THEME.gold, color: '#000', border: 'none', borderRadius: '25px', cursor: 'pointer', fontWeight: 600 }}>🚀 Process Catalog</button>
-        </div>
+          </>
+        )}
+
+        {status === 'success' && (
+          <>
+            <div style={{ fontSize: '2.5em', marginBottom: '15px' }}>✅</div>
+            <p style={{ color: '#10b981', margin: '0 0 8px' }}>Upload successful!</p>
+            <p style={{ color: '#06b6d4' }}>Found {productCount} products</p>
+          </>
+        )}
+
+        {status === 'error' && (
+          <>
+            <div style={{ fontSize: '2.5em', marginBottom: '15px' }}>❌</div>
+            <p style={{ color: '#ef4444', margin: 0 }}>{error || 'Upload failed'}</p>
+          </>
+        )}
+      </div>
+
+      {status === 'error' && (
+        <button
+          onClick={() => { setStatus('idle'); setProgress(0); }}
+          style={{
+            padding: '12px 24px',
+            background: THEME.gold,
+            border: 'none',
+            borderRadius: '25px',
+            color: '#000',
+            fontWeight: 600,
+            cursor: 'pointer',
+            alignSelf: 'center'
+          }}
+        >
+          Try Again
+        </button>
       )}
+
+      {/* UNIFIED AGENTIC BAR */}
+      <UnifiedAgenticBar
+        context="Catalog Upload"
+        onCommand={handleCommand}
+        speak={speak}
+        hints='Say "upload" to select file • "next" when done'
+      />
     </div>
   );
 };

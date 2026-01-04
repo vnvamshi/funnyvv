@@ -1,85 +1,90 @@
-// ═══════════════════════════════════════════════════════════════════════════════
-// VISTAVIEW - WALKING CURSOR COMPONENT
-// Animated cursor that walks to targets in modals
-// ═══════════════════════════════════════════════════════════════════════════════
-
-import React from 'react';
+/**
+ * WalkingCursor - A character that follows the mouse
+ */
+import React, { useState, useEffect, useRef } from 'react';
 
 interface WalkingCursorProps {
-  isWalking: boolean;
-  targetName?: string;
-  position: { x: number; y: number };
+    character?: string;
+    enabled?: boolean;
 }
 
-const WalkingCursor: React.FC<WalkingCursorProps> = ({ isWalking, targetName, position }) => {
-  if (!isWalking) return null;
-
-  return (
-    <div
-      style={{
-        position: 'absolute',
-        left: `${position.x}%`,
-        top: `${position.y}%`,
-        transform: 'translate(-50%, -50%)',
-        zIndex: 9999,
-        pointerEvents: 'none',
-        transition: 'left 0.8s ease-out, top 0.8s ease-out',
-      }}
-    >
-      {/* Cursor pointer */}
-      <div style={{
-        fontSize: '2em',
-        animation: 'walk 0.3s ease-in-out infinite alternate',
-      }}>
-        🚶
-      </div>
-      
-      {/* Target label */}
-      {targetName && (
-        <div style={{
-          position: 'absolute',
-          top: '100%',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          background: 'rgba(184, 134, 11, 0.9)',
-          color: '#000',
-          padding: '4px 12px',
-          borderRadius: '12px',
-          fontSize: '0.75em',
-          fontWeight: 600,
-          whiteSpace: 'nowrap',
-          marginTop: '8px',
-        }}>
-          Walking to {targetName}...
+export const WalkingCursor: React.FC<WalkingCursorProps> = ({
+    character = '🚶',
+    enabled = true
+}) => {
+    const [position, setPosition] = useState({ x: 100, y: 100 });
+    const [isWalking, setIsWalking] = useState(false);
+    const [direction, setDirection] = useState<'left' | 'right'>('right');
+    const targetRef = useRef({ x: 100, y: 100 });
+    const animationRef = useRef<number>();
+    
+    useEffect(() => {
+        if (!enabled) return;
+        
+        const handleMouseMove = (e: MouseEvent) => {
+            targetRef.current = { x: e.clientX - 16, y: e.clientY - 32 };
+        };
+        
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, [enabled]);
+    
+    useEffect(() => {
+        if (!enabled) return;
+        
+        const animate = () => {
+            setPosition(prev => {
+                const dx = targetRef.current.x - prev.x;
+                const dy = targetRef.current.y - prev.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 5) {
+                    setIsWalking(false);
+                    return prev;
+                }
+                
+                setIsWalking(true);
+                setDirection(dx > 0 ? 'right' : 'left');
+                
+                const speed = 0.1;
+                return {
+                    x: prev.x + dx * speed,
+                    y: prev.y + dy * speed
+                };
+            });
+            
+            animationRef.current = requestAnimationFrame(animate);
+        };
+        
+        animationRef.current = requestAnimationFrame(animate);
+        
+        return () => {
+            if (animationRef.current) {
+                cancelAnimationFrame(animationRef.current);
+            }
+        };
+    }, [enabled]);
+    
+    if (!enabled) return null;
+    
+    return (
+        <div
+            style={{
+                position: 'fixed',
+                left: position.x,
+                top: position.y,
+                fontSize: '32px',
+                pointerEvents: 'none',
+                zIndex: 99999,
+                transform: `scaleX(${direction === 'left' ? -1 : 1})`,
+                transition: 'transform 0.2s',
+                filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))',
+                opacity: isWalking ? 1 : 0.7
+            }}
+        >
+            {character}
         </div>
-      )}
-
-      {/* Ripple effect */}
-      <div style={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: '60px',
-        height: '60px',
-        borderRadius: '50%',
-        border: '2px solid #B8860B',
-        animation: 'ripple 1s ease-out infinite',
-        opacity: 0.6,
-      }} />
-
-      <style>{`
-        @keyframes walk {
-          0% { transform: translateY(0) rotate(-5deg); }
-          100% { transform: translateY(-5px) rotate(5deg); }
-        }
-        @keyframes ripple {
-          0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.8; }
-          100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
-        }
-      `}</style>
-    </div>
-  );
+    );
 };
 
 export default WalkingCursor;

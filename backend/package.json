@@ -1,21 +1,23 @@
 {
   "name": "vistaview-backend",
-  "version": "2.0.0",
-  "type": "commonjs",
+  "version": "32.0.0",
+  "description": "VistaView Agentic AI Backend",
+  "main": "server.cjs",
   "scripts": {
     "start": "node server.cjs",
-    "learn": "node learner.cjs"
+    "dev": "node server.cjs"
   },
   "dependencies": {
+    "axios": "^1.6.2",
+    "cheerio": "^1.0.0-rc.12",
     "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "minio": "^8.0.6",
-    "multer": "^2.0.2",
-    "pdf-parse": "^2.4.5",
-    "pdf-poppler": "^0.2.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.22.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.7",
+    "pdf-parse": "^1.1.1",
     "pg": "^8.16.3",
-    "sharp": "^0.34.5",
-    "uuid": "^13.0.0",
-    "xlsx": "^0.18.5"
+    "uuid": "^9.0.1",
+    "ws": "^8.18.3"
   }
 }

@@ -1,69 +1,45 @@
-# VistaView Integration Guide
+# VistaView MrVAssistant Integration Guide
 
-## How to Add Product Catalog to Main Page
+## How to Connect MrVAssistant to the Agentic Backend
 
-Add this to your main App.tsx or landing page:
-
-```tsx
-import { useState } from 'react';
-import { ProductCatalog, VendorCatalogButton } from './components/catalog';
-import NotificationBanner from './components/common/NotificationBanner';
-
-function App() {
-  const [showCatalog, setShowCatalog] = useState(false);
-  const [notification, setNotification] = useState(null);
-
-  return (
-    <div>
-      {/* ... your existing content ... */}
-      
-      {/* Add this button where you want the catalog access */}
-      <VendorCatalogButton onClick={() => setShowCatalog(true)} />
-      
-      {/* Product Catalog Modal */}
-      <ProductCatalog 
-        isOpen={showCatalog} 
-        onClose={() => setShowCatalog(false)} 
-      />
-      
-      {/* Notifications */}
-      <NotificationBanner
-        notification={notification}
-        onDismiss={() => setNotification(null)}
-        onAction={(action) => {
-          if (action === 'view-catalog') setShowCatalog(true);
-        }}
-      />
-    </div>
-  );
-}
+### Step 1: Import the API
+In your MrVAssistant.tsx, add at the top:
+```typescript
+import { sendVoiceToAgentic } from '../utils/agenticAPI';
 ```
 
-## Voice Commands in Product Catalog
+### Step 2: Update processCommand function
+Find the `processCommand` function and add this at the beginning:
+```typescript
+const processCommand = async (text: string) => {
+  const lower = text.toLowerCase();
+  
+  // Send to agentic backend for analysis + learning
+  const agenticResponse = await sendVoiceToAgentic(text, 'boss', window.location.pathname);
+  
+  if (agenticResponse?.analysis) {
+    console.log('[MrV] Analysis:', agenticResponse.analysis);
+    // Use agenticResponse.tts_response.text for smarter TTS if needed
+  }
+  
+  // ... rest of your existing processCommand logic
+};
+```
 
-- "Show furniture" - Filter by category
-- "Show vendor [name]" - Open specific vendor
-- "Search [query]" - Search products
-- "Back" - Navigate back
-- "Close" - Close catalog
-- "Insights" - Get AI recommendations
+### Step 3: Update API constant
+Change the API constant from:
+```typescript
+const API = 'http://localhost:3005/api';
+```
+To:
+```typescript
+const API = 'http://localhost:3005/api';  // Keep for your existing endpoints
+const AGENTIC_API = 'http://localhost:1117/api';  // New agentic backend
+```
 
-## AI Learning Sources
-
-The catalog learns from these industry leaders:
-- **Nebraska Furniture Mart** - Premium quality, room visualization
-- **IKEA** - Minimalist design, clean imagery
-- **Wayfair** - Comprehensive selection, customer photos
-- **LinkedIn** - Professional profiles, beautification
-- **WhatsApp** - Conversational UX, quick replies
-
-## Backend Endpoints
-
-- `GET /api/vendors` - List all vendors
-- `GET /api/products` - List all products
-- `GET /api/vendors/:id/products` - Vendor's products
-- `GET /api/ai/patterns` - Industry patterns
-- `POST /api/ai/learn` - Log AI learning
-- `POST /api/ai/vectorize` - Vectorize vendor data
-- `POST /api/notifications` - Create notification
-- `GET /api/notifications` - Get notifications
+### That's it!
+Your MrVAssistant will now:
+- Log all voice interactions to the global ledger
+- Get empathy analysis
+- Learn patterns automatically
+- Get context-aware TTS responses

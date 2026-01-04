@@ -1,0 +1,194 @@
+import React, { useState, useCallback, useRef, useEffect } from 'react';
+import AgenticBar, { speak, onCommand } from '../../../agentic';
+
+interface Props {
+  vendorId: string;
+  vendorName: string;
+  onComplete: (catalogId: string, stats: any) => void;
+}
+
+const VendorUpload: React.FC<Props> = ({ vendorId, vendorName, onComplete }) => {
+  const [status, setStatus] = useState<'idle' | 'uploading' | 'processing' | 'complete' | 'error'>('idle');
+  const [progress, setProgress] = useState(0);
+  const [filename, setFilename] = useState('');
+  const [stats, setStats] = useState<any>(null);
+  const [error, setError] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleUpload = useCallback(async (file: File) => {
+    setStatus('uploading');
+    setFilename(file.name);
+    setProgress(10);
+    speak('Uploading your catalog. This may take a moment.');
+
+    const formData = new FormData();
+    formData.append('catalog', file);
+    formData.append('vendorId', vendorId);
+    formData.append('vendorName', vendorName);
+    formData.append('originalFilename', file.name);
+
+    try {
+      const progressInterval = setInterval(() => {
+        setProgress(p => Math.min(p + 10, 90));
+      }, 500);
+
+      setStatus('processing');
+      setProgress(30);
+      speak('Processing your PDF catalog.');
+
+      const response = await fetch('http://localhost:1117/api/catalog/upload', {
+        method: 'POST',
+        body: formData
+      });
+
+      clearInterval(progressInterval);
+
+      if (!response.ok) throw new Error('Upload failed');
+
+      const result = await response.json();
+      
+      setStatus('complete');
+      setProgress(100);
+      setStats(result.stats);
+
+      speak(`Excellent! Created ${result.stats?.totalProducts || 0} products from your catalog. Say next to continue.`);
+      
+      setTimeout(() => onComplete(result.catalogId, result.stats), 2000);
+
+    } catch (err: any) {
+      setStatus('error');
+      setError(err.message);
+      speak('Sorry, there was an error. Please try again.');
+    }
+  }, [vendorId, vendorName, onComplete]);
+
+  const handleCommand = useCallback((cmd: string) => {
+    if (cmd.includes('upload') || cmd.includes('choose') || cmd.includes('select')) {
+      fileInputRef.current?.click();
+    }
+    if ((cmd.includes('next') || cmd.includes('continue')) && status === 'complete') {
+      speak('Moving forward.');
+    }
+    if (cmd.includes('try again') && status === 'error') {
+      setStatus('idle');
+      setError(null);
+    }
+  }, [status]);
+
+  useEffect(() => {
+    return onCommand(handleCommand);
+  }, [handleCommand]);
+
+  return (
+    <div style={{ textAlign: 'center' }}>
+      <span style={{ fontSize: '4em' }}>📄</span>
+      <h3 style={{ color: '#B8860B', margin: '16px 0 8px', fontSize: '1.4em' }}>
+        Upload Your Catalog
+      </h3>
+      <p style={{ color: '#888', marginBottom: '24px' }}>
+        Upload a PDF catalog to create product listings
+      </p>
+
+      {status === 'idle' && (
+        <>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".pdf"
+            onChange={e => {
+              const file = e.target.files?.[0];
+              if (file) handleUpload(file);
+            }}
+            style={{ display: 'none' }}
+          />
+          <button
+            onClick={() => fileInputRef.current?.click()}
+            style={{
+              padding: '20px 40px',
+              background: 'linear-gradient(135deg, #B8860B, #DAA520)',
+              color: '#000',
+              border: 'none',
+              borderRadius: '16px',
+              cursor: 'pointer',
+              fontSize: '1.2em',
+              fontWeight: 700
+            }}
+          >
+            📁 Choose PDF File
+          </button>
+        </>
+      )}
+
+      {(status === 'uploading' || status === 'processing') && (
+        <div style={{ maxWidth: '400px', margin: '0 auto' }}>
+          <p style={{ color: '#B8860B', fontWeight: 600 }}>
+            {status === 'uploading' ? 'Uploading...' : 'Processing...'}
+          </p>
+          <p style={{ color: '#888' }}>{filename}</p>
+          <div style={{
+            width: '100%',
+            height: '12px',
+            background: 'rgba(0,0,0,0.3)',
+            borderRadius: '6px',
+            overflow: 'hidden',
+            margin: '16px 0'
+          }}>
+            <div style={{
+              width: `${progress}%`,
+              height: '100%',
+              background: 'linear-gradient(90deg, #B8860B, #DAA520)',
+              transition: 'width 0.3s'
+            }} />
+          </div>
+          <p style={{ color: '#888' }}>{progress}%</p>
+        </div>
+      )}
+
+      {status === 'complete' && stats && (
+        <div style={{ maxWidth: '400px', margin: '0 auto' }}>
+          <div style={{ fontSize: '4em', marginBottom: '16px' }}>🎉</div>
+          <h4 style={{ color: '#4CAF50', marginBottom: '16px' }}>Catalog Processed!</h4>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginBottom: '24px' }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '2em', fontWeight: 700, color: '#B8860B' }}>{stats.totalPages}</div>
+              <div style={{ color: '#888' }}>Pages</div>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '2em', fontWeight: 700, color: '#4CAF50' }}>{stats.totalProducts}</div>
+              <div style={{ color: '#888' }}>Products</div>
+            </div>
+          </div>
+          <p style={{ color: '#4CAF50' }}>✓ Say "next" to continue</p>
+        </div>
+      )}
+
+      {status === 'error' && (
+        <div>
+          <p style={{ color: '#f44336' }}>{error}</p>
+          <button
+            onClick={() => { setStatus('idle'); setError(null); }}
+            style={{
+              padding: '12px 24px',
+              background: '#B8860B',
+              color: '#000',
+              border: 'none',
+              borderRadius: '12px',
+              cursor: 'pointer',
+              marginTop: '16px'
+            }}
+          >
+            Try Again
+          </button>
+        </div>
+      )}
+
+      <AgenticBar
+        context="Catalog Upload"
+        hints={['"upload" to select', '"next" when done']}
+        welcomeMessage={status === 'idle' ? "Now let's upload your product catalog. Say upload or click the button to select your PDF." : undefined}
+      />
+    </div>
+  );
+};
+
+export default VendorUpload;

@@ -1,0 +1,59 @@
+// useVoice.ts - Hook that connects to the singleton VoiceService
+import { useState, useEffect, useCallback } from 'react';
+import { voiceService, extractDigits, formatPhone } from '../services/voiceService';
+
+export { extractDigits, formatPhone };
+
+interface UseVoiceOptions {
+  onDigits?: (digits: string) => void;
+  onCommand?: (cmd: string) => void;
+  autoStart?: boolean;
+}
+
+export function useVoice(options: UseVoiceOptions = {}) {
+  const { onDigits, onCommand, autoStart = true } = options;
+  
+  const [state, setState] = useState(voiceService.getState());
+  
+  // Subscribe to voice service state changes
+  useEffect(() => {
+    voiceService.init();
+    return voiceService.subscribe(setState);
+  }, []);
+  
+  // Register digit handler
+  useEffect(() => {
+    if (onDigits) {
+      return voiceService.onDigits(onDigits);
+    }
+  }, [onDigits]);
+  
+  // Register command handler
+  useEffect(() => {
+    if (onCommand) {
+      return voiceService.onCommand(onCommand);
+    }
+  }, [onCommand]);
+  
+  // Auto-start listening
+  useEffect(() => {
+    if (autoStart) {
+      voiceService.startListening();
+    }
+  }, [autoStart]);
+  
+  return {
+    isListening: state.state === 'LISTENING',
+    isSpeaking: state.state === 'SPEAKING',
+    isPaused: state.state === 'PAUSED',
+    transcript: state.transcript,
+    interimTranscript: state.interimTranscript,
+    error: state.error,
+    start: useCallback(() => voiceService.startListening(), []),
+    stop: useCallback(() => voiceService.stopListening(), []),
+    speak: useCallback((text: string, onDone?: () => void) => voiceService.speak(text, onDone), []),
+    stopSpeaking: useCallback(() => voiceService.stopSpeaking(), [])
+  };
+}
+
+export default useVoice;

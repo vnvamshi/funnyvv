@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VistaView Agentic AI v32 - World's First Real Estate Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --vv-gold: #B8860B;
+            --vv-gold-light: #DAA520;
+            --vv-gold-dark: #8B6914;
+            --vv-bg-dark: #0a0f1a;
+            --vv-bg-card: rgba(15, 25, 45, 0.9);
+            --vv-bg-card-hover: rgba(20, 35, 60, 0.95);
+            --vv-text: #ffffff;
+            --vv-text-dim: rgba(255,255,255,0.7);
+            --vv-green: #00C853;
+            --vv-blue: #2196F3;
+            --vv-red: #FF5252;
+            --vv-border: rgba(184, 134, 11, 0.3);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--vv-bg-dark) 0%, #0d1a2d 50%, #0a1420 100%);
+            color: var(--vv-text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Walking Cursor */
+        .walking-cursor {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            pointer-events: none;
+            z-index: 100000;
+            font-size: 24px;
+            transition: transform 0.1s ease;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background: linear-gradient(90deg, rgba(184, 134, 11, 0.15), transparent, rgba(184, 134, 11, 0.15));
+            border-bottom: 1px solid var(--vv-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--vv-gold), var(--vv-gold-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4);
+        }
+        
+        .brand h1 {
+            font-size: 1.4em;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--vv-gold), var(--vv-gold-light), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .brand p {
+            font-size: 0.7em;
+            color: var(--vv-text-dim);
+            letter-spacing: 1px;
+        }
+        
+        .status-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background: rgba(0, 200, 83, 0.15);
+            border: 1px solid rgba(0, 200, 83, 0.3);
+            border-radius: 20px;
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--vv-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.7); }
+            50% { box-shadow: 0 0 0 8px rgba(0, 200, 83, 0); }
+        }
+        
+        .time {
+            font-size: 0.85em;
+            color: var(--vv-text-dim);
+        }
+        
+        /* Voice Bar */
+        .voice-bar {
+            margin: 15px 20px;
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.1), rgba(15, 25, 45, 0.9));
+            border: 2px solid var(--vv-border);
+            border-radius: 20px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .mic-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--vv-gold), var(--vv-gold-light));
+            border: none;
+            cursor: pointer;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4);
+        }
+        
+        .mic-btn:hover { transform: scale(1.1); }
+        .mic-btn.recording { 
+            background: linear-gradient(135deg, #f44336, #ff5252);
+            animation: rec-pulse 1s infinite;
+        }
+        
+        @keyframes rec-pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7); }
+            50% { box-shadow: 0 0 0 15px rgba(244, 67, 54, 0); }
+        }
+        
+        .voice-content { flex: 1; }
+        
+        .voice-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        
+        .voice-title {
+            color: var(--vv-gold);
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        
+        .user-select {
+            padding: 5px 12px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            border: 1px solid var(--vv-border);
+            font-size: 0.8em;
+            cursor: pointer;
+        }
+        
+        .transcript-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            min-height: 30px;
+            color: var(--vv-text-dim);
+        }
+        
+        .badges {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            font-weight: 500;
+            background: rgba(184, 134, 11, 0.2);
+            color: var(--vv-gold);
+            border: 1px solid rgba(184, 134, 11, 0.3);
+        }
+        
+        .badge.positive { background: rgba(0, 200, 83, 0.2); color: var(--vv-green); border-color: rgba(0, 200, 83, 0.3); }
+        .badge.negative { background: rgba(255, 82, 82, 0.2); color: var(--vv-red); border-color: rgba(255, 82, 82, 0.3); }
+        
+        /* Stats Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 10px;
+            padding: 0 20px;
+            margin-bottom: 15px;
+        }
+        
+        .stat-card {
+            background: var(--vv-bg-card);
+            border: 1px solid var(--vv-border);
+            border-radius: 12px;
+            padding: 15px 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .stat-card:hover {
+            background: var(--vv-bg-card-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(184, 134, 11, 0.2);
+        }
+        
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--vv-gold);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.65em;
+            color: var(--vv-text-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 15px;
+            padding: 0 20px;
+            margin-bottom: 15px;
+        }
+        
+        .section {
+            background: var(--vv-bg-card);
+            border: 1px solid var(--vv-border);
+            border-radius: 12px;
+            padding: 15px;
+        }
+        
+        .section-title {
+            color: var(--vv-gold);
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--vv-border);
+        }
+        
+        .feed-section {
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.05), var(--vv-bg-card));
+        }
+        
+        .list-container {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .list-container::-webkit-scrollbar { width: 6px; }
+        .list-container::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 3px; }
+        .list-container::-webkit-scrollbar-thumb { background: var(--vv-gold); border-radius: 3px; }
+        
+        .feed-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: background 0.2s;
+        }
+        
+        .feed-item:hover { background: rgba(184, 134, 11, 0.05); }
+        
+        .feed-icon { font-size: 1.2em; }
+        .feed-content { flex: 1; }
+        .feed-title { font-size: 0.85em; margin-bottom: 3px; }
+        .feed-meta { font-size: 0.7em; color: var(--vv-text-dim); }
+        
+        /* Tables Grid */
+        .tables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 8px;
+        }
+        
+        .table-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        
+        .table-item:hover {
+            background: rgba(184, 134, 11, 0.1);
+            border-color: var(--vv-border);
+        }
+        
+        .table-icon { font-size: 1.5em; margin-bottom: 5px; }
+        .table-name { font-size: 0.7em; color: var(--vv-text-dim); word-break: break-all; }
+        .table-count { font-size: 0.65em; color: var(--vv-green); margin-top: 3px; }
+        
+        /* Bottom Grid */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            padding: 0 20px 20px;
+        }
+        
+        .crawl-item, .pattern-item, .command-item, .audit-item {
+            padding: 8px 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.8em;
+        }
+        
+        .crawl-item:hover, .pattern-item:hover { background: rgba(184, 134, 11, 0.05); }
+        
+        .crawl-domain { color: var(--vv-gold); font-weight: 500; }
+        .crawl-pages { font-size: 0.75em; color: var(--vv-text-dim); }
+        
+        .command-text { color: var(--vv-gold); }
+        .command-type { font-size: 0.7em; color: var(--vv-text-dim); }
+        
+        /* Responsive */
+        @media (max-width: 1400px) {
+            .stats-row { grid-template-columns: repeat(5, 1fr); }
+        }
+        
+        @media (max-width: 1000px) {
+            .main-grid, .bottom-grid { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: repeat(4, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Walking Cursor -->
+    <div class="walking-cursor" id="walkingCursor">🚶</div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-section">
+            <div class="logo">🏠</div>
+            <div class="brand">
+                <h1>VistaView Agentic AI v32</h1>
+                <p>WORLD'S FIRST REAL ESTATE INTELLIGENCE PLATFORM</p>
+            </div>
+        </div>
+        <div class="status-section">
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span>Learning Active</span>
+            </div>
+            <span class="time" id="currentTime">--:--:--</span>
+        </div>
+    </header>
+    
+    <!-- Voice Bar -->
+    <div class="voice-bar">
+        <button class="mic-btn" id="micBtn" onclick="toggleRecording()">🎤</button>
+        <div class="voice-content">
+            <div class="voice-header">
+                <span class="voice-title">🎙️ Voice Input</span>
+                <select class="user-select" id="userType">
+                    <option value="boss">👤 Boss</option>
+                    <option value="dev_team">👥 Dev Team</option>
+                    <option value="vendor">🏪 Vendor</option>
+                    <option value="builder">🏗️ Builder</option>
+                    <option value="buyer">🏠 Buyer</option>
+                    <option value="visitor">👁️ Visitor</option>
+                </select>
+            </div>
+            <div class="transcript-box" id="transcript">Click mic to speak or say "Hey VistaView"...</div>
+            <div class="badges" id="badges"></div>
+        </div>
+    </div>
+    
+    <!-- Stats Row -->
+    <div class="stats-row">
+        <div class="stat-card" onclick="showDetail('ledger')">
+            <div class="stat-value" id="ledgerCount">0</div>
+            <div class="stat-label">📊 Ledger</div>
+        </div>
+        <div class="stat-card" onclick="showDetail('boss')">
+            <div class="stat-value" id="bossCount">0</div>
+            <div class="stat-label">👤 Boss</div>
+        </div>
+        <div class="stat-card" onclick="showDetail('team')">
+            <div class="stat-value" id="teamCount">0</div>
+            <div class="stat-label">👥 Team</div>
+        </div>
+        <div class="stat-card" onclick="showDetail('patterns')">
+            <div class="stat-value" id="patternsCount">0</div>
+            <div class="stat-label">🧠 Patterns</div>
+        </div>
+        <div class="stat-card" onclick="showDetail('crawled')">
+            <div class="stat-value" id="crawledCount">0</div>
+            <div class="stat-label">🌐 Crawled</div>
+        </div>
+        <div class="stat-card" onclick="showDetail('products')">
+            <div class="stat-value" id="productsCount">0</div>
+            <div class="stat-label">📦 Products</div>
+        </div>
+        <div class="stat-card" onclick="showDetail('tts')">
+            <div class="stat-value" id="ttsCount">0</div>
+            <div class="stat-label">🔊 TTS</div>
+        </div>
+        <div class="stat-card" onclick="showDetail('sessions')">
+            <div class="stat-value" id="sessionsCount">0</div>
+            <div class="stat-label">👥 Sessions</div>
+        </div>
+        <div class="stat-card" onclick="showDetail('audit')">
+            <div class="stat-value" id="auditCount">0</div>
+            <div class="stat-label">📜 Audit</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="accuracyScore">0%</div>
+            <div class="stat-label">🎯 Accuracy</div>
+        </div>
+    </div>
+    
+    <!-- Main Grid -->
+    <div class="main-grid">
+        <div class="section feed-section">
+            <div class="section-title">📡 Live Feed (Real-time)</div>
+            <div class="list-container" id="feedList"></div>
+        </div>
+        <div class="section">
+            <div class="section-title">📊 Database Tables</div>
+            <div class="tables-grid" id="tablesGrid"></div>
+        </div>
+    </div>
+    
+    <!-- Bottom Grid -->
+    <div class="bottom-grid">
+        <div class="section">
+            <div class="section-title">🌐 Crawled Sites</div>
+            <div class="list-container" id="crawlList"></div>
+        </div>
+        <div class="section">
+            <div class="section-title">🧠 Learned Patterns</div>
+            <div class="list-container" id="patternList"></div>
+        </div>
+        <div class="section">
+            <div class="section-title">🎤 Voice Commands</div>
+            <div class="list-container" id="voiceList"></div>
+        </div>
+        <div class="section">
+            <div class="section-title">💚 Empathy Learning</div>
+            <div class="list-container" id="empathyList"></div>
+        </div>
+    </div>
+
+    <script>
+        const API = 'http://localhost:1117/api';
+        let isRecording = false;
+        let recognition = null;
+        
+        // Walking Cursor
+        const cursor = document.getElementById('walkingCursor');
+        let cursorX = 0, cursorY = 0;
+        let targetX = 0, targetY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            targetX = e.clientX;
+            targetY = e.clientY;
+        });
+        
+        function animateCursor() {
+            cursorX += (targetX - cursorX) * 0.1;
+            cursorY += (targetY - cursorY) * 0.1;
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            
+            // Flip based on direction
+            if (targetX > cursorX + 5) cursor.style.transform = 'scaleX(1)';
+            else if (targetX < cursorX - 5) cursor.style.transform = 'scaleX(-1)';
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+        
+        // Time
+        function updateTime() {
+            document.getElementById('currentTime').textContent = new Date().toLocaleTimeString();
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+        
+        // Speech Recognition
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SR();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+            
+            recognition.onresult = async (e) => {
+                let final = '', interim = '';
+                for (let i = e.resultIndex; i < e.results.length; i++) {
+                    if (e.results[i].isFinal) final += e.results[i][0].transcript;
+                    else interim += e.results[i][0].transcript;
+                }
+                
+                document.getElementById('transcript').textContent = interim || final || 'Listening...';
+                
+                if (final) {
+                    await sendVoice(final);
+                }
+            };
+            
+            recognition.onerror = (e) => { if (e.error !== 'no-speech') stopRecording(); };
+            recognition.onend = () => { if (isRecording) recognition.start(); };
+        }
+        
+        function toggleRecording() {
+            isRecording ? stopRecording() : startRecording();
+        }
+        
+        function startRecording() {
+            if (!recognition) return alert('Use Chrome for voice');
+            recognition.start();
+            isRecording = true;
+            document.getElementById('micBtn').classList.add('recording');
+            document.getElementById('micBtn').textContent = '🔴';
+            document.getElementById('transcript').textContent = 'Listening...';
+        }
+        
+        function stopRecording() {
+            if (recognition) recognition.stop();
+            isRecording = false;
+            document.getElementById('micBtn').classList.remove('recording');
+            document.getElementById('micBtn').textContent = '🎤';
+        }
+        
+        async function sendVoice(text) {
+            try {
+                const res = await fetch(API + '/ledger/log', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        user_type: document.getElementById('userType').value,
+                        raw_transcript: text,
+                        page_route: '/dashboard',
+                        interaction_mode: 'voice'
+                    })
+                });
+                const data = await res.json();
+                
+                if (data.analysis) {
+                    const a = data.analysis;
+                    document.getElementById('badges').innerHTML = `
+                        <span class="badge ${a.sentiment}">${a.sentiment}</span>
+                        <span class="badge">${a.emotion}</span>
+                        <span class="badge">${a.intent}</span>
+                        <span class="badge">Empathy: ${Math.round((a.empathyScore || 0.5) * 100)}%</span>
+                    `;
+                }
+                
+                if (data.tts_response?.text) {
+                    speak(data.tts_response.text);
+                }
+                
+                loadAll();
+            } catch (e) {
+                console.error('Voice error:', e);
+            }
+        }
+        
+        function speak(text) {
+            if (window.speechSynthesis) {
+                window.speechSynthesis.cancel();
+                const u = new SpeechSynthesisUtterance(text);
+                u.rate = 1.0;
+                window.speechSynthesis.speak(u);
+            }
+        }
+        
+        // Table icons mapping
+        const tableIcons = {
+            'learning_stats': '📈', 'ai_memories': '🧠', 'voice_patterns': '🎤',
+            'knowledge_base': '📚', 'crawled_voice_patterns': '🌐', 'crawled_sources': '🔍',
+            'tts_responses': '🔊', 'communication_platforms': '💬', 'system_rules': '⚙️',
+            'empathy_learning': '💚', 'agent_personas': '👤', 'voice_command_learning': '🗣️',
+            'onboarding_prompts': '📝', 'empathy_patterns': '💛', 'self_explanation': '📖',
+            'countries': '🌍', 'global_interaction_ledger': '📊', 'boss_voice_inputs': '👔',
+            'learned_patterns': '🧬', 'navigation_stack': '🧭', 'frontend_sessions': '👥',
+            'realtime_feed': '📡', 'audit_trail': '📜', 'email_queue': '📧',
+            'crawl_jobs': '🕷️', 'pdf_processing_jobs': '📄', 'extracted_products': '📦',
+            'embedding_queue': '🔢', 'self_coding_requests': '💻', 'known_fixes': '🔧',
+            'confirmation_requests': '✅', 'crawl_queue': '📋', 'email_templates': '📨'
+        };
+        
+        async function loadDashboard() {
+            try {
+                const res = await fetch(API + '/dashboard');
+                const data = await res.json();
+                const s = data.stats || {};
+                
+                document.getElementById('ledgerCount').textContent = formatNumber(s.ledger_entries || s.total_interactions || 0);
+                document.getElementById('bossCount').textContent = formatNumber(s.boss_inputs || 0);
+                document.getElementById('teamCount').textContent = formatNumber(s.team_inputs || 0);
+                document.getElementById('patternsCount').textContent = formatNumber(s.learned_patterns || 0);
+                document.getElementById('crawledCount').textContent = formatNumber(s.web_crawls || s.web_pages_crawled || 0, true);
+                document.getElementById('productsCount').textContent = formatNumber(s.products_cataloged || 0);
+                document.getElementById('ttsCount').textContent = formatNumber(s.tts_responses || s.tts_responses_given || 0);
+                document.getElementById('sessionsCount').textContent = formatNumber(s.active_sessions || 0);
+                document.getElementById('auditCount').textContent = formatNumber(s.audit_entries || 0);
+                document.getElementById('accuracyScore').textContent = (s.accuracy_score || 85).toFixed(1) + '%';
+                
+                // Tables
+                if (data.tables) {
+                    document.getElementById('tablesGrid').innerHTML = data.tables.map(t => `
+                        <div class="table-item" onclick="showTable('${t.name}')">
+                            <div class="table-icon">${tableIcons[t.name] || '📋'}</div>
+                            <div class="table-name">${t.name.replace(/_/g, ' ')}</div>
+                            <div class="table-count">${t.count} rows</div>
+                        </div>
+                    `).join('');
+                }
+            } catch (e) { console.error('Dashboard error:', e); }
+        }
+        
+        async function loadFeed() {
+            try {
+                const res = await fetch(API + '/feed');
+                const feed = await res.json();
+                document.getElementById('feedList').innerHTML = (feed.length ? feed : [
+                    { icon: '📡', title: 'System ready', feed_meta: 'Waiting for interactions', created_at: new Date() }
+                ]).slice(0, 15).map(f => `
+                    <div class="feed-item">
+                        <span class="feed-icon">${f.icon || '📌'}</span>
+                        <div class="feed-content">
+                            <div class="feed-title">${f.title || 'Event'}</div>
+                            <div class="feed-meta">${f.description || ''} • ${formatTime(f.created_at)}</div>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (e) {}
+        }
+        
+        async function loadCrawledSites() {
+            try {
+                const res = await fetch(API + '/crawled-sites');
+                const sites = await res.json();
+                document.getElementById('crawlList').innerHTML = sites.slice(0, 20).map(s => `
+                    <div class="crawl-item">
+                        <div class="crawl-domain">${s.domain}</div>
+                        <div class="crawl-pages">${formatNumber(s.pages_crawled || 0)} pages • ${formatNumber(s.patterns_extracted || 0)} patterns</div>
+                    </div>
+                `).join('') || '<div class="crawl-item">Loading sites...</div>';
+            } catch (e) {}
+        }
+        
+        async function loadPatterns() {
+            try {
+                const res = await fetch(API + '/patterns');
+                const patterns = await res.json();
+                document.getElementById('patternList').innerHTML = patterns.slice(0, 10).map(p => `
+                    <div class="pattern-item">
+                        <div style="color: var(--vv-gold)">${(p.pattern_name || 'Pattern').substring(0, 35)}</div>
+                        <div style="font-size: 0.7em; color: var(--vv-text-dim)">${p.occurrence_count || 0}x • ${p.pattern_type || 'unknown'}</div>
+                    </div>
+                `).join('') || '<div class="pattern-item">Learning patterns...</div>';
+            } catch (e) {}
+        }
+        
+        async function loadVoiceCommands() {
+            try {
+                const res = await fetch(API + '/voice-commands');
+                const commands = await res.json();
+                document.getElementById('voiceList').innerHTML = commands.slice(0, 10).map(c => `
+                    <div class="command-item">
+                        <div class="command-text">${c.command_text || c.raw_text || 'Command'}</div>
+                        <div class="command-type">${c.command_type || c.intent || ''} • ${c.times_used || 0}x</div>
+                    </div>
+                `).join('') || '<div class="command-item">Listening for commands...</div>';
+            } catch (e) {}
+        }
+        
+        async function loadEmpathy() {
+            try {
+                const res = await fetch(API + '/empathy-patterns');
+                const empathy = await res.json();
+                document.getElementById('empathyList').innerHTML = empathy.slice(0, 8).map(e => `
+                    <div class="pattern-item">
+                        <div style="color: #4CAF50">${e.emotion_detected || 'Emotion'}</div>
+                        <div style="font-size: 0.7em; color: var(--vv-text-dim)">${(e.effectiveness_score * 100).toFixed(0)}% effective • ${e.times_used}x</div>
+                    </div>
+                `).join('') || '<div class="pattern-item">Learning empathy...</div>';
+            } catch (e) {}
+        }
+        
+        function formatNumber(n, useK = false) {
+            if (useK && n >= 1000) return (n / 1000).toFixed(0) + 'K';
+            return n.toLocaleString();
+        }
+        
+        function formatTime(dateStr) {
+            if (!dateStr) return '';
+            return new Date(dateStr).toLocaleTimeString();
+        }
+        
+        function showTable(name) {
+            alert('Table: ' + name + '\n\nClick to view details (feature coming soon)');
+        }
+        
+        function showDetail(type) {
+            console.log('Show detail:', type);
+        }
+        
+        function loadAll() {
+            loadDashboard();
+            loadFeed();
+            loadCrawledSites();
+            loadPatterns();
+            loadVoiceCommands();
+            loadEmpathy();
+        }
+        
+        // Initial load
+        loadAll();
+        
+        // Auto-refresh
+        setInterval(loadAll, 5000);
+    </script>
+</body>
+</html>

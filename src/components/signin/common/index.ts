@@ -1,2 +1,2 @@
-export { default as AgentBar } from './AgentBar';
-export { useVoice, extractDigits, formatPhoneNumber, speakablePhone } from './useVoice';
+export { default as UnifiedAgenticBar } from './UnifiedAgenticBar';
+export { useVoice, formatPhoneNumber, speakablePhone, validatePhoneNumber, validateEmail } from './useVoice';

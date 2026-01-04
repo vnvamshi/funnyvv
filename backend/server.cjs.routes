@@ -1,0 +1,63 @@
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ALIAS ROUTES (without /api prefix)
+// ═══════════════════════════════════════════════════════════════════════════════
+app.get('/dashboard', async (req, res) => {
+    // Redirect to /api/dashboard handler
+    req.url = '/api/dashboard';
+    app._router.handle(req, res);
+});
+
+app.get('/health', (req, res) => {
+    res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
+app.get('/feed', async (req, res) => {
+    req.url = '/api/feed';
+    app._router.handle(req, res);
+});
+
+app.get('/patterns', async (req, res) => {
+    req.url = '/api/patterns';
+    app._router.handle(req, res);
+});
+
+app.get('/interactions', async (req, res) => {
+    req.url = '/api/interactions';
+    app._router.handle(req, res);
+});
+
+app.get('/memory', async (req, res) => {
+    req.url = '/api/memory';
+    app._router.handle(req, res);
+});
+
+app.get('/tools', async (req, res) => {
+    req.url = '/api/tools';
+    app._router.handle(req, res);
+});
+
+app.post('/voice/command', async (req, res) => {
+    req.url = '/api/voice/command';
+    app._router.handle(req, res);
+});
+
+app.post('/ledger/log', async (req, res) => {
+    req.url = '/api/ledger/log';
+    app._router.handle(req, res);
+});
+
+app.get('/ai/training/stats', async (req, res) => {
+    req.url = '/api/ai/training/stats';
+    app._router.handle(req, res);
+});
+
+app.get('/crawled-sites', async (req, res) => {
+    req.url = '/api/crawled-sites';
+    app._router.handle(req, res);
+});
+
+app.get('/boss-inputs', async (req, res) => {
+    req.url = '/api/boss-inputs';
+    app._router.handle(req, res);
+});

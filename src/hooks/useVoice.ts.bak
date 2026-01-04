@@ -1,0 +1,355 @@
+/**
+ * useVoice Hook - FIXED VERSION
+ * 
+ * Key fixes:
+ * 1. SINGLETON recognition - only one instance globally
+ * 2. DEBOUNCE restart - 500ms delay prevents rapid loops
+ * 3. IGNORE harmless errors - 'aborted', 'no-speech' 
+ * 4. DUPLEX - TTS pauses STT, resumes after
+ * 5. CONNECTS to backend at localhost:1117
+ */
+
+import { useState, useEffect, useRef, useCallback } from 'react';
+
+type VoiceState = 'idle' | 'listening' | 'processing' | 'speaking' | 'error';
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// SINGLETON - Only ONE recognition instance for entire app
+// ═══════════════════════════════════════════════════════════════════════════════
+let globalRecognition: any = null;
+let isGlobalActive = false;
+
+export function useVoice(options: any = {}) {
+    const [state, setState] = useState<VoiceState>('idle');
+    const [transcript, setTranscript] = useState('');
+    const [interimTranscript, setInterimTranscript] = useState('');
+    const [error, setError] = useState<string | null>(null);
+    
+    const shouldRunRef = useRef(false);
+    const restartTimeoutRef = useRef<any>(null);
+    const synthRef = useRef<SpeechSynthesis | null>(null);
+    const isSpeakingRef = useRef(false);
+    
+    // ═══════════════════════════════════════════════════════════════════════════
+    // INITIALIZE - Create singleton recognition instance
+    // ═══════════════════════════════════════════════════════════════════════════
+    useEffect(() => {
+        if (!globalRecognition && typeof window !== 'undefined') {
+            const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+            if (SR) {
+                globalRecognition = new SR();
+                globalRecognition.continuous = true;
+                globalRecognition.interimResults = true;
+                globalRecognition.lang = 'en-US';
+                globalRecognition.maxAlternatives = 1;
+                console.log('[useVoice] ✅ Singleton recognition created');
+            } else {
+                console.warn('[useVoice] ⚠️ Speech recognition not supported');
+            }
+        }
+        
+        synthRef.current = typeof window !== 'undefined' ? window.speechSynthesis : null;
+        
+        return () => {
+            if (restartTimeoutRef.current) {
+                clearTimeout(restartTimeoutRef.current);
+            }
+        };
+    }, []);
+    
+    // ═══════════════════════════════════════════════════════════════════════════
+    // EVENT HANDLERS
+    // ═══════════════════════════════════════════════════════════════════════════
+    useEffect(() => {
+        if (!globalRecognition) return;
+        
+        globalRecognition.onstart = () => {
+            console.log('[useVoice] 🎤 LISTENING');
+            isGlobalActive = true;
+            setState('listening');
+        };
+        
+        globalRecognition.onresult = (event: any) => {
+            let interim = '';
+            let final = '';
+            
+            for (let i = event.resultIndex; i < event.results.length; i++) {
+                const transcript = event.results[i][0].transcript;
+                if (event.results[i].isFinal) {
+                    final += transcript;
+                } else {
+                    interim += transcript;
+                }
+            }
+            
+            setInterimTranscript(interim);
+            
+            if (final && final.trim()) {
+                console.log('[useVoice] 📝 Final:', final.trim());
+                setTranscript(final.trim());
+                options.onTranscript?.(final.trim(), true);
+                
+                // Send to backend
+                sendToBackend(final.trim());
+            }
+        };
+        
+        globalRecognition.onerror = (event: any) => {
+            // IGNORE these harmless errors - they cause the loop!
+            if (event.error === 'aborted' || event.error === 'no-speech') {
+                console.log('[useVoice] (ignored):', event.error);
+                return;
+            }
+            
+            console.error('[useVoice] ❌ Error:', event.error);
+            
+            if (event.error === 'not-allowed') {
+                setError('Microphone access denied. Please allow mic access.');
+                setState('error');
+                shouldRunRef.current = false;
+            }
+        };
+        
+        globalRecognition.onend = () => {
+            console.log('[useVoice] ⏹️ ENDED, shouldRun:', shouldRunRef.current, 'speaking:', isSpeakingRef.current);
+            isGlobalActive = false;
+            
+            // DEBOUNCE: Only restart if should be running AND not speaking
+            if (shouldRunRef.current && !isSpeakingRef.current) {
+                // Clear any existing timeout
+                if (restartTimeoutRef.current) {
+                    clearTimeout(restartTimeoutRef.current);
+                }
+                
+                // Wait 500ms before restarting - prevents rapid loop
+                restartTimeoutRef.current = setTimeout(() => {
+                    if (shouldRunRef.current && !isGlobalActive && !isSpeakingRef.current) {
+                        console.log('[useVoice] 🔄 Restarting...');
+                        try {
+                            globalRecognition.start();
+                        } catch (e: any) {
+                            if (!e.message?.includes('already started')) {
+                                console.error('[useVoice] Restart error:', e);
+                            }
+                        }
+                    }
+                }, 500);
+            } else {
+                setState('idle');
+            }
+        };
+        
+    }, [options.onTranscript]);
+    
+    // ═══════════════════════════════════════════════════════════════════════════
+    // SEND TO BACKEND - The linkage to localhost:1117
+    // ═══════════════════════════════════════════════════════════════════════════
+    const sendToBackend = useCallback(async (text: string) => {
+        console.log('[useVoice] 📤 Sending to backend:', text);
+        setState('processing');
+        
+        try {
+            const response = await fetch('http://localhost:1117/api/ledger/log', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    user_type: options.userType || 'boss',
+                    raw_transcript: text,
+                    page_route: typeof window !== 'undefined' ? window.location.pathname : '/'
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            
+            const data = await response.json();
+            console.log('[useVoice] 📥 Backend response:', data);
+            
+            // Call callback if provided
+            options.onResponse?.(data);
+            
+            // Speak TTS response if available
+            if (data?.tts_response?.text) {
+                speak(data.tts_response.text);
+            } else {
+                // Resume listening
+                setState(shouldRunRef.current ? 'listening' : 'idle');
+            }
+            
+        } catch (err: any) {
+            console.error('[useVoice] ❌ Backend error:', err.message);
+            setError(`Backend error: ${err.message}`);
+            
+            // Resume listening despite error
+            setState(shouldRunRef.current ? 'listening' : 'idle');
+        }
+    }, [options.userType, options.onResponse]);
+    
+    // ═══════════════════════════════════════════════════════════════════════════
+    // START LISTENING
+    // ═══════════════════════════════════════════════════════════════════════════
+    const start = useCallback(() => {
+        console.log('[useVoice] ▶️ START requested');
+        
+        // Cancel any TTS first
+        if (synthRef.current) {
+            synthRef.current.cancel();
+        }
+        isSpeakingRef.current = false;
+        
+        shouldRunRef.current = true;
+        setTranscript('');
+        setInterimTranscript('');
+        setError(null);
+        
+        if (!isGlobalActive && globalRecognition) {
+            try {
+                globalRecognition.start();
+            } catch (e: any) {
+                if (!e.message?.includes('already started')) {
+                    console.error('[useVoice] Start error:', e);
+                }
+            }
+        }
+    }, []);
+    
+    // ═══════════════════════════════════════════════════════════════════════════
+    // STOP LISTENING
+    // ═══════════════════════════════════════════════════════════════════════════
+    const stop = useCallback(() => {
+        console.log('[useVoice] ⏹️ STOP requested');
+        
+        shouldRunRef.current = false;
+        
+        // Clear any pending restart
+        if (restartTimeoutRef.current) {
+            clearTimeout(restartTimeoutRef.current);
+            restartTimeoutRef.current = null;
+        }
+        
+        if (globalRecognition) {
+            try {
+                globalRecognition.stop();
+            } catch (e) {}
+        }
+        
+        setState('idle');
+    }, []);
+    
+    // ═══════════════════════════════════════════════════════════════════════════
+    // TOGGLE
+    // ═══════════════════════════════════════════════════════════════════════════
+    const toggle = useCallback(() => {
+        if (shouldRunRef.current || state === 'listening') {
+            stop();
+        } else {
+            start();
+        }
+    }, [state, start, stop]);
+    
+    // ═══════════════════════════════════════════════════════════════════════════
+    // SPEAK (TTS) - Implements duplex: pauses STT while speaking
+    // ═══════════════════════════════════════════════════════════════════════════
+    const speak = useCallback((text: string) => {
+        if (!synthRef.current) {
+            console.warn('[useVoice] TTS not available');
+            return;
+        }
+        
+        console.log('[useVoice] 🔊 Speaking:', text.substring(0, 50) + '...');
+        
+        // Remember if we were listening
+        const wasListening = shouldRunRef.current;
+        
+        // DUPLEX: Pause STT while speaking
+        isSpeakingRef.current = true;
+        if (isGlobalActive && globalRecognition) {
+            try {
+                globalRecognition.stop();
+            } catch (e) {}
+        }
+        
+        // Cancel any current speech
+        synthRef.current.cancel();
+        setState('speaking');
+        
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1;
+        utterance.volume = 1;
+        
+        utterance.onend = () => {
+            console.log('[useVoice] 🔊 TTS finished');
+            isSpeakingRef.current = false;
+            setState('idle');
+            
+            // DUPLEX: Resume STT after speaking
+            if (wasListening) {
+                shouldRunRef.current = true;
+                setTimeout(() => {
+                    if (shouldRunRef.current && !isGlobalActive && globalRecognition) {
+                        try {
+                            globalRecognition.start();
+                        } catch (e) {}
+                    }
+                }, 300);
+            }
+        };
+        
+        utterance.onerror = (e) => {
+            console.error('[useVoice] TTS error:', e);
+            isSpeakingRef.current = false;
+            setState('idle');
+            
+            if (wasListening) {
+                shouldRunRef.current = true;
+                setTimeout(() => {
+                    try { globalRecognition?.start(); } catch (e) {}
+                }, 300);
+            }
+        };
+        
+        synthRef.current.speak(utterance);
+    }, []);
+    
+    // ═══════════════════════════════════════════════════════════════════════════
+    // STOP SPEAKING
+    // ═══════════════════════════════════════════════════════════════════════════
+    const stopSpeaking = useCallback(() => {
+        if (synthRef.current) {
+            synthRef.current.cancel();
+        }
+        isSpeakingRef.current = false;
+        setState('idle');
+    }, []);
+    
+    // ═══════════════════════════════════════════════════════════════════════════
+    // RETURN
+    // ═══════════════════════════════════════════════════════════════════════════
+    return {
+        // State
+        state,
+        transcript,
+        interimTranscript,
+        error,
+        
+        // Computed
+        isListening: state === 'listening',
+        isSpeaking: state === 'speaking',
+        isProcessing: state === 'processing',
+        isIdle: state === 'idle',
+        
+        // Actions
+        start,
+        stop,
+        toggle,
+        speak,
+        stopSpeaking,
+        
+        // Direct send (for manual input)
+        sendToBackend
+    };
+}
+
+export default useVoice;

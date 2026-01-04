@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VistaView Agentic AI - World's First Real Estate Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #B8860B; --gold-light: #DAA520; --teal: #003B32; --teal-light: #065f46; --bg: #0a0f1a; --card: rgba(15,25,45,0.9); --text: #fff; --dim: rgba(255,255,255,0.7); --green: #00C853; --border: rgba(184,134,11,0.3); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, var(--bg), #0d1a2d, #0a1420); color: var(--text); min-height: 100vh; cursor: none; }
+        
+        /* Walking Cursor */
+        #cursor { position: fixed; font-size: 28px; pointer-events: none; z-index: 100000; transition: transform 0.05s; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+        
+        /* Header */
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: linear-gradient(90deg, rgba(184,134,11,0.1), transparent, rgba(184,134,11,0.1)); border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo { width: 42px; height: 42px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 4px 15px rgba(184,134,11,0.4); }
+        .brand h1 { font-size: 1.2em; background: linear-gradient(90deg, var(--gold), var(--gold-light), #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .brand p { font-size: 0.6em; color: var(--dim); letter-spacing: 1.5px; text-transform: uppercase; }
+        .status-area { display: flex; align-items: center; gap: 15px; }
+        .status { display: flex; align-items: center; gap: 6px; padding: 6px 12px; background: rgba(0,200,83,0.15); border: 1px solid rgba(0,200,83,0.3); border-radius: 15px; font-size: 0.75em; }
+        .dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(0,200,83,0.7); } 50% { box-shadow: 0 0 0 6px rgba(0,200,83,0); } }
+        .time { font-size: 0.8em; color: var(--dim); }
+        
+        /* Voice Bar */
+        .voice-bar { margin: 12px 15px; background: linear-gradient(135deg, rgba(184,134,11,0.08), var(--card)); border: 2px solid var(--border); border-radius: 18px; padding: 12px 18px; display: flex; align-items: center; gap: 15px; }
+        .mic { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border: none; font-size: 1.4em; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(184,134,11,0.4); }
+        .mic:hover { transform: scale(1.1); }
+        .mic.on { background: linear-gradient(135deg, #f44336, #ff5252); animation: rec 1s infinite; }
+        @keyframes rec { 0%,100% { box-shadow: 0 0 0 0 rgba(244,67,54,0.7); } 50% { box-shadow: 0 0 0 12px rgba(244,67,54,0); } }
+        .voice-content { flex: 1; }
+        .voice-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+        .voice-title { color: var(--gold); font-weight: 600; font-size: 0.9em; }
+        select { padding: 4px 10px; border-radius: 12px; background: rgba(0,0,0,0.3); color: #fff; border: 1px solid var(--border); font-size: 0.75em; }
+        .transcript { background: rgba(0,0,0,0.3); padding: 8px 12px; border-radius: 8px; font-size: 0.85em; min-height: 28px; color: var(--dim); }
+        .badges { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+        .badge { padding: 3px 10px; border-radius: 10px; font-size: 0.65em; background: rgba(184,134,11,0.2); color: var(--gold); border: 1px solid var(--border); }
+        .badge.positive { background: rgba(0,200,83,0.2); color: var(--green); border-color: rgba(0,200,83,0.3); }
+        .badge.negative { background: rgba(255,82,82,0.2); color: #FF5252; }
+        
+        /* Stats */
+        .stats { display: grid; grid-template-columns: repeat(10, 1fr); gap: 8px; padding: 0 15px; margin-bottom: 12px; }
+        .stat { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px 8px; text-align: center; cursor: pointer; transition: all 0.3s; }
+        .stat:hover { background: rgba(20,35,60,0.95); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(184,134,11,0.2); }
+        .stat-val { font-size: 1.4em; font-weight: 700; color: var(--gold); }
+        .stat-lbl { font-size: 0.6em; color: var(--dim); margin-top: 3px; }
+        
+        /* Grids */
+        .grid-2 { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; padding: 0 15px; margin-bottom: 12px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 0 15px 15px; }
+        .section { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
+        .section-title { color: var(--gold); font-weight: 600; font-size: 0.85em; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 6px; }
+        .list { max-height: 180px; overflow-y: auto; }
+        .list::-webkit-scrollbar { width: 5px; }
+        .list::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 3px; }
+        .list::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+        
+        /* Feed */
+        .feed-section { background: linear-gradient(135deg, rgba(184,134,11,0.05), var(--card)); }
+        .feed-item { display: flex; gap: 10px; padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); transition: background 0.2s; }
+        .feed-item:hover { background: rgba(184,134,11,0.05); }
+        .feed-icon { font-size: 1.1em; }
+        .feed-title { font-size: 0.8em; }
+        .feed-meta { font-size: 0.65em; color: var(--dim); }
+        
+        /* Tables */
+        .tables-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 6px; }
+        .tbl { background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px; text-align: center; cursor: pointer; transition: all 0.2s; border: 1px solid transparent; }
+        .tbl:hover { background: rgba(184,134,11,0.1); border-color: var(--border); }
+        .tbl-icon { font-size: 1.3em; }
+        .tbl-name { font-size: 0.6em; color: var(--dim); word-break: break-all; margin-top: 3px; }
+        .tbl-count { font-size: 0.55em; color: var(--green); }
+        
+        /* Items */
+        .item { padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.75em; }
+        .item:hover { background: rgba(184,134,11,0.05); }
+        .item-title { color: var(--gold); font-weight: 500; }
+        .item-meta { font-size: 0.7em; color: var(--dim); }
+        
+        @media (max-width: 1400px) { .stats { grid-template-columns: repeat(5, 1fr); } }
+        @media (max-width: 1000px) { .grid-2, .grid-4 { grid-template-columns: 1fr; } .stats { grid-template-columns: repeat(4, 1fr); } }
+    </style>
+</head>
+<body>
+    <div id="cursor">🚶</div>
+    
+    <header class="header">
+        <div class="logo-area">
+            <div class="logo">🏠</div>
+            <div class="brand">
+                <h1>VistaView Agentic AI v32</h1>
+                <p>World's First Real Estate Intelligence Platform</p>
+            </div>
+        </div>
+        <div class="status-area">
+            <div class="status"><div class="dot"></div><span>Learning Active</span></div>
+            <span class="time" id="time">--:--:--</span>
+        </div>
+    </header>
+    
+    <div class="voice-bar">
+        <button class="mic" id="mic" onclick="toggleMic()">🎤</button>
+        <div class="voice-content">
+            <div class="voice-header">
+                <span class="voice-title">🎙️ Voice Input</span>
+                <select id="userType">
+                    <option value="boss">👤 Boss</option>
+                    <option value="dev_team">👥 Dev Team</option>
+                    <option value="vendor">🏪 Vendor</option>
+                    <option value="builder">🏗️ Builder</option>
+                    <option value="buyer">🏠 Buyer</option>
+                    <option value="visitor">👁️ Visitor</option>
+                </select>
+            </div>
+            <div class="transcript" id="transcript">Click mic or say "Hey VistaView"...</div>
+            <div class="badges" id="badges"></div>
+        </div>
+    </div>
+    
+    <div class="stats">
+        <div class="stat"><div class="stat-val" id="sLedger">0</div><div class="stat-lbl">📊 Ledger</div></div>
+        <div class="stat"><div class="stat-val" id="sBoss">0</div><div class="stat-lbl">👤 Boss</div></div>
+        <div class="stat"><div class="stat-val" id="sTeam">0</div><div class="stat-lbl">👥 Team</div></div>
+        <div class="stat"><div class="stat-val" id="sPatterns">0</div><div class="stat-lbl">🧠 Patterns</div></div>
+        <div class="stat"><div class="stat-val" id="sCrawled">0</div><div class="stat-lbl">🌐 Crawled</div></div>
+        <div class="stat"><div class="stat-val" id="sProducts">0</div><div class="stat-lbl">📦 Products</div></div>
+        <div class="stat"><div class="stat-val" id="sTTS">0</div><div class="stat-lbl">🔊 TTS</div></div>
+        <div class="stat"><div class="stat-val" id="sSessions">0</div><div class="stat-lbl">👥 Sessions</div></div>
+        <div class="stat"><div class="stat-val" id="sAudit">0</div><div class="stat-lbl">📜 Audit</div></div>
+        <div class="stat"><div class="stat-val" id="sAccuracy">0%</div><div class="stat-lbl">🎯 Accuracy</div></div>
+    </div>
+    
+    <div class="grid-2">
+        <div class="section feed-section">
+            <div class="section-title">📡 Live Feed</div>
+            <div class="list" id="feed"></div>
+        </div>
+        <div class="section">
+            <div class="section-title">📊 Database Tables</div>
+            <div class="tables-grid" id="tables"></div>
+        </div>
+    </div>
+    
+    <div class="grid-4">
+        <div class="section">
+            <div class="section-title">🌐 Crawled Sites</div>
+            <div class="list" id="crawled"></div>
+        </div>
+        <div class="section">
+            <div class="section-title">🧠 Learned Patterns</div>
+            <div class="list" id="patterns"></div>
+        </div>
+        <div class="section">
+            <div class="section-title">🎤 Voice Commands</div>
+            <div class="list" id="commands"></div>
+        </div>
+        <div class="section">
+            <div class="section-title">💚 Empathy Learning</div>
+            <div class="list" id="empathy"></div>
+        </div>
+    </div>
+
+    <script>
+        const API = 'http://localhost:1117/api';
+        let isRec = false, recog = null;
+        const icons = { learning_stats:'📈', ai_memories:'🧠', voice_patterns:'🎤', knowledge_base:'📚', crawled_voice_patterns:'🌐', crawled_sources:'🔍', tts_responses:'🔊', communication_platforms:'💬', system_rules:'⚙️', empathy_learning:'💚', agent_personas:'👤', voice_command_learning:'🗣️', onboarding_prompts:'📝', empathy_patterns:'💛', self_explanation:'📖', countries:'🌍', global_interaction_ledger:'📊', boss_voice_inputs:'👔', learned_patterns:'🧬', navigation_stack:'🧭', frontend_sessions:'👥', realtime_feed:'📡', audit_trail:'📜', email_queue:'📧', crawl_jobs:'🕷️', pdf_processing_jobs:'📄', extracted_products:'📦', embedding_queue:'🔢', self_coding_requests:'💻', known_fixes:'🔧', confirmation_requests:'✅', crawl_queue:'📋', email_templates:'📨' };
+        
+        // Cursor
+        const cur = document.getElementById('cursor');
+        let cx=0, cy=0, tx=0, ty=0;
+        document.addEventListener('mousemove', e => { tx=e.clientX; ty=e.clientY; });
+        function animCur() { cx+=(tx-cx)*0.15; cy+=(ty-cy)*0.15; cur.style.left=cx+'px'; cur.style.top=cy+'px'; cur.style.transform=tx>cx+3?'scaleX(1)':tx<cx-3?'scaleX(-1)':''; requestAnimationFrame(animCur); }
+        animCur();
+        
+        // Time
+        setInterval(() => document.getElementById('time').textContent = new Date().toLocaleTimeString(), 1000);
+        
+        // Speech
+        if ('webkitSpeechRecognition' in window) {
+            recog = new webkitSpeechRecognition();
+            recog.continuous = true; recog.interimResults = true;
+            recog.onresult = async e => {
+                let f='';
+                for(let i=e.resultIndex;i<e.results.length;i++) if(e.results[i].isFinal) f+=e.results[i][0].transcript;
+                document.getElementById('transcript').textContent = f || 'Listening...';
+                if(f) await sendVoice(f);
+            };
+            recog.onend = () => { if(isRec) recog.start(); };
+        }
+        
+        function toggleMic() { isRec ? stopMic() : startMic(); }
+        function startMic() { if(!recog) return alert('Use Chrome'); recog.start(); isRec=true; document.getElementById('mic').classList.add('on'); document.getElementById('mic').textContent='🔴'; }
+        function stopMic() { if(recog) recog.stop(); isRec=false; document.getElementById('mic').classList.remove('on'); document.getElementById('mic').textContent='🎤'; }
+        
+        async function sendVoice(t) {
+            try {
+                const r = await fetch(API+'/ledger/log', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ user_type:document.getElementById('userType').value, raw_transcript:t, page_route:'/dashboard', interaction_mode:'voice' }) });
+                const d = await r.json();
+                if(d.analysis) { const a=d.analysis; document.getElementById('badges').innerHTML = `<span class="badge ${a.sentiment}">${a.sentiment}</span><span class="badge">${a.emotion}</span><span class="badge">${a.intent}</span><span class="badge">Empathy: ${Math.round((a.empathyScore||0.5)*100)}%</span>`; }
+                if(d.tts_response?.text && window.speechSynthesis) { speechSynthesis.cancel(); speechSynthesis.speak(new SpeechSynthesisUtterance(d.tts_response.text)); }
+                loadAll();
+            } catch(e) { console.error(e); }
+        }
+        
+        function fmt(n,k) { return k&&n>=1000?(n/1000).toFixed(0)+'K':n.toLocaleString(); }
+        
+        async function loadDash() {
+            try {
+                const r = await fetch(API+'/dashboard'); const d = await r.json(); const s=d.stats||{};
+                document.getElementById('sLedger').textContent = fmt(s.ledger_entries||s.total_interactions||0);
+                document.getElementById('sBoss').textContent = fmt(s.boss_inputs||0);
+                document.getElementById('sTeam').textContent = fmt(s.team_inputs||0);
+                document.getElementById('sPatterns').textContent = fmt(s.learned_patterns||0);
+                document.getElementById('sCrawled').textContent = fmt(s.web_crawls||s.web_pages_crawled||0,1);
+                document.getElementById('sProducts').textContent = fmt(s.products_cataloged||0);
+                document.getElementById('sTTS').textContent = fmt(s.tts_responses||s.tts_responses_given||0);
+                document.getElementById('sSessions').textContent = fmt(s.active_sessions||0);
+                document.getElementById('sAudit').textContent = fmt(s.audit_entries||0);
+                document.getElementById('sAccuracy').textContent = (s.accuracy_score||85).toFixed(1)+'%';
+                if(d.tables) document.getElementById('tables').innerHTML = d.tables.map(t=>`<div class="tbl"><div class="tbl-icon">${icons[t.name]||'📋'}</div><div class="tbl-name">${t.name.replace(/_/g,' ')}</div><div class="tbl-count">${t.count}</div></div>`).join('');
+            } catch(e){}
+        }
+        
+        async function loadFeed() {
+            try { const r = await fetch(API+'/feed'); const d = await r.json(); document.getElementById('feed').innerHTML = (d.length?d:[{icon:'📡',title:'Ready',description:'Waiting...'}]).slice(0,12).map(f=>`<div class="feed-item"><span class="feed-icon">${f.icon||'📌'}</span><div><div class="feed-title">${f.title||''}</div><div class="feed-meta">${f.description||''}</div></div></div>`).join(''); } catch(e){}
+        }
+        
+        async function loadCrawled() {
+            try { const r = await fetch(API+'/crawled-sites'); const d = await r.json(); document.getElementById('crawled').innerHTML = d.slice(0,15).map(s=>`<div class="item"><div class="item-title">${s.domain}</div><div class="item-meta">${fmt(s.pages_crawled||0)} pages • ${fmt(s.patterns_extracted||0)} patterns</div></div>`).join(''); } catch(e){}
+        }
+        
+        async function loadPatterns() {
+            try { const r = await fetch(API+'/patterns'); const d = await r.json(); document.getElementById('patterns').innerHTML = d.slice(0,10).map(p=>`<div class="item"><div class="item-title">${(p.pattern_name||'Pattern').substring(0,30)}</div><div class="item-meta">${p.occurrence_count||0}x • ${p.pattern_type||''}</div></div>`).join('')||'<div class="item">Learning...</div>'; } catch(e){}
+        }
+        
+        async function loadCommands() {
+            try { const r = await fetch(API+'/voice-commands'); const d = await r.json(); document.getElementById('commands').innerHTML = d.slice(0,10).map(c=>`<div class="item"><div class="item-title">${c.command_text||''}</div><div class="item-meta">${c.command_type||''} • ${c.times_used||0}x</div></div>`).join('')||'<div class="item">Listening...</div>'; } catch(e){}
+        }
+        
+        async function loadEmpathy() {
+            try { const r = await fetch(API+'/empathy-patterns'); const d = await r.json(); document.getElementById('empathy').innerHTML = d.slice(0,8).map(e=>`<div class="item"><div class="item-title" style="color:#4CAF50">${e.emotion_detected||''}</div><div class="item-meta">${Math.round((e.effectiveness_score||0)*100)}% • ${e.times_used||0}x</div></div>`).join('')||'<div class="item">Learning...</div>'; } catch(e){}
+        }
+        
+        function loadAll() { loadDash(); loadFeed(); loadCrawled(); loadPatterns(); loadCommands(); loadEmpathy(); }
+        loadAll(); setInterval(loadAll, 5000);
+    </script>
+</body>
+</html>

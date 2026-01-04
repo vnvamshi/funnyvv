@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VistaView Agentic AI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #0a1628, #1a2d4a, #0d1f2d); color: #fff; min-height: 100vh; padding: 10px; font-size: 13px; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 8px 15px; background: rgba(0,0,0,0.4); border-radius: 10px; margin-bottom: 10px; border: 1px solid rgba(184,134,11,0.3); }
+        .logo { display: flex; align-items: center; gap: 8px; }
+        .logo h1 { font-size: 1.1em; background: linear-gradient(90deg, #B8860B, #FFD700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .status { display: flex; align-items: center; gap: 6px; font-size: .75em; }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #4CAF50; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+        
+        .voice-bar { background: linear-gradient(135deg, #1a3a4a, #0d2538); border-radius: 10px; padding: 10px; margin-bottom: 10px; border: 2px solid rgba(184,134,11,0.4); display: flex; align-items: center; gap: 12px; }
+        .mic-btn { width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #B8860B, #DAA520); border: none; cursor: pointer; font-size: 1.2em; display: flex; align-items: center; justify-content: center; transition: all .3s; }
+        .mic-btn:hover { transform: scale(1.1); }
+        .mic-btn.recording { background: #f44336; animation: rec 1s infinite; }
+        @keyframes rec { 0%, 100% { box-shadow: 0 0 0 0 rgba(244,67,54,0.7); } 50% { box-shadow: 0 0 0 10px rgba(244,67,54,0); } }
+        .voice-info { flex: 1; }
+        .voice-transcript { background: rgba(0,0,0,0.3); padding: 6px 10px; border-radius: 5px; margin-top: 5px; font-size: .85em; min-height: 25px; }
+        .badges { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 5px; }
+        .badge { padding: 2px 8px; border-radius: 12px; font-size: .7em; background: rgba(184,134,11,0.3); color: #B8860B; }
+        .badge.positive { background: rgba(76,175,80,0.3); color: #4CAF50; }
+        .badge.negative { background: rgba(244,67,54,0.3); color: #f44336; }
+        
+        .stats-row { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; margin-bottom: 10px; }
+        .stat-card { background: rgba(0,40,60,0.6); border-radius: 6px; padding: 8px; border: 1px solid rgba(184,134,11,0.15); text-align: center; }
+        .stat-value { font-size: 1.2em; font-weight: 700; color: #B8860B; }
+        .stat-label { color: rgba(255,255,255,0.6); font-size: .6em; }
+        
+        .grid-2 { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; margin-bottom: 10px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        
+        .section { background: rgba(0,40,60,0.4); border-radius: 8px; padding: 8px; border: 1px solid rgba(184,134,11,0.1); }
+        .section-title { color: #B8860B; font-size: .8em; margin-bottom: 6px; display: flex; align-items: center; gap: 5px; }
+        .list-container { max-height: 150px; overflow-y: auto; }
+        .list-item { padding: 5px 6px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: .75em; }
+        .list-item .title { color: #B8860B; font-weight: 600; }
+        .list-item .meta { color: rgba(255,255,255,0.5); font-size: .7em; }
+        
+        .feed-section { background: linear-gradient(135deg, rgba(184,134,11,0.08), rgba(0,40,60,0.4)); border: 1px solid rgba(184,134,11,0.2); }
+        .feed-item { display: flex; align-items: flex-start; gap: 8px; padding: 6px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .feed-icon { font-size: 1em; }
+        .feed-content { flex: 1; }
+        .feed-title { font-size: .8em; }
+        .feed-meta { font-size: .65em; opacity: .6; }
+        
+        .tables-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)); gap: 4px; }
+        .table-item { background: rgba(0,0,0,0.25); padding: 5px; border-radius: 4px; font-size: .7em; }
+        .table-item .count { color: #4CAF50; font-size: .65em; }
+        
+        select { padding: 5px; border-radius: 4px; background: #1a2d4a; color: #fff; border: 1px solid #B8860B; font-size: .8em; }
+        
+        @media (max-width: 1400px) { .stats-row { grid-template-columns: repeat(5, 1fr); } }
+        @media (max-width: 1000px) { .grid-2, .grid-4 { grid-template-columns: 1fr; } .stats-row { grid-template-columns: repeat(4, 1fr); } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <span style="font-size:1.3em">🤖</span>
+            <h1>VistaView Agentic AI v32</h1>
+        </div>
+        <div class="status">
+            <div class="status-dot"></div>
+            <span>Learning Active</span>
+            <span id="lastUpdate" style="margin-left:10px;opacity:.6">--</span>
+        </div>
+    </div>
+    
+    <div class="voice-bar">
+        <button class="mic-btn" id="micBtn" onclick="toggleRec()">🎤</button>
+        <div class="voice-info">
+            <div style="display:flex;align-items:center;gap:10px">
+                <strong style="color:#B8860B">🎙️ Voice Input</strong>
+                <select id="userType">
+                    <option value="boss">👤 Boss</option>
+                    <option value="dev_team">👥 Dev Team</option>
+                    <option value="vendor">🏪 Vendor</option>
+                    <option value="builder">🏗️ Builder</option>
+                    <option value="buyer">🏠 Buyer</option>
+                    <option value="visitor">👁️ Visitor</option>
+                </select>
+            </div>
+            <div class="voice-transcript" id="transcript">Click mic to speak...</div>
+            <div class="badges" id="badges"></div>
+        </div>
+    </div>
+    
+    <div class="stats-row">
+        <div class="stat-card"><div class="stat-value" id="ledger">--</div><div class="stat-label">📊 Ledger</div></div>
+        <div class="stat-card"><div class="stat-value" id="boss">--</div><div class="stat-label">👤 Boss</div></div>
+        <div class="stat-card"><div class="stat-value" id="team">--</div><div class="stat-label">👥 Team</div></div>
+        <div class="stat-card"><div class="stat-value" id="patterns">--</div><div class="stat-label">🧠 Patterns</div></div>
+        <div class="stat-card"><div class="stat-value" id="crawled">--</div><div class="stat-label">🌐 Crawled</div></div>
+        <div class="stat-card"><div class="stat-value" id="products">--</div><div class="stat-label">📦 Products</div></div>
+        <div class="stat-card"><div class="stat-value" id="tts">--</div><div class="stat-label">🔊 TTS</div></div>
+        <div class="stat-card"><div class="stat-value" id="sessions">--</div><div class="stat-label">👥 Sessions</div></div>
+        <div class="stat-card"><div class="stat-value" id="audit">--</div><div class="stat-label">📜 Audit</div></div>
+        <div class="stat-card"><div class="stat-value" id="accuracy">--</div><div class="stat-label">🎯 Accuracy</div></div>
+    </div>
+    
+    <div class="grid-2">
+        <div class="section feed-section">
+            <div class="section-title">📡 Live Feed (Real-time)</div>
+            <div class="list-container" id="feedList" style="max-height:180px"></div>
+        </div>
+        <div class="section">
+            <div class="section-title">📊 Database Tables</div>
+            <div class="tables-grid" id="tablesGrid"></div>
+        </div>
+    </div>
+    
+    <div class="grid-4">
+        <div class="section">
+            <div class="section-title">🌐 Crawled Sites</div>
+            <div class="list-container" id="crawlList"></div>
+        </div>
+        <div class="section">
+            <div class="section-title">🧠 Learned Patterns</div>
+            <div class="list-container" id="patternList"></div>
+        </div>
+        <div class="section">
+            <div class="section-title">🎤 Voice Commands</div>
+            <div class="list-container" id="voiceList"></div>
+        </div>
+        <div class="section">
+            <div class="section-title">📜 Audit Log</div>
+            <div class="list-container" id="auditList"></div>
+        </div>
+    </div>
+
+    <script>
+        const API = 'http://localhost:1117/api';
+        let isRecording = false, recognition = null;
+        
+        // Speech Recognition Setup
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SR();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+            
+            recognition.onresult = async (e) => {
+                let final = '';
+                for (let i = e.resultIndex; i < e.results.length; i++) {
+                    if (e.results[i].isFinal) final += e.results[i][0].transcript;
+                }
+                document.getElementById('transcript').textContent = final || 'Listening...';
+                if (final) await sendVoice(final);
+            };
+            
+            recognition.onerror = (e) => { if (e.error !== 'no-speech') stopRec(); };
+            recognition.onend = () => { if (isRecording) recognition.start(); };
+        }
+        
+        function toggleRec() { isRecording ? stopRec() : startRec(); }
+        
+        function startRec() {
+            if (!recognition) return alert('Use Chrome for voice');
+            recognition.start();
+            isRecording = true;
+            document.getElementById('micBtn').classList.add('recording');
+            document.getElementById('micBtn').textContent = '🔴';
+            document.getElementById('transcript').textContent = 'Listening...';
+        }
+        
+        function stopRec() {
+            if (recognition) recognition.stop();
+            isRecording = false;
+            document.getElementById('micBtn').classList.remove('recording');
+            document.getElementById('micBtn').textContent = '🎤';
+        }
+        
+        async function sendVoice(text) {
+            try {
+                const res = await fetch(API + '/ledger/log', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        user_type: document.getElementById('userType').value,
+                        raw_transcript: text,
+                        page_route: '/dashboard',
+                        interaction_mode: 'voice'
+                    })
+                });
+                const data = await res.json();
+                
+                if (data.analysis) {
+                    const a = data.analysis;
+                    document.getElementById('badges').innerHTML = `
+                        <span class="badge ${a.sentiment}">${a.sentiment}</span>
+                        <span class="badge">${a.emotion}</span>
+                        <span class="badge">${a.intent}</span>
+                        <span class="badge">Empathy: ${(a.empathyScore * 100).toFixed(0)}%</span>
+                    `;
+                }
+                
+                if (data.tts_response && data.tts_response.text) {
+                    speak(data.tts_response.text);
+                }
+                
+                loadAll();
+            } catch (e) {
+                console.error('Voice error:', e);
+            }
+        }
+        
+        function speak(text) {
+            if (window.speechSynthesis) {
+                window.speechSynthesis.cancel();
+                const u = new SpeechSynthesisUtterance(text);
+                window.speechSynthesis.speak(u);
+            }
+        }
+        
+        async function loadDash() {
+            try {
+                const res = await fetch(API + '/dashboard');
+                const data = await res.json();
+                const s = data.stats || {};
+                
+                document.getElementById('ledger').textContent = s.ledger_entries || 0;
+                document.getElementById('boss').textContent = s.boss_inputs || 0;
+                document.getElementById('team').textContent = s.team_inputs || 0;
+                document.getElementById('patterns').textContent = s.learned_patterns || 0;
+                document.getElementById('crawled').textContent = ((s.web_crawls || 0) / 1000).toFixed(0) + 'K';
+                document.getElementById('products').textContent = s.products_cataloged || 0;
+                document.getElementById('tts').textContent = s.tts_responses || 0;
+                document.getElementById('sessions').textContent = s.active_sessions || 0;
+                document.getElementById('audit').textContent = s.audit_entries || 0;
+                document.getElementById('accuracy').textContent = (s.accuracy_score || 85).toFixed(1) + '%';
+                document.getElementById('lastUpdate').textContent = new Date().toLocaleTimeString();
+                
+                if (data.tables) {
+                    document.getElementById('tablesGrid').innerHTML = data.tables.slice(0, 16).map(t => 
+                        `<div class="table-item"><strong>${t.name}</strong><div class="count">${t.count}</div></div>`
+                    ).join('');
+                }
+            } catch (e) { console.error('Dashboard error:', e); }
+        }
+        
+        async function loadFeed() {
+            try {
+                const res = await fetch(API + '/feed');
+                const feed = await res.json();
+                document.getElementById('feedList').innerHTML = feed.slice(0, 15).map(f => `
+                    <div class="feed-item">
+                        <span class="feed-icon">${f.icon || '📌'}</span>
+                        <div class="feed-content">
+                            <div class="feed-title">${f.title || 'Event'}</div>
+                            <div class="feed-meta">${f.user_type || ''} • ${new Date(f.created_at).toLocaleTimeString()}</div>
+                        </div>
+                    </div>
+                `).join('') || '<div class="list-item">No feed yet</div>';
+            } catch (e) {}
+        }
+        
+        async function loadCrawl() {
+            try {
+                const r = await fetch(API + '/crawled-sites');
+                const d = await r.json();
+                document.getElementById('crawlList').innerHTML = d.slice(0, 8).map(s => 
+                    `<div class="list-item"><div class="title">${s.domain}</div><div class="meta">${(s.pages_crawled || 0).toLocaleString()} pages</div></div>`
+                ).join('') || '<div class="list-item">No crawled sites</div>';
+            } catch (e) {}
+        }
+        
+        async function loadPatterns() {
+            try {
+                const r = await fetch(API + '/patterns');
+                const d = await r.json();
+                document.getElementById('patternList').innerHTML = d.slice(0, 8).map(p => 
+                    `<div class="list-item"><div class="title">${(p.pattern_name || 'Pattern').substring(0, 30)}</div><div class="meta">${p.occurrence_count || 0}x used</div></div>`
+                ).join('') || '<div class="list-item">No patterns yet</div>';
+            } catch (e) {}
+        }
+        
+        async function loadVoice() {
+            try {
+                const r = await fetch(API + '/voice-commands');
+                const d = await r.json();
+                document.getElementById('voiceList').innerHTML = d.slice(0, 8).map(v => 
+                    `<div class="list-item"><div class="title">${v.command_text || v.raw_text || 'Command'}</div><div class="meta">${v.command_type || v.intent || ''}</div></div>`
+                ).join('') || '<div class="list-item">No voice commands</div>';
+            } catch (e) {}
+        }
+        
+        async function loadAudit() {
+            try {
+                const r = await fetch(API + '/audit');
+                const d = await r.json();
+                document.getElementById('auditList').innerHTML = d.slice(0, 8).map(a => 
+                    `<div class="list-item"><div class="title">${a.action_type}</div><div class="meta">${new Date(a.created_at).toLocaleTimeString()}</div></div>`
+                ).join('') || '<div class="list-item">No audit entries</div>';
+            } catch (e) {}
+        }
+        
+        function loadAll() {
+            loadDash();
+            loadFeed();
+            loadCrawl();
+            loadPatterns();
+            loadVoice();
+            loadAudit();
+        }
+        
+        // Initial load
+        loadAll();
+        
+        // Auto-refresh every 5 seconds
+        setInterval(loadAll, 5000);
+    </script>
+</body>
+</html>

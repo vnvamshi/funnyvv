@@ -1,82 +1,108 @@
-import React, { useCallback, useEffect, useRef } from 'react';
-import { useVoice, extractDigits, formatPhoneNumber } from '../common/useVoice';
-import Teleprompter from '../common/Teleprompter';
+import React, { useState, useEffect } from 'react';
+import UnifiedAgenticBar from '../common/UnifiedAgenticBar';
 
 interface Props {
   value: string;
   onChange: (phone: string) => void;
   onNext: () => void;
-  speak: (text: string) => void;
+  speak: (t: string) => void;
 }
 
-const THEME = { gold: '#B8860B' };
+const THEME = { teal: '#004236', gold: '#B8860B' };
 
 const VendorPhone: React.FC<Props> = ({ value, onChange, onNext, speak }) => {
-  const spokenRef = useRef(false);
+  const [phone, setPhone] = useState(value);
 
-  const handleDigits = useCallback((digits: string) => {
-    console.log('[Phone] Got digits:', digits);
-    const cur = value.replace(/\D/g, '');
-    const newVal = (cur + digits).slice(0, 10);
-    onChange(newVal);
-    if (newVal.length === 10) speak(`Got it! ${formatPhoneNumber(newVal)}. Say yes to confirm.`);
-    else if (digits) speak(`${digits}. ${10 - newVal.length} more.`);
-  }, [value, onChange, speak]);
+  useEffect(() => { setPhone(value); }, [value]);
 
-  const handleCommand = useCallback((cmd: string) => {
-    console.log('[Phone] Command:', cmd);
-    if ((cmd.includes('yes') || cmd.includes('send') || cmd.includes('confirm')) && value.replace(/\D/g,'').length >= 10) {
-      speak('Sending code.');
-      onNext();
+  const formatPhone = (p: string) => {
+    const digits = p.replace(/\D/g, '').slice(0, 10);
+    if (digits.length <= 3) return digits;
+    if (digits.length <= 6) return `${digits.slice(0,3)}-${digits.slice(3)}`;
+    return `${digits.slice(0,3)}-${digits.slice(3,6)}-${digits.slice(6)}`;
+  };
+
+  const handleChange = (p: string) => {
+    const formatted = formatPhone(p);
+    setPhone(formatted);
+    onChange(formatted.replace(/-/g, ''));
+  };
+
+  const isValid = phone.replace(/-/g, '').length === 10;
+
+  const handleCommand = (cmd: string) => {
+    const lower = cmd.toLowerCase();
+    if (lower.includes('next') || lower.includes('send') || lower.includes('continue')) {
+      if (isValid) onNext();
+      else speak("Please enter a valid 10-digit phone number first.");
     }
-    if (cmd.includes('clear') || cmd.includes('reset')) {
-      onChange('');
-      speak('Cleared.');
+    if (lower.includes('clear') || lower.includes('reset')) {
+      handleChange('');
+      speak("Cleared.");
     }
-  }, [value, onChange, onNext, speak]);
-
-  const voice = useVoice({ onDigits: handleDigits, onCommand: handleCommand });
-
-  useEffect(() => {
-    if (!spokenRef.current) {
-      spokenRef.current = true;
-      setTimeout(() => speak('Tell me your phone number. Say each digit.'), 500);
-    }
-  }, [speak]);
-
-  const canSubmit = value.replace(/\D/g, '').length >= 10;
+  };
 
   return (
-    <div style={{ textAlign: 'center' }}>
-      <span style={{ fontSize: '4em' }}>📱</span>
-      <h3 style={{ color: THEME.gold, margin: '16px 0 8px' }}>Enter Your Phone Number</h3>
-      <p style={{ color: '#888', marginBottom: '20px' }}>Say digits like "seven zero three..." or type below</p>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
+      <span style={{ fontSize: '3em' }}>📱</span>
+      <h3 style={{ color: THEME.gold, margin: 0 }}>Enter Your Phone Number</h3>
+      <p style={{ color: '#888', fontSize: '0.9em', margin: 0 }}>Say digits like "seven zero three" or type below</p>
 
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '20px' }}>
-        <span style={{ color: '#888', fontSize: '1.4em' }}>+1</span>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '10px' }}>
+        <span style={{ color: '#888', fontSize: '1.2em' }}>+1</span>
         <input
+          id="vv-phone-input"
           type="tel"
-          value={formatPhoneNumber(value)}
-          onChange={e => onChange(e.target.value.replace(/\D/g, '').slice(0, 10))}
+          value={phone}
+          onChange={e => handleChange(e.target.value)}
           placeholder="000-000-0000"
-          style={{ fontSize: '1.8em', padding: '16px 24px', borderRadius: '12px', border: `2px solid ${canSubmit ? THEME.gold : 'rgba(184,134,11,0.5)'}`, background: 'rgba(0,0,0,0.3)', color: '#fff', textAlign: 'center', width: '280px', fontFamily: 'monospace' }}
+          style={{
+            padding: '16px 20px',
+            fontSize: '1.5em',
+            fontFamily: 'monospace',
+            background: 'rgba(0,0,0,0.3)',
+            border: `2px solid ${isValid ? '#10b981' : THEME.gold}40`,
+            borderRadius: '12px',
+            color: '#fff',
+            textAlign: 'center',
+            width: '220px',
+            outline: 'none',
+            letterSpacing: '2px'
+          }}
         />
       </div>
 
-      <button onClick={onNext} disabled={!canSubmit} style={{ padding: '16px 48px', background: canSubmit ? THEME.gold : 'rgba(255,255,255,0.1)', color: canSubmit ? '#000' : '#555', border: 'none', borderRadius: '30px', cursor: canSubmit ? 'pointer' : 'not-allowed', fontSize: '1.1em', fontWeight: 600 }}>
+      <button
+        onClick={onNext}
+        disabled={!isValid}
+        style={{
+          padding: '14px 40px',
+          background: isValid ? THEME.gold : 'rgba(255,255,255,0.1)',
+          border: 'none',
+          borderRadius: '30px',
+          color: isValid ? '#000' : '#666',
+          fontSize: '1em',
+          fontWeight: 600,
+          cursor: isValid ? 'pointer' : 'not-allowed',
+          marginTop: '10px'
+        }}
+      >
         Send OTP →
       </button>
 
-      <p style={{ color: '#555', margin: '20px 0 0', fontSize: '0.85em' }}>💡 Say: "seven zero three three three eight four nine three one"</p>
-
-      {/* TELEPROMPTER */}
-      <Teleprompter
-        isListening={voice.isListening}
-        isPaused={voice.isPaused}
-        transcript={voice.transcript}
-        displayText={voice.displayText}
-        onResume={voice.resume}
-        onPause={voice.pause}
+      {/* UNIFIED AGENTIC BAR */}
+      <UnifiedAgenticBar
+        context="Phone Entry"
+        fields={{
+          phone: {
+            selector: '#vv-phone-input',
+            setter: handleChange
+          }
+        }}
+        onCommand={handleCommand}
+        speak={speak}
+        hints='Try: "seven zero three..." • "yes" to confirm • "clear" to reset'
+        autoStart={true}
       />
     </div>
   );

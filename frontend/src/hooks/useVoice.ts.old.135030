@@ -1,0 +1,245 @@
+/**
+ * VISTAVIEW VOICE HOOK - FIXED VERSION
+ * Handles speech recognition and synthesis properly
+ */
+
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { sendToAgentic } from '../utils/agenticAPI';
+
+interface UseVoiceOptions {
+    onTranscript?: (text: string, isFinal: boolean) => void;
+    onResponse?: (response: any) => void;
+    onStateChange?: (state: VoiceState) => void;
+    userType?: string;
+    continuous?: boolean;
+}
+
+type VoiceState = 'idle' | 'listening' | 'processing' | 'speaking' | 'error';
+
+export function useVoice(options: UseVoiceOptions = {}) {
+    const [state, setState] = useState<VoiceState>('idle');
+    const [transcript, setTranscript] = useState('');
+    const [error, setError] = useState<string | null>(null);
+    const [isSupported, setIsSupported] = useState(false);
+    
+    const recognitionRef = useRef<any>(null);
+    const synthRef = useRef<SpeechSynthesis | null>(null);
+    const isListeningRef = useRef(false);
+    const shouldRestartRef = useRef(false);
+    
+    // Initialize
+    useEffect(() => {
+        // Check browser support
+        const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+        
+        if (!SpeechRecognition) {
+            console.warn('[useVoice] Speech recognition not supported');
+            setError('Speech recognition not supported in this browser');
+            setIsSupported(false);
+            return;
+        }
+        
+        setIsSupported(true);
+        synthRef.current = window.speechSynthesis;
+        
+        // Create recognition instance
+        const recognition = new SpeechRecognition();
+        recognition.continuous = options.continuous ?? true;
+        recognition.interimResults = true;
+        recognition.lang = 'en-US';
+        recognition.maxAlternatives = 1;
+        
+        recognition.onstart = () => {
+            console.log('[useVoice] ✅ Started listening');
+            isListeningRef.current = true;
+            setState('listening');
+            options.onStateChange?.('listening');
+        };
+        
+        recognition.onresult = (event: any) => {
+            let interimTranscript = '';
+            let finalTranscript = '';
+            
+            for (let i = event.resultIndex; i < event.results.length; i++) {
+                const transcript = event.results[i][0].transcript;
+                if (event.results[i].isFinal) {
+                    finalTranscript += transcript;
+                } else {
+                    interimTranscript += transcript;
+                }
+            }
+            
+            const currentText = finalTranscript || interimTranscript;
+            setTranscript(currentText);
+            options.onTranscript?.(currentText, !!finalTranscript);
+            
+            // If we got final transcript, process it
+            if (finalTranscript && finalTranscript.trim()) {
+                processInput(finalTranscript.trim());
+            }
+        };
+        
+        recognition.onerror = (event: any) => {
+            console.error('[useVoice] Error:', event.error);
+            
+            // Don't treat "aborted" or "no-speech" as real errors
+            if (event.error === 'aborted' || event.error === 'no-speech') {
+                return;
+            }
+            
+            if (event.error === 'not-allowed') {
+                setError('Microphone access denied. Please allow microphone access.');
+                setState('error');
+            }
+        };
+        
+        recognition.onend = () => {
+            console.log('[useVoice] Recognition ended');
+            isListeningRef.current = false;
+            
+            // Restart if we should be listening
+            if (shouldRestartRef.current && state !== 'speaking') {
+                setTimeout(() => {
+                    if (shouldRestartRef.current) {
+                        try {
+                            recognition.start();
+                        } catch (e) {
+                            // Already started, ignore
+                        }
+                    }
+                }, 100);
+            } else {
+                setState('idle');
+            }
+        };
+        
+        recognitionRef.current = recognition;
+        
+        return () => {
+            shouldRestartRef.current = false;
+            recognition.stop();
+        };
+    }, []);
+    
+    // Process input and send to backend
+    const processInput = useCallback(async (text: string) => {
+        setState('processing');
+        options.onStateChange?.('processing');
+        
+        try {
+            const response = await sendToAgentic(text, options.userType || 'visitor');
+            options.onResponse?.(response);
+            
+            // Speak response
+            if (response?.tts_response?.text && synthRef.current) {
+                speak(response.tts_response.text);
+            } else {
+                setState('idle');
+            }
+        } catch (e) {
+            console.error('[useVoice] Process error:', e);
+            setState('idle');
+        }
+    }, [options.userType]);
+    
+    // Start listening
+    const startListening = useCallback(() => {
+        if (!recognitionRef.current) {
+            console.error('[useVoice] Recognition not initialized');
+            return;
+        }
+        
+        // Stop any speech first
+        synthRef.current?.cancel();
+        
+        shouldRestartRef.current = true;
+        
+        if (!isListeningRef.current) {
+            try {
+                recognitionRef.current.start();
+            } catch (e) {
+                // Already started
+            }
+        }
+    }, []);
+    
+    // Stop listening
+    const stopListening = useCallback(() => {
+        shouldRestartRef.current = false;
+        
+        if (recognitionRef.current && isListeningRef.current) {
+            recognitionRef.current.stop();
+        }
+        
+        setState('idle');
+        options.onStateChange?.('idle');
+    }, []);
+    
+    // Toggle listening
+    const toggleListening = useCallback(() => {
+        if (isListeningRef.current || state === 'listening') {
+            stopListening();
+        } else {
+            startListening();
+        }
+    }, [state, startListening, stopListening]);
+    
+    // Speak text
+    const speak = useCallback((text: string) => {
+        if (!synthRef.current) return;
+        
+        // Stop listening while speaking
+        const wasListening = isListeningRef.current;
+        if (wasListening) {
+            shouldRestartRef.current = false;
+            recognitionRef.current?.stop();
+        }
+        
+        synthRef.current.cancel();
+        
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1;
+        utterance.volume = 1;
+        
+        utterance.onstart = () => {
+            setState('speaking');
+            options.onStateChange?.('speaking');
+        };
+        
+        utterance.onend = () => {
+            setState('idle');
+            options.onStateChange?.('idle');
+            
+            // Restart listening if we were listening before
+            if (wasListening && options.continuous) {
+                setTimeout(startListening, 200);
+            }
+        };
+        
+        synthRef.current.speak(utterance);
+    }, [options.continuous, startListening]);
+    
+    // Stop speaking
+    const stopSpeaking = useCallback(() => {
+        synthRef.current?.cancel();
+        setState('idle');
+    }, []);
+    
+    return {
+        state,
+        transcript,
+        error,
+        isSupported,
+        isListening: state === 'listening',
+        isSpeaking: state === 'speaking',
+        startListening,
+        stopListening,
+        toggleListening,
+        speak,
+        stopSpeaking,
+        processInput
+    };
+}
+
+export default useVoice;

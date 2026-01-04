@@ -837,3 +837,41 @@ body {
 .teleprompter-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 2px; }
 
 @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   VOICE FORM FILLING ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Field being filled - glowing border */
+.vv-filling {
+    border-color: #06b6d4 !important;
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.3), 0 0 20px rgba(6, 182, 212, 0.2) !important;
+    animation: vv-pulse 0.5s ease-in-out infinite !important;
+}
+
+@keyframes vv-pulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.3), 0 0 20px rgba(6, 182, 212, 0.2); }
+    50% { box-shadow: 0 0 0 5px rgba(6, 182, 212, 0.4), 0 0 30px rgba(6, 182, 212, 0.3); }
+}
+
+/* Field just filled - success flash */
+.vv-filled {
+    animation: vv-success 0.5s ease-out !important;
+}
+
+@keyframes vv-success {
+    0% { background-color: rgba(34, 197, 94, 0.3); }
+    100% { background-color: transparent; }
+}
+
+/* Typing cursor effect */
+.vv-filling::after {
+    content: '|';
+    animation: vv-blink 0.5s step-end infinite;
+    color: #06b6d4;
+}
+
+@keyframes vv-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}

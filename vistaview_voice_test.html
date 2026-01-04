@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VistaView Voice Test</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #0d1f17 0%, #1a3a2a 100%);
+      min-height: 100vh; color: #fff; padding: 40px;
+    }
+    .container { max-width: 600px; margin: 0 auto; }
+    h1 { color: #B8860B; margin-bottom: 10px; }
+    .subtitle { color: #888; margin-bottom: 30px; }
+    
+    .status-box {
+      background: rgba(0,0,0,0.3);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    
+    .status-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    
+    .dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #f44336;
+    }
+    .dot.active { background: #4CAF50; animation: pulse 1.5s infinite; }
+    .dot.speaking { background: #FFD700; }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+    
+    .status-text { font-size: 1.2em; font-weight: 600; }
+    .status-text.active { color: #4CAF50; }
+    .status-text.speaking { color: #FFD700; }
+    .status-text.error { color: #f44336; }
+    
+    .transcript-box {
+      background: rgba(76,175,80,0.1);
+      border: 2px solid #4CAF50;
+      border-radius: 12px;
+      padding: 16px;
+      min-height: 80px;
+      margin-bottom: 20px;
+    }
+    .transcript-label { color: #4CAF50; font-size: 0.8em; margin-bottom: 8px; }
+    .transcript-text { font-size: 1.3em; }
+    
+    .digits-box {
+      background: rgba(184,134,11,0.1);
+      border: 2px solid #B8860B;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+    .digits-label { color: #B8860B; font-size: 0.8em; margin-bottom: 8px; }
+    .digits-text { font-size: 2em; font-family: monospace; letter-spacing: 4px; }
+    
+    .buttons {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    
+    button {
+      flex: 1;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .btn-start { background: #4CAF50; color: #fff; }
+    .btn-stop { background: #f44336; color: #fff; }
+    .btn-speak { background: #B8860B; color: #000; }
+    .btn-clear { background: rgba(255,255,255,0.1); color: #888; border: 1px solid #555; }
+    
+    button:hover { transform: translateY(-2px); }
+    button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    
+    .log-box {
+      background: #000;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: monospace;
+      font-size: 0.85em;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .log-box div { margin-bottom: 4px; }
+    .log-ok { color: #4CAF50; }
+    .log-err { color: #f44336; }
+    .log-info { color: #888; }
+    
+    .instructions {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 20px;
+    }
+    .instructions h3 { color: #B8860B; margin-bottom: 10px; }
+    .instructions li { color: #888; margin-bottom: 8px; margin-left: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎤 VistaView Voice Test</h1>
+    <p class="subtitle">Testing speech recognition before integrating into React</p>
+    
+    <div class="status-box">
+      <div class="status-row">
+        <div class="dot" id="statusDot"></div>
+        <div class="status-text" id="statusText">Click START to begin</div>
+      </div>
+      <div id="errorMsg" style="color: #f44336; display: none;"></div>
+    </div>
+    
+    <div class="transcript-box">
+      <div class="transcript-label">📝 TRANSCRIPT (what you said)</div>
+      <div class="transcript-text" id="transcript">-</div>
+    </div>
+    
+    <div class="digits-box">
+      <div class="digits-label">📱 EXTRACTED DIGITS (for phone input)</div>
+      <div class="digits-text" id="digits">-</div>
+    </div>
+    
+    <div class="buttons">
+      <button class="btn-start" id="btnStart" onclick="startListening()">▶ START</button>
+      <button class="btn-stop" id="btnStop" onclick="stopListening()" disabled>⏹ STOP</button>
+      <button class="btn-speak" onclick="testSpeak()">🔊 TEST SPEAK</button>
+      <button class="btn-clear" onclick="clearAll()">✕ CLEAR</button>
+    </div>
+    
+    <div class="log-box" id="logBox"></div>
+    
+    <div class="instructions">
+      <h3>💡 How to test:</h3>
+      <ul>
+        <li>Click <strong>START</strong> - should show "Listening"</li>
+        <li>Say: <strong>"seven zero three"</strong> - should show "703" in digits</li>
+        <li>Say: <strong>"one two three four five six"</strong> - should show "123456"</li>
+        <li>If it says "Mic blocked", click 🔒 in address bar → Allow</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Word to digit mapping
+    const W2D = {
+      'zero': '0', 'oh': '0', 'o': '0',
+      'one': '1', 'won': '1',
+      'two': '2', 'to': '2', 'too': '2',
+      'three': '3', 'tree': '3',
+      'four': '4', 'for': '4',
+      'five': '5',
+      'six': '6',
+      'seven': '7',
+      'eight': '8', 'ate': '8',
+      'nine': '9', 'nein': '9'
+    };
+    
+    function extractDigits(text) {
+      const words = text.toLowerCase().split(/\s+/);
+      let digits = '';
+      for (const w of words) {
+        if (W2D[w]) digits += W2D[w];
+        else if (/^\d$/.test(w)) digits += w;
+      }
+      // Also try raw
+      const raw = text.replace(/\D/g, '');
+      return digits.length >= raw.length ? digits : raw;
+    }
+    
+    // Elements
+    const statusDot = document.getElementById('statusDot');
+    const statusText = document.getElementById('statusText');
+    const errorMsg = document.getElementById('errorMsg');
+    const transcriptEl = document.getElementById('transcript');
+    const digitsEl = document.getElementById('digits');
+    const btnStart = document.getElementById('btnStart');
+    const btnStop = document.getElementById('btnStop');
+    const logBox = document.getElementById('logBox');
+    
+    let allDigits = '';
+    
+    function log(msg, type = 'info') {
+      const div = document.createElement('div');
+      div.className = 'log-' + type;
+      div.textContent = new Date().toLocaleTimeString() + ' - ' + msg;
+      logBox.insertBefore(div, logBox.firstChild);
+      console.log('[VoiceTest]', msg);
+    }
+    
+    function setStatus(status, msg) {
+      statusDot.className = 'dot ' + status;
+      statusText.className = 'status-text ' + status;
+      statusText.textContent = msg;
+    }
+    
+    function showError(msg) {
+      errorMsg.textContent = '⚠️ ' + msg;
+      errorMsg.style.display = 'block';
+    }
+    
+    // Check support
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let recognition = null;
+    
+    if (!SpeechRecognition) {
+      log('Speech Recognition NOT SUPPORTED in this browser', 'err');
+      showError('Speech Recognition not supported. Use Chrome or Edge.');
+      btnStart.disabled = true;
+    } else {
+      log('Speech Recognition available ✓', 'ok');
+      
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+      
+      recognition.onstart = () => {
+        log('Recognition STARTED ✓', 'ok');
+        setStatus('active', '🎤 Listening... Speak now!');
+        btnStart.disabled = true;
+        btnStop.disabled = false;
+      };
+      
+      recognition.onresult = (event) => {
+        const result = event.results[event.results.length - 1];
+        const text = result[0].transcript.trim();
+        const isFinal = result.isFinal;
+        const confidence = Math.round(result[0].confidence * 100);
+        
+        log(`Heard: "${text}" (final: ${isFinal}, conf: ${confidence}%)`, isFinal ? 'ok' : 'info');
+        
+        transcriptEl.textContent = text;
+        
+        if (isFinal) {
+          const digits = extractDigits(text);
+          if (digits) {
+            allDigits += digits;
+            digitsEl.textContent = allDigits;
+            log(`Extracted digits: ${digits} → Total: ${allDigits}`, 'ok');
+          }
+        }
+      };
+      
+      recognition.onerror = (event) => {
+        log(`ERROR: ${event.error}`, 'err');
+        
+        if (event.error === 'not-allowed') {
+          setStatus('error', '🚫 Microphone blocked!');
+          showError('Microphone access denied. Click 🔒 in address bar → Allow microphone → Refresh page');
+        } else if (event.error === 'no-speech') {
+          log('No speech detected, continuing...', 'info');
+        } else {
+          setStatus('error', '❌ Error: ' + event.error);
+        }
+      };
+      
+      recognition.onend = () => {
+        log('Recognition ended', 'info');
+        setStatus('', 'Stopped');
+        btnStart.disabled = false;
+        btnStop.disabled = true;
+      };
+    }
+    
+    function startListening() {
+      if (!recognition) return;
+      log('Starting recognition...', 'info');
+      errorMsg.style.display = 'none';
+      try {
+        recognition.start();
+      } catch (e) {
+        log('Start error: ' + e.message, 'err');
+      }
+    }
+    
+    function stopListening() {
+      if (!recognition) return;
+      log('Stopping recognition...', 'info');
+      try {
+        recognition.stop();
+      } catch (e) {
+        log('Stop error: ' + e.message, 'err');
+      }
+    }
+    
+    function testSpeak() {
+      const text = 'Hello! I am Mr. V, your voice assistant. I can hear you say phone numbers like seven zero three.';
+      log('Speaking: ' + text, 'info');
+      setStatus('speaking', '🔊 Speaking...');
+      
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.onend = () => {
+        log('Speech finished', 'ok');
+        setStatus('', 'Ready');
+      };
+      speechSynthesis.speak(utterance);
+    }
+    
+    function clearAll() {
+      transcriptEl.textContent = '-';
+      digitsEl.textContent = '-';
+      allDigits = '';
+      log('Cleared', 'info');
+    }
+    
+    // Auto-check mic permission on load
+    navigator.mediaDevices.getUserMedia({ audio: true })
+      .then(() => {
+        log('Microphone permission: GRANTED ✓', 'ok');
+      })
+      .catch((e) => {
+        log('Microphone permission: DENIED - ' + e.message, 'err');
+        showError('Microphone access denied');
+      });
+  </script>
+</body>
+</html>

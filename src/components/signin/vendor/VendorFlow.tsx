@@ -6,6 +6,8 @@ import VendorProfile from './VendorProfile';
 import VendorDashboard from './VendorDashboard';
 import VendorUpload from './VendorUpload';
 import VendorPipeline from './VendorPipeline';
+import { AgenticBarWithFill, PdfUploader } from '../voice';
+
 
 interface Props { isOpen: boolean; onClose: () => void; onComplete: () => void; onBack: () => void; }
 type Step = 'phone' | 'otp' | 'profile' | 'dashboard' | 'upload' | 'pipeline' | 'complete';

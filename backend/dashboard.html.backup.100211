@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VistaView AI Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2d4a 50%, #0d1f2d 100%);
+            color: #fff; min-height: 100vh; padding: 20px;
+        }
+        .header { 
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px; background: rgba(0,0,0,0.3); border-radius: 16px;
+            margin-bottom: 20px; border: 1px solid rgba(184,134,11,0.3);
+        }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo h1 { font-size: 1.5em; background: linear-gradient(90deg, #B8860B, #FFD700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .status { display: flex; align-items: center; gap: 8px; }
+        .status-dot { width: 12px; height: 12px; border-radius: 50%; background: #4CAF50; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        
+        /* Voice Bar */
+        .voice-bar {
+            background: linear-gradient(135deg, #004D40, #00695C);
+            border-radius: 16px; padding: 20px; margin-bottom: 20px;
+            border: 1px solid rgba(184,134,11,0.4);
+        }
+        .voice-status { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .voice-indicator { width: 10px; height: 10px; border-radius: 50%; background: #4CAF50; }
+        .voice-indicator.speaking { background: #FF9800; animation: pulse 0.5s infinite; }
+        .teleprompter {
+            background: rgba(0,0,0,0.3); border-radius: 10px; padding: 16px;
+            min-height: 60px; font-size: 1.1em; line-height: 1.5;
+        }
+        .transcript { color: #888; font-size: 0.9em; margin-top: 8px; }
+        .voice-hint { text-align: center; color: #666; font-size: 0.8em; margin-top: 12px; }
+        
+        /* KPI Grid */
+        .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 20px; }
+        .kpi-card {
+            background: rgba(255,255,255,0.05); border-radius: 16px; padding: 24px;
+            border: 1px solid rgba(184,134,11,0.2); transition: all 0.3s;
+        }
+        .kpi-card:hover { transform: translateY(-4px); border-color: #B8860B; }
+        .kpi-icon { font-size: 2em; margin-bottom: 12px; }
+        .kpi-value { font-size: 2.5em; font-weight: 700; color: #B8860B; }
+        .kpi-label { color: #888; font-size: 0.9em; margin-top: 4px; }
+        .kpi-change { font-size: 0.8em; color: #4CAF50; margin-top: 8px; }
+        
+        /* Tables Section */
+        .section { background: rgba(0,0,0,0.2); border-radius: 16px; padding: 20px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); }
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .section-title { font-size: 1.2em; display: flex; align-items: center; gap: 8px; }
+        
+        .table-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .table-card {
+            background: rgba(255,255,255,0.05); border-radius: 12px; padding: 16px;
+            cursor: pointer; transition: all 0.3s; border: 1px solid transparent;
+        }
+        .table-card:hover { background: rgba(255,255,255,0.1); border-color: #B8860B; }
+        .table-name { font-weight: 600; margin-bottom: 8px; }
+        .table-meta { color: #888; font-size: 0.85em; }
+        
+        /* Crawled Sites */
+        .sites-list { display: flex; flex-direction: column; gap: 8px; }
+        .site-item {
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 10px;
+        }
+        .site-url { color: #4FC3F7; }
+        .site-status { padding: 4px 12px; border-radius: 20px; font-size: 0.8em; }
+        .site-status.active { background: rgba(76,175,80,0.2); color: #4CAF50; }
+        .site-status.paused { background: rgba(255,152,0,0.2); color: #FF9800; }
+        
+        /* Learning Log */
+        .log-list { max-height: 300px; overflow-y: auto; }
+        .log-item { padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9em; }
+        .log-time { color: #666; font-size: 0.8em; }
+        
+        /* Data Table */
+        .data-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+        .data-table th, .data-table td { padding: 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .data-table th { background: rgba(0,0,0,0.3); color: #B8860B; }
+        .data-table tr:hover { background: rgba(255,255,255,0.05); }
+        
+        /* Query Box */
+        .query-box { display: flex; gap: 12px; margin-bottom: 20px; }
+        .query-input { flex: 1; padding: 14px 20px; border-radius: 30px; border: 2px solid rgba(184,134,11,0.4); background: rgba(0,0,0,0.3); color: #fff; font-size: 1em; }
+        .query-input:focus { outline: none; border-color: #B8860B; }
+        .query-btn { padding: 14px 30px; background: linear-gradient(135deg, #B8860B, #D4A017); color: #000; border: none; border-radius: 30px; font-weight: 600; cursor: pointer; }
+        .query-btn:hover { transform: scale(1.02); }
+        
+        /* Responsive */
+        @media (max-width: 1200px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .kpi-grid, .table-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">
+            <span style="font-size: 2em;">🏠</span>
+            <h1>VistaView AI Dashboard</h1>
+        </div>
+        <div class="status">
+            <div class="status-dot"></div>
+            <span>AI Learning Active</span>
+            <span id="lastUpdate" style="color: #888; margin-left: 12px;"></span>
+        </div>
+    </div>
+
+    <!-- Voice Control Bar -->
+    <div class="voice-bar">
+        <div class="voice-status">
+            <div class="voice-indicator" id="voiceIndicator"></div>
+            <span style="color: #B8860B; font-weight: 600;">MR. V:</span>
+            <span id="voiceStatus">🎤 Click to start listening</span>
+            <button onclick="toggleVoice()" style="margin-left: auto; padding: 8px 20px; background: #B8860B; color: #000; border: none; border-radius: 20px; cursor: pointer;" id="voiceBtn">🎤 Start Voice</button>
+        </div>
+        <div class="teleprompter" id="teleprompter">
+            Welcome to VistaView AI Dashboard. Click the microphone or say "Hey" to interact. Try: "Show tables", "Open products", "What are the stats?"
+        </div>
+        <div class="transcript" id="transcript"></div>
+        <div class="voice-hint">Say: "Show tables" • "Open [table name]" • "Query products" • "What are the stats?" • "List crawled sites"</div>
+    </div>
+
+    <!-- Query Box -->
+    <div class="query-box">
+        <input type="text" class="query-input" id="queryInput" placeholder="Type a query... e.g., SELECT * FROM products" onkeypress="if(event.key==='Enter')runQuery()">
+        <button class="query-btn" onclick="runQuery()">🔍 Run Query</button>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <div class="kpi-icon">💬</div>
+            <div class="kpi-value" id="interactions">-</div>
+            <div class="kpi-label">Total Interactions</div>
+            <div class="kpi-change">↑ +45 today</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon">🧠</div>
+            <div class="kpi-value" id="patterns">-</div>
+            <div class="kpi-label">Learned Patterns</div>
+            <div class="kpi-change">↑ +3 this week</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon">🌐</div>
+            <div class="kpi-value" id="crawls">-</div>
+            <div class="kpi-label">Web Crawls</div>
+            <div class="kpi-change">5 active sources</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon">🎯</div>
+            <div class="kpi-value" id="accuracy">-</div>
+            <div class="kpi-label">Accuracy Score</div>
+            <div class="kpi-change">↑ +2.1% this month</div>
+        </div>
+    </div>
+
+    <!-- Tables Section -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-title">📊 Database Tables</div>
+            <span id="tableCount" style="color: #888;">-</span>
+        </div>
+        <div class="table-grid" id="tablesGrid"></div>
+    </div>
+
+    <!-- Query Results -->
+    <div class="section" id="queryResults" style="display: none;">
+        <div class="section-header">
+            <div class="section-title">📋 Query Results</div>
+            <button onclick="document.getElementById('queryResults').style.display='none'" style="background: none; border: none; color: #888; cursor: pointer; font-size: 1.2em;">✕</button>
+        </div>
+        <div id="queryResultsContent"></div>
+    </div>
+
+    <!-- Two Column Layout -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <!-- Crawled Sites -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-title">🌐 Crawled Websites</div>
+            </div>
+            <div class="sites-list" id="sitesList"></div>
+        </div>
+
+        <!-- Learning Log -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-title">📜 Learning Log</div>
+            </div>
+            <div class="log-list" id="logList"></div>
+        </div>
+    </div>
+
+    <script>
+        const API = 'http://localhost:1117/api';
+        let recognition = null;
+        let isListening = false;
+        let synth = window.speechSynthesis;
+
+        // Load dashboard data
+        async function loadDashboard() {
+            try {
+                const res = await fetch(`${API}/dashboard`);
+                const data = await res.json();
+                
+                // Update KPIs
+                document.getElementById('interactions').textContent = data.stats.total_interactions.toLocaleString();
+                document.getElementById('patterns').textContent = data.stats.learned_patterns;
+                document.getElementById('crawls').textContent = data.stats.web_crawls;
+                document.getElementById('accuracy').textContent = data.stats.accuracy_score + '%';
+                document.getElementById('lastUpdate').textContent = 'Updated: ' + new Date(data.stats.last_updated).toLocaleTimeString();
+                
+                // Update tables
+                document.getElementById('tableCount').textContent = `${data.tables.length} tables`;
+                document.getElementById('tablesGrid').innerHTML = data.tables.map(t => `
+                    <div class="table-card" onclick="openTable('${t.name}')">
+                        <div class="table-name">📁 ${t.name}</div>
+                        <div class="table-meta">${t.rows.toLocaleString()} rows • ${t.source}</div>
+                        <div class="table-meta">Last sync: ${t.lastSync}</div>
+                    </div>
+                `).join('');
+                
+                // Update crawled sites
+                document.getElementById('sitesList').innerHTML = data.crawled_sites.map(s => `
+                    <div class="site-item">
+                        <div>
+                            <div class="site-url">${s.url}</div>
+                            <div style="color: #888; font-size: 0.8em;">${s.pages} pages crawled</div>
+                        </div>
+                        <span class="site-status ${s.status}">${s.status}</span>
+                    </div>
+                `).join('');
+                
+                // Update learning log
+                const logs = data.learning_log || [];
+                document.getElementById('logList').innerHTML = logs.slice(-10).reverse().map(l => `
+                    <div class="log-item">
+                        <div>${l.type}: ${l.query || l.content || 'Learning event'}</div>
+                        <div class="log-time">${new Date(l.timestamp).toLocaleString()}</div>
+                    </div>
+                `).join('') || '<div class="log-item">No recent activity</div>';
+                
+            } catch (e) {
+                console.error('Dashboard load error:', e);
+            }
+        }
+
+        // Open table
+        async function openTable(name) {
+            speak(`Opening ${name} table`);
+            try {
+                const res = await fetch(`${API}/tables/${name}`);
+                const data = await res.json();
+                showQueryResults(data.data, name);
+            } catch (e) {
+                console.error('Table load error:', e);
+            }
+        }
+
+        // Run query
+        async function runQuery() {
+            const query = document.getElementById('queryInput').value;
+            if (!query) return;
+            
+            speak('Running your query');
+            try {
+                const res = await fetch(`${API}/query`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query })
+                });
+                const result = await res.json();
+                
+                if (result.type === 'table' && result.data) {
+                    showQueryResults(result.data, result.table);
+                } else if (result.type === 'tables') {
+                    speak(`Tables: ${result.data.join(', ')}`);
+                    updateTeleprompter(`Available tables: ${result.data.join(', ')}`);
+                } else if (result.type === 'count') {
+                    speak(`Table ${result.table} has ${result.count} rows`);
+                    updateTeleprompter(`${result.table}: ${result.count} rows`);
+                }
+            } catch (e) {
+                console.error('Query error:', e);
+            }
+        }
+
+        // Show query results
+        function showQueryResults(data, tableName) {
+            const section = document.getElementById('queryResults');
+            const content = document.getElementById('queryResultsContent');
+            
+            if (!data || data.length === 0) {
+                content.innerHTML = '<p>No results found</p>';
+            } else {
+                const keys = Object.keys(data[0]);
+                content.innerHTML = `
+                    <p style="margin-bottom: 12px;">Showing ${data.length} rows from <strong>${tableName}</strong></p>
+                    <table class="data-table">
+                        <thead><tr>${keys.map(k => `<th>${k}</th>`).join('')}</tr></thead>
+                        <tbody>${data.map(row => `<tr>${keys.map(k => `<td>${row[k]}</td>`).join('')}</tr>`).join('')}</tbody>
+                    </table>
+                `;
+            }
+            section.style.display = 'block';
+        }
+
+        // Voice functions
+        function toggleVoice() {
+            if (isListening) {
+                stopListening();
+            } else {
+                startListening();
+            }
+        }
+
+        function startListening() {
+            const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SR) {
+                alert('Speech recognition not supported');
+                return;
+            }
+            
+            recognition = new SR();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            
+            recognition.onresult = (e) => {
+                const result = e.results[e.results.length - 1];
+                const text = result[0].transcript;
+                document.getElementById('transcript').textContent = `💬 "${text}"`;
+                
+                if (result.isFinal) {
+                    processVoiceCommand(text);
+                }
+            };
+            
+            recognition.onend = () => {
+                if (isListening) recognition.start();
+            };
+            
+            recognition.start();
+            isListening = true;
+            document.getElementById('voiceBtn').textContent = '🛑 Stop';
+            document.getElementById('voiceStatus').textContent = '🎤 Listening...';
+            document.getElementById('voiceIndicator').classList.add('speaking');
+        }
+
+        function stopListening() {
+            if (recognition) recognition.stop();
+            isListening = false;
+            document.getElementById('voiceBtn').textContent = '🎤 Start Voice';
+            document.getElementById('voiceStatus').textContent = '🎤 Click to start listening';
+            document.getElementById('voiceIndicator').classList.remove('speaking');
+        }
+
+        async function processVoiceCommand(text) {
+            try {
+                const res = await fetch(`${API}/voice/command`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ command_text: text })
+                });
+                const result = await res.json();
+                
+                updateTeleprompter(result.response);
+                speak(result.response);
+                
+                if (result.action === 'show_tables' && result.data) {
+                    // Highlight tables
+                }
+                if (result.action === 'open_table' && result.data) {
+                    showQueryResults(result.data.rows, result.data.table);
+                }
+                if (result.action === 'show_stats') {
+                    loadDashboard();
+                }
+            } catch (e) {
+                console.error('Voice command error:', e);
+            }
+        }
+
+        function speak(text) {
+            synth.cancel();
+            const u = new SpeechSynthesisUtterance(text);
+            u.rate = 1;
+            synth.speak(u);
+            updateTeleprompter(text);
+        }
+
+        function updateTeleprompter(text) {
+            document.getElementById('teleprompter').textContent = text;
+        }
+
+        // Initialize
+        loadDashboard();
+        setInterval(loadDashboard, 10000); // Refresh every 10 seconds
+    </script>
+</body>
+</html>

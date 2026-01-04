@@ -1,31 +1,62 @@
 import React from 'react';
+import UnifiedAgenticBar from '../common/UnifiedAgenticBar';
 
-interface Props { vendorName?: string; onUploadCatalog: () => void; speak: (text: string) => void; }
+interface Props {
+  onUpload: () => void;
+  speak: (t: string) => void;
+}
 
-const THEME = { gold: '#B8860B', goldLight: '#F5EC9B' };
+const THEME = { teal: '#004236', gold: '#B8860B' };
 
-const VendorDashboard: React.FC<Props> = ({ vendorName = 'Your Store', onUploadCatalog, speak }) => {
-  const stats = [
-    { icon: '📦', label: 'Products', value: '0' },
-    { icon: '📋', label: 'Orders', value: '0' },
-    { icon: '💰', label: 'Revenue', value: '$0' },
-    { icon: '⭐', label: 'Rating', value: 'New' }
-  ];
+const VendorDashboard: React.FC<Props> = ({ onUpload, speak }) => {
+  const handleCommand = (cmd: string) => {
+    const lower = cmd.toLowerCase();
+    if (lower.includes('upload') || lower.includes('catalog') || lower.includes('next')) {
+      onUpload();
+    }
+  };
 
   return (
-    <div style={{ textAlign: 'center' }}>
-      <span style={{ fontSize: '4em' }}>📊</span>
-      <h3 style={{ color: THEME.gold, marginTop: '16px' }}>Welcome, {vendorName}!</h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px', maxWidth: '400px', margin: '24px auto' }}>
-        {stats.map((s, i) => (
-          <div key={i} style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${THEME.gold}30`, borderRadius: '14px', padding: '20px' }}>
-            <span style={{ fontSize: '1.8em' }}>{s.icon}</span>
-            <p style={{ color: '#fff', fontSize: '1.4em', fontWeight: 600, margin: '8px 0 4px' }}>{s.value}</p>
-            <p style={{ color: '#888', margin: 0, fontSize: '0.85em' }}>{s.label}</p>
-          </div>
-        ))}
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <div style={{ textAlign: 'center' }}>
+        <span style={{ fontSize: '2.5em' }}>📊</span>
+        <h3 style={{ color: THEME.gold, margin: '10px 0 5px' }}>Welcome to Your Dashboard</h3>
+        <p style={{ color: '#888', fontSize: '0.9em' }}>Your profile is saved. Ready to upload catalog?</p>
       </div>
-      <button onClick={() => { onUploadCatalog(); speak("Let's upload your catalog!"); }} style={{ padding: '16px 48px', background: THEME.gold, color: '#000', border: 'none', borderRadius: '30px', cursor: 'pointer', fontWeight: 600, fontSize: '1.1em' }}>📤 Upload Catalog</button>
+
+      <div style={{ 
+        background: 'rgba(0,0,0,0.2)', 
+        borderRadius: '12px', 
+        padding: '24px',
+        textAlign: 'center'
+      }}>
+        <p style={{ color: '#ccc', margin: '0 0 20px' }}>
+          Next step: Upload your product catalog to create listings
+        </p>
+        <button
+          onClick={onUpload}
+          style={{
+            padding: '14px 40px',
+            background: THEME.gold,
+            border: 'none',
+            borderRadius: '30px',
+            color: '#000',
+            fontSize: '1em',
+            fontWeight: 600,
+            cursor: 'pointer'
+          }}
+        >
+          📄 Upload Catalog →
+        </button>
+      </div>
+
+      {/* UNIFIED AGENTIC BAR */}
+      <UnifiedAgenticBar
+        context="Dashboard"
+        onCommand={handleCommand}
+        speak={speak}
+        hints='Say "upload catalog" to continue'
+      />
     </div>
   );
 };

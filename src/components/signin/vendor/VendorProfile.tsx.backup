@@ -1,0 +1,186 @@
+import React, { useState, useEffect, useCallback } from 'react';
+import AgenticBar, { speak, onCommand } from '../../../agentic';
+
+interface Props {
+  profile: string;
+  beautified: string;
+  companyName: string;
+  onChange: (profile: string) => void;
+  onCompanyChange: (name: string) => void;
+  onBeautify: (beautified: string) => void;
+  onSave: () => void;
+}
+
+const VendorProfile: React.FC<Props> = ({
+  profile, beautified, companyName,
+  onChange, onCompanyChange, onBeautify, onSave
+}) => {
+  const [isBeautifying, setIsBeautifying] = useState(false);
+  const [showBeautified, setShowBeautified] = useState(!!beautified);
+
+  const doBeautify = useCallback(() => {
+    if (!profile.trim() && !companyName.trim()) {
+      speak('Please enter your company name and description first.');
+      return;
+    }
+
+    setIsBeautifying(true);
+    speak('Enhancing your profile with AI magic...');
+
+    setTimeout(() => {
+      const enhanced = `🏢 ${companyName || 'Your Company'}
+
+Premium solutions provider specializing in ${profile || 'quality products and services'}.
+
+✨ Why Choose Us:
+• Exceptional quality and craftsmanship
+• Customer-focused service excellence
+• Competitive pricing with premium value
+• Fast and reliable delivery
+
+🌟 Trusted by homeowners and designers on VistaView - The World's #1 Real Estate Marketplace.
+
+📞 Contact us today to discuss your project!`;
+
+      onBeautify(enhanced);
+      setShowBeautified(true);
+      setIsBeautifying(false);
+      speak('Done! Your profile looks professional now. Say save when you are ready to continue.');
+    }, 2000);
+  }, [profile, companyName, onBeautify]);
+
+  const handleCommand = useCallback((cmd: string) => {
+    if (cmd.includes('beautify') || cmd.includes('enhance') || cmd.includes('improve') || cmd.includes('make it better')) {
+      doBeautify();
+    }
+    if ((cmd.includes('save') || cmd.includes('next') || cmd.includes('continue') || cmd.includes('done')) && companyName.trim()) {
+      speak('Saving your profile.', () => onSave());
+    }
+    if (cmd.includes('clear') || cmd.includes('reset') || cmd.includes('start over')) {
+      onChange('');
+      onBeautify('');
+      setShowBeautified(false);
+      speak('Profile cleared. Start fresh!');
+    }
+  }, [doBeautify, companyName, onSave, onChange, onBeautify]);
+
+  useEffect(() => {
+    return onCommand(handleCommand);
+  }, [handleCommand]);
+
+  const displayText = showBeautified && beautified ? beautified : profile;
+
+  return (
+    <div style={{ textAlign: 'center' }}>
+      <span style={{ fontSize: '3.5em' }}>🏪</span>
+      <h3 style={{ color: '#B8860B', margin: '16px 0', fontSize: '1.4em' }}>
+        Business Profile
+      </h3>
+
+      <div style={{ maxWidth: '540px', margin: '0 auto' }}>
+        <input
+          type="text"
+          value={companyName}
+          onChange={e => onCompanyChange(e.target.value)}
+          placeholder="Company Name"
+          style={{
+            width: '100%',
+            padding: '16px 20px',
+            marginBottom: '16px',
+            borderRadius: '12px',
+            border: `2px solid ${companyName ? '#B8860B' : 'rgba(184,134,11,0.4)'}`,
+            background: 'rgba(0,0,0,0.3)',
+            color: '#fff',
+            fontSize: '1.1em'
+          }}
+        />
+
+        <textarea
+          value={displayText}
+          onChange={e => {
+            onChange(e.target.value);
+            if (showBeautified) {
+              setShowBeautified(false);
+              onBeautify('');
+            }
+          }}
+          placeholder="What do you sell? Describe your products and services..."
+          rows={showBeautified ? 14 : 5}
+          style={{
+            width: '100%',
+            padding: '16px 20px',
+            marginBottom: '16px',
+            borderRadius: '12px',
+            border: `2px solid ${showBeautified ? '#4CAF50' : 'rgba(184,134,11,0.4)'}`,
+            background: showBeautified ? 'rgba(76,175,80,0.1)' : 'rgba(0,0,0,0.3)',
+            color: '#fff',
+            fontSize: '1em',
+            resize: 'vertical',
+            lineHeight: 1.6
+          }}
+        />
+
+        {showBeautified && (
+          <div style={{
+            background: 'rgba(76,175,80,0.15)',
+            border: '1px solid #4CAF50',
+            borderRadius: '10px',
+            padding: '14px',
+            marginBottom: '16px',
+            textAlign: 'left'
+          }}>
+            <span style={{ color: '#4CAF50', fontWeight: 700 }}>✨ AI Enhanced</span>
+            <span style={{ color: '#888', marginLeft: '10px', fontSize: '0.85em' }}>
+              Professional formatting applied
+            </span>
+          </div>
+        )}
+
+        <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', marginBottom: '16px' }}>
+          <button
+            onClick={doBeautify}
+            disabled={isBeautifying}
+            style={{
+              padding: '16px 32px',
+              background: 'transparent',
+              color: '#B8860B',
+              border: '2px solid #B8860B',
+              borderRadius: '28px',
+              cursor: isBeautifying ? 'not-allowed' : 'pointer',
+              fontWeight: 700,
+              fontSize: '1em',
+              opacity: isBeautifying ? 0.6 : 1
+            }}
+          >
+            {isBeautifying ? '⏳ Beautifying...' : '✨ Beautify'}
+          </button>
+
+          <button
+            onClick={() => speak('Saving profile.', () => onSave())}
+            disabled={!companyName.trim()}
+            style={{
+              padding: '16px 40px',
+              background: companyName.trim() ? 'linear-gradient(135deg, #B8860B, #DAA520)' : 'rgba(255,255,255,0.1)',
+              color: companyName.trim() ? '#000' : '#555',
+              border: 'none',
+              borderRadius: '28px',
+              cursor: companyName.trim() ? 'pointer' : 'not-allowed',
+              fontWeight: 700,
+              fontSize: '1em'
+            }}
+          >
+            Save →
+          </button>
+        </div>
+
+        <AgenticBar
+          context="Business Profile"
+          hints={['"beautify" to enhance', '"save" to continue', '"clear" to reset']}
+          welcomeMessage="Tell me about your business. Enter your company name and describe what you sell. Say beautify when ready to enhance with AI."
+        />
+      </div>
+    </div>
+  );
+};
+
+export default VendorProfile;

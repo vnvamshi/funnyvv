@@ -1,0 +1,12 @@
+# VistaView Multi-Domain Config
+upstream backend { server 127.0.0.1:1117; }
+upstream frontend { server 127.0.0.1:5180; }
+
+server {
+    listen 80;
+    server_name vistaview.ai www.vistaview.ai test.vistaview.ai demo.vistaview.ai;
+    
+    location /api { proxy_pass http://backend; proxy_set_header Host $host; }
+    location /ws { proxy_pass http://backend; proxy_http_version 1.1; proxy_set_header Upgrade $http_upgrade; proxy_set_header Connection "upgrade"; }
+    location / { proxy_pass http://frontend; }
+}
