@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = 3005;
+const PORT = 1117;
 const DATA_FILE = path.join(__dirname, '..', 'data', 'ai-data.json');
 const LOGS_DIR = path.join(__dirname, '..', 'logs');
 

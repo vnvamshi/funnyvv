@@ -1,0 +1,35 @@
+{
+  "version": "2.2",
+  "sections": [
+    {
+      "id": "overview",
+      "title": "AI Learning Overview",
+      "widgets": ["interactions", "patterns", "confidence", "web_crawls"]
+    },
+    {
+      "id": "sources",
+      "title": "Data Sources",
+      "widgets": ["real_estate_sources", "market_reports", "product_sources"]
+    },
+    {
+      "id": "database",
+      "title": "Database Statistics",
+      "widgets": ["table_counts", "table_sizes", "update_frequency"]
+    },
+    {
+      "id": "vectors",
+      "title": "Vector & Embeddings",
+      "widgets": ["vector_counts", "embedding_stats", "collections"]
+    }
+  ],
+  "refresh_interval": 30000,
+  "api_endpoints": {
+    "stats": "/api/stats",
+    "sources": "/api/sources",
+    "database": "/api/database-stats",
+    "vectors": "/api/vector-stats",
+    "embeddings": "/api/embedding-stats",
+    "tables": "/api/tables",
+    "full": "/api/dashboard-full"
+  }
+}

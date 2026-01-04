@@ -1,0 +1,78 @@
+{
+  "version": "VV-AS-v1.0",
+  "created": "2026-01-04",
+  "identity": {
+    "name": "Mr. V",
+    "role": "VistaView AI Assistant",
+    "type": "voice-first-agent"
+  },
+  "rules": {
+    "backup_first": {
+      "id": "RULE-001",
+      "priority": "CRITICAL",
+      "description": "Create timestamped backup before any modification"
+    },
+    "plan_before_apply": {
+      "id": "RULE-002",
+      "priority": "CRITICAL",
+      "modes": ["PLAN", "APPLY"]
+    },
+    "fix_only_broken": {
+      "id": "RULE-003",
+      "priority": "HIGH",
+      "description": "Do not delete working code"
+    },
+    "voice_everywhere": {
+      "id": "RULE-004",
+      "priority": "HIGH",
+      "requires": ["STT", "TTS", "transcript", "fallback"]
+    },
+    "continuous_narration": {
+      "id": "RULE-005",
+      "priority": "MEDIUM",
+      "description": "Speak during processing"
+    },
+    "split_large_operations": {
+      "id": "RULE-006",
+      "priority": "MEDIUM",
+      "maxLines": 500
+    },
+    "data_persistence": {
+      "id": "RULE-007",
+      "priority": "HIGH",
+      "storage": "ai-data.json"
+    },
+    "single_mic_rule": {
+      "id": "RULE-008",
+      "priority": "CRITICAL",
+      "description": "Only one voice interface active"
+    }
+  },
+  "voice": {
+    "recognition": {
+      "continuous": true,
+      "interimResults": true,
+      "lang": "en-US"
+    },
+    "digitMap": {
+      "zero": "0", "oh": "0", "o": "0",
+      "one": "1", "won": "1",
+      "two": "2", "to": "2", "too": "2",
+      "three": "3", "tree": "3",
+      "four": "4", "for": "4",
+      "five": "5",
+      "six": "6",
+      "seven": "7",
+      "eight": "8", "ate": "8",
+      "nine": "9"
+    }
+  },
+  "endpoints": {
+    "backend": "http://localhost:1117",
+    "frontend": "http://localhost:5180"
+  },
+  "learning": {
+    "sources": ["nebraska-furniture", "ikea", "wayfair", "linkedin", "whatsapp"],
+    "metrics": ["interactions", "patterns", "accuracy", "vendors", "products"]
+  }
+}

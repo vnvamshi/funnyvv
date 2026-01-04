@@ -1,0 +1,16 @@
+// In VendorFlow.tsx, update the VendorPipeline component call to include vendorName:
+
+{step === 'pipeline' && (
+  <VendorPipeline
+    fileName={vendorData.catalogFile?.name}
+    vendorId={vendorData.vendorId}
+    vendorName={vendorData.companyName}
+    onComplete={(products) => {
+      setVendorData(d => ({ ...d, products }));
+      setStep('complete');
+      voice.speak("Congratulations! Your catalog is now live on VistaView!");
+    }}
+    speak={voice.speak}
+    onBrowseHome={() => voice.speak("Feel free to browse. I'll keep processing.")}
+  />
+)}

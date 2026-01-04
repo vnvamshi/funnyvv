@@ -11,7 +11,7 @@ app.get('/dashboard', async (req, res) => {
   let tables = [];
   
   try {
-    const response = await fetch('http://localhost:3005/api/dashboard');
+    const response = await fetch('http://localhost:1117/api/dashboard');
     const data = await response.json();
     stats = data.stats || stats;
     sources = data.sources || [];

@@ -1,0 +1,164 @@
+{
+  "stats": {
+    "interactions": 2558,
+    "patterns_learned": 77
+  },
+  "vendors": [
+    {
+      "id": "vendor_1767498016698",
+      "phone": "7033384931",
+      "profile": "",
+      "companyName": "",
+      "createdAt": "2026-01-04T03:40:16.698Z"
+    },
+    {
+      "id": "vendor_1767499317238",
+      "phone": "7033384931",
+      "profile": "ag",
+      "companyName": "g",
+      "createdAt": "2026-01-04T04:01:57.238Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "product_1767498046024_4",
+      "name": "S456-3-MODERN SANITARY FURNITURE Product 5",
+      "price": 411.9,
+      "category": "bath",
+      "vendor": "Vendor",
+      "vendorId": "vendor_1767498016698",
+      "description": "Premium product from Vendor. Quality guaranteed.",
+      "sku": "SKU-1767498046024-4",
+      "inStock": true,
+      "createdAt": "2026-01-04T03:40:46.049Z"
+    },
+    {
+      "id": "product_1767498046024_0",
+      "name": "S456-3-MODERN SANITARY FURNITURE Product 1",
+      "price": 448.3,
+      "category": "furniture",
+      "vendor": "Vendor",
+      "vendorId": "vendor_1767498016698",
+      "description": "Premium product from Vendor. Quality guaranteed.",
+      "sku": "SKU-1767498046024-0",
+      "inStock": true,
+      "createdAt": "2026-01-04T03:40:46.051Z"
+    },
+    {
+      "id": "product_1767498046024_1",
+      "name": "S456-3-MODERN SANITARY FURNITURE Product 2",
+      "price": 301.67,
+      "category": "lighting",
+      "vendor": "Vendor",
+      "vendorId": "vendor_1767498016698",
+      "description": "Premium product from Vendor. Quality guaranteed.",
+      "sku": "SKU-1767498046024-1",
+      "inStock": true,
+      "createdAt": "2026-01-04T03:40:46.052Z"
+    },
+    {
+      "id": "product_1767498046024_2",
+      "name": "S456-3-MODERN SANITARY FURNITURE Product 3",
+      "price": 233.74,
+      "category": "flooring",
+      "vendor": "Vendor",
+      "vendorId": "vendor_1767498016698",
+      "description": "Premium product from Vendor. Quality guaranteed.",
+      "sku": "SKU-1767498046024-2",
+      "inStock": true,
+      "createdAt": "2026-01-04T03:40:46.053Z"
+    },
+    {
+      "id": "product_1767498046024_3",
+      "name": "S456-3-MODERN SANITARY FURNITURE Product 4",
+      "price": 184.59,
+      "category": "kitchen",
+      "vendor": "Vendor",
+      "vendorId": "vendor_1767498016698",
+      "description": "Premium product from Vendor. Quality guaranteed.",
+      "sku": "SKU-1767498046024-3",
+      "inStock": true,
+      "createdAt": "2026-01-04T03:40:46.054Z"
+    },
+    {
+      "id": "product_1767499373170_3z2vg",
+      "name": "Premium 1767499373136 RT59 RATTAN OUTDOOR GARDEN FURNITURE Collection 1",
+      "price": 902.96,
+      "description": "Premium quality furniture from g. Professionally curated for VistaView marketplace.",
+      "category": "furniture",
+      "sku": "SKU-1767499373170-0",
+      "inStock": true,
+      "vendor": "g",
+      "vendorId": "vendor_1767499317238",
+      "createdAt": "2026-01-04T04:02:53.170Z"
+    },
+    {
+      "id": "product_1767499373170_3u9x6",
+      "name": "Modern 1767499373136 RT59 RATTAN OUTDOOR GARDEN FURNITURE Series 2",
+      "price": 429.5,
+      "description": "Modern quality lighting from g. Professionally curated for VistaView marketplace.",
+      "category": "lighting",
+      "sku": "SKU-1767499373170-1",
+      "inStock": true,
+      "vendor": "g",
+      "vendorId": "vendor_1767499317238",
+      "createdAt": "2026-01-04T04:02:53.170Z"
+    },
+    {
+      "id": "product_1767499373170_13d5c",
+      "name": "Classic 1767499373136 RT59 RATTAN OUTDOOR GARDEN FURNITURE Line 3",
+      "price": 185.38,
+      "description": "Classic quality flooring from g. Professionally curated for VistaView marketplace.",
+      "category": "flooring",
+      "sku": "SKU-1767499373170-2",
+      "inStock": true,
+      "vendor": "g",
+      "vendorId": "vendor_1767499317238",
+      "createdAt": "2026-01-04T04:02:53.170Z"
+    },
+    {
+      "id": "product_1767499373170_et4pd",
+      "name": "Elegant 1767499373136 RT59 RATTAN OUTDOOR GARDEN FURNITURE Edition 4",
+      "price": 864.15,
+      "description": "Elegant quality kitchen from g. Professionally curated for VistaView marketplace.",
+      "category": "kitchen",
+      "sku": "SKU-1767499373170-3",
+      "inStock": true,
+      "vendor": "g",
+      "vendorId": "vendor_1767499317238",
+      "createdAt": "2026-01-04T04:02:53.170Z"
+    },
+    {
+      "id": "product_1767499373170_x53zw",
+      "name": "Designer 1767499373136 RT59 RATTAN OUTDOOR GARDEN FURNITURE Set 5",
+      "price": 398.02,
+      "description": "Designer quality bath from g. Professionally curated for VistaView marketplace.",
+      "category": "bath",
+      "sku": "SKU-1767499373170-4",
+      "inStock": true,
+      "vendor": "g",
+      "vendorId": "vendor_1767499317238",
+      "createdAt": "2026-01-04T04:02:53.170Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif_1767498046055",
+      "type": "success",
+      "title": "Catalog Published!",
+      "message": "5 products from  are now live.",
+      "vendorId": "vendor_1767498016698",
+      "createdAt": "2026-01-04T03:40:46.055Z",
+      "read": false
+    },
+    {
+      "id": "notif_1767499373175",
+      "type": "success",
+      "title": "Catalog Published!",
+      "message": "5 products from g are now live.",
+      "vendorId": "vendor_1767499317238",
+      "createdAt": "2026-01-04T04:02:53.175Z",
+      "read": false
+    }
+  ]
+}

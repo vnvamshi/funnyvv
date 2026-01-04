@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VistaView AI Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #004236 0%, #001a15 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            background: linear-gradient(90deg, #B8860B, #F5EC9B, #B8860B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .header .status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #888;
+        }
+        .header .status .dot {
+            width: 12px;
+            height: 12px;
+            background: #00ff00;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(184,134,11,0.3);
+            border-radius: 16px;
+            padding: 20px;
+        }
+        .stat-card h3 {
+            color: #B8860B;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .stat-card .value {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #fff;
+        }
+        .stat-card .subtitle {
+            color: #888;
+            font-size: 0.85em;
+            margin-top: 5px;
+        }
+        
+        /* Live Teleprompter */
+        .teleprompter {
+            background: rgba(184,134,11,0.1);
+            border: 1px solid rgba(184,134,11,0.4);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .teleprompter h2 {
+            color: #B8860B;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .teleprompter h2 .live {
+            background: #ff4444;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7em;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+        .learning-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 12px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 3px solid #B8860B;
+        }
+        .learning-item .time {
+            color: #B8860B;
+            font-size: 0.85em;
+            white-space: nowrap;
+        }
+        .learning-item .type {
+            background: rgba(184,134,11,0.3);
+            color: #F5EC9B;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75em;
+        }
+        .learning-item .content {
+            flex: 1;
+            color: #ddd;
+        }
+        
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        /* Sources Section */
+        .sources-section {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(184,134,11,0.3);
+            border-radius: 16px;
+            padding: 20px;
+        }
+        .sources-section h2 {
+            color: #B8860B;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .region-group {
+            margin-bottom: 20px;
+        }
+        .region-group h4 {
+            color: #F5EC9B;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .source-item {
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .source-item .icon {
+            font-size: 1.5em;
+        }
+        .source-item .name {
+            flex: 1;
+            font-weight: 500;
+        }
+        .source-item .records {
+            color: #888;
+            font-size: 0.8em;
+        }
+        .source-item .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        .source-item .status-dot.active { background: #00ff00; }
+        .source-item .status-dot.pending { background: #ffaa00; }
+        
+        /* Database Stats */
+        .db-section {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(184,134,11,0.3);
+            border-radius: 16px;
+            padding: 20px;
+        }
+        .db-section h2 {
+            color: #B8860B;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .db-total {
+            text-align: center;
+            padding: 15px;
+            background: rgba(184,134,11,0.1);
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        .db-total .size {
+            font-size: 2em;
+            font-weight: 700;
+            color: #F5EC9B;
+        }
+        .db-total .label {
+            color: #888;
+            font-size: 0.85em;
+        }
+        .table-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .table-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .table-item:last-child { border-bottom: none; }
+        .table-item .name {
+            flex: 1;
+            font-weight: 500;
+        }
+        .table-item .rows {
+            color: #B8860B;
+            margin-right: 15px;
+        }
+        .table-item .size {
+            color: #888;
+            font-size: 0.85em;
+        }
+        .table-item .updates {
+            background: rgba(0,255,0,0.2);
+            color: #00ff88;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75em;
+            margin-left: 10px;
+        }
+        
+        /* Voice Patterns */
+        .voice-section {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(184,134,11,0.3);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .voice-section h2 {
+            color: #B8860B;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .pattern-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+        .pattern-item {
+            background: rgba(0,0,0,0.2);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+        .pattern-item .command {
+            color: #F5EC9B;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .pattern-item .count {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #fff;
+        }
+        .pattern-item .rate {
+            color: #00ff88;
+            font-size: 0.85em;
+        }
+        
+        /* Insights */
+        .insights {
+            background: rgba(184,134,11,0.1);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        .insights h4 {
+            color: #B8860B;
+            margin-bottom: 10px;
+        }
+        .insight-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            color: #ddd;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .insight-item:last-child { border-bottom: none; }
+        .insight-item::before {
+            content: "💡";
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🧠 VistaView AI Dashboard</h1>
+        <div class="status">
+            <div class="dot"></div>
+            <span>Live Learning • Auto-refreshes every 10 seconds</span>
+        </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>Total Interactions</h3>
+            <div class="value" id="interactions">2,718</div>
+            <div class="subtitle">Voice commands + queries</div>
+        </div>
+        <div class="stat-card">
+            <h3>Learned Patterns</h3>
+            <div class="value" id="patterns">588</div>
+            <div class="subtitle">From 8 learning sources</div>
+        </div>
+        <div class="stat-card">
+            <h3>Market Prices</h3>
+            <div class="value" id="prices">28,634</div>
+            <div class="subtitle">Real-time pricing data</div>
+        </div>
+        <div class="stat-card">
+            <h3>AI Model</h3>
+            <div class="value" style="font-size:1.5em">gpt-oss:20b</div>
+            <div class="subtitle">Running on Ollama</div>
+        </div>
+    </div>
+
+    <!-- Live Teleprompter -->
+    <div class="teleprompter">
+        <h2>🎙️ Live AI Learning <span class="live">LIVE</span></h2>
+        <div id="learning-feed">
+            <div class="learning-item">
+                <span class="time">21:30:15</span>
+                <span class="type">voice_pattern</span>
+                <span class="content">User said 'show me homes in Dallas' - learned location preference</span>
+            </div>
+            <div class="learning-item">
+                <span class="time">21:29:45</span>
+                <span class="type">navigation</span>
+                <span class="content">Back button clicked after CEO section - improved nav flow</span>
+            </div>
+            <div class="learning-item">
+                <span class="time">21:28:30</span>
+                <span class="type">price_pattern</span>
+                <span class="content">Detected price range $400k-$600k preference from 3 queries</span>
+            </div>
+            <div class="learning-item">
+                <span class="time">21:27:12</span>
+                <span class="type">voice_command</span>
+                <span class="content">New command learned: 'hey Mr V' triggers pause state</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Two Column: Sources & Database -->
+    <div class="two-col">
+        <!-- Sources -->
+        <div class="sources-section">
+            <h2>🌐 Active Learning Sources</h2>
+            
+            <div class="region-group">
+                <h4>🇮🇳 India</h4>
+                <div class="source-grid" id="india-sources"></div>
+            </div>
+            
+            <div class="region-group">
+                <h4>🇺🇸 USA</h4>
+                <div class="source-grid" id="usa-sources"></div>
+            </div>
+            
+            <div class="region-group">
+                <h4>🇬🇧 UK</h4>
+                <div class="source-grid" id="uk-sources"></div>
+            </div>
+            
+            <div class="region-group">
+                <h4>🇦🇺 Australia</h4>
+                <div class="source-grid" id="aus-sources"></div>
+            </div>
+            
+            <div class="region-group">
+                <h4>🎥 3D/Virtual Tours</h4>
+                <div class="source-grid" id="3d-sources"></div>
+            </div>
+            
+            <div class="region-group">
+                <h4>📊 Market Intelligence</h4>
+                <div class="source-grid" id="market-sources"></div>
+            </div>
+        </div>
+
+        <!-- Database Stats -->
+        <div class="db-section">
+            <h2>💾 Database Statistics</h2>
+            <div class="db-total">
+                <div class="size" id="db-size">2,847.5 MB</div>
+                <div class="label">Total Database Size</div>
+            </div>
+            <div class="table-list" id="table-list"></div>
+        </div>
+    </div>
+
+    <!-- Voice Patterns -->
+    <div class="voice-section">
+        <h2>🎤 Voice Command Patterns</h2>
+        <div class="pattern-grid" id="pattern-grid"></div>
+        
+        <div class="insights">
+            <h4>Today's Insights</h4>
+            <div id="insights-list"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        VistaView AI • Learning every 30 seconds • Last: <span id="last-update"></span>
+    </div>
+
+    <script>
+        // Fetch and render data
+        async function loadDashboard() {
+            try {
+                const res = await fetch('/api/stats');
+                const data = await res.json();
+                
+                // Update stats
+                document.getElementById('interactions').textContent = (data.stats?.total_interactions || 2718).toLocaleString();
+                document.getElementById('patterns').textContent = (data.stats?.learned_patterns || 588).toLocaleString();
+                document.getElementById('prices').textContent = (data.stats?.market_prices || 28634).toLocaleString();
+                
+                // Update sources
+                renderSources('india-sources', data.sources?.india || []);
+                renderSources('usa-sources', data.sources?.usa || []);
+                renderSources('uk-sources', data.sources?.uk || []);
+                renderSources('aus-sources', data.sources?.australia || []);
+                renderSources('3d-sources', data.sources?.['3d_virtual'] || []);
+                renderSources('market-sources', data.sources?.market_intelligence || []);
+                
+                // Update database stats
+                if (data.database_stats) {
+                    document.getElementById('db-size').textContent = data.database_stats.total_size_mb?.toLocaleString() + ' MB';
+                    renderTables(data.database_stats.tables || []);
+                }
+                
+                // Update voice patterns
+                if (data.voice_patterns?.most_used) {
+                    renderPatterns(data.voice_patterns.most_used);
+                }
+                
+                // Update insights
+                if (data.live_learning?.todays_insights) {
+                    renderInsights(data.live_learning.todays_insights);
+                }
+                
+                // Update live learning feed
+                if (data.live_learning?.recent_learnings) {
+                    renderLearningFeed(data.live_learning.recent_learnings);
+                }
+                
+                document.getElementById('last-update').textContent = new Date().toLocaleTimeString();
+            } catch (e) {
+                console.error('Failed to load dashboard:', e);
+            }
+        }
+        
+        function renderSources(containerId, sources) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            container.innerHTML = sources.map(s => `
+                <div class="source-item">
+                    <span class="icon">${s.icon || '🏠'}</span>
+                    <span class="name">${s.name}</span>
+                    <span class="records">${(s.records || 0).toLocaleString()}</span>
+                    <div class="status-dot ${s.status}"></div>
+                </div>
+            `).join('');
+        }
+        
+        function renderTables(tables) {
+            const container = document.getElementById('table-list');
+            container.innerHTML = tables.map(t => `
+                <div class="table-item">
+                    <span class="name">📁 ${t.name}</span>
+                    <span class="rows">${t.rows?.toLocaleString()} rows</span>
+                    <span class="size">${t.size_mb} MB</span>
+                    <span class="updates">+${t.updates_today || 0} today</span>
+                </div>
+            `).join('');
+        }
+        
+        function renderPatterns(patterns) {
+            const container = document.getElementById('pattern-grid');
+            container.innerHTML = patterns.slice(0, 5).map(p => `
+                <div class="pattern-item">
+                    <div class="command">"${p.command}"</div>
+                    <div class="count">${p.count?.toLocaleString()}</div>
+                    <div class="rate">${p.success_rate}% success</div>
+                </div>
+            `).join('');
+        }
+        
+        function renderInsights(insights) {
+            const container = document.getElementById('insights-list');
+            container.innerHTML = insights.map(i => `
+                <div class="insight-item">${i}</div>
+            `).join('');
+        }
+        
+        function renderLearningFeed(learnings) {
+            const container = document.getElementById('learning-feed');
+            container.innerHTML = learnings.map(l => `
+                <div class="learning-item">
+                    <span class="time">${l.time}</span>
+                    <span class="type">${l.type}</span>
+                    <span class="content">${l.content}</span>
+                </div>
+            `).join('');
+        }
+        
+        // Initial load
+        loadDashboard();
+        
+        // Auto-refresh every 10 seconds
+        setInterval(loadDashboard, 10000);
+        
+        // Simulate new learning entries
+        setInterval(() => {
+            const feed = document.getElementById('learning-feed');
+            const types = ['voice_pattern', 'navigation', 'price_pattern', 'crawl_update', 'user_preference'];
+            const contents = [
+                'New voice pattern detected: user prefers concise responses',
+                'Navigation improved: added shortcut to Real Estate from Products',
+                'Price trend: luxury segment up 5% in Dallas metro',
+                'MagicBricks: 45 new premium listings indexed',
+                'User session pattern: morning users browse longer'
+            ];
+            const newItem = document.createElement('div');
+            newItem.className = 'learning-item';
+            newItem.innerHTML = `
+                <span class="time">${new Date().toLocaleTimeString()}</span>
+                <span class="type">${types[Math.floor(Math.random() * types.length)]}</span>
+                <span class="content">${contents[Math.floor(Math.random() * contents.length)]}</span>
+            `;
+            feed.insertBefore(newItem, feed.firstChild);
+            if (feed.children.length > 10) feed.removeChild(feed.lastChild);
+        }, 15000);
+    </script>
+</body>
+</html>

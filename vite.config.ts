@@ -13,7 +13,7 @@ export default defineConfig({
     port: 5180,
     host: true,
     strictPort: true,
-    proxy: { '/api': { target: 'http://localhost:3005', changeOrigin: true } },
+    proxy: { '/api': { target: 'http://localhost:1117', changeOrigin: true } },
   },
   optimizeDeps: {
     exclude: ['@ricky0123/vad-web'],

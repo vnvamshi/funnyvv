@@ -162,7 +162,7 @@ app.get('/api/dashboard', (req, res) => {
   });
 });
 
-const PORT = 3005;
+const PORT = 1117;
 app.listen(PORT, () => {
   console.log(`✅ Backend running on http://localhost:${PORT}`);
   console.log(`📊 Dashboard API: http://localhost:${PORT}/api/dashboard`);

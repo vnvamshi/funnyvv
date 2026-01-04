@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "total_interactions": 2566,
+    "learned_patterns": 77,
+    "web_crawls": 47,
+    "accuracy_score": 92.5,
+    "tables_count": 6,
+    "active_sources": 5,
+    "last_updated": "2026-01-04T01:37:51.933Z"
+  },
+  "memories": [
+    {
+      "id": 1,
+      "source": "user_interaction",
+      "content": "Learned user preference for tile colors",
+      "timestamp": "2026-01-03T18:00:00Z"
+    },
+    {
+      "id": 2,
+      "source": "web_crawl",
+      "content": "Updated property listings from Zillow",
+      "timestamp": "2026-01-03T17:30:00Z"
+    },
+    {
+      "id": 3,
+      "source": "catalog_upload",
+      "content": "Processed 150 new product entries",
+      "timestamp": "2026-01-03T16:45:00Z"
+    }
+  ],
+  "tables": [
+    {
+      "id": 1,
+      "name": "products",
+      "rows": 1250,
+      "source": "catalog_upload",
+      "lastSync": "2026-01-03"
+    },
+    {
+      "id": 2,
+      "name": "vendors",
+      "rows": 89,
+      "source": "registration",
+      "lastSync": "2026-01-03"
+    },
+    {
+      "id": 3,
+      "name": "properties",
+      "rows": 456,
+      "source": "mls_feed",
+      "lastSync": "2026-01-03"
+    },
+    {
+      "id": 4,
+      "name": "users",
+      "rows": 2341,
+      "source": "auth_system",
+      "lastSync": "2026-01-03"
+    },
+    {
+      "id": 5,
+      "name": "transactions",
+      "rows": 567,
+      "source": "payment_gateway",
+      "lastSync": "2026-01-02"
+    },
+    {
+      "id": 6,
+      "name": "reviews",
+      "rows": 1890,
+      "source": "user_feedback",
+      "lastSync": "2026-01-02"
+    }
+  ],
+  "crawled_sites": [
+    {
+      "url": "https://zillow.com",
+      "pages": 150,
+      "lastCrawl": "2026-01-03",
+      "status": "active"
+    },
+    {
+      "url": "https://realtor.com",
+      "pages": 120,
+      "lastCrawl": "2026-01-03",
+      "status": "active"
+    },
+    {
+      "url": "https://homedepot.com",
+      "pages": 89,
+      "lastCrawl": "2026-01-02",
+      "status": "active"
+    },
+    {
+      "url": "https://lowes.com",
+      "pages": 76,
+      "lastCrawl": "2026-01-02",
+      "status": "active"
+    },
+    {
+      "url": "https://wayfair.com",
+      "pages": 45,
+      "lastCrawl": "2026-01-01",
+      "status": "paused"
+    }
+  ],
+  "learning_log": [
+    {
+      "type": "query",
+      "query": "SELECT * FROM products",
+      "timestamp": "2026-01-03T18:30:00Z"
+    },
+    {
+      "type": "crawl",
+      "content": "Crawled 25 new pages from zillow.com",
+      "timestamp": "2026-01-03T18:00:00Z"
+    },
+    {
+      "type": "learn",
+      "content": "Pattern recognized: kitchen fixtures popularity",
+      "timestamp": "2026-01-03T17:30:00Z"
+    }
+  ]
+}

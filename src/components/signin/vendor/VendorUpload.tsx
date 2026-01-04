@@ -1,33 +1,47 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 
-interface Props {
-  onFileSelected: (file: File) => void;
-  speak: (text: string) => void;
-}
+interface Props { onFileSelected: (file: File) => void; speak: (text: string) => void; }
+
+const THEME = { gold: '#B8860B', goldLight: '#F5EC9B' };
 
 const VendorUpload: React.FC<Props> = ({ onFileSelected, speak }) => {
-  const fileRef = useRef<HTMLInputElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      speak(`Got it! Processing ${file.name}. Starting the 5-step pipeline now.`);
-      setTimeout(() => onFileSelected(file), 1500);
-    }
+  const processFile = (file: File) => {
+    const valid = ['.pdf', '.xlsx', '.xls', '.csv'].some(ext => file.name.toLowerCase().endsWith(ext));
+    if (!valid) { speak("Sorry, I only accept PDF, Excel, or CSV."); return; }
+    setSelectedFile(file);
+    speak(`Got ${file.name}. Click Process to start.`);
   };
+
+  const handleDrop = useCallback((e: React.DragEvent) => { e.preventDefault(); setIsDragging(false); const file = e.dataTransfer.files[0]; if (file) processFile(file); }, []);
 
   return (
     <div style={{ textAlign: 'center' }}>
       <span style={{ fontSize: '4em' }}>📤</span>
-      <h3 style={{ color: '#B8860B', marginTop: '16px' }}>Upload Your Catalog</h3>
-      <p style={{ color: '#888', marginBottom: '24px' }}>PDF, Excel, or CSV supported</p>
-
-      <input ref={fileRef} type="file" accept=".pdf,.xlsx,.xls,.csv" onChange={handleFile} style={{ display: 'none' }} />
-      
-      <div onClick={() => fileRef.current?.click()} style={{ border: '3px dashed #B8860B', borderRadius: '16px', padding: '50px', cursor: 'pointer', background: 'rgba(184,134,11,0.05)' }}>
-        <span style={{ fontSize: '3em' }}>📁</span>
-        <p style={{ color: '#F5EC9B', marginTop: '16px' }}>Click to browse or drag file here</p>
-      </div>
+      <h3 style={{ color: THEME.gold, marginTop: '16px' }}>Upload Your Catalog</h3>
+      <p style={{ color: '#888', marginBottom: '24px' }}>PDF, Excel, or CSV</p>
+      <input ref={fileInputRef} type="file" accept=".pdf,.xlsx,.xls,.csv" onChange={(e) => e.target.files?.[0] && processFile(e.target.files[0])} style={{ display: 'none' }} />
+      {!selectedFile ? (
+        <div onClick={() => fileInputRef.current?.click()} onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }} onDragLeave={() => setIsDragging(false)} onDrop={handleDrop} style={{ border: `3px dashed ${isDragging ? THEME.gold : 'rgba(184,134,11,0.5)'}`, borderRadius: '20px', padding: '50px', cursor: 'pointer', background: isDragging ? 'rgba(184,134,11,0.1)' : 'rgba(0,0,0,0.2)', maxWidth: '450px', margin: '0 auto' }}>
+          <span style={{ fontSize: '3em' }}>📁</span>
+          <p style={{ color: THEME.goldLight, marginTop: '16px' }}>{isDragging ? 'Drop here!' : 'Click or drag & drop'}</p>
+        </div>
+      ) : (
+        <div style={{ background: 'rgba(184,134,11,0.1)', border: `2px solid ${THEME.gold}`, borderRadius: '16px', padding: '24px', maxWidth: '450px', margin: '0 auto' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '20px' }}>
+            <span style={{ fontSize: '2.5em' }}>📄</span>
+            <div style={{ flex: 1, textAlign: 'left' }}>
+              <p style={{ color: '#fff', margin: 0, fontWeight: 500 }}>{selectedFile.name}</p>
+              <p style={{ color: '#888', margin: '4px 0 0', fontSize: '0.85em' }}>{(selectedFile.size / 1024).toFixed(1)} KB</p>
+            </div>
+            <button onClick={() => setSelectedFile(null)} style={{ background: 'none', border: 'none', color: '#888', cursor: 'pointer' }}>✕</button>
+          </div>
+          <button onClick={() => onFileSelected(selectedFile)} style={{ padding: '14px 40px', background: THEME.gold, color: '#000', border: 'none', borderRadius: '25px', cursor: 'pointer', fontWeight: 600 }}>🚀 Process Catalog</button>
+        </div>
+      )}
     </div>
   );
 };

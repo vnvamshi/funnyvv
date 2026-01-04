@@ -1,30 +1,31 @@
 import React from 'react';
 
-interface Props {
-  onUploadCatalog: () => void;
-  speak: (text: string) => void;
-}
+interface Props { vendorName?: string; onUploadCatalog: () => void; speak: (text: string) => void; }
 
-const VendorDashboard: React.FC<Props> = ({ onUploadCatalog, speak }) => {
-  const items = [
-    { icon: '📦', title: 'My Products', desc: 'View & manage products', action: () => speak("Opening My Products...") },
-    { icon: '📤', title: 'Upload Catalog', desc: 'Add products from PDF', action: onUploadCatalog },
-    { icon: '🎯', title: 'Promotions', desc: 'Create deals & offers', action: () => speak("Opening Promotions...") },
-    { icon: '🏪', title: 'Storefront', desc: 'Customize your store', action: () => speak("Opening Storefront Settings...") }
+const THEME = { gold: '#B8860B', goldLight: '#F5EC9B' };
+
+const VendorDashboard: React.FC<Props> = ({ vendorName = 'Your Store', onUploadCatalog, speak }) => {
+  const stats = [
+    { icon: '📦', label: 'Products', value: '0' },
+    { icon: '📋', label: 'Orders', value: '0' },
+    { icon: '💰', label: 'Revenue', value: '$0' },
+    { icon: '⭐', label: 'Rating', value: 'New' }
   ];
 
   return (
-    <div>
-      <h3 style={{ color: '#B8860B', textAlign: 'center', marginBottom: '24px' }}>🎉 Welcome to Your Vendor Dashboard!</h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
-        {items.map((item, i) => (
-          <button key={i} onClick={item.action} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(184,134,11,0.4)', borderRadius: '16px', padding: '24px', cursor: 'pointer', textAlign: 'left' }}>
-            <span style={{ fontSize: '2.5em' }}>{item.icon}</span>
-            <h4 style={{ color: '#fff', margin: '12px 0 8px' }}>{item.title}</h4>
-            <p style={{ color: '#888', fontSize: '0.9em', margin: 0 }}>{item.desc}</p>
-          </button>
+    <div style={{ textAlign: 'center' }}>
+      <span style={{ fontSize: '4em' }}>📊</span>
+      <h3 style={{ color: THEME.gold, marginTop: '16px' }}>Welcome, {vendorName}!</h3>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px', maxWidth: '400px', margin: '24px auto' }}>
+        {stats.map((s, i) => (
+          <div key={i} style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${THEME.gold}30`, borderRadius: '14px', padding: '20px' }}>
+            <span style={{ fontSize: '1.8em' }}>{s.icon}</span>
+            <p style={{ color: '#fff', fontSize: '1.4em', fontWeight: 600, margin: '8px 0 4px' }}>{s.value}</p>
+            <p style={{ color: '#888', margin: 0, fontSize: '0.85em' }}>{s.label}</p>
+          </div>
         ))}
       </div>
+      <button onClick={() => { onUploadCatalog(); speak("Let's upload your catalog!"); }} style={{ padding: '16px 48px', background: THEME.gold, color: '#000', border: 'none', borderRadius: '30px', cursor: 'pointer', fontWeight: 600, fontSize: '1.1em' }}>📤 Upload Catalog</button>
     </div>
   );
 };

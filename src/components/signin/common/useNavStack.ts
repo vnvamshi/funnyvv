@@ -1,44 +1,9 @@
-// ═══════════════════════════════════════════════════════════════════════════════
-// VISTAVIEW - NAVIGATION STACK HOOK
-// Enables "go back" to work everywhere
-// ═══════════════════════════════════════════════════════════════════════════════
-
 import { useState, useCallback } from 'react';
-
-export interface NavEntry {
-  id: string;
-  label: string;
-  data?: any;
-}
-
-export const useNavStack = (initialEntry?: NavEntry) => {
-  const [stack, setStack] = useState<NavEntry[]>(initialEntry ? [initialEntry] : []);
-  const [current, setCurrent] = useState<NavEntry | null>(initialEntry || null);
-
-  const push = useCallback((entry: NavEntry) => {
-    if (current) {
-      setStack(prev => [...prev, current]);
-    }
-    setCurrent(entry);
-  }, [current]);
-
-  const pop = useCallback((): NavEntry | null => {
-    if (stack.length === 0) return null;
-    const newStack = [...stack];
-    const previous = newStack.pop()!;
-    setStack(newStack);
-    setCurrent(previous);
-    return previous;
-  }, [stack]);
-
-  const reset = useCallback((entry?: NavEntry) => {
-    setStack([]);
-    setCurrent(entry || null);
-  }, []);
-
-  const canGoBack = stack.length > 0;
-
-  return { current, stack, push, pop, reset, canGoBack };
+interface NavItem { id: string; label: string; }
+export const useNavStack = (initial: NavItem) => {
+  const [stack, setStack] = useState<NavItem[]>([initial]);
+  const push = useCallback((item: NavItem) => setStack(prev => [...prev, item]), []);
+  const pop = useCallback(() => setStack(prev => prev.length > 1 ? prev.slice(0, -1) : prev), []);
+  return { stack, current: stack[stack.length - 1], canGoBack: stack.length > 1, push, pop };
 };
-
 export default useNavStack;

@@ -8,7 +8,7 @@ const TEAL = '#003B32';
 const TEAL_LIGHT = '#065f46';
 const GOLD = '#B8860B';
 const GOLD_LIGHT = '#F5EC9B';
-const API = 'http://localhost:3005/api';
+const API = 'http://localhost:1117/api';
 
 // Types
 type VoiceMode = 'interactive' | 'talkative' | 'text';
@@ -720,7 +720,7 @@ export default function MrVAssistant() {
           <div style={{ marginBottom: 5 }}>🎯 {stats.patterns} patterns</div>
           <div style={{ marginBottom: 5 }}>🌐 {stats.crawls} web crawls</div>
           <div style={{ marginBottom: 5 }}>📈 {stats.confidence.toFixed(1)}% confidence</div>
-          <a href="http://localhost:3006/dashboard" target="_blank" rel="noreferrer"
+          <a href="http://localhost:1117/dashboard" target="_blank" rel="noreferrer"
             style={{ display: 'block', marginTop: 10, color: GOLD_LIGHT, fontSize: 10, textDecoration: 'none' }}>
             📊 Open Dashboard →
           </a>
@@ -969,7 +969,7 @@ export default function MrVAssistant() {
         <div style={{ marginBottom: 5 }}>🎯 {stats.patterns} patterns</div>
         <div style={{ marginBottom: 5 }}>🌐 {stats.crawls} web crawls</div>
         <div style={{ marginBottom: 5 }}>📈 {stats.confidence.toFixed(1)}% confidence</div>
-        <a href="http://localhost:3006/dashboard" target="_blank" rel="noreferrer"
+        <a href="http://localhost:1117/dashboard" target="_blank" rel="noreferrer"
           style={{ display: 'block', marginTop: 10, color: GOLD_LIGHT, fontSize: 10, textDecoration: 'none' }}>
           📊 Open Dashboard →
         </a>

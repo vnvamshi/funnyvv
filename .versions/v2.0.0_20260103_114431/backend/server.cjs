@@ -25,7 +25,7 @@ app.use(express.json());
 // ═══════════════════════════════════════════════════════════════════════════════
 const CONFIG = {
     // Ports (PERMANENT - never change)
-    PORT: 3005,
+    PORT: 1117,
     
     // Theme Colors (IMMUTABLE)
     THEME: {

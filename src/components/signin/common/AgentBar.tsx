@@ -1,138 +1,54 @@
-// ═══════════════════════════════════════════════════════════════════════════════
-// VISTAVIEW - AGENT BAR (Teleprompter + Controls)
-// Must appear on EVERY modal/page/subpage
-// ═══════════════════════════════════════════════════════════════════════════════
+import React, { useState } from 'react';
 
-import React from 'react';
-
-interface AgentBarProps {
+interface Props {
   isListening: boolean;
   isSpeaking: boolean;
-  isPaused?: boolean;
+  isPaused: boolean;
   transcript: string;
   displayText: string;
   onStop: () => void;
-  onPause?: () => void;
-  onResume?: () => void;
-  mode?: 'interactive' | 'talkative' | 'text';
+  onPause: () => void;
+  onResume: () => void;
+  onBack?: () => void;
+  onClose?: () => void;
+  canGoBack?: boolean;
+  showModes?: boolean;
+  showNavButtons?: boolean;
 }
 
-const AgentBar: React.FC<AgentBarProps> = ({
-  isListening,
-  isSpeaking,
-  isPaused = false,
-  transcript,
-  displayText,
-  onStop,
-  onPause,
-  onResume,
-  mode = 'interactive'
-}) => {
+const THEME = { gold: '#B8860B' };
+
+const AgentBar: React.FC<Props> = ({ isListening, isSpeaking, isPaused, transcript, displayText, onStop, onPause, onResume, onBack, onClose, canGoBack = true, showModes = true, showNavButtons = true }) => {
+  const [mode, setMode] = useState<'interactive'|'talkative'|'text'>('interactive');
+
   return (
-    <div style={{
-      background: 'linear-gradient(135deg, #004236, #002920)',
-      borderBottom: '1px solid rgba(184,134,11,0.3)',
-      padding: '12px 20px'
-    }}>
-      {/* Mr. V Header */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <div style={{
-            width: '10px',
-            height: '10px',
-            borderRadius: '50%',
-            background: isPaused ? '#FFD700' : isListening ? '#00ff00' : '#666',
-            animation: isListening && !isPaused ? 'pulse 1.5s infinite' : 'none'
-          }} />
-          <span style={{ color: '#B8860B', fontWeight: 600 }}>MR. V:</span>
-          <span style={{ color: '#888', fontSize: '0.85em' }}>
-            {isPaused ? '⏸️ Waiting for you...' : isListening ? '🎤 Listening' : 'Paused'}
-          </span>
+    <div style={{ background: 'rgba(0,0,0,0.4)', borderBottom: `1px solid ${THEME.gold}30` }}>
+      <div style={{ display: 'flex', alignItems: 'center', padding: '12px 20px', gap: '12px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+        <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: isListening ? '#4CAF50' : '#888', boxShadow: isListening ? '0 0 10px #4CAF50' : 'none' }} />
+        <span style={{ color: THEME.gold, fontWeight: 600 }}>MR. V:</span>
+        <span style={{ color: '#aaa', fontSize: '0.9em' }}>{isSpeaking ? '🔊 Speaking' : isListening ? '🎤 Listening' : '💤 Idle'}</span>
+        {showModes && (
+          <div style={{ marginLeft: 'auto', display: 'flex', gap: '6px' }}>
+            {(['interactive','talkative','text'] as const).map(m => (
+              <button key={m} onClick={() => setMode(m)} style={{ padding: '6px 12px', borderRadius: '16px', border: mode === m ? `1px solid ${THEME.gold}` : '1px solid transparent', background: mode === m ? 'rgba(184,134,11,0.2)' : 'rgba(255,255,255,0.05)', color: mode === m ? '#fff' : '#666', cursor: 'pointer', fontSize: '0.75em' }}>
+                {m === 'interactive' ? '🎤' : m === 'talkative' ? '💬' : '📝'} {m.charAt(0).toUpperCase() + m.slice(1)}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+      <div style={{ padding: '16px 20px', minHeight: '50px' }}>
+        <p style={{ color: '#fff', margin: 0, fontSize: '1em', lineHeight: 1.5 }}>{displayText || 'Listening...'}</p>
+        {transcript && <p style={{ color: '#666', margin: '8px 0 0', fontSize: '0.85em' }}>💬 "{transcript}"</p>}
+      </div>
+      {showNavButtons && (
+        <div style={{ display: 'flex', alignItems: 'center', padding: '12px 20px', gap: '12px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+          {canGoBack && onBack && <button onClick={onBack} style={{ padding: '10px 20px', background: 'rgba(255,255,255,0.1)', border: `1px solid ${THEME.gold}`, color: '#fff', borderRadius: '20px', cursor: 'pointer' }}>← Back</button>}
+          <button onClick={isPaused ? onResume : onPause} style={{ padding: '10px 24px', background: THEME.gold, border: 'none', color: '#000', borderRadius: '20px', cursor: 'pointer', fontWeight: 600 }}>{isPaused ? '▶ Resume' : '⏸ Pause'}</button>
+          <div style={{ flex: 1, textAlign: 'center' }}><span style={{ color: '#555', fontSize: '0.75em' }}>Say: "Hey" to pause • "Back" • "Next" • "Stop" • "Close"</span></div>
+          {onClose && <button onClick={onClose} style={{ padding: '10px 20px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#888', borderRadius: '20px', cursor: 'pointer' }}>✕ Close</button>}
         </div>
-        
-        {/* Mode Badges */}
-        <div style={{ display: 'flex', gap: '8px' }}>
-          {['interactive', 'talkative', 'text'].map(m => (
-            <span key={m} style={{
-              padding: '4px 12px',
-              borderRadius: '15px',
-              fontSize: '0.75em',
-              background: mode === m ? '#B8860B' : 'rgba(255,255,255,0.1)',
-              color: mode === m ? '#000' : '#888',
-              textTransform: 'capitalize'
-            }}>{m === 'interactive' ? '🎤 Interactive' : m === 'talkative' ? '💬 Talkative' : '📝 Text'}</span>
-          ))}
-        </div>
-      </div>
-
-      {/* Teleprompter */}
-      <div style={{
-        background: 'rgba(0,0,0,0.3)',
-        borderRadius: '8px',
-        padding: '12px 16px',
-        minHeight: '50px'
-      }}>
-        <p style={{
-          color: isSpeaking ? '#F5EC9B' : '#aaa',
-          margin: 0,
-          lineHeight: 1.6,
-          fontSize: '0.95em'
-        }}>
-          {isSpeaking ? displayText : transcript ? `💬 "${transcript}"` : 'Say a command or click an option...'}
-        </p>
-      </div>
-
-      {/* Controls */}
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginTop: '12px' }}>
-        {isSpeaking && (
-          <button onClick={onStop} style={{
-            background: '#e74c3c',
-            color: '#fff',
-            border: 'none',
-            padding: '8px 20px',
-            borderRadius: '20px',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '6px'
-          }}>
-            ⏹ Stop
-          </button>
-        )}
-        {onPause && !isPaused && (
-          <button onClick={onPause} style={{
-            background: 'rgba(255,255,255,0.1)',
-            color: '#fff',
-            border: '1px solid #B8860B',
-            padding: '8px 20px',
-            borderRadius: '20px',
-            cursor: 'pointer'
-          }}>
-            ⏸️ Pause
-          </button>
-        )}
-        {onResume && isPaused && (
-          <button onClick={onResume} style={{
-            background: '#B8860B',
-            color: '#000',
-            border: 'none',
-            padding: '8px 20px',
-            borderRadius: '20px',
-            cursor: 'pointer'
-          }}>
-            ▶️ Resume
-          </button>
-        )}
-      </div>
-
-      {/* Voice Hints */}
-      <div style={{ textAlign: 'center', marginTop: '10px' }}>
-        <span style={{ color: '#666', fontSize: '0.75em' }}>
-          Say "Hey" to pause • "About us" • "Real estate" • "Sign in" • "Go back"
-        </span>
-      </div>
-
-      <style>{`@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }`}</style>
+      )}
     </div>
   );
 };
