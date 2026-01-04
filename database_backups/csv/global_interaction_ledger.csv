@@ -1,0 +1,26 @@
+id,session_id,user_type,user_id,device_fingerprint,raw_transcript,normalized_transcript,partial_speech,page_route,modal_name,component_name,flow_step,interaction_mode,input_method,detected_intent,detected_entities,confidence_score,sentiment,emotion,empathy_score,aggression_level,politeness_score,tone,agent_action_planned,agent_actions_executed,agent_response_text,agent_tts_spoken,outcome,outcome_reason,user_correction,is_pattern_learned,pattern_id,is_anomaly,requires_review,created_at,processed_at,embedding,intent
+1,,boss,,,hey can you listen to me what happened to it why is it not going,hey can you listen to me what happened to it why is it not going,,/dashboard,,,,voice,,conversation,,,neutral,greeting,0.5000,0.0000,0.5000,neutral,,,Hello boss! Ready for your commands.,f,,,,f,,f,f,2026-01-04 12:01:23.965701,2026-01-04 12:01:23.965701,,
+2,5a4a7baa-e6c4-4d64-8df5-c4bcea018fe9,boss,,,Test after complete fix,,,/dashboard,,,,,,,,,neutral,neutral,0.7000,,,,,,,f,,,,f,,f,f,2026-01-04 12:47:53.863101,,,general
+3,643fe8df-7ac8-4e92-b9a4-a4bed2e11a5c,boss,,,so can you listen to me now can you understand,,,/dashboard,,,,,,,,,neutral,neutral,0.7000,,,,,,,f,,,,f,,f,f,2026-01-04 12:48:04.654513,,,general
+4,900dea21-d3b4-459a-b57b-bbc9c8286a87,boss,,,hey I'm getting my boss table once show me the account,,,/dashboard,,,,,,,,,neutral,neutral,0.7000,,,,,,,f,,,,f,,f,f,2026-01-04 12:52:14.541922,,,navigation
+5,39351de8-3570-4092-b62d-8190d7decabc,boss,,,hey I'm getting my boss table once show me the account,,,/dashboard,,,,,,,,,neutral,neutral,0.7000,,,,,,,f,,,,f,,f,f,2026-01-04 12:52:17.979244,,,navigation
+6,c216bcf8-09b2-4ab2-a957-6a5cd4d22990,boss,,,hey can you listen to me correctly,,,/dashboard,,,,,,,,,neutral,neutral,0.7000,,,,,,,f,,,,f,,f,f,2026-01-04 12:57:34.762929,,,general
+7,dc8a0d1f-a4cd-4d59-a513-c6c5aac58187,boss,,,can you hear me properly,,,/dashboard,,,,,,,,,neutral,neutral,0.7000,,,,,,,f,,,,f,,f,f,2026-01-04 13:03:17.191377,,,general
+8,86faecdd-9ab3-4566-a466-2b03349d48cd,boss,,,test after fix,,,/dashboard,,,,,,,,,neutral,neutral,0.7000,,,,,,,f,,,,f,,f,f,2026-01-04 13:18:45.452771,,,general
+9,d45817f3-4331-4553-bd4c-7f9093f11590,boss,,,smart fix test,,,/test,,,,,,,,,neutral,neutral,0.7000,,,,,,,f,,,,f,,f,f,2026-01-04 13:41:51.765022,,,general
+10,c88b7b91-d706-4798-92b7-ae9df51e22c3,boss,,,complete fix test successful,,,/test,,,,,,,,,neutral,neutral,0.7000,,,,,,,f,,,,f,,f,f,2026-01-04 13:50:50.655023,,,general
+11,6f3da150-b09b-47da-8916-40e92f7eaa99,boss,,,fix test after db update,,,/test,,,,,,,,,neutral,neutral,0.7000,,,,,,,f,,,,f,,f,f,2026-01-04 13:54:24.916412,,,general
+12,b589926f-f4d0-4ce2-b220-599a0e2b3021,boss,,,"hello vistaview, navigate to dashboard",,,/,,,,,,,,,neutral,neutral,0.7500,,,,,,,f,,,,f,,f,f,2026-01-04 14:24:01.260727,,,navigation
+13,f939100b-4c5d-429a-833c-b35f1257a3a9,boss,,,I am from China and my company is furniture manufacturing company beautify,,,/,,,,,,,,,neutral,,,,,,,,,f,,,,f,,f,f,2026-01-04 14:43:06.553455,,,form_input
+14,9af9551b-c2e0-433f-ae01-df2e4f261f47,user,,,can you hear me,,,/,,,,,,,,,neutral,,,,,,,,,f,,,,f,,f,f,2026-01-04 15:09:04.887353,,,general
+15,823ed829-a0e2-4d87-ab57-3b962fe1ae47,user,,,the phone number is 703-338-4931,,,/,,,,,,,,,neutral,,,,,,,,,f,,,,f,,f,f,2026-01-04 15:09:09.266201,,,phone_input
+16,dbed5fef-3333-4766-842d-e477017976ad,user,,,yes go to next,,,/,,,,,,,,,neutral,,,,,,,,,f,,,,f,,f,f,2026-01-04 15:09:13.169159,,,navigation
+17,f97990f5-022b-4f07-ac32-f02e21380d09,user,,,1 2 3 4 5 6,,,/,,,,,,,,,neutral,,,,,,,,,f,,,,f,,f,f,2026-01-04 15:09:21.530765,,,general
+18,1fc6b469-9da1-4a05-95fe-8ef84135df3e,user,,,1 2 3 4 5 6,,,/,,,,,,,,,neutral,,,,,,,,,f,,,,f,,f,f,2026-01-04 15:09:29.269441,,,general
+19,598cfeb4-70f1-48e6-895c-c3e3c7b1a9b8,user,,,so this is about a beautiful company list of you and I'm from China,,,/,,,,,,,,,neutral,,,,,,,,,f,,,,f,,f,f,2026-01-04 15:09:51.412038,,,form_input
+20,3d2f7097-2240-4aa2-83d0-c9a361991869,user,,,I sell the furniture,,,/,,,,,,,,,neutral,,,,,,,,,f,,,,f,,f,f,2026-01-04 15:09:59.488498,,,general
+21,6a33b59b-0775-4c18-8a3e-d8ca98513a85,user,,,sale,,,/,,,,,,,,,neutral,,,,,,,,,f,,,,f,,f,f,2026-01-04 15:10:03.784567,,,general
+22,26b82750-1e08-4a96-a55b-f28c6d15c56f,user,,,I start save,,,/,,,,,,,,,neutral,,,,,,,,,f,,,,f,,f,f,2026-01-04 15:10:06.76809,,,save
+23,ca328999-dc10-4237-bb93-d8b73503a790,user,,,upload catalog,,,/,,,,,,,,,neutral,,,,,,,,,f,,,,f,,f,f,2026-01-04 15:10:15.586699,,,upload
+24,04a2cd25-79e6-4568-bb73-4d00627e617c,user,,,go ahead and upload,,,/,,,,,,,,,neutral,,,,,,,,,f,,,,f,,f,f,2026-01-04 15:10:20.494572,,,upload
+25,aad6c0fb-bdc5-464d-9402-953558d14429,user,,,open the upload form,,,/,,,,,,,,,neutral,,,,,,,,,f,,,,f,,f,f,2026-01-04 15:10:24.166896,,,navigation

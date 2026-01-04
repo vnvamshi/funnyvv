@@ -1,0 +1,12 @@
+id,memory_type,memory_key,memory_value,context,importance,created_at,last_accessed
+1,definition,agentic_bar,"The Agentic Bar is VistaView specialized control bar featuring: AI assistant (Mr. V), Voice input (STT), Voice output (TTS), Stop/Start buttons, Listening indicator, Teleprompter display, Interactive/Talkative/Text modes",core_concept,10,2026-01-04 13:09:10.937451,2026-01-04 13:09:10.937451
+2,definition,mr_v,"Mr. V is the AI assistant persona for VistaView - friendly, helpful, knowledgeable about real estate",core_concept,10,2026-01-04 13:09:10.937451,2026-01-04 13:09:10.937451
+3,definition,walking_cursor,"A walking character (🚶) that follows the mouse cursor, can be directed by voice to click elements",feature,8,2026-01-04 13:09:10.937451,2026-01-04 13:09:10.937451
+4,definition,teleprompter,Real-time display of voice transcription and AI responses in the agentic bar,feature,8,2026-01-04 13:09:10.937451,2026-01-04 13:09:10.937451
+5,command,hey_vistaview,Wake word to activate voice assistant,voice_activation,9,2026-01-04 13:09:10.937451,2026-01-04 13:09:10.937451
+6,command,walk_here,Command to move walking cursor to current position,voice_command,7,2026-01-04 13:09:10.937451,2026-01-04 13:09:10.937451
+7,command,click_that,Command to click current element under cursor,voice_command,7,2026-01-04 13:09:10.937451,2026-01-04 13:09:10.937451
+8,command,go_back,Navigate to previous page,voice_command,7,2026-01-04 13:09:10.937451,2026-01-04 13:09:10.937451
+9,command,show_properties,Navigate to real estate listings,voice_command,7,2026-01-04 13:09:10.937451,2026-01-04 13:09:10.937451
+10,integration,postgres_tables,"All interactions logged to global_interaction_ledger, boss_voice_inputs, realtime_feed",database,9,2026-01-04 13:09:10.937451,2026-01-04 13:09:10.937451
+11,integration,learning_system,"Patterns learned and stored in learned_patterns, empathy_learning, voice_command_learning",database,9,2026-01-04 13:09:10.937451,2026-01-04 13:09:10.937451

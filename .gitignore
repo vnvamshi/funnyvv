@@ -1,39 +1,54 @@
 # Dependencies
 node_modules/
-
-# Logs
-*.log
-logs/*.log
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Large files (use LFS or external storage)
-*.zip
-*.tar.gz
-*.dump
-frontend_src.zip
-
-# Secrets (NEVER commit these)
-.env
-.env.local
-.env.*.local
-secrets/
-*.pem
-*.key
-
-# Backups (stored externally)
-backups/*.dump
-backups/*.sql
+.pnp
+.pnp.js
 
 # Build outputs
 dist/
 build/
 .next/
+out/
+
+# Environment files (keep .env.example)
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+logs/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
 
 # IDE
 .idea/
 .vscode/
 *.swp
 *.swo
+*.sublime-*
+
+# Large uploads (but keep structure)
+backend/uploads/*.pdf
+backend/uploads/*.csv
+!backend/uploads/.gitkeep
+
+# Test & Coverage
+coverage/
+.nyc_output/
+
+# Temporary
+*.tmp
+*.temp
+*.bak
+*.backup.*
+
+# But DO include these important files:
+!.env.example
+!backend/uploads/.gitkeep
+!database_backups/.gitkeep

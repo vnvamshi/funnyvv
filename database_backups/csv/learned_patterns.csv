@@ -1,0 +1,16 @@
+id,pattern_type,source_name,pattern_json,confidence,usage_count,last_used_at,created_at,embedding,pattern_name,pattern_text,occurrence_count,last_seen
+e135dc9b-a685-4bfc-a66d-497b42022698,voice,,{},0.5,0,,2026-01-04 13:53:08.713636,,,test pattern,1,2026-01-04 13:53:08.713636
+f175e93c-bcf2-4efd-b82a-d152a8e651a3,general,,{},0.5,0,,2026-01-04 13:54:24.919274,,fix test after db update,fix test after db update,1,2026-01-04 13:54:24.919274
+ea0095df-ea3d-45da-970d-ecd6fb28400e,navigation,,{},0.5,0,,2026-01-04 14:24:01.292897,,,"hello vistaview, navigate to dashboard",1,2026-01-04 14:24:01.292897
+631c3287-10b0-4668-908c-7f43347b95b4,form_input,,{},0.5,0,,2026-01-04 14:43:06.565712,,,i am from china and my company is furniture manufacturing company beautify,1,2026-01-04 14:43:06.565712
+ec39df3f-f612-446e-99cc-0a29565c9ce7,general,,{},0.5,0,,2026-01-04 15:09:04.917287,,,can you hear me,1,2026-01-04 15:09:04.917287
+4be2d2e5-96a0-4865-838d-38dc19441160,phone_input,,{},0.5,0,,2026-01-04 15:09:09.282999,,,the phone number is 703-338-4931,1,2026-01-04 15:09:09.282999
+f0296471-b194-4b80-a0de-b0ec4134b99e,navigation,,{},0.5,0,,2026-01-04 15:09:13.196003,,,yes go to next,1,2026-01-04 15:09:13.196003
+4285de1e-eb0c-4688-97ff-adb4e631f85a,general,,{},0.5,0,,2026-01-04 15:09:21.543507,,,1 2 3 4 5 6,2,2026-01-04 15:09:29.294079
+30534c9f-50dc-4c8b-8df2-ad90bbff9a67,form_input,,{},0.5,0,,2026-01-04 15:09:51.424483,,,so this is about a beautiful company list of you and i'm from china,1,2026-01-04 15:09:51.424483
+12aa99d7-d85a-44c5-8330-536af51b146d,general,,{},0.5,0,,2026-01-04 15:09:59.514392,,,i sell the furniture,1,2026-01-04 15:09:59.514392
+2b8483ab-4fc3-4e59-89de-3029bfd2e41c,general,,{},0.5,0,,2026-01-04 15:10:03.806654,,,sale,1,2026-01-04 15:10:03.806654
+c7195659-8224-4772-ba8f-9af50efe7225,save,,{},0.5,0,,2026-01-04 15:10:06.785366,,,i start save,1,2026-01-04 15:10:06.785366
+232d3dc2-53ce-452c-8779-fbfcd80af9f3,upload,,{},0.5,0,,2026-01-04 15:10:15.616064,,,upload catalog,1,2026-01-04 15:10:15.616064
+73468d91-3cab-4bf3-b7c6-bb03337e709c,upload,,{},0.5,0,,2026-01-04 15:10:20.513936,,,go ahead and upload,1,2026-01-04 15:10:20.513936
+eea99d7b-4a73-489a-b568-68e4adce1e41,navigation,,{},0.5,0,,2026-01-04 15:10:24.179595,,,open the upload form,1,2026-01-04 15:10:24.179595

@@ -1,0 +1,31 @@
+id,feed_type,title,description,session_id,user_type,page_context,metadata,icon,color,created_at
+1,voice_input,"Boss: ""show me the dashboard""",navigation | positive,,boss,,,🎤,,2026-01-04 12:14:56.526283
+2,pattern_learned,New pattern: property search,confidence: 0.94,,system,,,🧠,,2026-01-04 12:13:56.526283
+3,crawl_complete,Finished: zillow.com,"2,400 new patterns",,system,,,🌐,,2026-01-04 12:10:56.526283
+4,voice_input,"Vendor: ""upload my catalog""",action | neutral,,vendor,,,🎤,,2026-01-04 12:07:56.526283
+5,session,New session: Builder,Device: Desktop Chrome,,builder,,,👤,,2026-01-04 12:05:56.526283
+6,tts,TTS Response sent,Welcome message,,system,,,🔊,,2026-01-04 12:03:56.526283
+7,audit,Self-coding request,Fix speech recognition,,boss,,,📜,,2026-01-04 12:00:56.526283
+8,success,PDF processed,45 products extracted,,vendor,,,✅,,2026-01-04 11:55:56.526283
+9,voice_input,"Boss: ""show me the dashboard""",navigation | positive,,boss,/dashboard,,🎤,,2026-01-04 12:23:22.448687
+10,pattern_learned,New pattern: property search query,confidence: 0.94,,system,/,,🧠,,2026-01-04 12:23:22.448687
+11,crawl_complete,Finished crawling: zillow.com,"2,400 new patterns extracted",,system,/,,🌐,,2026-01-04 12:23:22.448687
+12,voice_input,"Vendor: ""upload my catalog""",action | neutral,,vendor,/vendor,,🎤,,2026-01-04 12:23:22.448687
+13,session,New session started: Builder,Device: Desktop Chrome,,builder,/,,👤,,2026-01-04 12:23:22.448687
+14,tts,TTS Response sent,Welcome message delivered,,system,/,,🔊,,2026-01-04 12:23:22.448687
+15,success,PDF catalog processed,45 products extracted successfully,,vendor,/vendor,,✅,,2026-01-04 12:23:22.448687
+16,voice_input,"Buyer: ""show houses under 400k""",property_search | excited,,buyer,/real-estate,,🎤,,2026-01-04 12:23:22.448687
+17,navigation,User navigated to Real Estate,Voice command triggered,,visitor,/real-estate,,🧭,,2026-01-04 12:23:22.448687
+18,pattern_learned,Empathy pattern reinforced,frustration → support response,,system,/,,💚,,2026-01-04 12:23:22.448687
+19,crawl_complete,Finished crawling: homedepot.com,"3,100 patterns extracted",,system,/,,🌐,,2026-01-04 12:23:22.448687
+20,audit,Self-coding request analyzed,Fix: speech recognition improvement,,boss,/dashboard,,📜,,2026-01-04 12:23:22.448687
+21,voice,"boss: ""Test after complete fix""",general | neutral,,boss,/dashboard,,🎤,,2026-01-04 12:47:53.86655
+22,voice,"boss: ""so can you listen to me now ca""",general | neutral,,boss,/dashboard,,🎤,,2026-01-04 12:48:04.655866
+23,voice,"boss: ""hey I'm getting my boss table """,navigation | neutral,,boss,/dashboard,,🎤,,2026-01-04 12:52:14.543495
+24,voice,"boss: ""hey I'm getting my boss table """,navigation | neutral,,boss,/dashboard,,🎤,,2026-01-04 12:52:17.981166
+25,voice,"boss: ""hey can you listen to me corre""",general | neutral,,boss,/dashboard,,🎤,,2026-01-04 12:57:34.764637
+26,voice,"boss: ""can you hear me properly""",general | neutral,,boss,/dashboard,,🎤,,2026-01-04 13:03:17.193094
+27,voice,"boss: ""test after fix...""",general | neutral,,boss,/dashboard,,🎤,,2026-01-04 13:18:45.455001
+28,voice,"boss: ""smart fix test...""",general | neutral,,boss,/test,,🎤,,2026-01-04 13:41:51.766189
+29,voice,"boss: ""complete fix test successful...""",general | neutral,,boss,/test,,🎤,,2026-01-04 13:50:50.657727
+30,voice,"boss: ""fix test after db update...""",general | neutral,,boss,/test,,🎤,,2026-01-04 13:54:24.918829
