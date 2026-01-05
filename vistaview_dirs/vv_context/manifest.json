@@ -1,0 +1,60 @@
+{
+  "project": "VistaView Agentic System",
+  "version": "1.0.0",
+  "ruleset": "VISTAVIEW_AGENTIC_STANDARD_v1.1",
+  
+  "stack": {
+    "frontend": "React 18 + TypeScript + Vite",
+    "backend": "Express.js v22",
+    "voice": "Web Speech API (SpeechRecognition + SpeechSynthesis)",
+    "3d": "Three.js + React Three Fiber"
+  },
+  
+  "ports": {
+    "frontend": 5180,
+    "backend": 3001
+  },
+  
+  "key_files": {
+    "voice_brain": {
+      "path": "src/agentic/VoiceBrain.ts",
+      "purpose": "Singleton voice controller",
+      "pattern": "Audio Mutex - speaking stops listening"
+    },
+    "agentic_bar": {
+      "path": "src/agentic/AgenticBar.tsx", 
+      "purpose": "Voice UI component with useVoice hook"
+    },
+    "vendor_phone": {
+      "path": "src/components/vendor/VendorPhone.tsx",
+      "purpose": "Main vendor interface with AgenticBar"
+    },
+    "teleprompter": {
+      "path": "src/components/teleprompter/Teleprompter.tsx",
+      "purpose": "Script display for guided interactions"
+    },
+    "walk_and_click": {
+      "path": "src/components/walkandclick/WalkAndClick.tsx",
+      "purpose": "Photo capture and analysis"
+    }
+  },
+  
+  "voice_commands": {
+    "pause": ["hey", "stop", "pause", "wait"],
+    "resume": ["resume", "continue", "go ahead"],
+    "modes": ["talkative mode", "text mode", "interactive mode"],
+    "digit_words": {
+      "zero": "0", "one": "1", "two": "2", "three": "3", "four": "4",
+      "five": "5", "six": "6", "seven": "7", "eight": "8", "nine": "9"
+    }
+  },
+  
+  "voice_states": ["IDLE", "LISTENING", "PROCESSING", "SPEAKING", "PAUSED"],
+  
+  "troubleshooting": {
+    "mic_not_working": "Check browser permissions, verify VoiceBrain singleton",
+    "multiple_voices": "Ensure only ONE VoiceBrain instance via getInstance()",
+    "commands_ignored": "Check processVoiceInput() in VoiceBrain.ts",
+    "blank_page": "Check console, verify exports in src/agentic/index.ts"
+  }
+}

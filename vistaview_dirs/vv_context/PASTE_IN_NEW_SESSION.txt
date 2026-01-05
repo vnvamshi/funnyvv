@@ -1,0 +1,54 @@
+═══════════════════════════════════════════════════════════════════════════════
+  COPY EVERYTHING BELOW THIS LINE AND PASTE INTO NEW CLAUDE SESSION
+═══════════════════════════════════════════════════════════════════════════════
+
+RESTORE_CONTEXT: ~/vistaview_context/manifest.json
+RESUME_SESSION_STATE: ~/vistaview_context/session_state.json
+FOLLOW_RULES: VISTAVIEW_AGENTIC_STANDARD_v1.1
+
+---
+
+PROJECT: VistaView Agentic System
+LOCATION: ~/vistaview_WORKING
+STACK: React 18 + TypeScript + Vite + Express.js
+DEV SERVER: cd ~/vistaview_WORKING && npm run dev
+URL: http://localhost:5180
+
+CURRENT TASK: Voice System Testing
+STATUS: Scripts installed, ready to test
+
+WHAT WAS DONE:
+✅ Analyzed broken voice system (mic not listening, commands not working)
+✅ Created VoiceBrain.ts singleton with Audio Mutex pattern
+✅ Created AgenticBar.tsx with useVoice hook
+✅ Ran vistaview_COMPLETE_PART1.sh
+✅ Ran vistaview_COMPLETE_PART2.sh
+✅ Set up context system at ~/vistaview_context/
+
+WHAT TO DO NOW:
+1. cd ~/vistaview_WORKING && npm run dev
+2. Open http://localhost:5180
+3. Sign in as Vendor
+4. Test: say "seven zero three" → should capture "703"
+5. Test: say "hey" or "stop" → should pause listening
+6. Test: say "resume" → should resume listening
+7. If issues, check browser console for errors
+
+KEY ARCHITECTURE:
+- src/agentic/VoiceBrain.ts → Singleton voice controller, Web Speech API
+- src/agentic/AgenticBar.tsx → UI component with useVoice hook
+- Audio Mutex: speaking stops listening, listening stops speaking
+- Pause commands: "hey", "stop", "pause", "wait"
+- Resume commands: "resume", "continue", "go ahead"
+
+VOICE STATES: IDLE → LISTENING → PROCESSING → SPEAKING → PAUSED
+
+TROUBLESHOOTING:
+- Mic not working → Check browser permissions, verify singleton
+- Multiple voices → Ensure only ONE VoiceBrain.getInstance()
+- Commands ignored → Check processVoiceInput() in VoiceBrain.ts
+- Blank page → Check console, verify src/agentic/index.ts exports
+
+Help me test the voice system and debug any issues.
+
+═══════════════════════════════════════════════════════════════════════════════

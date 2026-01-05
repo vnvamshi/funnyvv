@@ -1,0 +1,71 @@
+{
+  "project": "VistaView Agentic System",
+  "version": "1.0.0",
+  "created": "2026-01-04",
+  "ruleset": "VISTAVIEW_AGENTIC_STANDARD_V1.1",
+  
+  "paths": {
+    "project_home": "~/vistaview_WORKING",
+    "backups": "~/vistaview_BACKUPS",
+    "downloads": "~/Downloads",
+    "context": "~/vistaview_context"
+  },
+  
+  "architecture": {
+    "frontend": {
+      "framework": "React 18 + TypeScript",
+      "build_tool": "Vite",
+      "port": 5180,
+      "entry": "src/main.tsx"
+    },
+    "backend": {
+      "framework": "Express.js",
+      "version": "22.0",
+      "port": 3001,
+      "endpoints": [
+        "POST /api/walkandclick/detect-type",
+        "POST /api/walkandclick/analyze-photo", 
+        "POST /api/agentic/analyze-photo",
+        "POST /api/tts/speak",
+        "GET /api/health"
+      ]
+    },
+    "voice": {
+      "pattern": "VoiceBrain Singleton",
+      "recognition": "Web Speech API",
+      "synthesis": "Browser TTS + ElevenLabs fallback",
+      "states": ["IDLE", "LISTENING", "PROCESSING", "SPEAKING", "PAUSED"]
+    }
+  },
+  
+  "key_files": {
+    "voice_brain": "src/agentic/VoiceBrain.ts",
+    "agentic_bar": "src/agentic/AgenticBar.tsx",
+    "vendor_phone": "src/components/vendor/VendorPhone.tsx",
+    "teleprompter": "src/components/teleprompter/Teleprompter.tsx",
+    "walk_and_click": "src/components/walkandclick/WalkAndClick.tsx",
+    "glb_controller": "src/components/GLBSceneController.tsx",
+    "backend_server": "server/index.js"
+  },
+  
+  "installers": {
+    "part1": "vistaview_COMPLETE_PART1.sh - Core (VoiceBrain, AgenticBar)",
+    "part2": "vistaview_COMPLETE_PART2.sh - Components (WalkAndClick, Teleprompter, GLB)",
+    "voice_final": "vistaview_VOICE_FINAL.sh - Proven voice logic",
+    "unified_agentic": "vistaview_UNIFIED_AGENTIC.sh - Singleton pattern"
+  },
+  
+  "voice_commands": {
+    "pause": ["hey", "stop", "pause", "wait"],
+    "resume": ["resume", "continue", "go ahead"],
+    "modes": ["talkative mode", "text mode", "interactive mode"],
+    "digit_words": ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+  },
+  
+  "troubleshooting": {
+    "blank_page": "Check browser console, verify exports in src/agentic/index.ts",
+    "voice_not_working": "Check microphone permissions, verify VoiceBrain singleton",
+    "multiple_voices": "Ensure only ONE VoiceBrain instance, check Audio Mutex",
+    "hey_not_working": "Verify pause commands in VoiceBrain.processVoiceInput()"
+  }
+}

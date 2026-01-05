@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VistaView AI Dashboard v4.0</title>
+    <style>
+        :root {
+            --teal: #004236;
+            --teal-light: #007E67;
+            --gold: #B8860B;
+            --gold-light: #F5EC9B;
+            --dark: #001a15;
+            --white: #ffffff;
+            --gray: #94a3b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--teal) 100%);
+            color: var(--white);
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: rgba(0,0,0,0.3);
+            padding: 16px 24px;
+            border-bottom: 2px solid var(--gold);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h1 {
+            color: var(--gold);
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .header .status {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(0,255,0,0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(0,255,0,0.3);
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #22c55e;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+        
+        .container {
+            padding: 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .card-title {
+            color: var(--gold);
+            font-size: 1.1em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .stat-item {
+            background: rgba(0,0,0,0.2);
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--gold-light);
+        }
+        
+        .stat-label {
+            font-size: 0.8em;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+        
+        /* Teleprompter Panel */
+        .teleprompter-panel {
+            grid-column: span 2;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--dark) 100%);
+            border: 2px solid var(--gold);
+        }
+        
+        .teleprompter-content {
+            background: rgba(0,0,0,0.4);
+            border-radius: 12px;
+            padding: 20px;
+            min-height: 150px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        
+        .teleprompter-content .mr-v-label {
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .teleprompter-content .message {
+            color: var(--gold-light);
+        }
+        
+        .teleprompter-controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .btn-primary {
+            background: var(--gold);
+            color: #000;
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            border: 1px solid var(--gold);
+        }
+        
+        .btn:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Tables List */
+        .tables-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .table-item {
+            padding: 8px 12px;
+            margin-bottom: 4px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 6px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .table-item::before {
+            content: '📊';
+        }
+        
+        /* Sources Chart */
+        .sources-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .source-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .source-name {
+            width: 80px;
+            font-size: 0.85em;
+        }
+        
+        .source-progress {
+            flex: 1;
+            height: 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .source-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        
+        .source-count {
+            width: 40px;
+            text-align: right;
+            font-size: 0.85em;
+            color: var(--gold-light);
+        }
+        
+        /* Memories Log */
+        .memories-log {
+            max-height: 250px;
+            overflow-y: auto;
+        }
+        
+        .memory-item {
+            padding: 10px;
+            margin-bottom: 8px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            border-left: 3px solid var(--gold);
+        }
+        
+        .memory-type {
+            font-size: 0.75em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        
+        .memory-context {
+            font-size: 0.9em;
+            color: var(--white);
+        }
+        
+        .memory-time {
+            font-size: 0.75em;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+        
+        /* Team Knowledge */
+        .team-grid {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .team-member {
+            padding: 12px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .team-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+        
+        .team-info h4 {
+            font-size: 0.95em;
+            margin-bottom: 2px;
+        }
+        
+        .team-info p {
+            font-size: 0.8em;
+            color: var(--gray);
+        }
+        
+        /* Refresh indicator */
+        .refresh-indicator {
+            font-size: 0.8em;
+            color: var(--gray);
+        }
+        
+        .refresh-indicator.updating {
+            color: var(--gold);
+        }
+        
+        /* Feature Badges */
+        .feature-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        
+        .badge {
+            padding: 4px 12px;
+            background: rgba(184,134,11,0.2);
+            border: 1px solid var(--gold);
+            border-radius: 20px;
+            font-size: 0.8em;
+            color: var(--gold-light);
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.2);
+            border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .teleprompter-panel {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>🧠 VistaView AI Dashboard</h1>
+        <div class="status">
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span>Learning Active</span>
+            </div>
+            <span class="refresh-indicator" id="refreshIndicator">Auto-refresh: 5s</span>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Teleprompter Panel -->
+        <div class="card teleprompter-panel">
+            <div class="card-header">
+                <span class="card-title">🗣️ Mr. V Teleprompter AI</span>
+                <span id="speakingStatus">Ready</span>
+            </div>
+            <div class="teleprompter-content">
+                <div class="mr-v-label">MR. V:</div>
+                <div class="message" id="teleprompterMessage">
+                    Welcome to the VistaView AI Dashboard! I'm continuously learning from market data, 
+                    user interactions, and real estate trends. Currently monitoring 8 data sources 
+                    and have learned over 30,000 market prices. Ask me anything about properties, 
+                    products, or how VistaView works!
+                </div>
+            </div>
+            <div class="teleprompter-controls">
+                <button class="btn btn-primary" onclick="speakStatus()">🔊 Speak Status</button>
+                <button class="btn btn-secondary" onclick="speakLearning()">📚 Learning Update</button>
+                <button class="btn btn-secondary" onclick="stopSpeaking()">⏹ Stop</button>
+            </div>
+        </div>
+        
+        <!-- Main Stats -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">📈 AI Learning Stats</span>
+            </div>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <div class="stat-value" id="totalInteractions">0</div>
+                    <div class="stat-label">Total Interactions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="learnedPatterns">0</div>
+                    <div class="stat-label">Learned Patterns</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="marketPrices">0</div>
+                    <div class="stat-label">Market Prices</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="accuracyScore">0%</div>
+                    <div class="stat-label">Accuracy Score</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Onboarding Stats -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">🚀 Onboarding Stats</span>
+            </div>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <div class="stat-value" id="vendorsCount">0</div>
+                    <div class="stat-label">Vendors</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="buildersCount">0</div>
+                    <div class="stat-label">Builders</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="voiceCommands">0</div>
+                    <div class="stat-label">Voice Commands</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="memoriesCount">0</div>
+                    <div class="stat-label">Memories</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Data Sources -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">🌐 Data Sources</span>
+            </div>
+            <div class="sources-chart" id="sourcesChart">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+        
+        <!-- Recent Learning -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">📚 Recent Learning</span>
+            </div>
+            <div class="memories-log" id="memoriesLog">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+        
+        <!-- Database Tables -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">🗄️ Database Tables</span>
+                <span id="tablesCount">0 tables</span>
+            </div>
+            <div class="tables-list" id="tablesList">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+        
+        <!-- Team Knowledge -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">👥 Team Knowledge</span>
+            </div>
+            <div class="team-grid" id="teamGrid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+        
+        <!-- Features -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">✨ Active Features</span>
+            </div>
+            <div class="feature-badges" id="featureBadges">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const API_BASE = window.location.origin;
+        let dashboardData = {};
+        let synth = window.speechSynthesis;
+        
+        // Fetch dashboard data
+        async function fetchDashboard() {
+            try {
+                document.getElementById('refreshIndicator').classList.add('updating');
+                document.getElementById('refreshIndicator').textContent = 'Updating...';
+                
+                const res = await fetch(`${API_BASE}/api/dashboard`);
+                dashboardData = await res.json();
+                updateUI(dashboardData);
+                
+                document.getElementById('refreshIndicator').classList.remove('updating');
+                document.getElementById('refreshIndicator').textContent = 'Auto-refresh: 5s';
+            } catch (e) {
+                console.error('Failed to fetch dashboard:', e);
+                document.getElementById('refreshIndicator').textContent = 'Error - Retrying...';
+            }
+        }
+        
+        // Update UI
+        function updateUI(data) {
+            const stats = data.stats || {};
+            
+            // Main stats
+            document.getElementById('totalInteractions').textContent = formatNumber(stats.total_interactions || 0);
+            document.getElementById('learnedPatterns').textContent = formatNumber(stats.patterns_count || stats.learned_patterns || 0);
+            document.getElementById('marketPrices').textContent = formatNumber(stats.market_prices_learned || 0);
+            document.getElementById('accuracyScore').textContent = (parseFloat(stats.accuracy_score) || 0).toFixed(1) + '%';
+            
+            // Onboarding stats
+            document.getElementById('vendorsCount').textContent = stats.vendors_onboarded || 0;
+            document.getElementById('buildersCount').textContent = stats.builders_onboarded || 0;
+            document.getElementById('voiceCommands').textContent = formatNumber(stats.voice_commands || 0);
+            document.getElementById('memoriesCount').textContent = formatNumber(stats.memories_count || 0);
+            
+            // Sources chart
+            renderSourcesChart(data.sources || []);
+            
+            // Memories log
+            renderMemoriesLog(data.memories || []);
+            
+            // Tables list
+            renderTablesList(data.tables || []);
+            
+            // Team knowledge
+            renderTeamGrid(data.team || {});
+            
+            // Features
+            renderFeatures(stats.features || [
+                'Voice Navigation',
+                'Teleprompter AI',
+                'Market Learning',
+                'Vendor Onboarding',
+                'Builder Onboarding'
+            ]);
+        }
+        
+        function formatNumber(num) {
+            if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+            if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+            return num.toString();
+        }
+        
+        function renderSourcesChart(sources) {
+            const container = document.getElementById('sourcesChart');
+            if (!sources.length) {
+                container.innerHTML = '<div style="color: var(--gray);">No data sources yet</div>';
+                return;
+            }
+            
+            const maxCount = Math.max(...sources.map(s => s.count));
+            
+            container.innerHTML = sources.map(source => `
+                <div class="source-bar">
+                    <span class="source-name">${source.name}</span>
+                    <div class="source-progress">
+                        <div class="source-progress-fill" style="width: ${(source.count / maxCount) * 100}%"></div>
+                    </div>
+                    <span class="source-count">${source.count}</span>
+                </div>
+            `).join('');
+        }
+        
+        function renderMemoriesLog(memories) {
+            const container = document.getElementById('memoriesLog');
+            if (!memories.length) {
+                container.innerHTML = '<div style="color: var(--gray);">No memories yet</div>';
+                return;
+            }
+            
+            container.innerHTML = memories.slice(0, 10).map(mem => `
+                <div class="memory-item">
+                    <div class="memory-type">${mem.memory_type || 'unknown'}</div>
+                    <div class="memory-context">${mem.context || mem.learned_data?.source || 'Learning...'}</div>
+                    <div class="memory-time">${formatTime(mem.created_at)}</div>
+                </div>
+            `).join('');
+        }
+        
+        function renderTablesList(tables) {
+            const container = document.getElementById('tablesList');
+            document.getElementById('tablesCount').textContent = `${tables.length} tables`;
+            
+            if (!tables.length) {
+                container.innerHTML = '<div style="color: var(--gray);">No tables</div>';
+                return;
+            }
+            
+            container.innerHTML = tables.map(table => `
+                <div class="table-item">${table}</div>
+            `).join('');
+        }
+        
+        function renderTeamGrid(team) {
+            const container = document.getElementById('teamGrid');
+            const members = [];
+            
+            if (team.ceo) {
+                members.push({ name: team.ceo.name, title: team.ceo.title, icon: '👔' });
+            }
+            if (team.team) {
+                team.team.forEach(m => members.push({ ...m, icon: '👤' }));
+            }
+            
+            if (!members.length) {
+                members.push(
+                    { name: 'Vamshi Krishna', title: 'Founder & CEO', icon: '👔' },
+                    { name: 'Sunitha Tripuram', title: 'IT Operations', icon: '👩‍💼' },
+                    { name: 'Krishna Yashodha', title: 'Chief Architect', icon: '👨‍💻' },
+                    { name: 'Vikram Jangam', title: 'Advisor', icon: '🎯' }
+                );
+            }
+            
+            container.innerHTML = members.map(m => `
+                <div class="team-member">
+                    <div class="team-avatar">${m.icon}</div>
+                    <div class="team-info">
+                        <h4>${m.name}</h4>
+                        <p>${m.title}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function renderFeatures(features) {
+            const container = document.getElementById('featureBadges');
+            container.innerHTML = features.map(f => `
+                <span class="badge">${f}</span>
+            `).join('');
+        }
+        
+        function formatTime(isoString) {
+            if (!isoString) return '';
+            const date = new Date(isoString);
+            return date.toLocaleTimeString();
+        }
+        
+        // Teleprompter Speech Functions
+        function speak(text) {
+            if (!synth) return;
+            synth.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 0.95;
+            utterance.pitch = 1;
+            
+            const voices = synth.getVoices();
+            const usVoice = voices.find(v => v.lang.includes('en-US'));
+            if (usVoice) utterance.voice = usVoice;
+            
+            document.getElementById('speakingStatus').textContent = 'Speaking...';
+            document.getElementById('teleprompterMessage').textContent = text;
+            
+            utterance.onend = () => {
+                document.getElementById('speakingStatus').textContent = 'Ready';
+            };
+            
+            synth.speak(utterance);
+        }
+        
+        function stopSpeaking() {
+            if (synth) synth.cancel();
+            document.getElementById('speakingStatus').textContent = 'Stopped';
+        }
+        
+        function speakStatus() {
+            const stats = dashboardData.stats || {};
+            const text = `
+                VistaView AI Status Report.
+                I have processed ${formatNumber(stats.total_interactions || 0)} interactions.
+                Learned ${formatNumber(stats.patterns_count || stats.learned_patterns || 0)} patterns.
+                Analyzed ${formatNumber(stats.market_prices_learned || 0)} market prices.
+                Current accuracy score is ${(parseFloat(stats.accuracy_score) || 0).toFixed(1)} percent.
+                ${stats.vendors_onboarded || 0} vendors and ${stats.builders_onboarded || 0} builders have been onboarded.
+                All systems are operational and learning continues.
+            `;
+            speak(text);
+        }
+        
+        function speakLearning() {
+            const sources = dashboardData.sources || [];
+            const topSources = sources.slice(0, 3).map(s => s.name).join(', ');
+            
+            const text = `
+                Learning Update.
+                I am currently monitoring ${sources.length} data sources.
+                Top sources include ${topSources || 'zillow, wayfair, and home depot'}.
+                My learning engine runs continuously, analyzing market trends, prices, and user behavior.
+                Every interaction helps me become smarter and more helpful.
+            `;
+            speak(text);
+        }
+        
+        // Initialize
+        fetchDashboard();
+        setInterval(fetchDashboard, 5000);
+        
+        // Load voices
+        if (synth) {
+            synth.onvoiceschanged = () => {
+                console.log('Voices loaded:', synth.getVoices().length);
+            };
+        }
+    </script>
+</body>
+</html>

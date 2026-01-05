@@ -1,0 +1,40 @@
+{
+  "company": {
+    "name": "VistaView Realty Services",
+    "tagline": "The Amazon of Real Estate",
+    "subtitle": "World's #1 Real Estate Intelligence & Virtual Experience Platform"
+  },
+  "mission": "To revolutionize real estate through AI-powered virtual experiences, connecting buyers, sellers, vendors, and builders in one seamless platform.",
+  "team": [
+    {
+      "id": "vamsi",
+      "name": "Vamsi Velicheti",
+      "role": "Founder & CEO",
+      "bio": "Vamsi is a visionary entrepreneur with over 15 years of experience in technology and real estate. He founded VistaView with the mission to democratize property discovery through cutting-edge AI and virtual reality. Under his leadership, VistaView has grown to serve thousands of users across multiple markets.",
+      "expertise": ["Strategic Vision", "Real Estate", "Technology Innovation"],
+      "voice_intro": "Meet Vamsi Velicheti, our Founder and CEO. With 15 years of experience in tech and real estate, Vamsi created VistaView to make property discovery as easy as shopping on Amazon!"
+    },
+    {
+      "id": "vikram",
+      "name": "Vikram",
+      "role": "Co-Founder & CTO",
+      "bio": "Vikram leads VistaView's technology initiatives, bringing deep expertise in AI, machine learning, and scalable architecture. His innovations power our intelligent property matching system, voice AI, and the self-learning algorithms that make Mr. V smarter every day.",
+      "expertise": ["Artificial Intelligence", "Machine Learning", "Voice Technology"],
+      "voice_intro": "This is Vikram, our Co-Founder and CTO. He's the genius behind our AI systems, including me, Mr. V! His expertise in machine learning makes our property matching incredibly smart."
+    },
+    {
+      "id": "sunita",
+      "name": "Sunita",
+      "role": "Co-Founder & COO",
+      "bio": "Sunita ensures operational excellence across all VistaView services. Her background in real estate operations and customer experience shapes our user-first approach. She oversees vendor relationships, quality assurance, and ensures every user interaction exceeds expectations.",
+      "expertise": ["Operations Management", "Customer Experience", "Quality Assurance"],
+      "voice_intro": "And here's Sunita, our Co-Founder and COO. She makes sure everything runs smoothly and that every user has an amazing experience!"
+    }
+  ],
+  "values": [
+    {"name": "Innovation First", "description": "We push boundaries with AI and VR"},
+    {"name": "User Obsessed", "description": "Every feature serves our users"},
+    {"name": "Trust & Transparency", "description": "Honest, open communication"},
+    {"name": "Continuous Learning", "description": "Our AI evolves daily"}
+  ]
+}

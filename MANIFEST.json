@@ -1,0 +1,69 @@
+{
+  "backup_name": "VISTAVIEW_EOD_BACKUP_JAN04_2026",
+  "created_date": "2026-01-05T05:14:00Z",
+  "backup_type": "end_of_day_full",
+  "project": "VistaView",
+  "version": "33.4+",
+  "contents": {
+    "code_files": {
+      "count": 10,
+      "types": ["tsx", "ts", "jsx"],
+      "key_files": ["MrVAssistant.tsx", "AICursorNavigator.tsx", "App.tsx"]
+    },
+    "shell_scripts": {
+      "count": 19,
+      "types": ["sh"],
+      "key_files": ["ONESHOT_COMPLETE_FIX.sh", "RESTORE_WORKING.sh", "vistaview_MASTER.sh"]
+    },
+    "json_config": {
+      "count": 5,
+      "types": ["json"],
+      "key_files": ["ai-data.json", "dashboard-config.json"]
+    },
+    "server_files": {
+      "count": 1,
+      "types": ["cjs"],
+      "key_files": ["server.cjs"]
+    },
+    "transcripts": {
+      "count": 108,
+      "date_range": "2026-01-03 to 2026-01-05"
+    },
+    "vistaview_dirs": {
+      "directories": ["vistaview_context", "vistaview_fixes", "vv_context"],
+      "archives": ["vistaview_context.tar.gz"]
+    }
+  },
+  "features": {
+    "voice_system": true,
+    "boss_commands": true,
+    "dashboard": true,
+    "pattern_learning": true,
+    "agentic_bar": true,
+    "vendor_flow": true,
+    "pdf_processing": true,
+    "tts_integration": true
+  },
+  "database": {
+    "type": "PostgreSQL",
+    "tables": [
+      "global_interaction_ledger",
+      "learned_patterns",
+      "boss_voice_inputs",
+      "tts_responses",
+      "crawled_sources",
+      "system_memory",
+      "realtime_feed",
+      "knowledge_hub",
+      "voice_patterns"
+    ]
+  },
+  "ports": {
+    "backend": 1117,
+    "frontend": 5180
+  },
+  "colors": {
+    "primary_teal": "#06b6d4",
+    "primary_purple": "#8b5cf6"
+  }
+}

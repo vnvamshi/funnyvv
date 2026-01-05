@@ -1,0 +1,38 @@
+I'm continuing work on VistaView. Here's the context:
+
+PROJECT: VistaView voice-first real estate marketplace
+WORKING_DIR: /Users/vistaview/vistaview_WORKING
+BACKEND: localhost:1117 (Express v22.0)
+FRONTEND: localhost:5180 (Vite+React)
+POSTGRES: localhost:5432/vistaview (pgvector)
+MINIO: localhost:9000
+
+AGENTIC SYSTEM:
+- src/agentic/ contains VoiceBrain.ts, WalkAndClick.ts, AgenticBar.tsx
+- Audio Mutex: IDLE→LISTENING→SPEAKING→PAUSED
+- Walk & Click: pointer navigates visually
+- Vendor flow: Phone→OTP→Profile (all have AgenticBar)
+
+PENDING:
+- VendorUpload.tsx needs AgenticBar (PDF upload step)
+- GlobalAgenticBar for ALL pages
+- Teleprompter display
+- GLB "go to floor 44" commands
+- Verify PDF→Products creates real data
+
+RULES (VISTAVIEW_AGENTIC_STANDARD_V1):
+- NO deletions ever
+- Backup before edits (.bak_timestamp)
+- PLAN→APPLY workflow
+- Split large tasks into parts
+
+SCRIPTS IN ~/Downloads:
+- vistaview_MASTER.sh (core agentic)
+- vistaview_PART3.sh (vendor upload)
+- vistaview_PART4.sh (global bar)
+- vistaview_PART5.sh (teleprompter)
+- vistaview_PART6.sh (GLB scene)
+
+Please read the full context file if needed: /mnt/user-data/uploads/VISTAVIEW_SESSION_CONTEXT.md
+
+Continue with: [YOUR INSTRUCTION HERE]

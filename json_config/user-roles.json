@@ -1,0 +1,100 @@
+{
+  "roles": [
+    {
+      "id": "buyer",
+      "name": "Buyer",
+      "icon": "🏠",
+      "color": "#4CAF50",
+      "description": "Looking to purchase a property",
+      "welcome": "Welcome, future homeowner! I'm excited to help you find your perfect property.",
+      "steps": [
+        {"id": "phone", "prompt": "What's your phone number?", "type": "phone"},
+        {"id": "name", "prompt": "What's your name?", "type": "text"},
+        {"id": "email", "prompt": "What's your email?", "type": "email"},
+        {"id": "preferences", "prompt": "What type of property? Single family, condo, or townhouse?", "type": "select"},
+        {"id": "budget", "prompt": "What's your budget range?", "type": "range"}
+      ],
+      "completion": "Your buyer profile is set! I'll show you matching properties."
+    },
+    {
+      "id": "investor",
+      "name": "Investor",
+      "icon": "💰",
+      "color": "#FF9800",
+      "description": "Looking for investment properties",
+      "welcome": "Welcome, savvy investor! Let me help you find profitable opportunities.",
+      "steps": [
+        {"id": "phone", "prompt": "Your phone number?", "type": "phone"},
+        {"id": "name", "prompt": "Your name?", "type": "text"},
+        {"id": "company", "prompt": "Company name if any?", "type": "text"},
+        {"id": "range", "prompt": "Investment range per property?", "type": "range"},
+        {"id": "types", "prompt": "Residential, commercial, or multi-family?", "type": "select"}
+      ],
+      "completion": "Investor profile ready! I'll surface high-ROI opportunities."
+    },
+    {
+      "id": "agent",
+      "name": "Agent",
+      "icon": "🤝",
+      "color": "#2196F3",
+      "description": "Real estate professional",
+      "welcome": "Welcome, fellow professional! Let's grow your business.",
+      "steps": [
+        {"id": "phone", "prompt": "Your phone number?", "type": "phone"},
+        {"id": "name", "prompt": "Your name?", "type": "text"},
+        {"id": "license", "prompt": "License number?", "type": "text"},
+        {"id": "brokerage", "prompt": "Which brokerage?", "type": "text"},
+        {"id": "areas", "prompt": "Service areas?", "type": "multiselect"}
+      ],
+      "completion": "Agent profile live! You'll receive qualified leads."
+    },
+    {
+      "id": "vendor",
+      "name": "Vendor",
+      "icon": "🏭",
+      "color": "#9C27B0",
+      "description": "Product or service provider",
+      "welcome": "Welcome, valued partner! Let's get your products to millions.",
+      "steps": [
+        {"id": "phone", "prompt": "Business phone?", "type": "phone"},
+        {"id": "company", "prompt": "Company name?", "type": "text"},
+        {"id": "tax_id", "prompt": "Tax ID or EIN?", "type": "text"},
+        {"id": "categories", "prompt": "Product categories? Furniture, appliances, etc.", "type": "multiselect"},
+        {"id": "catalog", "prompt": "Ready to upload your catalog?", "type": "confirm"}
+      ],
+      "completion": "Vendor account ready! Upload your catalog to reach buyers."
+    },
+    {
+      "id": "builder",
+      "name": "Builder",
+      "icon": "🏗️",
+      "color": "#795548",
+      "description": "Home builder or developer",
+      "welcome": "Welcome, master builder! Let's showcase your projects.",
+      "steps": [
+        {"id": "phone", "prompt": "Business phone?", "type": "phone"},
+        {"id": "company", "prompt": "Company name?", "type": "text"},
+        {"id": "license", "prompt": "Contractor license?", "type": "text"},
+        {"id": "areas", "prompt": "Where do you build?", "type": "multiselect"},
+        {"id": "portfolio", "prompt": "Ready to upload projects?", "type": "confirm"}
+      ],
+      "completion": "Builder profile complete! Start uploading projects."
+    },
+    {
+      "id": "lender",
+      "name": "Lender",
+      "icon": "🏦",
+      "color": "#607D8B",
+      "description": "Mortgage or financing provider",
+      "welcome": "Welcome, lending partner! Connect with qualified borrowers.",
+      "steps": [
+        {"id": "phone", "prompt": "Business phone?", "type": "phone"},
+        {"id": "company", "prompt": "Institution name?", "type": "text"},
+        {"id": "nmls", "prompt": "NMLS ID?", "type": "text"},
+        {"id": "loan_types", "prompt": "Loan types? Conventional, FHA, VA, etc.", "type": "multiselect"},
+        {"id": "states", "prompt": "Licensed states?", "type": "multiselect"}
+      ],
+      "completion": "Lender profile active! You'll receive matched leads."
+    }
+  ]
+}
