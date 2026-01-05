@@ -1,0 +1,148 @@
+{
+  "version": "1.0",
+  "created": "2026-01-04",
+  "training_tasks": [
+    {
+      "id": "task-001",
+      "category": "phone_recognition",
+      "difficulty": "easy",
+      "input": "seven zero three four five six seven eight nine zero",
+      "expected_output": "7034567890",
+      "validation": "10 digits"
+    },
+    {
+      "id": "task-002",
+      "category": "phone_recognition",
+      "difficulty": "medium",
+      "input": "triple eight five five five one two three four",
+      "expected_output": "8885551234",
+      "validation": "10 digits"
+    },
+    {
+      "id": "task-003",
+      "category": "company_extraction",
+      "difficulty": "easy",
+      "input": "My company is ABC Construction",
+      "expected_output": {"company": "ABC Construction"},
+      "validation": "company name extracted"
+    },
+    {
+      "id": "task-004",
+      "category": "company_extraction",
+      "difficulty": "medium",
+      "input": "I'm from Best Home Builders LLC and we do residential construction",
+      "expected_output": {"company": "Best Home Builders LLC", "services": "residential construction"},
+      "validation": "company and services extracted"
+    },
+    {
+      "id": "task-005",
+      "category": "price_detection",
+      "difficulty": "easy",
+      "input": "This costs $12.99",
+      "expected_output": 12.99,
+      "validation": "numeric price"
+    },
+    {
+      "id": "task-006",
+      "category": "price_detection",
+      "difficulty": "medium",
+      "input": "The flooring is twelve dollars and fifty cents per square foot",
+      "expected_output": 12.50,
+      "validation": "numeric price"
+    },
+    {
+      "id": "task-007",
+      "category": "product_parsing",
+      "difficulty": "easy",
+      "input": "Oak Flooring - $8.99 - SKU: OAK-001",
+      "expected_output": {"name": "Oak Flooring", "price": 8.99, "sku": "OAK-001"},
+      "validation": "all fields extracted"
+    },
+    {
+      "id": "task-008",
+      "category": "product_parsing",
+      "difficulty": "hard",
+      "input": "Premium Waterproof Vinyl Plank 6x48 inch Natural Oak - $4.29/sqft Item#WVP-2024",
+      "expected_output": {"name": "Premium Waterproof Vinyl Plank", "dimensions": "6x48 inch", "finish": "Natural Oak", "price": 4.29, "unit": "sqft", "sku": "WVP-2024"},
+      "validation": "all fields extracted"
+    },
+    {
+      "id": "task-009",
+      "category": "voice_command",
+      "difficulty": "easy",
+      "input": "next",
+      "expected_action": "navigate_next",
+      "validation": "correct action"
+    },
+    {
+      "id": "task-010",
+      "category": "voice_command",
+      "difficulty": "medium",
+      "input": "beautify my description",
+      "expected_action": "enhance_text",
+      "validation": "correct action"
+    },
+    {
+      "id": "task-011",
+      "category": "voice_search",
+      "difficulty": "medium",
+      "input": "find the vistaview catalog pdf in downloads",
+      "expected_action": "search_downloads",
+      "expected_filter": "vistaview catalog pdf",
+      "validation": "search executed"
+    },
+    {
+      "id": "task-012",
+      "category": "dashboard_query",
+      "difficulty": "easy",
+      "input": "how many vendors do we have",
+      "expected_response_template": "You have {count} registered vendors",
+      "validation": "correct metric returned"
+    },
+    {
+      "id": "task-013",
+      "category": "product_question",
+      "difficulty": "medium",
+      "input": "what's the price of this product",
+      "context": {"product": {"name": "Oak Flooring", "price": 12.99}},
+      "expected_response": "Oak Flooring is priced at $12.99",
+      "validation": "correct answer"
+    },
+    {
+      "id": "task-014",
+      "category": "full_flow",
+      "difficulty": "hard",
+      "description": "Complete vendor registration by voice",
+      "steps": [
+        {"input": "I am a vendor", "expected": "open vendor flow"},
+        {"input": "seven zero three one two three four five six seven", "expected": "fill phone"},
+        {"input": "one two three four five six", "expected": "fill otp"},
+        {"input": "my company is ABC Materials", "expected": "fill company"},
+        {"input": "we sell flooring and tiles", "expected": "fill description"},
+        {"input": "beautify", "expected": "enhance description"},
+        {"input": "save", "expected": "navigate to upload"}
+      ],
+      "validation": "all steps completed"
+    },
+    {
+      "id": "task-015",
+      "category": "extraction_pipeline",
+      "difficulty": "hard",
+      "description": "Process PDF and extract products",
+      "input_file": "sample_catalog.pdf",
+      "expected_steps": [
+        "upload_to_minio",
+        "extract_text",
+        "identify_products",
+        "generate_embeddings",
+        "insert_to_database"
+      ],
+      "validation": "products in database"
+    }
+  ],
+  "evaluation_criteria": {
+    "accuracy": "90% correct extractions",
+    "response_time": "< 2 seconds for voice commands",
+    "user_satisfaction": "flow completes without errors"
+  }
+}

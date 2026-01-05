@@ -1,1 +1,1 @@
-export { default as RealEstatePage } from './RealEstatePage';
+export { default as PropertyCard } from './PropertyCard';

@@ -1,1 +1,1 @@
-export { default as ProductCatalogPage } from './ProductCatalogPage';
+export { default as ProductCard } from './ProductCard';

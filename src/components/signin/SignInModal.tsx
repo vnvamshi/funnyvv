@@ -1,315 +1,47 @@
-// ═══════════════════════════════════════════════════════════════════════════════
-// VISTAVIEW - SIGNIN MODAL v11.0
-// Main entry point - Role selection → Buyer or Vendor flow
-// ═══════════════════════════════════════════════════════════════════════════════
+import React, { useState, useEffect } from 'react';
+import VendorFlow from './vendor/VendorFlow';
+import { BuilderFlow } from './builder';
+import { AgentFlow } from './agent';
 
-import React, { useState, useEffect, useCallback } from 'react';
-import { VendorFlow } from './vendor';
+interface Props { isOpen: boolean; onClose: () => void; }
+type FlowType = 'selector' | 'vendor' | 'builder' | 'agent';
 
-interface Props {
-  isOpen: boolean;
-  onClose: () => void;
-  onSignInComplete?: (role: 'buyer' | 'vendor') => void;
-  onViewProducts?: () => void;
-}
+const SignInModal: React.FC<Props> = ({ isOpen, onClose }) => {
+  const [flowType, setFlowType] = useState<FlowType>('selector');
+  const [hovered, setHovered] = useState<string | null>(null);
 
-const THEME = { teal: '#004236', gold: '#B8860B', goldLight: '#F5EC9B' };
-
-type View = 'role' | 'buyer' | 'vendor';
-
-const SignInModal: React.FC<Props> = ({ isOpen, onClose, onSignInComplete, onViewProducts }) => {
-  const [view, setView] = useState<View>('role');
-  const [isListening, setIsListening] = useState(false);
-
-  // Voice recognition for role selection
-  useEffect(() => {
-    if (!isOpen || view !== 'role') return;
-
-    const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-    if (!SR) return;
-
-    const rec = new SR();
-    rec.continuous = true;
-    rec.interimResults = false;
-    rec.lang = 'en-US';
-
-    rec.onstart = () => setIsListening(true);
-    rec.onresult = (e: SpeechRecognitionEvent) => {
-      const text = e.results[e.results.length - 1][0]?.transcript?.toLowerCase() || '';
-      console.log('[SignIn] Heard:', text);
-      
-      if (text.includes('vendor') || text.includes('seller') || text.includes('sell')) {
-        rec.stop();
-        setView('vendor');
-      } else if (text.includes('buyer') || text.includes('buy') || text.includes('shop') || text.includes('customer')) {
-        rec.stop();
-        setView('buyer');
-      } else if (text.includes('close') || text.includes('cancel')) {
-        rec.stop();
-        onClose();
-      }
-    };
-    rec.onerror = () => setIsListening(false);
-    rec.onend = () => setIsListening(false);
-
-    setTimeout(() => {
-      try { rec.start(); } catch(e) {}
-    }, 500);
-
-    // Speak welcome
-    setTimeout(() => {
-      const synth = window.speechSynthesis;
-      if (synth) {
-        synth.cancel();
-        const u = new SpeechSynthesisUtterance("Welcome to VistaView! Are you a Buyer or a Vendor? Say your role or click below.");
-        u.rate = 1.0;
-        synth.speak(u);
-      }
-    }, 800);
-
-    return () => {
-      try { rec.stop(); } catch(e) {}
-    };
-  }, [isOpen, view, onClose]);
-
-  // Reset on close
-  useEffect(() => {
-    if (!isOpen) setView('role');
-  }, [isOpen]);
-
-  const handleBuyerComplete = useCallback(() => {
-    onSignInComplete?.('buyer');
-    onClose();
-  }, [onSignInComplete, onClose]);
-
-  const handleVendorComplete = useCallback(() => {
-    onSignInComplete?.('vendor');
-    if (onViewProducts) {
-      onViewProducts();
-    }
-    onClose();
-  }, [onSignInComplete, onViewProducts, onClose]);
+  useEffect(() => { if (!isOpen) setFlowType('selector'); }, [isOpen]);
 
   if (!isOpen) return null;
 
-  // Show VendorFlow
-  if (view === 'vendor') {
-    return (
-      <VendorFlow
-        isOpen={true}
-        onClose={onClose}
-        onComplete={handleVendorComplete}
-        onBack={() => setView('role')}
-      />
-    );
-  }
+  if (flowType === 'vendor') return <VendorFlow onClose={onClose} onBack={() => setFlowType('selector')} />;
+  if (flowType === 'builder') return <BuilderFlow onClose={onClose} onBack={() => setFlowType('selector')} />;
+  if (flowType === 'agent') return <AgentFlow onClose={onClose} onBack={() => setFlowType('selector')} />;
 
-  // Show Buyer flow (simplified for now)
-  if (view === 'buyer') {
-    return (
-      <div style={{
-        position: 'fixed',
-        inset: 0,
-        background: 'rgba(0,0,0,0.92)',
-        zIndex: 10000,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: '20px'
-      }}>
-        <div style={{
-          background: `linear-gradient(135deg, ${THEME.teal}, #001a15)`,
-          borderRadius: '20px',
-          width: '100%',
-          maxWidth: '500px',
-          padding: '40px',
-          textAlign: 'center',
-          border: `2px solid ${THEME.gold}40`
-        }}>
-          <span style={{ fontSize: '4em' }}>🛒</span>
-          <h2 style={{ color: '#fff', margin: '20px 0 12px' }}>Welcome, Buyer!</h2>
-          <p style={{ color: '#aaa', marginBottom: '30px' }}>
-            Browse our curated marketplace with AI-powered recommendations.
-          </p>
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
-            <button
-              onClick={handleBuyerComplete}
-              style={{
-                padding: '14px 32px',
-                background: THEME.gold,
-                color: '#000',
-                border: 'none',
-                borderRadius: '25px',
-                cursor: 'pointer',
-                fontWeight: 600
-              }}
-            >
-              🛍️ Start Shopping
-            </button>
-            <button
-              onClick={() => setView('role')}
-              style={{
-                padding: '14px 24px',
-                background: 'rgba(255,255,255,0.1)',
-                color: '#fff',
-                border: `1px solid ${THEME.gold}`,
-                borderRadius: '25px',
-                cursor: 'pointer'
-              }}
-            >
-              ← Back
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const options = [
+    { id: 'vendor', icon: '📦', title: 'Vendor', desc: 'Sell products & materials', color: '#B8860B', bg: 'linear-gradient(135deg, #004236, #001a15)' },
+    { id: 'builder', icon: '🏗️', title: 'Builder', desc: 'Construction & development', color: '#f59e0b', bg: 'linear-gradient(135deg, #1e3a5f, #0f1c2e)' },
+    { id: 'agent', icon: '🏠', title: 'Agent', desc: 'Real estate services', color: '#10b981', bg: 'linear-gradient(135deg, #1a1a2e, #16213e)' }
+  ];
 
-  // Role Selection Screen
   return (
-    <div style={{
-      position: 'fixed',
-      inset: 0,
-      background: 'rgba(0,0,0,0.92)',
-      zIndex: 10000,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: '20px'
-    }}>
-      <div style={{
-        background: `linear-gradient(135deg, ${THEME.teal}, #001a15)`,
-        borderRadius: '24px',
-        width: '100%',
-        maxWidth: '600px',
-        padding: '40px',
-        textAlign: 'center',
-        border: `2px solid ${THEME.gold}40`,
-        boxShadow: '0 20px 60px rgba(0,0,0,0.5)'
-      }}>
-        {/* Close button */}
-        <button
-          onClick={onClose}
-          style={{
-            position: 'absolute',
-            top: '16px',
-            right: '16px',
-            background: 'rgba(255,255,255,0.1)',
-            border: 'none',
-            color: '#fff',
-            width: '36px',
-            height: '36px',
-            borderRadius: '50%',
-            cursor: 'pointer',
-            fontSize: '1.2em'
-          }}
-        >✕</button>
-
-        {/* Logo */}
-        <div style={{
-          width: '80px',
-          height: '80px',
-          borderRadius: '50%',
-          background: `linear-gradient(135deg, ${THEME.gold}, #D4A84B)`,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          margin: '0 auto 24px',
-          boxShadow: '0 8px 24px rgba(184,134,11,0.3)'
-        }}>
-          <span style={{ fontSize: '2.5em' }}>🏠</span>
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.92)', zIndex: 10000, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: 20 }}>
+      <div style={{ background: 'linear-gradient(135deg, #0f172a, #1e293b)', borderRadius: 24, width: '100%', maxWidth: 900, padding: 40, border: '1px solid rgba(255,255,255,0.1)' }}>
+        <div style={{ textAlign: 'center', marginBottom: 30 }}>
+          <h2 style={{ color: '#fff', fontSize: 28, margin: '0 0 10px', background: 'linear-gradient(90deg, #06b6d4, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Who Are You?</h2>
+          <p style={{ color: '#94a3b8', fontSize: 16, margin: 0 }}>Select your role to get started</p>
         </div>
-
-        <h1 style={{ color: '#fff', margin: '0 0 8px', fontSize: '1.8em' }}>Welcome to VistaView</h1>
-        <p style={{ color: THEME.goldLight, margin: '0 0 32px' }}>Voice-First AI Marketplace</p>
-
-        {/* Voice status */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '10px',
-          marginBottom: '24px',
-          padding: '12px 20px',
-          background: 'rgba(0,0,0,0.3)',
-          borderRadius: '30px'
-        }}>
-          <div style={{
-            width: '12px',
-            height: '12px',
-            borderRadius: '50%',
-            background: isListening ? '#4CAF50' : '#888',
-            boxShadow: isListening ? '0 0 10px #4CAF50' : 'none',
-            animation: isListening ? 'pulse 1.5s infinite' : 'none'
-          }} />
-          <span style={{ color: isListening ? '#4CAF50' : '#888', fontSize: '0.9em' }}>
-            {isListening ? '🎤 Listening... Say "Buyer" or "Vendor"' : 'Voice ready'}
-          </span>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+          {options.map(opt => (
+            <div key={opt.id} onClick={() => setFlowType(opt.id as FlowType)} onMouseEnter={() => setHovered(opt.id)} onMouseLeave={() => setHovered(null)}
+              style={{ background: opt.bg, border: `2px solid ${hovered === opt.id ? opt.color : 'rgba(255,255,255,0.1)'}`, borderRadius: 16, padding: 30, cursor: 'pointer', textAlign: 'center', transition: 'all 0.3s', transform: hovered === opt.id ? 'translateY(-8px)' : 'none', boxShadow: hovered === opt.id ? `0 20px 40px ${opt.color}30` : 'none' }}>
+              <div style={{ fontSize: 48, marginBottom: 16 }}>{opt.icon}</div>
+              <h3 style={{ color: opt.color, fontSize: 22, margin: '0 0 8px' }}>{opt.title}</h3>
+              <p style={{ color: '#94a3b8', fontSize: 14, margin: 0 }}>{opt.desc}</p>
+            </div>
+          ))}
         </div>
-
-        {/* Role buttons */}
-        <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <button
-            onClick={() => setView('buyer')}
-            style={{
-              padding: '24px 40px',
-              background: 'rgba(255,255,255,0.05)',
-              border: `2px solid ${THEME.gold}60`,
-              borderRadius: '16px',
-              cursor: 'pointer',
-              transition: 'all 0.3s',
-              minWidth: '180px'
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.background = 'rgba(184,134,11,0.15)';
-              e.currentTarget.style.borderColor = THEME.gold;
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-              e.currentTarget.style.borderColor = `${THEME.gold}60`;
-            }}
-          >
-            <span style={{ fontSize: '2.5em', display: 'block', marginBottom: '8px' }}>🛒</span>
-            <span style={{ color: '#fff', fontWeight: 600, fontSize: '1.1em' }}>I'm a Buyer</span>
-            <p style={{ color: '#888', margin: '8px 0 0', fontSize: '0.8em' }}>Shop & Discover</p>
-          </button>
-
-          <button
-            onClick={() => setView('vendor')}
-            style={{
-              padding: '24px 40px',
-              background: 'rgba(255,255,255,0.05)',
-              border: `2px solid ${THEME.gold}60`,
-              borderRadius: '16px',
-              cursor: 'pointer',
-              transition: 'all 0.3s',
-              minWidth: '180px'
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.background = 'rgba(184,134,11,0.15)';
-              e.currentTarget.style.borderColor = THEME.gold;
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-              e.currentTarget.style.borderColor = `${THEME.gold}60`;
-            }}
-          >
-            <span style={{ fontSize: '2.5em', display: 'block', marginBottom: '8px' }}>📦</span>
-            <span style={{ color: '#fff', fontWeight: 600, fontSize: '1.1em' }}>I'm a Vendor</span>
-            <p style={{ color: '#888', margin: '8px 0 0', fontSize: '0.8em' }}>Sell Products</p>
-          </button>
-        </div>
-
-        <p style={{ color: '#555', marginTop: '32px', fontSize: '0.85em' }}>
-          💡 Tip: Just say "Buyer" or "Vendor" to get started!
-        </p>
-
-        <style>{`
-          @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.1); }
-          }
-        `}</style>
+        <div style={{ textAlign: 'center', marginTop: 30 }}><button onClick={onClose} style={{ padding: '10px 30px', background: 'transparent', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 25, color: '#94a3b8', cursor: 'pointer' }}>← Close</button></div>
       </div>
     </div>
   );

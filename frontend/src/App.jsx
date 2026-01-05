@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import AgenticBar from './components/agentic/AgenticBar'
+import AgenticBar from './components/AgenticBar'
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import Properties from './pages/Properties'
