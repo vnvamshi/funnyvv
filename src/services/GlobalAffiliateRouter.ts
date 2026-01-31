@@ -1085,6 +1085,289 @@ const AFFILIATE_PARTNERS: AffiliatePartner[] = [
     categories: ['furniture', 'storage', 'kitchen'],
     logo: '🪑',
     active: true
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🌍 GLOBAL BUDGET MARKETPLACES (HIGH COMMISSION!)
+  // Temu, Shein, AliExpress, Alibaba - AGGRESSIVE MONEY MAKERS
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'temu-global',
+    name: 'Temu',
+    region: 'GLOBAL',
+    network: 'Temu Affiliate',
+    baseUrl: 'https://www.temu.com',
+    searchUrl: 'https://www.temu.com/search_result.html?search_key={query}',
+    affiliateParam: 'aff_id',
+    affiliateTag: '', // Sign up: https://affiliate.temu.com
+    commission: 0.20, // UP TO 20% COMMISSION!
+    cookieDays: 30,
+    categories: ['furniture', 'home', 'decor', 'outdoor', 'everything'],
+    logo: '🟠',
+    active: true
+  },
+  {
+    id: 'shein-global',
+    name: 'SHEIN Home',
+    region: 'GLOBAL',
+    network: 'SHEIN Affiliate',
+    baseUrl: 'https://www.shein.com',
+    searchUrl: 'https://www.shein.com/pdsearch/{query}/?ici=s1`EditSearch`{query}',
+    affiliateParam: 'url_from',
+    affiliateTag: '', // Sign up: https://us.shein.com/affiliate
+    commission: 0.15, // UP TO 15% COMMISSION!
+    cookieDays: 30,
+    categories: ['home-decor', 'bedding', 'rugs', 'lighting', 'storage'],
+    logo: '🖤',
+    active: true
+  },
+  {
+    id: 'aliexpress-global',
+    name: 'AliExpress',
+    region: 'GLOBAL',
+    network: 'AliExpress Affiliate',
+    baseUrl: 'https://www.aliexpress.com',
+    searchUrl: 'https://www.aliexpress.com/wholesale?SearchText={query}',
+    affiliateParam: 'aff_id',
+    affiliateTag: '', // Sign up: https://portals.aliexpress.com
+    commission: 0.09, // UP TO 9% COMMISSION
+    cookieDays: 3,
+    categories: ['furniture', 'home', 'decor', 'lighting', 'outdoor', 'everything'],
+    logo: '🔴',
+    active: true
+  },
+  {
+    id: 'alibaba-global',
+    name: 'Alibaba',
+    region: 'GLOBAL',
+    network: 'Alibaba Affiliate',
+    baseUrl: 'https://www.alibaba.com',
+    searchUrl: 'https://www.alibaba.com/trade/search?SearchText={query}',
+    affiliateParam: 'aff_id',
+    affiliateTag: '', // Sign up: https://affiliate.alibaba.com
+    commission: 0.07,
+    cookieDays: 30,
+    categories: ['furniture', 'wholesale', 'bulk', 'manufacturing'],
+    logo: '🟧',
+    active: true
+  },
+  {
+    id: 'dhgate-global',
+    name: 'DHgate',
+    region: 'GLOBAL',
+    network: 'DHgate Affiliate',
+    baseUrl: 'https://www.dhgate.com',
+    searchUrl: 'https://www.dhgate.com/wholesale/search.do?searchkey={query}',
+    affiliateParam: 'aff_id',
+    affiliateTag: '',
+    commission: 0.08,
+    cookieDays: 30,
+    categories: ['furniture', 'home', 'wholesale', 'decor'],
+    logo: '🔵',
+    active: true
+  },
+  {
+    id: 'banggood-global',
+    name: 'Banggood',
+    region: 'GLOBAL',
+    network: 'Banggood Affiliate',
+    baseUrl: 'https://www.banggood.com',
+    searchUrl: 'https://www.banggood.com/search/{query}.html',
+    affiliateParam: 'aff_id',
+    affiliateTag: '',
+    commission: 0.10, // UP TO 10%!
+    cookieDays: 30,
+    categories: ['home', 'outdoor', 'lighting', 'tools', 'gadgets'],
+    logo: '🟡',
+    active: true
+  },
+  {
+    id: 'wish-global',
+    name: 'Wish',
+    region: 'GLOBAL',
+    network: 'Wish Affiliate',
+    baseUrl: 'https://www.wish.com',
+    searchUrl: 'https://www.wish.com/search/{query}',
+    affiliateParam: 'aff_id',
+    affiliateTag: '',
+    commission: 0.10,
+    cookieDays: 7,
+    categories: ['home', 'decor', 'gadgets', 'budget'],
+    logo: '💙',
+    active: true
+  },
+  {
+    id: 'gearbest-global',
+    name: 'Gearbest',
+    region: 'GLOBAL',
+    network: 'Gearbest Affiliate',
+    baseUrl: 'https://www.gearbest.com',
+    searchUrl: 'https://www.gearbest.com/sale/{query}/',
+    affiliateParam: 'aff_id',
+    affiliateTag: '',
+    commission: 0.08,
+    cookieDays: 30,
+    categories: ['home', 'smart-home', 'gadgets', 'lighting'],
+    logo: '🔶',
+    active: true
+  },
+  {
+    id: 'lightinthebox-global',
+    name: 'LightInTheBox',
+    region: 'GLOBAL',
+    network: 'LITB Affiliate',
+    baseUrl: 'https://www.lightinthebox.com',
+    searchUrl: 'https://www.lightinthebox.com/search.html?main_search=1&search_q={query}',
+    affiliateParam: 'aff_id',
+    affiliateTag: '',
+    commission: 0.12, // UP TO 12%!
+    cookieDays: 30,
+    categories: ['home', 'lighting', 'decor', 'outdoor'],
+    logo: '💡',
+    active: true
+  },
+  {
+    id: 'miniinthebox-global',
+    name: 'MiniInTheBox',
+    region: 'GLOBAL',
+    network: 'MITB Affiliate',
+    baseUrl: 'https://www.miniinthebox.com',
+    searchUrl: 'https://www.miniinthebox.com/search.html?main_search=1&search_q={query}',
+    affiliateParam: 'aff_id',
+    affiliateTag: '',
+    commission: 0.12,
+    cookieDays: 30,
+    categories: ['home', 'gadgets', 'decor', 'lighting'],
+    logo: '📦',
+    active: true
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🇻🇳 VIETNAM & SOUTHEAST ASIA
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'shopee-sea',
+    name: 'Shopee',
+    region: 'GLOBAL',
+    network: 'Shopee Affiliate',
+    baseUrl: 'https://shopee.com',
+    searchUrl: 'https://shopee.com/search?keyword={query}',
+    affiliateParam: 'aff_id',
+    affiliateTag: '',
+    commission: 0.06,
+    cookieDays: 7,
+    categories: ['furniture', 'home', 'decor', 'everything'],
+    logo: '🧡',
+    active: true
+  },
+  {
+    id: 'lazada-sea',
+    name: 'Lazada',
+    region: 'GLOBAL',
+    network: 'Lazada Affiliate',
+    baseUrl: 'https://www.lazada.com',
+    searchUrl: 'https://www.lazada.com/catalog/?q={query}',
+    affiliateParam: 'aff_id',
+    affiliateTag: '',
+    commission: 0.08,
+    cookieDays: 7,
+    categories: ['furniture', 'home', 'decor', 'electronics'],
+    logo: '🔷',
+    active: true
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🛒 SHOPIFY STORES (Premium commissions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'burrow-us',
+    name: 'Burrow',
+    region: 'US',
+    network: 'ShareASale',
+    baseUrl: 'https://burrow.com',
+    searchUrl: 'https://burrow.com/search?query={query}',
+    affiliateParam: 'aff_id',
+    affiliateTag: '',
+    commission: 0.05,
+    cookieDays: 30,
+    categories: ['sofa', 'furniture', 'modern'],
+    logo: '🛋️',
+    active: true
+  },
+  {
+    id: 'floyd-us',
+    name: 'Floyd',
+    region: 'US',
+    network: 'Impact',
+    baseUrl: 'https://floydhome.com',
+    searchUrl: 'https://floydhome.com/search?q={query}',
+    affiliateParam: 'aff_id',
+    affiliateTag: '',
+    commission: 0.08,
+    cookieDays: 30,
+    categories: ['furniture', 'modern', 'modular'],
+    logo: '📐',
+    active: true
+  },
+  {
+    id: 'interior-define-us',
+    name: 'Interior Define',
+    region: 'US',
+    network: 'ShareASale',
+    baseUrl: 'https://www.interiordefine.com',
+    searchUrl: 'https://www.interiordefine.com/search?q={query}',
+    affiliateParam: 'aff_id',
+    affiliateTag: '',
+    commission: 0.06,
+    cookieDays: 45,
+    categories: ['sofa', 'furniture', 'custom'],
+    logo: '🎨',
+    active: true
+  },
+  {
+    id: 'joybird-us',
+    name: 'Joybird',
+    region: 'US',
+    network: 'CJ Affiliate',
+    baseUrl: 'https://joybird.com',
+    searchUrl: 'https://joybird.com/search/?q={query}',
+    affiliateParam: 'aff_id',
+    affiliateTag: '',
+    commission: 0.05,
+    cookieDays: 14,
+    categories: ['sofa', 'furniture', 'mid-century'],
+    logo: '🐦',
+    active: true
+  },
+  {
+    id: 'albany-park-us',
+    name: 'Albany Park',
+    region: 'US',
+    network: 'ShareASale',
+    baseUrl: 'https://albanypark.com',
+    searchUrl: 'https://albanypark.com/search?q={query}',
+    affiliateParam: 'aff_id',
+    affiliateTag: '',
+    commission: 0.07,
+    cookieDays: 30,
+    categories: ['sofa', 'sectional', 'modern'],
+    logo: '🏠',
+    active: true
+  },
+  {
+    id: 'castlery-us',
+    name: 'Castlery',
+    region: 'US',
+    network: 'Impact',
+    baseUrl: 'https://www.castlery.com',
+    searchUrl: 'https://www.castlery.com/us/search?q={query}',
+    affiliateParam: 'aff_id',
+    affiliateTag: '',
+    commission: 0.06,
+    cookieDays: 30,
+    categories: ['furniture', 'modern', 'premium'],
+    logo: '🏰',
+    active: true
   }
 ];
 
