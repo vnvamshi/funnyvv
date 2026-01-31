@@ -1,0 +1,118 @@
+{
+  "name": "vistaview-affiliate-manager",
+  "version": "1.0.0",
+  "description": "OpenClaw tasks to manage affiliate accounts automatically",
+  "owner": "Vista View Realty Services LLC",
+
+  "affiliate_accounts": {
+    "active": [
+      {
+        "name": "Amazon Associates",
+        "tag": "visataview-20",
+        "status": "active",
+        "dashboard": "https://affiliate-program.amazon.com/",
+        "checkFrequency": "daily"
+      }
+    ],
+    "pending_approval": [
+      {
+        "name": "Awin",
+        "signupDate": "2026-01-31",
+        "status": "pending",
+        "dashboard": "https://www.awin.com/",
+        "expectedApproval": "1-2 days"
+      },
+      {
+        "name": "Impact",
+        "signupDate": "2026-01-31",
+        "status": "appointment_monday",
+        "dashboard": "https://app.impact.com/"
+      },
+      {
+        "name": "CJ Affiliate",
+        "status": "to_signup",
+        "dashboard": "https://www.cj.com/"
+      },
+      {
+        "name": "Rakuten",
+        "status": "to_signup",
+        "dashboard": "https://rakutenadvertising.com/"
+      },
+      {
+        "name": "Cuelinks (India)",
+        "status": "to_signup",
+        "dashboard": "https://www.cuelinks.com/"
+      }
+    ],
+    "high_commission": [
+      {
+        "name": "Temu Affiliate",
+        "commission": "20%",
+        "signupUrl": "https://affiliate.temu.com/",
+        "status": "to_signup"
+      },
+      {
+        "name": "Shein Affiliate",
+        "commission": "15%",
+        "signupUrl": "https://us.shein.com/affiliate",
+        "status": "to_signup"
+      },
+      {
+        "name": "AliExpress Affiliate",
+        "commission": "9%",
+        "signupUrl": "https://portals.aliexpress.com/",
+        "status": "to_signup"
+      },
+      {
+        "name": "Banggood Affiliate",
+        "commission": "10%",
+        "signupUrl": "https://www.banggood.com/affiliate-program.html",
+        "status": "to_signup"
+      }
+    ]
+  },
+
+  "automation_tasks": [
+    {
+      "task": "check_affiliate_approval",
+      "schedule": "0 9 * * *",
+      "description": "Check if pending affiliate applications are approved",
+      "actions": [
+        "Check Awin email for approval",
+        "Check Impact dashboard",
+        "Log status updates"
+      ]
+    },
+    {
+      "task": "validate_affiliate_links",
+      "schedule": "0 4 * * 0",
+      "description": "Weekly check that all affiliate links are working",
+      "script": "scripts/audit-affiliate-links.js"
+    },
+    {
+      "task": "revenue_report",
+      "schedule": "0 8 * * 1",
+      "description": "Generate weekly revenue report from all networks",
+      "output": "email"
+    },
+    {
+      "task": "update_affiliate_tags",
+      "description": "When approved, update GlobalAffiliateRouter.ts with new tags",
+      "trigger": "on_approval"
+    }
+  ],
+
+  "security": {
+    "credentials_storage": "encrypted",
+    "mfa_enabled": true,
+    "api_keys_location": ".env.secure",
+    "never_commit_secrets": true
+  },
+
+  "monitoring": {
+    "track_clicks": true,
+    "track_conversions": true,
+    "alert_on_broken_links": true,
+    "daily_revenue_alert": true
+  }
+}
