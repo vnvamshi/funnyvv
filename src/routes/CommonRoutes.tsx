@@ -39,6 +39,18 @@ import BuilderOnboarding from '../pages/builder/BuilderOnboarding';
 import BuilderProfilePage from '../pages/builder/profile/BuilderProfilePage';
 import ProtectedRoute from './ProtectedRoute';
 
+// Affiliate & Compare Pages
+import ComparePrices from '../pages/ComparePrices';
+import AffiliateLanding from '../pages/AffiliateLanding';
+
+// Legal Pages
+import PrivacyPolicy from '../pages/legal/PrivacyPolicy';
+import TermsOfService from '../pages/legal/TermsOfService';
+import AffiliateDisclosure from '../pages/legal/AffiliateDisclosure';
+
+// Admin Dashboard
+import AdminDashboard from '../components/dashboard/AdminDashboard';
+
 export const CommonRoutes = [
   <Route path="/" element={<LandingPage />} key="landing" />, 
   <Route path="/home" element={<Home />} key="home" />,
@@ -81,4 +93,31 @@ export const CommonRoutes = [
   <Route path="/plot-map" element={<InteractivePlotMap />} key="plot-map" />,
   <Route path="/builder/onboarding" element={<BuilderOnboarding />} key="builder-onboarding" />,
   <Route path="/builder/profile" element={<ProtectedRoute><BuilderProfilePage /></ProtectedRoute>} key="builder-profile" />,
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // VISTAVIEW.LIVE - AFFILIATE & MONEY-MAKING PAGES
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  // Affiliate Landing Page
+  <Route path="/affiliate" element={<AffiliateLanding />} key="affiliate-landing" />,
+  <Route path="/shop" element={<AffiliateLanding />} key="shop-landing" />,
+  <Route path="/furniture" element={<AffiliateLanding />} key="furniture-landing" />,
+
+  // Compare Prices - Main search page
+  <Route path="/compare" element={<ComparePrices />} key="compare-prices" />,
+  <Route path="/compare-prices" element={<ComparePrices />} key="compare-prices-alt" />,
+  <Route path="/search" element={<ComparePrices />} key="search" />,
+  <Route path="/deals" element={<ComparePrices />} key="deals" />,
+
+  // Admin Dashboard (for tracking revenue)
+  <Route path="/admin/dashboard" element={<AdminDashboard />} key="admin-dashboard-new" />,
+  <Route path="/dashboard" element={<AdminDashboard />} key="dashboard" />,
+
+  // Legal Pages - Required for affiliate compliance
+  <Route path="/privacy" element={<PrivacyPolicy />} key="privacy-policy" />,
+  <Route path="/privacy-policy" element={<PrivacyPolicy />} key="privacy-policy-alt" />,
+  <Route path="/terms" element={<TermsOfService />} key="terms-of-service" />,
+  <Route path="/terms-of-service" element={<TermsOfService />} key="terms-of-service-alt" />,
+  <Route path="/affiliate-disclosure" element={<AffiliateDisclosure />} key="affiliate-disclosure" />,
+  <Route path="/disclosure" element={<AffiliateDisclosure />} key="disclosure-alt" />,
 ]; 
