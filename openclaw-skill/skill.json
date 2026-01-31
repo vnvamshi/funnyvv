@@ -1,0 +1,75 @@
+{
+  "name": "vistaview",
+  "version": "1.0.0",
+  "description": "VistaView.live - Global Furniture Price Comparison",
+  "author": "Vista View Realty Services LLC",
+  "platforms": ["whatsapp", "telegram", "discord", "sms"],
+
+  "intents": [
+    {
+      "name": "search_furniture",
+      "triggers": [
+        "find {item}",
+        "search for {item}",
+        "show me {item}",
+        "looking for {item}",
+        "compare prices for {item}",
+        "{item} prices",
+        "best deals on {item}"
+      ],
+      "handler": "searchFurniture"
+    },
+    {
+      "name": "compare_retailers",
+      "triggers": [
+        "compare {retailer1} and {retailer2}",
+        "which is better {retailer1} or {retailer2}",
+        "{retailer1} vs {retailer2}"
+      ],
+      "handler": "compareRetailers"
+    },
+    {
+      "name": "set_region",
+      "triggers": [
+        "change region to {region}",
+        "I'm in {region}",
+        "set location {region}",
+        "switch to {region}"
+      ],
+      "handler": "setRegion"
+    },
+    {
+      "name": "get_deals",
+      "triggers": [
+        "deals",
+        "today's deals",
+        "best deals",
+        "sales",
+        "discounts"
+      ],
+      "handler": "getDeals"
+    },
+    {
+      "name": "help",
+      "triggers": [
+        "help",
+        "what can you do",
+        "commands",
+        "menu"
+      ],
+      "handler": "showHelp"
+    }
+  ],
+
+  "config": {
+    "vistaviewUrl": "https://vistaview.live",
+    "apiUrl": "http://localhost:1117",
+    "defaultRegion": "US"
+  },
+
+  "responses": {
+    "welcome": "👋 Welcome to VistaView! I can help you compare furniture prices across 100+ retailers worldwide. Try: 'find mid century sofa' or 'compare Amazon and Wayfair'",
+    "notFound": "Sorry, I couldn't find any results for that. Try a different search term!",
+    "error": "Oops! Something went wrong. Please try again."
+  }
+}

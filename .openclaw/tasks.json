@@ -1,0 +1,99 @@
+{
+  "name": "vistaview-live-automation",
+  "version": "1.0.0",
+  "description": "OpenClaw automated tasks for VistaView.live",
+  "owner": "Vista View Realty Services LLC",
+
+  "tasks": {
+    "daily": [
+      {
+        "id": "health-check",
+        "name": "Health Check",
+        "schedule": "0 */6 * * *",
+        "description": "Check if vistaview.live is up and running",
+        "action": "curl -s -o /dev/null -w '%{http_code}' https://vistaview.live",
+        "successCondition": "output === '200'",
+        "onFailure": "notify"
+      },
+      {
+        "id": "backup-db",
+        "name": "Database Backup",
+        "schedule": "0 2 * * *",
+        "description": "Backup PostgreSQL database",
+        "action": "pg_dump vistaview > ~/backups/vistaview_$(date +%Y%m%d).sql",
+        "retention": "7 days"
+      },
+      {
+        "id": "analytics-report",
+        "name": "Daily Analytics",
+        "schedule": "0 8 * * *",
+        "description": "Generate daily affiliate click report",
+        "action": "curl -s http://localhost:1117/api/analytics/stats?days=1",
+        "output": "log"
+      }
+    ],
+
+    "weekly": [
+      {
+        "id": "git-backup",
+        "name": "Git Backup",
+        "schedule": "0 3 * * 0",
+        "description": "Push any uncommitted changes to GitHub",
+        "action": "cd /Users/vistaview/vistaview_WORKING && git add -A && git commit -m 'Weekly auto-backup' && git push origin main || true"
+      },
+      {
+        "id": "revenue-report",
+        "name": "Weekly Revenue Report",
+        "schedule": "0 9 * * 1",
+        "description": "Generate weekly revenue estimate",
+        "action": "curl -s http://localhost:1117/api/analytics/revenue-estimate",
+        "output": "email"
+      },
+      {
+        "id": "lead-export",
+        "name": "Export Leads",
+        "schedule": "0 10 * * 1",
+        "description": "Export leads to CSV for review",
+        "action": "curl -s http://localhost:1117/api/leads/export > ~/exports/leads_$(date +%Y%m%d).csv"
+      }
+    ],
+
+    "monthly": [
+      {
+        "id": "affiliate-audit",
+        "name": "Affiliate Link Audit",
+        "schedule": "0 4 1 * *",
+        "description": "Check all affiliate links are working",
+        "action": "node /Users/vistaview/vistaview_WORKING/scripts/audit-affiliate-links.js"
+      },
+      {
+        "id": "cleanup-logs",
+        "name": "Cleanup Old Logs",
+        "schedule": "0 5 1 * *",
+        "description": "Remove logs older than 30 days",
+        "action": "find ~/logs -mtime +30 -delete && find ~/backups -mtime +30 -delete"
+      }
+    ]
+  },
+
+  "monitors": {
+    "uptime": {
+      "url": "https://vistaview.live",
+      "interval": "5m",
+      "timeout": "10s",
+      "alertOn": ["down", "slow>3s"]
+    },
+    "api": {
+      "url": "http://localhost:1117/api/health",
+      "interval": "2m",
+      "timeout": "5s"
+    }
+  },
+
+  "notifications": {
+    "email": "naga@vistaview.ai",
+    "onFailure": true,
+    "dailyDigest": true,
+    "digestTime": "08:00"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "vistaview-openclaw-skill",
+  "version": "1.0.0",
+  "description": "OpenClaw skill for VistaView.live furniture price comparison",
+  "main": "src/index.js",
+  "author": "Vista View Realty Services LLC",
+  "license": "MIT",
+  "keywords": [
+    "openclaw",
+    "skill",
+    "furniture",
+    "price-comparison",
+    "affiliate"
+  ],
+  "dependencies": {
+    "node-fetch": "^2.6.9"
+  }
+}
