@@ -51,6 +51,9 @@ import AffiliateDisclosure from '../pages/legal/AffiliateDisclosure';
 // Admin Dashboard
 import AdminDashboard from '../components/dashboard/AdminDashboard';
 
+// AI Swarm Dashboard
+import AISwarmDashboard from '../pages/admin/AISwarmDashboard';
+
 export const CommonRoutes = [
   <Route path="/" element={<LandingPage />} key="landing" />, 
   <Route path="/home" element={<Home />} key="home" />,
@@ -112,6 +115,11 @@ export const CommonRoutes = [
   // Admin Dashboard (for tracking revenue)
   <Route path="/admin/dashboard" element={<AdminDashboard />} key="admin-dashboard-new" />,
   <Route path="/dashboard" element={<AdminDashboard />} key="dashboard" />,
+
+  // AI Swarm Dashboard (monitor all 17 agents)
+  <Route path="/admin/swarm" element={<AISwarmDashboard />} key="ai-swarm-dashboard" />,
+  <Route path="/swarm" element={<AISwarmDashboard />} key="swarm" />,
+  <Route path="/agents" element={<AISwarmDashboard />} key="agents" />,
 
   // Legal Pages - Required for affiliate compliance
   <Route path="/privacy" element={<PrivacyPolicy />} key="privacy-policy" />,
